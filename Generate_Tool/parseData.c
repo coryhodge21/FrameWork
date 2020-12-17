@@ -26,83 +26,105 @@
 #include <stdlib.h>
 #include <string.h> // for strlen()
 
+// == GEN TOOL RESOURCES =======================================================
+
 //! \brief Project Definitions
 #define MAX_COL_PER_LINE    81
-#define MAX_INPUT_LINES     100
-
-/*     Project Resources            */
- 
-//! \brief Create file pointers
-FILE * input_file_ptr;
-FILE * outPtr_file_ptr
-
-//! \brief 2 demensional Array for storing each line of input
-//!         from a block of the memory map l 
-char MEM_MAP_BLOCK[MAX_INPUT_LINES][MAX_COL_PER_LINE] = {0};
-
-//! \brief Array of Registers
-
-//! \brief Array of  
-
-//! \brief
-
-//! \brief String for holding the Objects name
-
-//! \brief String for holding the Objects Address or Mask
-
-//! \brief String for holding the Object Field Descriptor
-
 
 //! \brief Input Buffer
-const int BUFFER_SIZE = MAX_COL_PER_LINE;
-char BUFFER[BUFF_SIZE];
+char BUFFER[MAX_COL_PER_LINE];
 
-char REGISTER_ARRAY[]
+//! \brief Create file pointers
+FILE * in_MemoryMap_fp;
+FILE * out_Structure_fp;
+
+
+
+
+// Index for parsing string char by char
+int position;
+
+// ************* MAIN **********************************************************
 int main(void) {
 
-    // arrays for holding data
-
-    /*  Parse the file and fill arrays  */
-
-    // Parsing Pointers
-    int slowIndex, medIndex, fastIndex;
-
     // open file to parse
-    //input_file_Ptr = fopen("./team_list.txt", "r");
-    //////////////////////////////////////
-    // DEBUGGING
-    input_file_Ptr = fopen("./Regster.txt", "r");
+    in_MemoryMap_fp = fopen("../MemMaps/hw_sysctl.h", "r");
 
-    // open file to write single occurance list
-    // truncate file if it already exists
-    outPtr_file_Ptr = fopen("./REGISTER.txt", "w+");
+    // open file to write truncate file if it already exists
+    out_Structure_fp = fopen("../FrameWork/test_Struct.txt", "w+");
 
-    // Parse file and store strings to array
-    // for(int i = 0; i < LIST_ARRAY_LENGTH ; i++ ) {
+    // until end of file reached, 
+   // Copy line from file up to 'MAX_COL_PER_LINE' characters
+    while( fgets(BUFFER, MAX_COL_PER_LINE, in_MemoryMap_fp) != NULL ){
 
-    //     // Read Line from file
-    //     fgets(listArr[i], BUFF_SIZE, input_file_Ptr);
+        /*    Parse String and pull out needed info for building structs    */
 
-    //     // replace new line symbol with space
-    //     listArr[i][strlen(listArr[i]) - 1] = ' ';
-    // }
+        // Reset Index to 0
+        position = 0;
 
-int i = 0;
-    // until end of file reached, collect each line in an array of chars
-    while(fgets(BUFFER[i], BUFF_SIZE, input_file_ptr) != NULL)){
-            i++;
-    }
+        
+        /*
+        // if : first character of string is //
+        // then this line is a comment
+        */
+        if ( BUFFER[0] == '/' ) {
 
-    // check if EOF reached
-    if(feof(input_file_ptr)){
+            // TODO : implement comment parsing
+            continue;
+        }
 
-    }
-    // else some kind of error
-    else {
-        return 1;
-    }
+        /*
+        // if : first character of string is #
+        // then this line is an address or mask
+        */
+        elseif ( BUFFER[position] == '#') {
+            
+            // TODO: move these to constants area or define
+            int INDEX_MODULE_NAME_BEGIN = 8;
+            int MAX_MODULE_NAME_SIZE = 40;
+            char FULL_NAME_STRING[MAX_MODULE_NAME_SIZE];
+            int full_name_index = 0;
+            /**     * *    Mask         * *
+            *  I need 6 pieces of information:
+            *  Entire_Combo_Name
+            *  Module
+            *  Register
+            *  Bit_Field ( optional )
+            *  Address/Mask
+            *  Comment String
+            */ 
+            
+            // Parse Full Defined Name
+            position = INDEX_MODULE_NAME_BEGIN;
+
+            // until a space is reached
+            while(BUFFER[position] != ' '){
+
+                // copy characters of FULL_NAME_STRING
+                FULL_NAME_STRING[full _name _index] = BUFFER[position];
+
+                // increment index's
+                position++;
+                full_name_index++;
+            }
+
+            // proceed to skip spaces until '/' contiuation key or 0x address begin is found
 
 
+
+
+        }
+        
+        /**
+         * Line does not begin with # or / 
+         */
+        else {
+
+        }
+
+
+
+    } // End File Parse
 
     return 0;
-}
+} // End Main

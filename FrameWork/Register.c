@@ -12,9 +12,6 @@ typedef struct REGISTER_obj {
     // Address of Register
     Reg_Addr_t REG_BASE_ADDR;
 
-    // Array of Masks for Register Bit Fields
-    //Reg_BF_e * BitMasks;
-
     // function pointers to operations
     // used for modifying Register BitFields
 

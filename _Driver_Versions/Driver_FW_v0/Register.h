@@ -76,31 +76,9 @@ typedef void(*Write_fpt)(Reg_BF_e, int32_t);
 /**
  * Structure Decleration
  */
-typedef struct REGISTER_obj {
+struct REGISTER_obj;
 
-    // Address of Register
-    Reg_Addr_t REG_BASE_ADDR;
-
-    // Array of Masks for Register Bit Fields
-    //Reg_BF_e * BitMasks;
-
-    // function pointers to operations
-    // used for modifying Register BitFields
-
-    // Set
-    Set_fpt set;
-
-    // Clear
-    Clear_fpt clear;
-
-    // Read
-    Read_fpt read;
-
-    // Write
-    Write_fpt write;
-
-} REGISTER_t;
-
+typedef struct REGISTER_obj Register_t;
 
 // Function Declerations
 REGISTER_t BUILDER_REGISTER(void);
