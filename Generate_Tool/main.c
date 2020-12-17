@@ -1,5 +1,5 @@
 /**
- * \file parseData.c
+ * \file main.c
  * 
  * \author Cory W. Hode
  * \date 12/7/2020
@@ -54,7 +54,7 @@ int main(void) {
     out_Structure_fp = fopen("../FrameWork/test_Struct.txt", "w+");
 
     // until end of file reached, 
-   // Copy line from file up to 'MAX_COL_PER_LINE' characters
+    // Copy line from file up to 'MAX_COL_PER_LINE' characters
     while( fgets(BUFFER, MAX_COL_PER_LINE, in_MemoryMap_fp) != NULL ){
 
         /*    Parse String and pull out needed info for building structs    */
@@ -62,7 +62,7 @@ int main(void) {
         // Reset Index to 0
         position = 0;
 
-        
+
         /*
         // if : first character of string is //
         // then this line is a comment
@@ -77,8 +77,8 @@ int main(void) {
         // if : first character of string is #
         // then this line is an address or mask
         */
-        elseif ( BUFFER[position] == '#') {
-            
+        else if ( BUFFER[position] == '#') {
+
             // TODO: move these to constants area or define
             int INDEX_MODULE_NAME_BEGIN = 8;
             int MAX_MODULE_NAME_SIZE = 40;
@@ -92,8 +92,8 @@ int main(void) {
             *  Bit_Field ( optional )
             *  Address/Mask
             *  Comment String
-            */ 
-            
+            */
+
             // Parse Full Defined Name
             position = INDEX_MODULE_NAME_BEGIN;
 
@@ -101,7 +101,7 @@ int main(void) {
             while(BUFFER[position] != ' '){
 
                 // copy characters of FULL_NAME_STRING
-                FULL_NAME_STRING[full _name _index] = BUFFER[position];
+                FULL_NAME_STRING[full_name_index] = BUFFER[position];
 
                 // increment index's
                 position++;
@@ -112,9 +112,8 @@ int main(void) {
 
 
 
-
         }
-        
+
         /**
          * Line does not begin with # or / 
          */

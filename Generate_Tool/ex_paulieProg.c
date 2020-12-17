@@ -31,7 +31,7 @@ Write_fpt/**
     const int LIST_ARRAY_STRING_LENGTH = 15;
     char listArr[LIST_ARRAY_LENGTH][LIST_ARRAY_STRING_LENGTH] = {0};
 
-int main() 
+int MAINS()
 {
 
     // Parsing Pointers
