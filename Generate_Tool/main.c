@@ -1,12 +1,12 @@
 /**
  * \file main.c
  * 
- * \author Cory W. Hode
+ * \author Cory W. Hodge
  * \date 12/7/2020
  * 
  * \brief This program takes general purpose provided 
- * memory maps for Microcontrollers in the formate of :
- *              #define Module_Regsiter_BitField 0x0000000000
+ * memory maps for Microcontrollers in the format of :
+ *              #define Module_Register_BitField 0x0000000000
  * It parses this file
  * and pulls out the key information of the mcu modules address'
  * and the bit masks used to identify each bit field.
@@ -21,10 +21,10 @@
  * 
  */
 
-//! \brief External Recources
+//! \brief External Resources
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h> // for strlen()
+#include <string.h> // for string length()
 
 // == GEN TOOL RESOURCES =======================================================
 
@@ -108,7 +108,7 @@ int main(void) {
                 full_name_index++;
             }
 
-            // proceed to skip spaces until '/' contiuation key or 0x address begin is found
+            // proceed to skip spaces until '/' continuation key or 0x address begin is found
 
 
 
