@@ -76,7 +76,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool/FileIO.h">
+			<Option target="Generate_Tool"/>
+		</Unit>
 		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool/main.c">
+			<Option target="Generate_Tool"/>
+		</Unit>
+		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool/prj_common.h">
 			<Option target="Generate_Tool"/>
 		</Unit>
 		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool/CMakeLists.txt">
