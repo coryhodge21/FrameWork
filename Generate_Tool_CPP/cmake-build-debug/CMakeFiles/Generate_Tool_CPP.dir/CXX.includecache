@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileParser.cpp
+FileParser.h
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileParser.h
+
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileParser.h
+
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileWriter.cpp
+FileWriter.h
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileWriter.h
+
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileWriter.h
+
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Register.cpp
+Register.h
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Register.h
+
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Register.h
+
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/main.cpp
+iostream
+-
+

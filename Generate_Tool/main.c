@@ -28,6 +28,9 @@
 #include "prj_common.h"
 #include "FileIO.h"
 
+char * INPUT_FILE_PATH = "../hw_sysctl.h";
+char * OUTPUT_FILE_PATH = "../test_Struct.h";
+
 // == GEN TOOL RESOURCES =====================
 /**
  *      DEBUGGING
@@ -38,11 +41,11 @@ int lines_skipped = 0;
 int main(void) {
 
     // open file to parse read only, it must exist
-    in_MemoryMap_fp = fopen("hw_sysctl.h", "r");
+    in_MemoryMap_fp = fopen(INPUT_FILE_PATH, "r");
     ASSERT_FP(in_MemoryMap_fp);
 
     // open file to write, truncate file if it already exists
-    out_Structure_fp = fopen("test_Struct.h", "w+");
+    out_Structure_fp = fopen(OUTPUT_FILE_PATH, "w+");
     ASSERT_FP(out_Structure_fp);
 
     // DEBUG
@@ -57,7 +60,7 @@ int main(void) {
         BUFFER_INDEX = 0;
         
         // skip spaces up to usable char
-        skip_spaces(BUFFER, BUFFER_INDEX);
+        BUFFER_INDEX = skip_spaces(BUFFER, BUFFER_INDEX);
 
         /**
          * Character at BUFFER_INDEX : /
@@ -92,7 +95,7 @@ int main(void) {
         }
 
         // skip spaces up to usable char
-        skip_spaces(BUFFER, BUFFER_INDEX);
+        BUFFER_INDEX = skip_spaces(BUFFER, BUFFER_INDEX);
         
         /**
          * Character at BUFFER_INDEX : 0
@@ -115,7 +118,6 @@ int main(void) {
          * Adress of current buffer on next line
          */
         if(BUFFER[BUFFER_INDEX] == '\\'){
-
             //TODO: implement seperate line address handling
 
             // continue to parse next line of file
@@ -128,27 +130,48 @@ int main(void) {
          * skip spaces
          */
         if ( BUFFER[BUFFER_INDEX] == ' ') {
-           skip_spaces(BUFFER, BUFFER_INDEX);
+            BUFFER_INDEX = skip_spaces(BUFFER, BUFFER_INDEX);
         }
 
         /**
+         * Character at BUFFER_INDEX : '\n'
+         * new line character
+         */
+         if (BUFFER[BUFFER_INDEX] == '\n'){
+
+             // Flush Buffer
+             flushBUFFER(BUFFER, MAX_COL_PER_LINE);
+
+             // continue to next line
+             continue;
+         }
+        /**
          * Character at BUFFER_INDEX : unknown
          * character in buffer at current index is not
-         * \ , / , # , ' ' , 0
+         * \ , / , # , ' ' , 0 , \n'
          */
         else {
 
             // write warning to console
-            printf("BUFFER[BUFFER_INDEX] == ??? \n");
+            //printf("BUFFER[BUFFER_INDEX] == ??? \n");
 
-            // continue to next line
-            continue;
+            // Flush Buffer
+            flushBUFFER(BUFFER, MAX_COL_PER_LINE);
+
+//            // continue to next line
+//            continue;
         }
 
 
-        printf("\n ACQUIRED VALUES FROM INPUT FILE \n\n");
+        //printf("\n ACQUIRED VALUES FROM INPUT FILE \n\n");
         printf("Full Tag Name : %s \n", TAG_FULL_NAME);
         printf("VALUE : %s \n", MM_VALUE);
+
+        // Flush Buffer
+        flushBUFFER(BUFFER, MAX_COL_PER_LINE);
+        flushBUFFER(TAG_FULL_NAME, MAX_TAG_SIZE);
+        flushBUFFER(MM_VALUE, MAX_VALUE_SIZE);
+        flushBUFFER(MM_VALUE, MAX_VALUE_SIZE);
 
     } // End File Parse
 
