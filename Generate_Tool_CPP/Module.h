@@ -51,20 +51,29 @@ public:
     Register * createRegister(string name, string address, string descriptor);
 
     /**     Setters / Getters       */
+
+    //! \brief get
     const string &getName() const;
 
+    //! \brief set name
     void setName(const string &name);
 
+    //! \brief get address
     const string &getAddress() const;
 
+    //! \brief set address
     void setAddress(const string &address);
 
+    //! \brief get descriptor
     const string &getDescriptor() const;
 
+    //! \brief set descriptor
     void setDescriptor(const string &descriptor);
 
+    //! \brief get vector of Registers
     const vector<Register *> &getRegisters() const;
 
+    //! \brief assign this register a vector of Regsiters
     void setRegisters(const vector<Register *> &registers);
 };
 

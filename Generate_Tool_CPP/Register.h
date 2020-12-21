@@ -21,7 +21,7 @@ private:
     //! \brief BASE ADDRESS
     string _address;
 
-    //! \brief
+    //! \brief description of register
     string _descriptor;
 
     //! \brief vector of bit fields
@@ -31,10 +31,10 @@ public:
 
     /**      CONSTRUCTOR / DESCTRUCTOR       */
 
-    //! \brief
+    //! \brief constructor
     Register(string name, string address, string descriptor);
 
-    //! \brief
+    //! \brief destructor
     virtual ~Register();
 
     /**      BIT FIELD VECTOR FUNCTIONS     */
@@ -53,25 +53,29 @@ public:
 
     /**     SETTERS / GETTERS       */
 
-    //! \brief get name of register
-
+    //! \brief get name
     const string &getName() const;
 
+    //! \brief set name
     void setName(const string &name);
 
+    //! \brief get address
     const string &getAddress() const;
 
+    //! \brief set address
     void setAddress(const string &address);
 
+    //! \brief get descriptor
     const string &getDescriptor() const;
 
+    //! \brief set descriptor
     void setDescriptor(const string &descriptor);
 
+    //! \brief get vector of bit fields
     const vector<BitField *> &getBitFields() const;
 
+    //! \brief assign this register a vector of bit fields
     void setBitFields(const vector<BitField *> &bitFields);
-
-
 };
 
 

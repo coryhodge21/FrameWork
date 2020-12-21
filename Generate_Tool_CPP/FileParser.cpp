@@ -7,7 +7,18 @@
 /**      CONSTRUCTOR / DESTRUCTOR    */
 
 /// Constructor
-FileParser::FileParser(void)
+FileParser::FileParser(void) :
+    _inputFileStream(),
+    _charBuffer{0},
+    _bufferIndex(0),
+    _strBuffer(nullptr),
+    _modules(),
+    _tag(nullptr),
+    _hexCode(nullptr),
+    _descriptor(nullptr),
+    _nameModule(nullptr),
+    _nameRegister(nullptr),
+    _nameBitField(nullptr)
     {
 
 }
@@ -17,25 +28,20 @@ FileParser::~FileParser() {
 
 }
 
-/**      SETTERS / GETTERS          */
-
-
 /**      MODULE VECTOR FUNCTIONS     */
-/**      BIT FIELD VECTOR FUNCTIONS     */
 
-//! \brief push bitfield onto register vector
+//! \brief push module onto module vector
 void FileParser::pushModule(Module * aModule){
     _modules.push_back(aModule);
 }
 
-//! \brief retrun pointer to last module in vector
+//! \brief return pointer to last module in vector
 Module * FileParser::popModule() {
-
     // size() : returns number of elements in vector
     return _modules[_modules.size() - 1];
 }
 
-//! \brief find register with this name in vector or rtn null ptr
+//! \brief find module with this name in vector or rtn null ptr
 Module * FileParser::getModule(string nameModule){
     // for each bit field
     for (int i = 0; i < _modules.size(); i++){
@@ -65,7 +71,7 @@ Module * FileParser::createModule(string nameModule, string address, string desc
 
 /**      FILE PARSER SPECIAL FUNCTIONS    */
 
-// parse file
+/// parse file
 vector<Module *> FileParser::parseFile(char * input_file_path) {
 
     // use the input file stream clas member to open the file
@@ -187,7 +193,7 @@ void FileParser::goToNextSpace() {
     }
 }
 
-///
+/// get next line from input stream
 void FileParser::getNextLine(void){
 
     // extract next line of file, place it in the buffer
@@ -200,28 +206,28 @@ void FileParser::getNextLine(void){
     }
 }
 
-///
+/// extract full tag from buffer
 void FileParser::extractTag(void){
     // TODO:
 }
 
-///
+/// extract hex code from buffer
 void FileParser::extractHexCode(void){
     // TODO:
 }
 
-///
+/// extract descriptor from butter
 void FileParser::extractDescriptor(void){
     // TODO:
 }
 
-/// is Module
+/// check if tag is Module
 int FileParser::isModule(void){
 
     //TODO: implement
     return 1;
 }
-/// is Register
+/// check if tag is Register
  int FileParser::isRegister(void){
 
     // TODO:
@@ -245,7 +251,7 @@ int FileParser::isModule(void){
     return 0;
  }
 
-/// is bit field
+/// check if tag is bit field
 int FileParser::isBitField(void){
 
     //TODO:

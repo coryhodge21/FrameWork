@@ -22,16 +22,16 @@ private:
     //! \brief input file stream
     ifstream _inputFileStream;
 
-    //! \brief input buffer
+    //! \brief input buffer as character array
     char _charBuffer[MAX_BUFFER_SIZE];
 
     //! \brief buffer index
     int _bufferIndex;
 
-    //! \brief string class type input line from file
+    //! \brief input buffer as string
     string _strBuffer;
 
-    //! \brief Vector of Modules (should only be 1 per file)
+    //! \brief Vector of Modules
     vector<Module *> _modules;
 
     //! \brief string for holding full tag name
@@ -52,9 +52,6 @@ private:
     //! \brief string for holding Bit Field portion of tag
     string _nameBitField;
 
-    //! \brief
-    void getNextLine(void);
-
 public:
 
     /**      CONSTRUCTOR / DESTRUCTOR    */
@@ -63,9 +60,6 @@ public:
 
     //! \brief Destructor
     virtual ~FileParser();
-
-    /**      SETTERS / GETTERS          */
-
 
     /**      MODULE VECTOR FUNCTIONS     */
 
@@ -94,26 +88,33 @@ public:
     //! \brief continue to next space
     void goToNextSpace(void);
 
+    //! \brief continue parsing on next line
+    void getNextLine(void);
 
-
-    //! \brief
+    //! \brief extract the tag from current buffer
     void extractTag(void);
 
-    //! \brief
+    //! \brief extract hex code from current buffer
     void extractHexCode(void);
 
-    //! \brief
+    //! \brief extract descriptor from current buffer
     void extractDescriptor(void);
 
     //! \brief using full tag name determine if this is a Module
-    //!         if the name has _BASE in it, it is a module memory field
+    //!         if _tag has _BASE in it, it is a module
     int isModule(void);
 
     //! \brief using full tag name determine if this is a Register
+    //! \brief  if _tag has 1 _ and no '_BASE' in the name, it is a register
     int isRegister(void);
 
     //! \brief using full tag name determine if this is a Bit Field
+    //!         if _tag has more than 1 _ , it is a bit field
     int isBitField(void);
+
+    /**      SETTERS / GETTERS          */
+
+
 };
 
 

@@ -4,6 +4,9 @@
 
 #include "Module.h"
 
+/**     CONSTRUCTOR / DESTRUCTOR       */
+
+/// Constructor
 Module::Module(string name, string address, string descriptor) :
     _name(name),
     _address(address),
@@ -12,18 +15,19 @@ Module::Module(string name, string address, string descriptor) :
 {
 }
 
+/// Destructor
 Module::~Module() {
 
 }
 
 /**      REGISTER VECTOR FUNCTIONS     */
 
-//! \brief push bitfield onto register vector
+//! \brief push register pointer onto register vector
 void Module::pushRegister(Register *aRegister) {
     _registers.push_back(aRegister);
 }
 
-//! \brief retrun pointer to last bit field in register
+//! \brief return pointer to last register in register vector
 Register *  Module::popRegister(void) {
 
     // size() : returns number of elements in vector
@@ -55,34 +59,45 @@ Register * Module::createRegister(string nameRegister, string address, string de
     return newRegister;
 }
 
+
+/**     SETTERS / GETTERS       */
+
+/// Get Name
 const string &Module::getName() const {
     return _name;
 }
 
+/// Set Name
 void Module::setName(const string &name) {
     _name = name;
 }
 
+/// Get Address
 const string &Module::getAddress() const {
     return _address;
 }
 
+/// Set Address
 void Module::setAddress(const string &address) {
     _address = address;
 }
 
+/// Get Descriptor
 const string &Module::getDescriptor() const {
     return _descriptor;
 }
 
+/// Set Descriptor
 void Module::setDescriptor(const string &descriptor) {
     _descriptor = descriptor;
 }
 
+/// return vector of Registers
 const vector<Register *> &Module::getRegisters() const {
     return _registers;
 }
 
+/// assign this module a vector of registers
 void Module::setRegisters(const vector<Register *> &registers) {
     _registers = registers;
 }
