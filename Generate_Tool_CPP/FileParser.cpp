@@ -4,23 +4,10 @@
 
 #include "FileParser.h"
 
-//using namespace std;
-
 /**      CONSTRUCTOR / DESTRUCTOR    */
 
 /// Constructor
-FileParser::FileParser(void) :
-    _inputFileStream(nullptr),
-    _charBuffer{0},
-    _bufferIndex(0),
-    _strBuffer(nullptr),
-    _modules{nullptr},
-    _tag(nullptr),
-    _hexCode(nullptr),
-    _descriptor(nullptr),
-    _nameModule(nullptr),
-    _nameRegister(nullptr),
-    _nameBitField(nullptr)
+FileParser::FileParser(void)
     {
 
 }
@@ -65,7 +52,9 @@ Module * FileParser::getModule(string nameModule){
 
 //! \brief create Module and push pointer onto Module Vector
 Module * FileParser::createModule(string nameModule, string address, string descriptor){
-    Module * newModule = createModule(nameModule, address, descriptor);
+
+    Module aModule(nameModule, address, descriptor);
+    Module * newModule = &aModule;
 
     // push Bit Field onto Vector
     _modules.push_back(newModule);
@@ -143,9 +132,6 @@ int FileParser::parseString() {
         if (newModule == nullptr) {
             newModule = createModule(_nameModule, _hexCode, _descriptor);
         }
-
-        // push module onto Module Vector
-        this->pushModule(newModule);
 
         // if this is a module, continue to next item
         return 1;
@@ -238,6 +224,9 @@ int FileParser::isModule(void){
 /// is Register
  int FileParser::isRegister(void){
 
+    // TODO:
+    return 1;
+
     char underScore = '_';
     int count = 0;
 
@@ -258,6 +247,9 @@ int FileParser::isModule(void){
 
 /// is bit field
 int FileParser::isBitField(void){
+
+    //TODO:
+    return 1;
 
     char underScore = '_';
     int count = 0;
