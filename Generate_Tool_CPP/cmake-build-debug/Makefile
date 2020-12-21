@@ -143,6 +143,33 @@ Generate_Tool_CPP/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Generate_Tool_CPP.dir/build.make CMakeFiles/Generate_Tool_CPP.dir/build
 .PHONY : Generate_Tool_CPP/fast
 
+BitField.o: BitField.cpp.o
+
+.PHONY : BitField.o
+
+# target to build an object file
+BitField.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Generate_Tool_CPP.dir/build.make CMakeFiles/Generate_Tool_CPP.dir/BitField.cpp.o
+.PHONY : BitField.cpp.o
+
+BitField.i: BitField.cpp.i
+
+.PHONY : BitField.i
+
+# target to preprocess a source file
+BitField.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Generate_Tool_CPP.dir/build.make CMakeFiles/Generate_Tool_CPP.dir/BitField.cpp.i
+.PHONY : BitField.cpp.i
+
+BitField.s: BitField.cpp.s
+
+.PHONY : BitField.s
+
+# target to generate assembly for a file
+BitField.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Generate_Tool_CPP.dir/build.make CMakeFiles/Generate_Tool_CPP.dir/BitField.cpp.s
+.PHONY : BitField.cpp.s
+
 FileParser.o: FileParser.cpp.o
 
 .PHONY : FileParser.o
@@ -196,6 +223,33 @@ FileWriter.s: FileWriter.cpp.s
 FileWriter.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Generate_Tool_CPP.dir/build.make CMakeFiles/Generate_Tool_CPP.dir/FileWriter.cpp.s
 .PHONY : FileWriter.cpp.s
+
+Module.o: Module.cpp.o
+
+.PHONY : Module.o
+
+# target to build an object file
+Module.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Generate_Tool_CPP.dir/build.make CMakeFiles/Generate_Tool_CPP.dir/Module.cpp.o
+.PHONY : Module.cpp.o
+
+Module.i: Module.cpp.i
+
+.PHONY : Module.i
+
+# target to preprocess a source file
+Module.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Generate_Tool_CPP.dir/build.make CMakeFiles/Generate_Tool_CPP.dir/Module.cpp.i
+.PHONY : Module.cpp.i
+
+Module.s: Module.cpp.s
+
+.PHONY : Module.s
+
+# target to generate assembly for a file
+Module.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Generate_Tool_CPP.dir/build.make CMakeFiles/Generate_Tool_CPP.dir/Module.cpp.s
+.PHONY : Module.cpp.s
 
 Register.o: Register.cpp.o
 
@@ -260,12 +314,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Generate_Tool_CPP"
+	@echo "... BitField.o"
+	@echo "... BitField.i"
+	@echo "... BitField.s"
 	@echo "... FileParser.o"
 	@echo "... FileParser.i"
 	@echo "... FileParser.s"
 	@echo "... FileWriter.o"
 	@echo "... FileWriter.i"
 	@echo "... FileWriter.s"
+	@echo "... Module.o"
+	@echo "... Module.i"
+	@echo "... Module.s"
 	@echo "... Register.o"
 	@echo "... Register.i"
 	@echo "... Register.s"

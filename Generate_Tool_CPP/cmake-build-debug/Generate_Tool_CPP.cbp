@@ -78,6 +78,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/BitField.cpp">
+			<Option target="Generate_Tool_CPP"/>
+		</Unit>
+		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/BitField.h">
+			<Option target="Generate_Tool_CPP"/>
+		</Unit>
 		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileParser.cpp">
 			<Option target="Generate_Tool_CPP"/>
 		</Unit>
@@ -90,10 +96,19 @@
 		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileWriter.h">
 			<Option target="Generate_Tool_CPP"/>
 		</Unit>
+		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Module.cpp">
+			<Option target="Generate_Tool_CPP"/>
+		</Unit>
+		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Module.h">
+			<Option target="Generate_Tool_CPP"/>
+		</Unit>
 		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Register.cpp">
 			<Option target="Generate_Tool_CPP"/>
 		</Unit>
 		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Register.h">
+			<Option target="Generate_Tool_CPP"/>
+		</Unit>
+		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/hw_sysctl.h">
 			<Option target="Generate_Tool_CPP"/>
 		</Unit>
 		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/main.cpp">
