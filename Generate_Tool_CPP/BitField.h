@@ -12,10 +12,10 @@ using namespace std;
 class BitField {
 
 private:
-    //! \brief Bit Fild name
+    //! \brief Bit Field name
     string _name;
 
-    //! \brief string value of hex type mask
+    //! \brief string value of hex mask
     string _mask;
 
     ///! \brief comment following bit field mask value
@@ -25,30 +25,31 @@ public:
 
     /**      CONSTRUCTORS       */
 
-    //! \brief
+    //! \brief Constructor
     BitField(const string &name, const string &mask, const string &descriptor);
 
+    //! \brief Destructor
     virtual ~BitField();
 
     /**      SETTERS / GETTERS       */
 
-    //! \brief
+    //! \brief get name
     const string &getName() const;
 
+    //! \brief Set Name
     void setName(const string &name);
 
+    //! \brief get mask
     const string &getMask() const;
 
+    //! \brief set mask
     void setMask(const string &mask);
 
+    //! \brief get descriptor
     const string &getDescriptor() const;
 
+    //! \brief set descriptor
     void setDescriptor(const string &descriptor);
-
-
-
-
-
 };
 
 
