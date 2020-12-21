@@ -13,9 +13,9 @@ int main(int argc, char * argv[]) {
     char * input_string_p = input_file_path;
 
     // TODO: replace this with while( i < argc )
-    FileParser fileParser(input_string_p);
+    FileParser fileParser;
 
-    fileParser.parseFile();
+    fileParser.parseFile(input_string_p);
 
     return 0;
 }

@@ -26,9 +26,8 @@ public:
     /**      CONSTRUCTORS       */
 
     //! \brief
-    BitField(const string &name);
+    BitField(const string &name, const string &mask, const string &descriptor);
 
-    //! \brief
     virtual ~BitField();
 
     /**      SETTERS / GETTERS       */
@@ -36,22 +35,19 @@ public:
     //! \brief
     const string &getName() const;
 
-    //! \brief
     void setName(const string &name);
 
-    //! \brief
     const string &getMask() const;
 
-    //! \brief
     void setMask(const string &mask);
 
-    //! \brief
     const string &getDescriptor() const;
 
-    //! \brief
     void setDescriptor(const string &descriptor);
 
-    /**      BIT FIELD SPECIAL FUNCTIONS      */
+
+
+
 
 };
 

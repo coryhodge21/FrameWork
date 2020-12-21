@@ -34,17 +34,44 @@ FileParser::~FileParser() {
 
 
 /**      MODULE VECTOR FUNCTIONS     */
-/// push
-void pushModule(Module * module);
+/**      BIT FIELD VECTOR FUNCTIONS     */
 
-/// pop
-Module * popModule(string name);
+//! \brief push bitfield onto register vector
+void FileParser::pushModule(Module * aModule){
+    _modules.push_back(aModule);
+}
 
-/// find
-Module * findModule(string name);
+//! \brief retrun pointer to last module in vector
+Module * FileParser::popModule() {
 
-/// create
-Module * createModule(string name, string address, string descriptor);
+    // size() : returns number of elements in vector
+    return _modules[_modules.size() - 1];
+}
+
+//! \brief find register with this name in vector or rtn null ptr
+Module * FileParser::getModule(string nameModule){
+    // for each bit field
+    for (int i = 0; i < _modules.size(); i++){
+
+        // if name matches name of existing bit field
+        // compare() : strings must be the same size && all characters match
+        if ( _modules[i]->getName().compare(nameModule) == 0 ) {
+            return _modules[i];
+        }
+    }
+    // if bit field not found
+    return nullptr;
+}
+
+//! \brief create Module and push pointer onto Module Vector
+Module * FileParser::createModule(string nameModule, string address, string descriptor){
+    Module * newModule = createModule(nameModule, address, descriptor);
+
+    // push Bit Field onto Vector
+    _modules.push_back(newModule);
+
+    return newModule;
+}
 
 
 /**      FILE PARSER SPECIAL FUNCTIONS    */
@@ -110,7 +137,7 @@ int FileParser::parseString() {
         Module *newModule;
 
         // check that module exists
-        newModule = this->findModule(_nameModule);
+        newModule = this->getModule(_nameModule);
 
         // if not, create
         if (newModule == nullptr) {
@@ -127,15 +154,12 @@ int FileParser::parseString() {
     else if (this->isRegister()) {
 
         // find parent Module
-        Module *parentModule = this->findModule(_nameModule);
+        Module *parentModule = this->getModule(_nameModule);
 
         // TODO: if no module exists, create it
 
         // create a new register object
-        Register *newRegister = parentModule->createRegister(_nameRegister, _hexCode, _descriptor);
-
-        // push register to vector
-        //TODO: implement auto push to module vector
+        parentModule->createRegister(_nameRegister, _hexCode, _descriptor);
 
         return 1;
     }
@@ -143,15 +167,13 @@ int FileParser::parseString() {
     else if (this->isBitField()) {
 
         // get parent module
-        Module * parentModule = findModule(_nameModule);
+        Module * parentModule = getModule(_nameModule);
 
         // get parent register
-        Register * parentRegister = parentModule->findRegister(_nameRegister);
+        Register * parentRegister = parentModule->getRegister(_nameRegister);
 
         // create bit field
         parentRegister->createBitField(_nameBitField, _hexCode, _descriptor);
-
-        // TODO: implement auto push to register bit field vector
 
         return 1;
     }
@@ -177,23 +199,40 @@ void FileParser::goToNextSpace() {
     while (this->_strBuffer[this->_bufferIndex] != ' ' && this->_strBuffer[this->_bufferIndex] != '\0'){
         this->_bufferIndex++;
     }
-
 }
 
 ///
-void getNextLine(void);
+void FileParser::getNextLine(void){
+
+    // extract next line of file, place it in the buffer
+    this->_inputFileStream.getline(_charBuffer, MAX_BUFFER_SIZE);
+
+    if(!_inputFileStream.eof()) {
+
+        // convert _charBuffer[] to string type
+        _strBuffer.assign(_charBuffer);
+    }
+}
 
 ///
-void extractTag(void);
+void FileParser::extractTag(void){
+    // TODO:
+}
 
 ///
-void extractHexCode(void);
+void FileParser::extractHexCode(void){
+    // TODO:
+}
 
 ///
-void extractDescriptor(void);
+void FileParser::extractDescriptor(void){
+    // TODO:
+}
 
 /// is Module
 int FileParser::isModule(void){
+
+    //TODO: implement
     return 1;
 }
 /// is Register
@@ -237,4 +276,3 @@ int FileParser::isBitField(void){
     // else not a bitField
     return 0;
 }
-

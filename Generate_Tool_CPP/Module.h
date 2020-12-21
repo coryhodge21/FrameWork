@@ -36,40 +36,36 @@ public:
     //! \brief Destructor
     virtual ~Module();
 
-    /**      SETTERS / GETTERS       */
-
-    //! \brief
-
-
-    //! \brief
-
-    //! \brief
-
     /**      REGISTER VECTOR FUNCTIONS     */
 
     //! \brief push
     void pushRegister(Register * aRegister);
 
     //! \brief pop
-    Register * popRegister(string name);
+    Register * popRegister(void);
 
     //! \brief find
-    Register * findRegister(string name);
+    Register * getRegister(string name);
 
     //! \brief create Register and push pointer onto Register Vector
     Register * createRegister(string name, string address, string descriptor);
 
-    /**      MODULE SPECIAL FUNCTIONS       */
+    /**     Setters / Getters       */
+    const string &getName() const;
 
-    //! \brief push
+    void setName(const string &name);
 
-    //! \brief pop
+    const string &getAddress() const;
 
-    //! \brief find
-    Register * findRegister(string regName);
+    void setAddress(const string &address);
 
-    //! \brief create
+    const string &getDescriptor() const;
 
+    void setDescriptor(const string &descriptor);
+
+    const vector<Register *> &getRegisters() const;
+
+    void setRegisters(const vector<Register *> &registers);
 };
 
 

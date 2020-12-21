@@ -4,32 +4,40 @@
 
 #include "BitField.h"
 
-BitField::BitField(const string &name) : name(name) {}
+BitField::BitField(const string &name, const string &mask, const string &descriptor) :
+    _name(name),
+    _mask(mask),
+    _descriptor(descriptor)
+{
+
+}
 
 BitField::~BitField() {
 
 }
 
 const string &BitField::getName() const {
-    return name;
+    return _name;
 }
 
 void BitField::setName(const string &name) {
-    BitField::name = name;
+    _name = name;
 }
 
 const string &BitField::getMask() const {
-    return mask;
+    return _mask;
 }
 
 void BitField::setMask(const string &mask) {
-    BitField::mask = mask;
+    _mask = mask;
 }
 
 const string &BitField::getDescriptor() const {
-    return descriptor;
+    return _descriptor;
 }
 
 void BitField::setDescriptor(const string &descriptor) {
-    BitField::descriptor = descriptor;
+    _descriptor = descriptor;
 }
+
+

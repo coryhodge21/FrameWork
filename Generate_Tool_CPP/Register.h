@@ -32,33 +32,10 @@ public:
     /**      CONSTRUCTOR / DESCTRUCTOR       */
 
     //! \brief
-    Register();
+    Register(string name, string address, string descriptor);
 
     //! \brief
     virtual ~Register();
-
-    /**      SETTERS / GETTERS       */
-
-    //! \brief
-    const string &getName() const;
-
-    //! \brief
-    void setName(const string &name);
-
-    //! \brief
-    const string &getBaseAddress() const;
-
-    //! \brief
-    void setBaseAddress(const string &baseAddress);
-
-    //! \brief
-    const vector<BitField *> &getBitFields() const;
-
-    //! \brief
-    void setBitFields(const vector<BitField *> &bitFields);
-
-    //! \brief
-    void appendBitField(BitField * bitField_p);
 
     /**      BIT FIELD VECTOR FUNCTIONS     */
 
@@ -66,23 +43,34 @@ public:
     void pushBitField(BitField * aBitField);
 
     //! \brief pop
-    BitField * popBitField(string nameBitField);
+    BitField * popBitField(void);
 
-    //! \brief find
-    BitField * findBitField(string nameBitField);
+    //! \brief get
+    BitField * getBitField(string nameBitField);
 
     //! \brief create Register and push pointer onto Register Vector
-    Register * createBitField(string nameBitField, string mask, string descriptor);
+    BitField * createBitField(string nameBitField, string mask, string descriptor);
 
-    /**      REGISTER SPECIAL FUNCTIONS       */
+    /**     SETTERS / GETTERS       */
 
-    //! \brief push
+    //! \brief get name of register
 
-    //! \brief pop
+    const string &getName() const;
 
-    //! \brief find
+    void setName(const string &name);
 
-    //! \brief create
+    const string &getAddress() const;
+
+    void setAddress(const string &address);
+
+    const string &getDescriptor() const;
+
+    void setDescriptor(const string &descriptor);
+
+    const vector<BitField *> &getBitFields() const;
+
+    void setBitFields(const vector<BitField *> &bitFields);
+
 
 };
 

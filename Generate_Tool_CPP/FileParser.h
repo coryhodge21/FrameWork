@@ -52,6 +52,9 @@ private:
     //! \brief string for holding Bit Field portion of tag
     string _nameBitField;
 
+    //! \brief
+    void getNextLine(void);
+
 public:
 
     /**      CONSTRUCTOR / DESTRUCTOR    */
@@ -67,16 +70,16 @@ public:
     /**      MODULE VECTOR FUNCTIONS     */
 
     //! \brief push
-    void pushModule(Module * module);
+    void pushModule(Module * aModule);
 
     //! \brief pop
-    Module * popModule(string name);
+    Module * popModule(void);
 
-    //! \brief find
-    Module * findModule(string name);
+    //! \brief get
+    Module * getModule(string nameModule);
 
     //! \brief create
-    Module * createModule(string name, string address, string descriptor);
+    Module * createModule(string nameModule, string address, string descriptor);
 
     /**      FILE PARSER SPECIAL FUNCTIONS    */
     //! \brief Populate Registers array and return
@@ -91,8 +94,7 @@ public:
     //! \brief continue to next space
     void goToNextSpace(void);
 
-    //! \brief
-    void getNextLine(void);
+
 
     //! \brief
     void extractTag(void);
@@ -112,7 +114,6 @@ public:
 
     //! \brief using full tag name determine if this is a Bit Field
     int isBitField(void);
-
 };
 
 
