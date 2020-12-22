@@ -7,32 +7,11 @@
 
 #include "Register.h"
 
-typedef struct REGISTER_obj {
-
-    // Address of Register
-    Reg_Addr_t REG_BASE_ADDR;
-
-    // function pointers to operations
-    // used for modifying Register BitFields
-
-    // Set
-    Set_fpt set;
-
-    // Clear
-    Clear_fpt clear;
-
-    // Read
-    Read_fpt read;
-
-    // Write
-    Write_fpt write;
-
-} REGISTER_t;
-
 //! \brief Set all the bits in this register, masked with enum arg
 //! \brief param[in] Bit_Field_Mask : predefined set of masks available via enum
 void set_this(Reg_BF_e Bit_Field_Mask){
 
+    // TODO: use gen tool to populate define for
     *(volatile unsigned int *)SYSCTL_RCGC2 |= (Bit_Field_Mask);
 }
 
@@ -58,7 +37,7 @@ int32_t read_this(Reg_BF_e Bit_Field_Mask){
 void write_this(Reg_BF_e Bit_Field_Mask, int32_t msg) {
 
     // Assign _BF mask to address MOD_REG
-    *(volatile unsigned int *)SYSCTL_RCGC2 = (Bit_Field_Mask & msg);
+    *(volatile unsigned int *)SYSCTL_RCGC2 |= (Bit_Field_Mask & msg);
 }
 
 //! \brief Constructor for this Register
@@ -69,6 +48,7 @@ REGISTER_t BUILDER_REGISTER(void){
     REGISTER_t Register;
 
     // For Direct Memory Location Access
+    // TODO: use gen_tool to populate this with a defined value
     Register.REG_BASE_ADDR = SYSCTL_RCGC2;
 
     // predefined function set to perform basic Read, Write, Modify Actions

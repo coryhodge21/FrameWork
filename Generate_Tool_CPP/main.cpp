@@ -24,7 +24,7 @@ int main(int argc, char * argv[]) {
 
     /// TODO: replace this with while( i < argc )
     ///         where arc = is num of hw_ mem maps
-    for (int i = 1; i < argc; i++ ) {
+  //  for (int i = 1; i < argc; i++ ) {
 
         // parse file, build up modules data tree
         fileParser.parseFile(input_string_p);
@@ -39,7 +39,7 @@ int main(int argc, char * argv[]) {
             fileWriter.writeFiles();
         }
 
-    }
+   // }
     // exit success
     return 0;
 }

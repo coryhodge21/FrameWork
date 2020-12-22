@@ -65,7 +65,7 @@ void FileWriter::writeModules(void){
 
         /**     MODULE/     */
         // get pointer to last module in data tree
-        Module *aModule = *_modules.end();
+        Module aModule = *_modules.end();
 
         // create path
         string modPath = aModule->getName();    // Mod
