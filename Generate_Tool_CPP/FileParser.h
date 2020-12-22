@@ -14,6 +14,7 @@
 using namespace std;
 
 #define MAX_BUFFER_SIZE  85
+#define INDEX_END_OF_DEFINE 7
 
 class FileParser {
 
@@ -92,13 +93,13 @@ public:
     void getNextLine(void);
 
     //! \brief extract the tag from current buffer
-    void extractTag(void);
+    int extractTag(void);
 
     //! \brief extract hex code from current buffer
-    void extractHexCode(void);
+    int extractHexCode(void);
 
     //! \brief extract descriptor from current buffer
-    void extractDescriptor(void);
+    int extractDescriptor(void);
 
     //! \brief using full tag name determine if this is a Module
     //!         if _tag has _BASE in it, it is a module
@@ -112,8 +113,53 @@ public:
     //!         if _tag has more than 1 _ , it is a bit field
     int isBitField(void);
 
+    //! \brief if character at index is [0:9] or [x,b] this is
+    //!         part of an address or mask
+    int isValue(char c);
+
     /**      SETTERS / GETTERS          */
 
+    //! \brief
+    const vector<Module *> &getModules() const;
+
+    //! \brief
+    void setModules(const vector<Module *> &modules);
+
+    //! \brief
+    const string &getTag() const;
+
+    //! \brief
+    void setTag(const string &tag);
+
+    //! \brief
+    const string &getHexCode() const;
+
+    //! \brief
+    void setHexCode(const string &hexCode);
+
+    //! \brief
+    const string &getDescriptor() const;
+
+    //! \brief
+    void setDescriptor(const string &descriptor);
+
+    //! \brief
+    const string &getNameModule() const;
+
+    //! \brief
+    void setNameModule(const string &nameModule);
+
+    //! \brief
+    const string &getNameRegister() const;
+
+    //! \brief
+    void setNameRegister(const string &nameRegister);
+
+    //! \brief
+    const string &getNameBitField() const;
+
+    //! \brief
+    void setNameBitField(const string &nameBitField);
 
 };
 
