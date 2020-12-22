@@ -10,34 +10,20 @@
 string
 -
 
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/DEBUGGING.h
-
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileParser.h
-iostream
--
-fstream
--
-string
--
-vector
--
-Module.h
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Module.h
-
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileWriter.cpp
 FileWriter.h
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileWriter.h
 
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileWriter.h
+iostream
+-
 fstream
 -
 string
 -
 vector
 -
-algorithm
--
-iostream
+sys/stat.h
 -
 Module.h
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Module.h
@@ -57,16 +43,4 @@ vector
 -
 BitField.h
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/BitField.h
-
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/main.cpp
-iostream
--
-DEBUGGING.h
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/DEBUGGING.h
-Register.h
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Register.h
-FileParser.h
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileParser.h
-FileWriter.h
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileWriter.h
 

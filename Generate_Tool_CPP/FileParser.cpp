@@ -1,6 +1,13 @@
 //
 // Created by Cory Hodge on 12/19/20.
 //
+/**
+ *
+ * Directory FrameWork must exit @ PATH_TO_FRAMEWORK
+ *
+ *
+ */
+
 
 #include "FileParser.h"
 

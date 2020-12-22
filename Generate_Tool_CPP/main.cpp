@@ -23,20 +23,23 @@ int main(int argc, char * argv[]) {
     FileWriter fileWriter;
 
     /// TODO: replace this with while( i < argc )
+    ///         where arc = is num of hw_ mem maps
+    for (int i = 1; i < argc; i++ ) {
 
-    // parse file
-    fileParser.parseFile(input_string_p);
+        // parse file, build up modules data tree
+        fileParser.parseFile(input_string_p);
 
-    // copy data tree to file writer
-    fileWriter.setModules( fileParser.getModules() );
+        // copy data tree to file writer
+        fileWriter.setModules(fileParser.getModules());
 
-    // write files
-    while (!fileWriter.isEmpty()){
+        // while modules vector is not empty
+        while (!fileWriter.isEmpty()) {
 
-        // TODO : implement file writer
-        fileWriter.writeFile();
+            // write files to FrameWork Directory
+            fileWriter.writeFiles();
+        }
+
     }
-
     // exit success
     return 0;
 }
