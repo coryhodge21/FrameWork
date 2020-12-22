@@ -8,7 +8,11 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <algorithm>    // std::for_each
+#include <iostream>
 #include "Module.h"
+
+using namespace std;
 
 class FileWriter {
 
@@ -23,13 +27,16 @@ private:
     /**   Private:  File Writer Special Functions   */
 
     // write file module
-    void writeModule();
+    // return string file path
+    string writeModule(Module * aModule);
 
     // write file register
-    void writeRegister();
+    // return string file path
+    string writeRegister(Register * aRegister);
 
     // write bit fields as enums for parent register
-    void writeBitField();
+    // return string file path
+    string writeBitField(BitField * aBitField);
 
 public:
     /**     CONSTRUCTOR / DESCTRUCTOR       */

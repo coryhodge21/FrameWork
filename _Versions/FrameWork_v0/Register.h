@@ -30,8 +30,23 @@
 // Memory Map Providing enum values and reg base address
 #include "hw_sysctl.h"
 
-// enums for this register
-#include "BitField_enums.h"
+//! \brief Enumerations listing the available bit field masks.
+typedef enum {
+
+    USB0   =    SYSCTL_RCGC2_USB0,  // USB0 Clock Gating Contro
+    UDMA   =    SYSCTL_RCGC2_UDMA,  // Micro-DMA Clock Gating Control
+    GPIOJ  =    SYSCTL_RCGC2_GPIOJ,  // Port J Clock Gating Control
+    GPIOH  =    SYSCTL_RCGC2_GPIOH,  // Port H Clock Gating Control
+    GPIOG  =    SYSCTL_RCGC2_GPIOG,  // Port G Clock Gating Control
+    GPIOF  =    SYSCTL_RCGC2_GPIOF,  // Port F Clock Gating Control
+    GPIOE  =    SYSCTL_RCGC2_GPIOE,  // Port E Clock Gating Control
+    GPIOD  =    SYSCTL_RCGC2_GPIOD,  // Port D Clock Gating Control
+    GPIOC  =    SYSCTL_RCGC2_GPIOC,  // Port C Clock Gating Control
+    GPIOB  =    SYSCTL_RCGC2_GPIOB,  // Port B Clock Gating Control
+    GPIOA  =    SYSCTL_RCGC2_GPIOA   // Port A Clock Gating Control
+
+}Reg_BF_e;
+
 
 // Functions that set/clear/read/write Bit Fields w/n Registers
 typedef void(*Set_fpt)(Reg_BF_e);
@@ -47,27 +62,7 @@ typedef void(*Write_fpt)(Reg_BF_e, int32_t);
  */
 struct REGISTER_obj;
 
-typedef struct REGISTER_obj {
-
-    // Address of Register
-    Reg_Addr_t REG_BASE_ADDR;
-
-    // function pointers to operations
-    // used for modifying Register BitFields
-
-    // Set
-    Set_fpt set;
-
-    // Clear
-    Clear_fpt clear;
-
-    // Read
-    Read_fpt read;
-
-    // Write
-    Write_fpt write;
-
-} REGISTER_t;
+typedef struct REGISTER_obj REGISTER_t;
 
 // Function Declerations
 REGISTER_t BUILDER_REGISTER(void);

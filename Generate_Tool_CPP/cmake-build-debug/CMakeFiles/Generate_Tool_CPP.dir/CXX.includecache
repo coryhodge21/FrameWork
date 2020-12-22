@@ -12,10 +12,6 @@ string
 
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/DEBUGGING.h
 
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileParser.cpp
-FileParser.h
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileParser.h
-
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileParser.h
 iostream
 -
@@ -39,10 +35,10 @@ string
 -
 vector
 -
-Module.h
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Module.h
-
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Module.cpp
+algorithm
+-
+iostream
+-
 Module.h
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Module.h
 
@@ -51,10 +47,6 @@ string
 -
 vector
 -
-Register.h
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Register.h
-
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Register.cpp
 Register.h
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Register.h
 

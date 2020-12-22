@@ -5,5 +5,8 @@
  */
 int main(void)
 {
+    REGISTER_t Register;
+
+
 	return 0;
 }
