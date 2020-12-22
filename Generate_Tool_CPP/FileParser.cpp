@@ -7,7 +7,8 @@
 /**      CONSTRUCTOR / DESTRUCTOR    */
 
 /// Constructor
-FileParser::FileParser(void){
+FileParser::FileParser(void) :
+    _bufferIndex(0){
 
 }
 
@@ -31,15 +32,21 @@ Module * FileParser::popModule() {
 
 //! \brief find module with this name in vector or rtn null ptr
 Module * FileParser::getModule(string nameModule){
-    // for each bit field
-    for (int i = 0; i < _modules.size(); i++){
 
-        // if name matches name of existing bit field
-        // compare() : strings must be the same size && all characters match
-        if ( _modules[i]->getName().compare(nameModule) == 0 ) {
-            return _modules[i];
+    // if _modules vector not empty
+    if ( !_modules.empty()) {
+
+        // for each bit field
+        for (int i = 0; i < _modules.size(); i++) {
+
+            // if name matches name of existing bit field
+            // compare() : strings must be the same size && all characters match
+            if (_modules[i]->getName().compare(nameModule) == 0) {
+                return _modules[i];
+            }
         }
     }
+
     // if bit field not found
     return nullptr;
 }
@@ -109,6 +116,7 @@ int FileParser::parseString() {
 
     // extract tag, hex code, and descriptor
     this->extractData();
+    this->setNameFields();
 
     /**    use File Parser members to create data packet     */
 
@@ -306,18 +314,20 @@ int FileParser::extractData(void){
     extractHexCode();
 
     extractDescriptor();
+
+    return 1;
 }
 
 /// check if tag is Module
 int FileParser::isModule(void){
 
-    // if substring of _BASE found, this is module base address
-    if(_tag.find("_BASE")){
-        return 1;
+    // if substring of _BASE not found, this is not a module_BASE_ADDRESS define
+    if( ( _tag.find("_BASE") ) == -1){
+        return 0;
     }
 
-    // else not a module base address
-    return 0;
+    // else _BASE found in tag, this is a module type
+    return 1;
 }
 /// check if tag is Register
  int FileParser::isRegister(void){
@@ -407,38 +417,71 @@ const string &FileParser::getNameBitField() const {
 }
 
 /// copy tag up to first _
-void FileParser::setNameModule(void) {
+int FileParser::setNameModule(void) {
 
     // find index of first _
     int modName_end = _tag.find('_');
 
+    // if _ not found
+    if ( modName_end == -1){
+        return 0;
+    }
+    // else underscore found
     // copy index from 0 up to last element before _
-    _nameModule = _tag.substr(0, (modName_end -1));
+    _nameModule = _tag.substr(0, modName_end);
+
+    return 1;
 }
 
-void FileParser::setNameRegister(void) {
+int FileParser::setNameRegister(void) {
 
     // find index of first _
     int modName_end = _tag.find('_');
 
-    // TODO: test indexs
-    // find end of register name ( 1 more _ )
-    int regName_end = _tag.find('_', modName_end);
+    // if _ not found, make sure module name is not end of string
+    if ( modName_end == -1 || modName_end == _tag.length()){
+        // no module name, or only module name
+        return 0;
+    }
 
-    // copy string to member _nameRegister
+
+    // register name, find next _
+    int regName_end = _tag.find('_', modName_end + 2);
+
+    // if no second _
+    if ( regName_end == -1){
+
+        // discard _ , copy rest of string
+        _nameRegister = _tag.substr(modName_end + 1);
+        return 1;
+    }
+
+    // if second _ found, copy up to this point
     _nameRegister = _tag.substr(modName_end, regName_end);
+    return 1;
 }
 
-void FileParser::setNameBitField(void) {
+int FileParser::setNameBitField(void) {
 
-    // find end of register name index ( after 2nd _ )
-    int regName_end = _tag.find('_');
-    regName_end = _tag.find('_', regName_end);
+    // find index of end of module name  ( after 1st _ )
+    int modName_end = _tag.find('_');
+    if ( modName_end == -1){
+        return 0;
+    }
+    // find index of end of register name  ( after 2nd _ )
+    int regName_end = _tag.find('_', modName_end + 1);
+    if ( regName_end == -1){
+        return 0;
+    }
 
-    // find first space to follow rest of tag
-    // TODO: handle no space following name condition
-    int bitField_end = _tag.find(' ', regName_end);
+    // copy rest of string
+    _nameBitField = _tag.substr(regName_end);
 
-    // copy rest of string up to first space as bit field name
-    _nameBitField = _tag.substr(regName_end, bitField_end);
+    return 1;
+}
+
+void FileParser::setNameFields(void){
+    this->setNameModule();
+    this->setNameRegister();
+    this->setNameBitField();
 }

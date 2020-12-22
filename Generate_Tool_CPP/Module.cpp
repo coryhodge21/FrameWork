@@ -10,9 +10,7 @@
 Module::Module(string name, string address, string descriptor) :
     _name(name),
     _address(address),
-    _descriptor(descriptor),
-    _registers{0}
-{
+    _descriptor(descriptor){
 }
 
 /// Destructor
@@ -36,13 +34,18 @@ Register *  Module::popRegister(void) {
 
 //! \brief find register with this name in vector or rtn null ptr
 Register * Module::getRegister(string nameRegister){
-    // for each bit field
-    for (int i = 0; i < _registers.size(); i++){
 
-        // if name matches name of existing bit field
-        // compare() : strings must be the same size && all characters match
-        if ( _registers[i]->getName().compare(nameRegister) == 0 ) {
-            return _registers[i];
+    // if _registers vector not empty
+    if ( !_registers.empty()) {
+
+        // for each register
+        for (int i = 0; i < _registers.size(); i++) {
+
+            // if name matches name of existing bit field
+            // compare() : strings must be the same size && all characters match
+            if (_registers[i]->getName().compare(nameRegister) == 0) {
+                return _registers[i];
+            }
         }
     }
     // if bit field not found

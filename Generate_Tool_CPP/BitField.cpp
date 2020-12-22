@@ -9,8 +9,7 @@
 BitField::BitField(const string &name, const string &mask, const string &descriptor) :
     _name(name),
     _mask(mask),
-    _descriptor(descriptor)
-{
+    _descriptor(descriptor){
 
 }
 

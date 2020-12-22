@@ -11,6 +11,8 @@
 
 using namespace std;
 
+#define MAX_REGISTERS_SIZE 200
+
 class Module {
 
 private:

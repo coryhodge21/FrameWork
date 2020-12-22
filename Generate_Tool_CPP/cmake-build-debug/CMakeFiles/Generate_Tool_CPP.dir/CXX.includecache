@@ -42,11 +42,3 @@ vector
 BitField.h
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/BitField.h
 
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/main.cpp
-iostream
--
-Register.h
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Register.h
-FileParser.h
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileParser.h
-

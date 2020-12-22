@@ -15,6 +15,7 @@ using namespace std;
 
 #define MAX_BUFFER_SIZE  85
 #define INDEX_END_OF_DEFINE 7
+#define MAX_MODULES_SIZE 50
 
 class FileParser {
 
@@ -132,12 +133,14 @@ public:
 
     const string &getNameBitField() const;
 
-    void setNameModule(void);
+    int setNameModule(void);
 
-    void setNameRegister(void);
+    int setNameRegister(void);
 
-    void setNameBitField(void);
+    int setNameBitField(void);
 
+    //! \brief populate _name fields with extracted data
+    void setNameFields(void);
 };
 
 

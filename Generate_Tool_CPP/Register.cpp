@@ -3,16 +3,14 @@
 //
 
 #include "Register.h"
-
+#define MAX_BITFIELDS_SIZE  200
 /**     CONSTRUCTOR / DESTRUCTOR       */
 
 /// Constructor
 Register::Register(string name, string address, string descriptor) :
     _name(name),
     _address(address),
-    _descriptor(descriptor),
-    _bitFields{0}
-    {
+    _descriptor(descriptor){
 }
 
 /// Destructor
@@ -70,19 +68,9 @@ void Register::setName(const string &name) {
     _name = name;
 }
 
-/// Get Address
-const string &Register::getAddress() const {
-    return _address;
-}
-
 /// Set Address
 void Register::setAddress(const string &address) {
     _address = address;
-}
-
-/// Get Descriptor
-const string &Register::getDescriptor() const {
-    return _descriptor;
 }
 
 /// Set Descriptor
