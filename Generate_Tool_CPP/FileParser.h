@@ -71,7 +71,8 @@ public:
     //! \brief pop
     Module * popModule(void);
 
-    //! \brief get
+    //! \brief return pointer to a single module in _modules vector
+    //!         or return null pointer
     Module * getModule(string nameModule);
 
     //! \brief create
@@ -133,6 +134,7 @@ public:
 
     const string &getNameBitField() const;
 
+    //! \brief  return _modules vector pointer
     const vector<Module *> &getModules() const;
 
     void setModules(const vector<Module *> &modules);

@@ -14,7 +14,7 @@ FileParser::FileParser(void) :
 
 /// Destructor
 FileParser::~FileParser() {
-
+    // TODO : free data, or free in file writer
 }
 
 /**      MODULE VECTOR FUNCTIONS     */

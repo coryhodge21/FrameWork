@@ -10,13 +10,11 @@
 string
 -
 
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileParser.cpp
-FileParser.h
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileParser.h
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileWriter.cpp
+FileWriter.h
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileWriter.h
 
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileParser.h
-iostream
--
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileWriter.h
 fstream
 -
 string
