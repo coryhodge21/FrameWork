@@ -54,7 +54,9 @@ Register * Module::getRegister(string nameRegister){
 
 //! \brief create Register and push pointer onto Register Vector
 Register * Module::createRegister(string nameRegister, string address, string descriptor){
-    Register * newRegister = createRegister(nameRegister, address, descriptor);
+
+    Register * newRegister = new Register(nameRegister, address, descriptor);
+    //Register * newRegister = createRegister(nameRegister, address, descriptor);
 
     // push Bit Field onto Vector
     _registers.push_back(newRegister);

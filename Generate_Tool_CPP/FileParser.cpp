@@ -54,8 +54,7 @@ Module * FileParser::getModule(string nameModule){
 //! \brief create Module and push pointer onto Module Vector
 Module * FileParser::createModule(string nameModule, string address, string descriptor){
 
-    Module aModule(nameModule, address, descriptor);
-    Module * newModule = &aModule;
+    Module * newModule = new Module(nameModule, address, descriptor);
 
     // push Bit Field onto Vector
     _modules.push_back(newModule);
@@ -202,12 +201,16 @@ int FileParser::extractTag(void){
     // bufferIndex has incremented to start of tag
     tag_end = _bufferIndex;
     // find index of last char in tag, count up to next occurrence of space
-    while(_strBuffer[tag_end] != ' ' && (tag_end) < _strBuffer.size()){
+    while(_strBuffer[tag_end] != ' ' && (tag_end) < _strBuffer.length()){
         tag_end++;
     }
 
     // if end of line reached without a space, there is an error
-    if ((tag_end)  == _strBuffer.size()){
+    if ((tag_end)  == _strBuffer.length()){
+        int x = 0;
+        x++;
+        int breakpoint = x;
+
         while(1){
             cout << "ERROR: End of define line and no value or \\ char";
         }
@@ -245,10 +248,12 @@ int FileParser::extractHexCode(void){
     }
     // if no digit or no \, error
     if (_bufferIndex == _strBuffer.size()){
+
+        return -1;
+
         while(1){
             cout << "ERROR: End of define line and no value or \\ char";
         }
-        return 0;
     }
 
     // once digit is found, find position of first space ' '
@@ -311,7 +316,9 @@ int FileParser::extractData(void){
 
     extractTag();
 
-    extractHexCode();
+    if ( extractHexCode() == -1) {
+        // breakpoint
+    }
 
     extractDescriptor();
 
@@ -336,7 +343,9 @@ int FileParser::isModule(void){
     int count = 0;
 
     // if substring of _BASE found, this is module base address
-    if(_tag.find("_BASE")){
+    // -1 = not found
+    // n = position of match begin in string
+    if(_tag.find("_BASE") != -1){    // _BASE not not found
         return 0;
     }
 
@@ -484,4 +493,12 @@ void FileParser::setNameFields(void){
     this->setNameModule();
     this->setNameRegister();
     this->setNameBitField();
+}
+
+const vector<Module *> &FileParser::getModules() const {
+    return _modules;
+}
+
+void FileParser::setModules(const vector<Module *> &modules) {
+    _modules = modules;
 }

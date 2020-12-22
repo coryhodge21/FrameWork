@@ -170,6 +170,33 @@ BitField.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Generate_Tool_CPP.dir/build.make CMakeFiles/Generate_Tool_CPP.dir/BitField.cpp.s
 .PHONY : BitField.cpp.s
 
+DEBUGGING.o: DEBUGGING.cpp.o
+
+.PHONY : DEBUGGING.o
+
+# target to build an object file
+DEBUGGING.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Generate_Tool_CPP.dir/build.make CMakeFiles/Generate_Tool_CPP.dir/DEBUGGING.cpp.o
+.PHONY : DEBUGGING.cpp.o
+
+DEBUGGING.i: DEBUGGING.cpp.i
+
+.PHONY : DEBUGGING.i
+
+# target to preprocess a source file
+DEBUGGING.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Generate_Tool_CPP.dir/build.make CMakeFiles/Generate_Tool_CPP.dir/DEBUGGING.cpp.i
+.PHONY : DEBUGGING.cpp.i
+
+DEBUGGING.s: DEBUGGING.cpp.s
+
+.PHONY : DEBUGGING.s
+
+# target to generate assembly for a file
+DEBUGGING.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Generate_Tool_CPP.dir/build.make CMakeFiles/Generate_Tool_CPP.dir/DEBUGGING.cpp.s
+.PHONY : DEBUGGING.cpp.s
+
 FileParser.o: FileParser.cpp.o
 
 .PHONY : FileParser.o
@@ -317,6 +344,9 @@ help:
 	@echo "... BitField.o"
 	@echo "... BitField.i"
 	@echo "... BitField.s"
+	@echo "... DEBUGGING.o"
+	@echo "... DEBUGGING.i"
+	@echo "... DEBUGGING.s"
 	@echo "... FileParser.o"
 	@echo "... FileParser.i"
 	@echo "... FileParser.s"

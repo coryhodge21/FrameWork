@@ -4,6 +4,9 @@
 CMakeFiles/Generate_Tool_CPP.dir/BitField.cpp.o
  /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/BitField.cpp
  /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/BitField.h
+CMakeFiles/Generate_Tool_CPP.dir/DEBUGGING.cpp.o
+ /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/DEBUGGING.cpp
+ /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/DEBUGGING.h
 CMakeFiles/Generate_Tool_CPP.dir/FileParser.cpp.o
  /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/BitField.h
  /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileParser.cpp
@@ -24,6 +27,7 @@ CMakeFiles/Generate_Tool_CPP.dir/Register.cpp.o
  /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Register.h
 CMakeFiles/Generate_Tool_CPP.dir/main.cpp.o
  /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/BitField.h
+ /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/DEBUGGING.h
  /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileParser.h
  /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Module.h
  /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Register.h

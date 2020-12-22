@@ -48,7 +48,7 @@ BitField * Register::getBitField(string nameBitField){
 
 //! \brief create Register and push its pointer onto Register Vector
 BitField * Register::createBitField(string nameBitField, string mask, string descriptor){
-    BitField * newBitField = createBitField(nameBitField, mask, descriptor);
+    BitField * newBitField = new BitField(nameBitField, mask, descriptor);
 
     // push Bit Field onto Vector
     _bitFields.push_back(newBitField);

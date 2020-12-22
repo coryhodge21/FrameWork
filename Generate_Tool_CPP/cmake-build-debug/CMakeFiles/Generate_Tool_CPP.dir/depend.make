@@ -4,6 +4,9 @@
 CMakeFiles/Generate_Tool_CPP.dir/BitField.cpp.o: ../BitField.cpp
 CMakeFiles/Generate_Tool_CPP.dir/BitField.cpp.o: ../BitField.h
 
+CMakeFiles/Generate_Tool_CPP.dir/DEBUGGING.cpp.o: ../DEBUGGING.cpp
+CMakeFiles/Generate_Tool_CPP.dir/DEBUGGING.cpp.o: ../DEBUGGING.h
+
 CMakeFiles/Generate_Tool_CPP.dir/FileParser.cpp.o: ../BitField.h
 CMakeFiles/Generate_Tool_CPP.dir/FileParser.cpp.o: ../FileParser.cpp
 CMakeFiles/Generate_Tool_CPP.dir/FileParser.cpp.o: ../FileParser.h
@@ -23,6 +26,7 @@ CMakeFiles/Generate_Tool_CPP.dir/Register.cpp.o: ../Register.cpp
 CMakeFiles/Generate_Tool_CPP.dir/Register.cpp.o: ../Register.h
 
 CMakeFiles/Generate_Tool_CPP.dir/main.cpp.o: ../BitField.h
+CMakeFiles/Generate_Tool_CPP.dir/main.cpp.o: ../DEBUGGING.h
 CMakeFiles/Generate_Tool_CPP.dir/main.cpp.o: ../FileParser.h
 CMakeFiles/Generate_Tool_CPP.dir/main.cpp.o: ../Module.h
 CMakeFiles/Generate_Tool_CPP.dir/main.cpp.o: ../Register.h

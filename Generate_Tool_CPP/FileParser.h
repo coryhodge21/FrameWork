@@ -133,6 +133,10 @@ public:
 
     const string &getNameBitField() const;
 
+    const vector<Module *> &getModules() const;
+
+    void setModules(const vector<Module *> &modules);
+
     int setNameModule(void);
 
     int setNameRegister(void);

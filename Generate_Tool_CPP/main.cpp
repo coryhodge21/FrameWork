@@ -1,9 +1,12 @@
-#include <iostream>
 
+
+#include <iostream>
+#include "DEBUGGING.h"
 #include "Register.h"
 #include "FileParser.h"
 
 using namespace std;
+
 
 int main(int argc, char * argv[]) {
 
@@ -15,7 +18,7 @@ int main(int argc, char * argv[]) {
     // TODO: replace this with while( i < argc )
     FileParser fileParser;
 
-    fileParser.parseFile(input_string_p);
+    vector<Module *> modules = fileParser.parseFile(input_string_p);
 
     return 0;
 }
