@@ -56,6 +56,14 @@ BitField * Register::createBitField(string nameBitField, string mask, string des
     return newBitField;
 }
 
+// check if bit fields vector empty
+int Register::isEmpty(void){
+    if(this->_bitFields.empty()) {
+        return 1;
+    }
+    return 0;
+}
+
 /**     SETTERS / GETTERS       */
 
 /// Get Name

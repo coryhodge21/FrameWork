@@ -70,7 +70,8 @@ public:
     //! \brief assign this register a vector of bit fields
     void setBitFields(const vector<BitField *> &bitFields);
 
-
+    //! \brief check if bit fields vector empty
+    int isEmpty(void);
 
 };
 

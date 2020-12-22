@@ -65,6 +65,13 @@ Register * Module::createRegister(string nameRegister, string address, string de
     return newRegister;
 }
 
+// check if registers vector empty
+int Module::isEmpty(void){
+    if(this->_registers.empty()) {
+        return 1;
+    }
+    return 0;
+}
 
 /**     SETTERS / GETTERS       */
 

@@ -52,6 +52,9 @@ public:
     //! \brief create Register and push pointer onto Register Vector
     Register * createRegister(string name, string address, string descriptor);
 
+    //! \brief check if vector is empty
+    int isEmpty(void);
+
     /**     Setters / Getters       */
 
     //! \brief get
