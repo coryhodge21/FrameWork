@@ -7,19 +7,7 @@
 /**      CONSTRUCTOR / DESTRUCTOR    */
 
 /// Constructor
-FileParser::FileParser(void) :
-    _inputFileStream(),
-    _charBuffer{0},
-    _bufferIndex(0),
-    _strBuffer(nullptr),
-    _modules(),
-    _tag(nullptr),
-    _hexCode(nullptr),
-    _descriptor(nullptr),
-    _nameModule(nullptr),
-    _nameRegister(nullptr),
-    _nameBitField(nullptr)
-    {
+FileParser::FileParser(void){
 
 }
 
@@ -74,7 +62,7 @@ Module * FileParser::createModule(string nameModule, string address, string desc
 /// parse file
 vector<Module *> FileParser::parseFile(char * input_file_path) {
 
-    // use the input file stream clas member to open the file
+    // use the input file stream class member to open the file
     //  in read only mode
     this->_inputFileStream.open(input_file_path, std::ios::in);
 
@@ -107,31 +95,27 @@ vector<Module *> FileParser::parseFile(char * input_file_path) {
 // TODO: increase flexibility of incoming information
 int FileParser::parseString() {
 
+    /**     Determin if valid input     **/
+
     // check if line begins with a #define
     if (_strBuffer[_bufferIndex] != '#') {
 
         // if not, get next line
-        return 1;
+        return 0;
     }
 
+
     /**     Obtain information from string      **/
-    // extract tag, populate name fields
-    this->extractTag();
 
-    // extract hex code
-    this->extractHexCode();
-
-    // extract descriptor
-    this->extractDescriptor();
-
-    /* use collected data to create Module / Register / or Bit Field */
+    // extract tag, hex code, and descriptor
+    this->extractData();
 
     /**    use File Parser members to create data packet     */
 
     // Check if Module with this name exists
     Module * aModule = this->getModule(_nameModule);
 
-        // if it does not create it
+        // if it does not, create it
         if ( aModule == nullptr ){
             aModule = createModule(_nameModule, _hexCode, _descriptor);
         }
@@ -144,7 +128,7 @@ int FileParser::parseString() {
     // check if register exists
     Register * aRegister = aModule->getRegister(_nameRegister);
 
-        // if not create it
+        // if not, create it
         if ( aRegister == nullptr ){
             aRegister = aModule->createRegister(_nameRegister, _hexCode, _descriptor);
         }
@@ -162,7 +146,7 @@ int FileParser::parseString() {
             aBitField = aRegister->createBitField(_nameBitField, _hexCode, _descriptor);
         }
 
-    return 1;
+        return 1;
 }
 
 /// Skip Spaces
@@ -198,38 +182,48 @@ void FileParser::getNextLine(void){
 /// extract full tag from buffer
 int FileParser::extractTag(void){
 
+    // Iterators
+    int tag_size, tag_end;
+
     // start from buffer index right past the end of the #define
     _bufferIndex = INDEX_END_OF_DEFINE;
 
     // skip any spaces before tag
     skipSpaces();
 
+    // bufferIndex has incremented to start of tag
+    tag_end = _bufferIndex;
     // find index of last char in tag, count up to next occurrence of space
-    int tag_length;
-    while(_charBuffer[_bufferIndex] != ' ' && _bufferIndex < _strBuffer.size()){
-        tag_length++;
+    while(_strBuffer[tag_end] != ' ' && (tag_end) < _strBuffer.size()){
+        tag_end++;
     }
 
-    // if no digit or no \, error
-    if (_bufferIndex == _strBuffer.size()){
+    // if end of line reached without a space, there is an error
+    if ((tag_end)  == _strBuffer.size()){
         while(1){
             cout << "ERROR: End of define line and no value or \\ char";
         }
         return 0;
     }
 
-    // copy tag to _tag class member
-    _tag = _strBuffer.substr(_bufferIndex, tag_length);
+    // subtract end position from starting position to get size
+    tag_size = ( tag_end - _bufferIndex);
+
+    // else copy tag to _tag class member
+    _tag = _strBuffer.substr(_bufferIndex, tag_size);
+
+    // increment buffer past tag
+    _bufferIndex = tag_end;
 
     // return success
     return 1;
 }
 
 /// extract hex code from buffer
+///  this should only be called after extractTag
 int FileParser::extractHexCode(void){
 
-    // reset buffer
-    _bufferIndex = 0;
+    int value_end, value_size;
 
     // find position of first digit
     while( ! isValue(_strBuffer[_bufferIndex]) && _bufferIndex < _strBuffer.size()){
@@ -250,13 +244,19 @@ int FileParser::extractHexCode(void){
     }
 
     // once digit is found, find position of first space ' '
-    int value_length = _bufferIndex;
-    while(_strBuffer[value_length] != ' ' && _bufferIndex < _strBuffer.size()){
-        value_length++;
+    value_end = _bufferIndex;
+    // find index of end of value
+    while(_strBuffer[value_end] != ' ' && value_end < _strBuffer.size()){
+        value_end++;
     }
+    // subtract from starting index to get size
+    value_size = ( value_end - _bufferIndex);
 
     // copy value to _hexCode member
-    _hexCode = _strBuffer.substr(_bufferIndex, value_length);
+    _hexCode = _strBuffer.substr(_bufferIndex, value_size);
+
+    // increment buffer past value
+    _bufferIndex = value_end;
 
     // return success
     return 1;
@@ -265,10 +265,6 @@ int FileParser::extractHexCode(void){
 
 /// extract descriptor from butter
 int FileParser::extractDescriptor(void){
-
-
-    // reset buffer
-    _bufferIndex = 0;
 
     // find first occurrence of start of comment
     while( _strBuffer[_bufferIndex] != '/' && _bufferIndex < _strBuffer.size()){
@@ -281,7 +277,7 @@ int FileParser::extractDescriptor(void){
         }
     }
 
-    // if no digit or no \, error
+    // if no '/' start of comment, or no '\' escape char, error
     if (_bufferIndex == _strBuffer.size()){
         while(1){
             cout << "ERROR: End of define line and no value or \\ char";
@@ -300,6 +296,16 @@ int FileParser::extractDescriptor(void){
 
     // return success
     return 1;
+}
+
+/// extract all data
+int FileParser::extractData(void){
+
+    extractTag();
+
+    extractHexCode();
+
+    extractDescriptor();
 }
 
 /// check if tag is Module
@@ -378,65 +384,61 @@ int FileParser::isValue(char c){
 
 }
 
-const vector<Module *> &FileParser::getModules() const {
-    return _modules;
-}
-
-void FileParser::setModules(const vector<Module *> &modules) {
-    _modules = modules;
-}
-
-const string &FileParser::getTag() const {
-    return _tag;
-}
-
-void FileParser::setTag(const string &tag) {
-    _tag = tag;
-}
+/**     SETTERS / GETTERS       **/
 
 const string &FileParser::getHexCode() const {
     return _hexCode;
-}
-
-void FileParser::setHexCode(const string &hexCode) {
-    _hexCode = hexCode;
 }
 
 const string &FileParser::getDescriptor() const {
     return _descriptor;
 }
 
-void FileParser::setDescriptor(const string &descriptor) {
-    _descriptor = descriptor;
-}
-
 const string &FileParser::getNameModule() const {
     return _nameModule;
-}
-
-void FileParser::setNameModule(const string &nameModule) {
-    _nameModule = nameModule;
 }
 
 const string &FileParser::getNameRegister() const {
     return _nameRegister;
 }
 
-void FileParser::setNameRegister(const string &nameRegister) {
-    _nameRegister = nameRegister;
-}
-
 const string &FileParser::getNameBitField() const {
     return _nameBitField;
 }
 
-void FileParser::setNameBitField(const string &nameBitField) {
-    _nameBitField = nameBitField;
+/// copy tag up to first _
+void FileParser::setNameModule(void) {
+
+    // find index of first _
+    int modName_end = _tag.find('_');
+
+    // copy index from 0 up to last element before _
+    _nameModule = _tag.substr(0, (modName_end -1));
 }
 
+void FileParser::setNameRegister(void) {
 
+    // find index of first _
+    int modName_end = _tag.find('_');
 
+    // TODO: test indexs
+    // find end of register name ( 1 more _ )
+    int regName_end = _tag.find('_', modName_end);
 
+    // copy string to member _nameRegister
+    _nameRegister = _tag.substr(modName_end, regName_end);
+}
 
+void FileParser::setNameBitField(void) {
 
+    // find end of register name index ( after 2nd _ )
+    int regName_end = _tag.find('_');
+    regName_end = _tag.find('_', regName_end);
 
+    // find first space to follow rest of tag
+    // TODO: handle no space following name condition
+    int bitField_end = _tag.find(' ', regName_end);
+
+    // copy rest of string up to first space as bit field name
+    _nameBitField = _tag.substr(regName_end, bitField_end);
+}

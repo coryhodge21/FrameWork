@@ -101,6 +101,9 @@ public:
     //! \brief extract descriptor from current buffer
     int extractDescriptor(void);
 
+    //! \brief extract data, this calls all of the extract functions
+    int extractData(void);
+
     //! \brief using full tag name determine if this is a Module
     //!         if _tag has _BASE in it, it is a module
     int isModule(void);
@@ -119,47 +122,21 @@ public:
 
     /**      SETTERS / GETTERS          */
 
-    //! \brief
-    const vector<Module *> &getModules() const;
-
-    //! \brief
-    void setModules(const vector<Module *> &modules);
-
-    //! \brief
-    const string &getTag() const;
-
-    //! \brief
-    void setTag(const string &tag);
-
-    //! \brief
     const string &getHexCode() const;
 
-    //! \brief
-    void setHexCode(const string &hexCode);
-
-    //! \brief
     const string &getDescriptor() const;
 
-    //! \brief
-    void setDescriptor(const string &descriptor);
-
-    //! \brief
     const string &getNameModule() const;
 
-    //! \brief
-    void setNameModule(const string &nameModule);
-
-    //! \brief
     const string &getNameRegister() const;
 
-    //! \brief
-    void setNameRegister(const string &nameRegister);
-
-    //! \brief
     const string &getNameBitField() const;
 
-    //! \brief
-    void setNameBitField(const string &nameBitField);
+    void setNameModule(void);
+
+    void setNameRegister(void);
+
+    void setNameBitField(void);
 
 };
 
