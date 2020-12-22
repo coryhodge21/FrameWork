@@ -453,7 +453,6 @@ int FileParser::setNameRegister(void) {
         return 0;
     }
 
-
     // register name, find next _
     int regName_end = _tag.find('_', modName_end + 2);
 
@@ -466,7 +465,7 @@ int FileParser::setNameRegister(void) {
     }
 
     // if second _ found, copy up to this point
-    _nameRegister = _tag.substr(modName_end, regName_end);
+    _nameRegister = _tag.substr(modName_end + 1, (regName_end - (modName_end + 1)));
     return 1;
 }
 
@@ -484,7 +483,7 @@ int FileParser::setNameBitField(void) {
     }
 
     // copy rest of string
-    _nameBitField = _tag.substr(regName_end);
+    _nameBitField = _tag.substr(regName_end + 1);
 
     return 1;
 }
