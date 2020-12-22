@@ -32,6 +32,8 @@ int main(int argc, char * argv[]) {
 
     // write files
     while (!fileWriter.isEmpty()){
+
+        // TODO : implement file writer
         fileWriter.writeFile();
     }
 

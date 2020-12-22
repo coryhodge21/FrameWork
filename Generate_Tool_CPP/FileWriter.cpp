@@ -26,6 +26,8 @@ void FileWriter::setModules(vector<Module *> modules) {
 
 // check if file writer data tree is empty
 int FileWriter::isEmpty(void) {
+
+    // if no modules, data tree is empty
     if (this->_modules.empty()) {
         return 1;
     }
@@ -34,5 +36,7 @@ int FileWriter::isEmpty(void) {
 
 // write files using data tree
 int FileWriter::writeFile(void){
-    return 0;
+
+
+    return 1;
 }

@@ -61,6 +61,7 @@ Register * Module::createRegister(string nameRegister, string address, string de
     // push Bit Field onto Vector
     _registers.push_back(newRegister);
 
+    // return pointer to new register
     return newRegister;
 }
 
