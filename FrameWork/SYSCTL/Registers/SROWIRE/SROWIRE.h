@@ -1,0 +1,2 @@
+writing to file 
+SROWIRE

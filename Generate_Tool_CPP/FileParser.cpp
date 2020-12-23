@@ -21,7 +21,10 @@ FileParser::FileParser(void) :
 
 /// Destructor
 FileParser::~FileParser() {
-    // TODO : free data, or free in file writer
+    // if vector contains elements
+    while(! _modules.empty()) {
+        _modules.pop_back();
+    }
 }
 
 /**      MODULE VECTOR FUNCTIONS     */
@@ -108,7 +111,7 @@ vector<Module *> FileParser::parseFile(char * input_file_path) {
 // TODO: increase flexibility of incoming information
 int FileParser::parseString() {
 
-    /**     Determin if valid input     **/
+    /**     Determine if valid input     **/
 
     // check if line begins with a #define
     if (_strBuffer[_bufferIndex] != '#') {
@@ -257,10 +260,6 @@ int FileParser::extractHexCode(void){
     if (_bufferIndex == _strBuffer.size()){
 
         return -1;
-
-        while(1){
-            cout << "ERROR: End of define line and no value or \\ char";
-        }
     }
 
     // once digit is found, find position of first space ' '
@@ -299,10 +298,8 @@ int FileParser::extractDescriptor(void){
 
     // if no '/' start of comment, or no '\' escape char, error
     if (_bufferIndex == _strBuffer.size()){
-        while(1){
-            cout << "ERROR: End of define line and no value or \\ char";
-        }
-        return 0;
+        // no descriptor
+        return -1;
     }
 
     // check that comment is not part of comment block

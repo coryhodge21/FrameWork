@@ -26,7 +26,7 @@ int main(int argc, char * argv[]) {
 
     // this program expects an input file to be passed in
     // from the calling source
-    char input_file_path[] = "../test_hw_sysctl.h";
+    char input_file_path[] = "../hw_sysctl.h";
     char * input_string_p = input_file_path;
 
     // parse file and build module, register, bit field tree
