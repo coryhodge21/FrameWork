@@ -245,7 +245,7 @@ void FileWriter::writeModule(Module * aModule){
     template_Header(aModule);
 
     // Template Module h body
-    template_module_h(aModule);
+    template_Module_h(aModule);
 
     // Template Footer
     template_Footer(aModule);
@@ -337,24 +337,31 @@ void FileWriter::template_Module_h(Module * aModule){
     _moduleFileStream << "\n";
 
     // typedef struct MODULE_obj {
-    _moduleFileStream << "typedef struct " << aModule->getName() << "_obj { \n\n";
+    _moduleFileStream << "typedef struct " << aModule->getName() << "_obj { \n";
+    _moduleFileStream << "\n";
 
     // ADDRESS MOD_BASE_ADDR;
     _moduleFileStream << "\tADDRESS " << aModule->getName() << "_BASE_ADDR;\n";
+    _moduleFileStream << "\n";
 
     // Array of registers
+    _moduleFileStream << "\tREGISTER_t Registers[MAX_REGISTER_ARR_SIZE];\n";
+    _moduleFileStream << "\n";
+
+    // function pointers
     _moduleFileStream << "\tvoid(*set)(void);\n";
     _moduleFileStream << "\tvoid(*clear)(void);\n";
     _moduleFileStream << "\tvoid(*read)(void);\n";
     _moduleFileStream << "\tvoid(*write)(void);\n";
+    _moduleFileStream << "\n";
 
-
-    // function pointers
-
-    // end Module_t
+    // } Module_t;
+    _moduleFileStream << "} " << aModule->getName() << "_t;\n";
+    _moduleFileStream << "\n";
 
     // constructor / initializer
-
+    _moduleFileStream << aModule->getName() << "_t CreateModule_" << aModule->getName() << "(void);";
+    _moduleFileStream << "\n";
 
 }
 
