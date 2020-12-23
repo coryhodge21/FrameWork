@@ -1,7 +1,22 @@
-
-
-#include <iostream>
-#include "Register.h"
+/**
+ * \file main.cpp
+ * \author Cory W. Hodge
+ * \date 12/22/2020
+ *
+ * \brief This is the entry point into project FrameWork Gen_Tool
+ * Using a File Parser, extract the data from ti provided memory maps :
+ *      #define MOD_REG_Bit_Field 0x00000000     // description
+ *
+ * Using File Writer, generate a FrameWork Library for the data collected
+ *
+ *
+ * =======      Known Bugs      =========
+ * TODO : 12/22/2020 : only first register header file being generated ; Suspect FileWriter
+ *
+ * =======      Dev Notes       =========
+ * TODO : 12/22/2020 Remove unused functions, clean up comments
+ *
+ */
 #include "FileParser.h"
 #include "FileWriter.h"
 
