@@ -3,11 +3,11 @@
 //
 
 #include "FileWriter.h"
-using namespace std;
 
-/**     CONSTRUCTOR / DESCTRUCTOR       */
+/**     CONSTRUCTOR / DESTRUCTOR       */
+
 FileWriter:: FileWriter() {
-
+    // TODO : implement better file writer initialization
 }
 FileWriter:: ~FileWriter(){
     // TODO : Free data tree
@@ -15,17 +15,14 @@ FileWriter:: ~FileWriter(){
 
 /**     SETTERS / GETTERS       */
 
-vector<Module *> &FileWriter::getModules(void) {
-    return _modules;
-}
-
+/// assign file writer a populated vector of Module *
 void FileWriter::setModules(vector<Module *> modules) {
     _modules = modules;
 }
 
 /**   Public :  File Writer Special Functions   */
 
-// check if file writer data tree is empty
+/// check if file writer data vector is empty
 int FileWriter::isEmpty(void) {
 
     // if no modules, data tree is empty
@@ -35,10 +32,11 @@ int FileWriter::isEmpty(void) {
     return 0;
 }
 
-//
+/// prep FrameWork Directory and recursively build data tree
 int FileWriter::writeFiles(void){
 
     /** _Directory.h        */
+
     // path to FrameWork Directory
     string frameWork_PATH = PATH_TO_FRAMEWORK;
 
@@ -50,27 +48,31 @@ int FileWriter::writeFiles(void){
         cout << "ERROR Could not open file : " << (frameWork_PATH + "_Directory.h") << endl;
     }
 
-    /**   while _modules vector not empty  */
+    /**
+     * while _modules vector not empty
+     * recursively build data tree
+     */
     writeModules();
 
     // close directory stream
     this->_directoryFileStream.close();
 
+    // return success
     return 1;
 }
 
 /**   Private:  File Writer Special Functions   */
 
-// write file module
+/// write file module
 void FileWriter::writeModules(void){
 
     // for each Module in the data tree
     while( ! this->isEmpty()) {
 
         /**     MODULE/ Directory    */
+
         // get pointer to last module in data tree
-        // TODO: replace with this->getLastModule()
-        Module * aModule = _modules[ _modules.size() - 1];
+        Module * aModule = getLastModule();
 
         // create path
         string modPath = PATH_TO_FRAMEWORK + aModule->getName();    // Mod
@@ -79,16 +81,14 @@ void FileWriter::writeModules(void){
         if (mkdir(modPath.c_str(), 0777) == -1) {
             cerr << "Error :  " << strerror(errno) << endl;
         } else {
-            cout << "Directory created : " + modPath;
+            cout << "Directory created : " + modPath + "\n";
         }
 
         /**       MODULE.h    */
 
         // build path to MODULE header file
-        string modHeader_PATH = modPath;
-        modHeader_PATH += "/";
-        modHeader_PATH += aModule->getName();
-        modHeader_PATH += ".h";
+        // i.e. : "PATH/ModName/ModName.h
+        string modHeader_PATH = modPath + "/" + aModule->getName() + ".h";
 
         // open for writing, or create if DNE
         this->_moduleFileStream.open((modHeader_PATH), std::ios::out);
@@ -98,28 +98,30 @@ void FileWriter::writeModules(void){
             cout << "ERROR Could not open file : " << modHeader_PATH << endl;
         }
 
-        // WRITE MODULE.H
+        /**
+         * Write the Module.h file
+         */
         writeModule(aModule);
 
-        /**     RECURSIVELY WRITE REGISTER FILES     */
-        // while Module register not empty, write registers
+        /**
+         * RECURSIVELY WRITE REGISTER FILES
+         * while Module register not empty, write registers
+         */
         writeRegisters(aModule, modPath);
 
-        // TODO: replace with this->popModule()
         // DESTROY MODULE
-        _modules.pop_back();
+        popModule();
     }
 
-    // TODO: close file stream
+    // close file stream
     _moduleFileStream.close();
 }
 
-
-// write file register
+/// write file register
 void FileWriter::writeRegisters(Module * parentModule, string modPath){
 
     /**     MOD/REGISTERS/   Directory   */
-    // each module must have at least one register
+
     // create path for registers Directory
     string regsDirPath = modPath + "/Registers";   // Mod/Registers
 
@@ -128,7 +130,7 @@ void FileWriter::writeRegisters(Module * parentModule, string modPath){
         cerr << "Error :  " << strerror(errno) << endl;
     }
     else {
-        cout << "Directory created : " + regsDirPath;
+        cout << "Directory created : " + regsDirPath + "\n";
     }
 
     // for each Register in Module tree
@@ -156,7 +158,7 @@ void FileWriter::writeRegisters(Module * parentModule, string modPath){
         string regFilePath = regDirPath + "/" + aRegister->getName()+ ".h";  // Mod/Registers/Reg.h
 
         // create file register.h (template starter file)
-        _registerFileStream.open((regFilePath), std::ios::out);
+        _registerFileStream.open( regFilePath, std::ios::out);
 
         // check that the file was opened
         if( !this->_registerFileStream.is_open()){
@@ -194,13 +196,14 @@ void FileWriter::writeBitFields(Register * parentRegister, string regDirPath){
         string bfFilePath = regDirPath + "/" + parentRegister->getName() + "_enums.h";    // Mod/Registers/Reg_enums.h
 
         // create file Reg_enums.h
-        _bitFieldFileStream.open((bfFilePath), std::ios::out);
+        _bitFieldFileStream.open( bfFilePath, std::ios::out);
 
         // check that the file was opened
         if( !this->_bitFieldFileStream.is_open()){
             cout << "ERROR Could not open file : " << bfFilePath << endl;
         }
     }
+    
     // for each bit field in register tree
     while (! parentRegister->isEmpty()){
 
@@ -213,6 +216,16 @@ void FileWriter::writeBitFields(Register * parentRegister, string regDirPath){
 
     // close file stream
     _bitFieldFileStream.close();
+}
+
+/// get last element of vector
+Module * FileWriter::getLastModule(void){
+    return _modules[ _modules.size() - 1];
+}
+
+//! destroy the last element in the vector
+void FileWriter::popModule(void){
+    _modules.pop_back();
 }
 
 //! \brief writeModule
