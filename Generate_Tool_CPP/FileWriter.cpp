@@ -115,8 +115,6 @@ void FileWriter::writeModules(void){
         // close file stream
         _moduleFileStream.close();
     }
-
-
 }
 
 /// write file register
