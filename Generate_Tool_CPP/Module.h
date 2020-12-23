@@ -40,9 +40,6 @@ public:
 
     /**      REGISTER VECTOR FUNCTIONS     */
 
-    //! \brief push
-    void pushRegister(Register * aRegister);
-
     //! \brief pop last element and destroy
     void popRegister(void);
 
@@ -51,9 +48,14 @@ public:
 
     //! \brief find
     Register * getRegister(string name);
+    Register * getRegister(int atIndex);
 
     //! \brief create Register and push pointer onto Register Vector
     Register * createRegister(string name, string address, string descriptor);
+
+    //! \brief get size of _registers vector
+    //! size() returns # of elements
+    int getRegisterSize(void);
 
     //! \brief check if vector is empty
     int isEmpty(void);
@@ -63,26 +65,6 @@ public:
     //! \brief get
     const string &getName() const;
 
-    //! \brief set name
-    void setName(const string &name);
-
-    //! \brief get address
-    const string &getAddress() const;
-
-    //! \brief set address
-    void setAddress(const string &address);
-
-    //! \brief get descriptor
-    const string &getDescriptor() const;
-
-    //! \brief set descriptor
-    void setDescriptor(const string &descriptor);
-
-    //! \brief get vector of Registers
-    const vector<Register *> &getRegisters() const;
-
-    //! \brief assign this register a vector of Regsiters
-    void setRegisters(const vector<Register *> &registers);
 };
 
 

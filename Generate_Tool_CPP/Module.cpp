@@ -24,10 +24,6 @@ Module::~Module() {
 void Module::popRegister() {
     this->_registers.pop_back();
 }
-//! \brief push register pointer onto register vector
-void Module::pushRegister(Register *aRegister) {
-    _registers.push_back(aRegister);
-}
 
 //! \brief return pointer to last register in register vector
 Register *  Module::getLastRegister(void) {
@@ -54,6 +50,10 @@ Register * Module::getRegister(string nameRegister){
     }
     // if bit field not found
     return nullptr;
+}
+/// get register with index
+Register * Module::getRegister(int atIndex){
+    return _registers.at(atIndex);
 }
 
 //! \brief create Register and push pointer onto Register Vector
@@ -84,39 +84,8 @@ const string &Module::getName() const {
     return _name;
 }
 
-/// Set Name
-void Module::setName(const string &name) {
-    _name = name;
+//! \brief get size of _registers vector
+//! size() returns # of elements
+int Module::getRegisterSize(void){
+    return _registers.size();
 }
-
-/// Get Address
-const string &Module::getAddress() const {
-    return _address;
-}
-
-/// Set Address
-void Module::setAddress(const string &address) {
-    _address = address;
-}
-
-/// Get Descriptor
-const string &Module::getDescriptor() const {
-    return _descriptor;
-}
-
-/// Set Descriptor
-void Module::setDescriptor(const string &descriptor) {
-    _descriptor = descriptor;
-}
-
-/// return vector of Registers
-const vector<Register *> &Module::getRegisters() const {
-    return _registers;
-}
-
-/// assign this module a vector of registers
-void Module::setRegisters(const vector<Register *> &registers) {
-    _registers = registers;
-}
-
-/** Setters / Getters       */

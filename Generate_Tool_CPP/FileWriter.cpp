@@ -230,23 +230,68 @@ void FileWriter::popModule(void){
     _modules.pop_back();
 }
 
-//! \brief writeModule
+/***    ***************
+ *
+ *      FILE TEMPLATING
+ *
+ *      ***************
+ */
+
+//! \brief write Module File
+//  _moduleFileStream << "writing to file \n";
 void FileWriter::writeModule(Module * aModule){
 
-    _moduleFileStream << "writing to file \n";
-    _moduleFileStream << aModule->getName();
-    _moduleFileStream << "\n";
+    // Template Header
+    template_Header(aModule);
 }
 
-//! \brief writeModule
+//! \brief write Register File
+//  _registerFileStream << "writing to file \n";
 void FileWriter::writeRegister(Register * aRegister){
+
+    // Template Header
+    template_Header(aRegister);
+}
+
+//! \brief write Bit Field File
+//  _bitFieldFileStream << "writing to file \n";
+void FileWriter::writeBitField(BitField * aBitField){
+
+    // Template Header
+    template_Header(aBitField);
+}
+
+//! \brief template_Header
+void FileWriter::template_Header(Module * aModule){
+
+    _moduleFileStream << "/**********************************\n";
+    _moduleFileStream << "* \\file : "<< aModule->getName() << ".h \n";
+    _moduleFileStream << "* \\author : Cory W. Hodge \n";
+    _moduleFileStream << "* \\brief auto generated file \n";
+    _moduleFileStream << "*********************************** */\n\n";
+
+    _moduleFileStream << "#ifndef _" << aModule->getName() << "_h_\n";
+    _moduleFileStream << "#define _" << aModule->getName() << "_h_\n\n";
+
+    /**
+     * Generate #includ's for each register
+     */
+     for( int i = 0; i < aModule->getRegisterSize(); i++){
+         _moduleFileStream << "#include \"" << aModule->getRegister(i)->getName() << ".h\" \n";
+     }
+    _moduleFileStream << "\n";
+
+     // typedef struct MODULE_obj {
+    _moduleFileStream << "typedef struct " << aModule->getName() << "_obj { \n\n";
+
+    _moduleFileStream << "\n#endif // _" << aModule->getName() << "_h_\n\n";
+}
+void FileWriter::template_Header(Register * aRegister){
     _registerFileStream << "writing to file \n";
     _registerFileStream << aRegister->getName();
     _registerFileStream << "\n";
 }
-
-//! \brief writeModule
-void FileWriter::writeBitField(BitField * aBitField){
+void FileWriter::template_Header(BitField * aBitField){
     _bitFieldFileStream << "writing to file \n";
     _bitFieldFileStream << aBitField->getName();
     _bitFieldFileStream << "\n";

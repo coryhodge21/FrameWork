@@ -80,6 +80,11 @@ private:
 
     //! \brief destroy the last element in the vector
     void popModule(void);
+
+    //! \brief template_Header
+    void template_Header(Module * aModule);
+    void template_Header(Register * aRegister);
+    void template_Header(BitField * aBitField);
 };
 
 #endif //GENERATE_TOOL_CPP_FILEWRITER_H
