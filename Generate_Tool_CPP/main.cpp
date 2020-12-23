@@ -1,13 +1,11 @@
 
 
 #include <iostream>
-#include "DEBUGGING.h"
 #include "Register.h"
 #include "FileParser.h"
 #include "FileWriter.h"
 
 using namespace std;
-
 
 int main(int argc, char * argv[]) {
 
