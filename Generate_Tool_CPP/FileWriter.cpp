@@ -32,6 +32,25 @@ int FileWriter::isEmpty(void) {
     return 0;
 }
 
+/// get last element of vector
+Module * FileWriter::getLastModule(void){
+    return _modules[ _modules.size() - 1];
+}
+
+//! destroy the last element in the vector
+void FileWriter::popModule(void){
+    _modules.pop_back();
+}
+
+/**   Private:  File Writer Special Functions   */
+
+/***    ***************
+ *
+ *      FILE WRITING & TEMPLATING
+ *
+ *      ***************
+ */
+
 /// prep FrameWork Directory and recursively build data tree
 int FileWriter::writeFiles(void){
 
@@ -60,8 +79,6 @@ int FileWriter::writeFiles(void){
     // return success
     return 1;
 }
-
-/**   Private:  File Writer Special Functions   */
 
 /// write file module
 void FileWriter::writeModules(void){
@@ -182,7 +199,7 @@ void FileWriter::writeRegisters(Module * parentModule, string modPath){
 
 }
 
-// write bit fields as enums for parent register
+/// write bit fields as enums for parent register
 // regPath : Mod/Registers/Reg
 void FileWriter::writeBitFields(Register * parentRegister, string regDirPath){
 
@@ -206,6 +223,9 @@ void FileWriter::writeBitFields(Register * parentRegister, string regDirPath){
         }
     }
 
+    // Enums Block Begin
+    template_Header_BitField(parentRegister);
+
     // for each bit field in register tree
     while (! parentRegister->isEmpty()){
 
@@ -216,39 +236,25 @@ void FileWriter::writeBitFields(Register * parentRegister, string regDirPath){
         parentRegister->popBitField();
     }
 
+    // Template Footer for bitfields
+    template_Footer_BitField();
+
     // close file stream
     _bitFieldFileStream.close();
 }
-
-/// get last element of vector
-Module * FileWriter::getLastModule(void){
-    return _modules[ _modules.size() - 1];
-}
-
-//! destroy the last element in the vector
-void FileWriter::popModule(void){
-    _modules.pop_back();
-}
-
-/***    ***************
- *
- *      FILE TEMPLATING
- *
- *      ***************
- */
 
 //! \brief write Module File
 //  _moduleFileStream << "writing to file \n";
 void FileWriter::writeModule(Module * aModule){
 
     // Template Header
-    template_Header(aModule);
+    template_Header_Module(aModule);
 
     // Template Module h body
     template_Module_h(aModule);
 
     // Template Footer
-    template_Footer(aModule);
+    template_Footer_Module(aModule);
 }
 
 //! \brief write Register File
@@ -256,37 +262,31 @@ void FileWriter::writeModule(Module * aModule){
 void FileWriter::writeRegister(Register * aRegister){
 
     // Template Header
-    template_Header(aRegister);
+    template_Header_Register(aRegister);
 
     // Template_Register_H body
     template_Register_h(aRegister);
 
     // Template Footer
-    template_Footer(aRegister);
+    template_Footer_Register(aRegister);
 }
 
 //! \brief write Bit Field File
 //  _bitFieldFileStream << "writing to file \n";
 void FileWriter::writeBitField(BitField * aBitField){
 
-    // Template Header
-    template_Header(aBitField);
-
-    // Tempalte_Bit_Field body
+    // Template_Bit_Field body
     template_BitField_h(aBitField);
-
-    // Template Footer
-    template_Footer(aBitField);
 }
 
 //! \brief Generic Header Module
-void FileWriter::template_Header(Module * aModule){
+void FileWriter::template_Header_Module(Module * aModule){
 
     _moduleFileStream << "/**********************************\n";
     _moduleFileStream << "* \\file : "<< aModule->getName() << ".h \n";
     _moduleFileStream << "* \\author : Cory W. Hodge \n";
     _moduleFileStream << "* \\brief auto generated file \n";
-    _moduleFileStream << "*********************************** */\n\n";
+    _moduleFileStream << "************************************/\n\n";
 
     _moduleFileStream << "#ifndef _" << aModule->getName() << "_h_\n";
     _moduleFileStream << "#define _" << aModule->getName() << "_h_\n\n";
@@ -294,33 +294,36 @@ void FileWriter::template_Header(Module * aModule){
 }
 
 //! \brief Generic Header Register
-void FileWriter::template_Header(Register * aRegister){
+void FileWriter::template_Header_Register(Register * aRegister){
 
     _registerFileStream << "/**********************************\n";
     _registerFileStream << "* \\file : "<< aRegister->getName() << ".h \n";
     _registerFileStream << "* \\author : Cory W. Hodge \n";
     _registerFileStream << "* \\brief auto generated file \n";
-    _registerFileStream << "*********************************** */\n\n";
+    _registerFileStream << "************************************/\n\n";
 
     _registerFileStream << "#ifndef _" << aRegister->getName() << "_h_\n";
     _registerFileStream << "#define _" << aRegister->getName() << "_h_\n\n";
 }
 
 //! \brief Generic Header Bit Fild
-void FileWriter::template_Header(BitField * aBitField){
-    _bitFieldFileStream << "writing to file \n";
+void FileWriter::template_Header_BitField(Register * parentRegister) {
+
+    _bitFieldFileStream << "/**********************************\n";
+    _bitFieldFileStream << "* Bit Field Enums for : "<< parentRegister->getName() << ".h \n";
+    _bitFieldFileStream << "************************************/\n\n";
 
 }
 
 /**     FOOTER      */
-void FileWriter::template_Footer(Module * aModule){
+void FileWriter::template_Footer_Module(Module *aModule) {
     _moduleFileStream << "\n#endif // _" << aModule->getName() << "_h_\n\n";
 }
-void FileWriter::template_Footer(Register * aRegister){
+void FileWriter::template_Footer_Register(Register *aRegister) {
     _registerFileStream << "\n#endif // _" << aRegister->getName() << "_h_\n\n";
 }
-void FileWriter::template_Footer(BitField * aBitFie){
-    _bitFieldFileStream << "\n#endif // _" << aBitFie->getName() << "_h_\n\n";
+void FileWriter::template_Footer_BitField() {
+   _bitFieldFileStream << "//*********************************\n\n";
 }
 
 /** Module h    */
@@ -368,11 +371,41 @@ void FileWriter::template_Module_h(Module * aModule){
 //! \brief Register Header Body
 void FileWriter::template_Register_h(Register * aRegister){
 
+    // include enums
+    _registerFileStream << "#include \"" << aRegister->getName() << "_enums.h\" \n";
+    _registerFileStream << "\n";
 
+    // function pointer types
+    // set
+    _registerFileStream << "typedef void(Set_fpt)(" << aRegister->getName() << "_e);\n";
+    //clear
+    _registerFileStream << "typedef void(Clear_fpt)(" << aRegister->getName() << "_e);\n";
+    // read
+    _registerFileStream << "typedef int32_t(Set_fpt)(" << aRegister->getName() << "_e);\n";
+    // write
+    _registerFileStream << "typedef void(Write_fpt)(" << aRegister->getName() << "_e, int32_t);\n";
+    _registerFileStream << "\n";
+
+    // structure decleration
+    _registerFileStream << "struct " << aRegister->getName() << "_obj;\n";
+    _registerFileStream << "\n";
+
+    // structure typedef
+    _registerFileStream << "typedef struct " << aRegister->getName() << "_obj " << aRegister->getName() << "_t;\n";
+    _registerFileStream << "\n";
+
+    // register create function
+    _registerFileStream << aRegister->getName() << "_t " <<"CreateRegister_"<< aRegister->getName() << "(void);\n";
+    _registerFileStream << "\n";
 }
 
 //! \brief BitField Header Body
-void FileWriter::template_BitField_h(BitField * aBitFied){
+void FileWriter::template_BitField_h(BitField * aBitField){
 
+    // Bit Field Enums
+    _bitFieldFileStream << "\n";
+    _bitFieldFileStream << "/**********************************\n";
+    _bitFieldFileStream << "* Enumerations for : "<< aBitField->getName() << "\n";
+    _bitFieldFileStream << "************************************/\n\n";
 }
 

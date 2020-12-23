@@ -57,6 +57,12 @@ private:
 
     /**   Private:  File Writer Special Functions   */
 
+    //! \brief get the last module element in the vector
+    Module * getLastModule(void);
+
+    //! \brief destroy the last element in the vector
+    void popModule(void);
+
     //! \brief  write file module
     void writeModules(void);
 
@@ -75,21 +81,15 @@ private:
     //! \brief writeModule
     void writeBitField(BitField * aBitField);
 
-    //! \brief get the last module element in the vector
-    Module * getLastModule(void);
-
-    //! \brief destroy the last element in the vector
-    void popModule(void);
-
     //! \brief Generic Header
-    void template_Header(Module * aModule);
-    void template_Header(Register * aRegister);
-    void template_Header(BitField * aBitField);
+    void template_Header_Module(Module * aModule);
+    void template_Header_Register(Register * aRegister);
+    void template_Header_BitField(Register * parentRegister);
 
     //! \brief Generic Footer
-    void template_Footer(Module * aModule);
-    void template_Footer(Register * aRegister);
-    void template_Footer(BitField * aBitFied);
+    void template_Footer_Module(Module * aModule);
+    void template_Footer_Register(Register * aRegister);
+    void template_Footer_BitField();
 
     //! \brief Module Header Body
     void template_Module_h(Module * aModule);

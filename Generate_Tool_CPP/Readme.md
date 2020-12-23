@@ -31,4 +31,6 @@
 - increase flexibility in data used as input, right now only lines with
     #defines are parsed
 
+- add masking shifts for write() functions, currently you have to know the offset of an enum to properly write, this needs changed
+
 </br>
