@@ -20,13 +20,18 @@ Register::~Register() {
 
 /**      BIT FIELD VECTOR FUNCTIONS     */
 
+//! \brief
+void Register::popBitField(void){
+    this->_bitFields.pop_back();
+}
+
 //! \brief push bitfield onto register vector
 void Register::pushBitField(BitField * aBitField){
     _bitFields.push_back(aBitField);
 }
 
 //! \brief return pointer to last bit field in register
-BitField *  Register::popBitField(void){
+BitField *  Register::getLastBitField(void){
     // size() : returns number of elements in vector
     return _bitFields[_bitFields.size() - 1];
 }

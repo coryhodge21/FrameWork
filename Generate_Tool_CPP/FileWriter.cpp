@@ -38,6 +38,7 @@ int FileWriter::isEmpty(void) {
 //
 int FileWriter::writeFiles(void){
 
+    /** _Directory.h        */
     // path to FrameWork Directory
     string frameWork_PATH = PATH_TO_FRAMEWORK;
 
@@ -49,8 +50,11 @@ int FileWriter::writeFiles(void){
         cout << "ERROR Could not open file : " << (frameWork_PATH + "_Directory.h") << endl;
     }
 
-    // while _modules vector not empty
+    /**   while _modules vector not empty  */
     writeModules();
+
+    // close directory stream
+    this->_directoryFileStream.close();
 
     return 1;
 }
@@ -63,12 +67,13 @@ void FileWriter::writeModules(void){
     // for each Module in the data tree
     while( ! this->isEmpty()) {
 
-        /**     MODULE/     */
+        /**     MODULE/ Directory    */
         // get pointer to last module in data tree
-        Module aModule = *_modules.end();
+        // TODO: replace with this->getLastModule()
+        Module * aModule = _modules[ _modules.size() - 1];
 
         // create path
-        string modPath = aModule->getName();    // Mod
+        string modPath = PATH_TO_FRAMEWORK + aModule->getName();    // Mod
 
         // create directory Module/
         if (mkdir(modPath.c_str(), 0777) == -1) {
@@ -100,53 +105,55 @@ void FileWriter::writeModules(void){
         // while Module register not empty, write registers
         writeRegisters(aModule, modPath);
 
-
-        // TODO: DESTROY MODULE
-
-        // TODO: close file strea
+        // TODO: replace with this->popModule()
+        // DESTROY MODULE
+        _modules.pop_back();
     }
+
+    // TODO: close file stream
+    _moduleFileStream.close();
 }
 
 
 // write file register
 void FileWriter::writeRegisters(Module * parentModule, string modPath){
 
-    /**     MOD/REGISTERS/      */
+    /**     MOD/REGISTERS/   Directory   */
     // each module must have at least one register
     // create path for registers Directory
-    string regsPath = modPath + "/Registers";   // Mod/Registers
+    string regsDirPath = modPath + "/Registers";   // Mod/Registers
 
     // create directory Module/Registers
-    if (mkdir(regsPath.c_str(), 0777) == -1) {
+    if (mkdir(regsDirPath.c_str(), 0777) == -1) {
         cerr << "Error :  " << strerror(errno) << endl;
     }
     else {
-        cout << "Directory created : " + regsPath;
+        cout << "Directory created : " + regsDirPath;
     }
 
     // for each Register in Module tree
     while ( ! parentModule->isEmpty() ) {
 
-        /**     REGISTERS/Register      */
+        /**     REGISTERS/Register   Directory   */
 
         // get pointer to last register in module tree
-        Register * aRegister = (parentModule->popRegister());
+        Register * aRegister = (parentModule->getLastRegister());
 
-        // build file path
-        string regPath = regsPath + "/" + aRegister->getName();   // Mod/Registers/Reg
+        // build directory path
+        string regDirPath = regsDirPath + "/" + aRegister->getName();   // Mod/Registers/Reg
 
         // create directory Module/Registers/Register
-        if (mkdir(regPath.c_str(), 0777) == -1) {
+        if (mkdir(regDirPath.c_str(), 0777) == -1) {
             cerr << "Error :  " << strerror(errno) << endl;
         }
         else {
-            cout << "Directory created : " + regPath;
+            cout << "Directory created : " + regDirPath;
         }
 
         /**     REGISTER.h      */
 
         // create path to file
-        string regFilePath = "/" + regPath + ".h";  // Mod/Registers/Reg.h
+        string regFilePath = regDirPath + "/" + aRegister->getName()+ ".h";  // Mod/Registers/Reg.h
 
         // create file register.h (template starter file)
         _registerFileStream.open((regFilePath), std::ios::out);
@@ -161,28 +168,30 @@ void FileWriter::writeRegisters(Module * parentModule, string modPath){
 
         /**     RECURSIVELY WRITE BIT FIELD FILES FOR REGISTER.h     */
         // append all bit field enums
-        writeBitFields(aRegister, regPath);
+        writeBitFields(aRegister, regDirPath);
 
-        // TODO: destroy register
-
-        // TODO: close file stream
+        // destroy register
+        parentModule->popRegister();
     }
+
+    // close file stream
+    _registerFileStream.close();
 }
 
 // write bit fields as enums for parent register
 // regPath : Mod/Registers/Reg
-void FileWriter::writeBitFields(Register * parentRegister, string regPath){
+void FileWriter::writeBitFields(Register * parentRegister, string regDirPath){
 
-    // for each bit field in register tree
-    while (! parentRegister->isEmpty()){
+    // one make 1 reg_enums file
+    if (! parentRegister->isEmpty()){
 
         // get pointer to last bit field
-        BitField * aBitField = (parentRegister->popBitField());
+        BitField * aBitField = (parentRegister->getLastBitField());
 
         /**     Reg_enums.h      */
 
         // create path to file
-        string bfFilePath = "/" + regPath + "_enums.h";    // Mod/Registers/Reg_enums.h
+        string bfFilePath = regDirPath + "/" + parentRegister->getName() + "_enums.h";    // Mod/Registers/Reg_enums.h
 
         // create file Reg_enums.h
         _bitFieldFileStream.open((bfFilePath), std::ios::out);
@@ -191,14 +200,19 @@ void FileWriter::writeBitFields(Register * parentRegister, string regPath){
         if( !this->_bitFieldFileStream.is_open()){
             cout << "ERROR Could not open file : " << bfFilePath << endl;
         }
+    }
+    // for each bit field in register tree
+    while (! parentRegister->isEmpty()){
 
         // write file Register_enums.h ( append )
-        writeBitField(aBitField);
+        writeBitField(parentRegister->getLastBitField());
 
-        // TODO: destroy bitfield
-
-        // TODO: close file stream
+        // destroy bitfield
+        parentRegister->popBitField();
     }
+
+    // close file stream
+    _bitFieldFileStream.close();
 }
 
 //! \brief writeModule

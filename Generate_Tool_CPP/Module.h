@@ -43,8 +43,11 @@ public:
     //! \brief push
     void pushRegister(Register * aRegister);
 
-    //! \brief pop
-    Register * popRegister(void);
+    //! \brief pop last element and destroy
+    void popRegister(void);
+
+    //! \brief return pointer to last element
+    Register * getLastRegister(void);
 
     //! \brief find
     Register * getRegister(string name);

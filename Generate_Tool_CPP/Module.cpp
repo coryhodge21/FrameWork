@@ -20,13 +20,17 @@ Module::~Module() {
 
 /**      REGISTER VECTOR FUNCTIONS     */
 
+/// pop and destroy last element
+void Module::popRegister() {
+    this->_registers.pop_back();
+}
 //! \brief push register pointer onto register vector
 void Module::pushRegister(Register *aRegister) {
     _registers.push_back(aRegister);
 }
 
 //! \brief return pointer to last register in register vector
-Register *  Module::popRegister(void) {
+Register *  Module::getLastRegister(void) {
 
     // size() : returns number of elements in vector
     return _registers[_registers.size() - 1];

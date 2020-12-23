@@ -39,11 +39,14 @@ public:
 
     /**      BIT FIELD VECTOR FUNCTIONS     */
 
+    //! \brief pop last item in bit field vector off and destroy
+    void popBitField(void);
+
     //! \brief push
     void pushBitField(BitField * aBitField);
 
-    //! \brief pop
-    BitField * popBitField(void);
+    //! \brief pointer to last bit field in vector
+    BitField * getLastBitField(void);
 
     //! \brief get
     BitField * getBitField(string nameBitField);
