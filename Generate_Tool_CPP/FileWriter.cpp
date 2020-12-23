@@ -75,7 +75,7 @@ void FileWriter::writeModules(void){
         Module * aModule = getLastModule();
 
         // create path
-        string modPath = PATH_TO_FRAMEWORK + aModule->getName();    // Mod
+        string modPath = PATH_TO_FRAMEWORK + aModule->getName();    // ../fwdir/Mod
 
         // create directory Module/
         if (mkdir(modPath.c_str(), 0777) == -1) {
@@ -111,38 +111,41 @@ void FileWriter::writeModules(void){
 
         // DESTROY MODULE
         popModule();
+
+        // close file stream
+        _moduleFileStream.close();
     }
 
-    // close file stream
-    _moduleFileStream.close();
+
 }
 
 /// write file register
 void FileWriter::writeRegisters(Module * parentModule, string modPath){
 
-    /**     MOD/REGISTERS/   Directory   */
+    /**     REGISTERS/  general  Directory   */
 
-    // create path for registers Directory
-    string regsDirPath = modPath + "/Registers";   // Mod/Registers
+    // create REGISTERS_PATH : "../../FWdir/Mod/Registers
+    string REGISTERS_PATH = modPath + "/Registers";   // Mod/Registers
 
     // create directory Module/Registers
-    if (mkdir(regsDirPath.c_str(), 0777) == -1) {
+    if (mkdir(REGISTERS_PATH.c_str(), 0777) == -1) {
         cerr << "Error :  " << strerror(errno) << endl;
     }
     else {
-        cout << "Directory created : " + regsDirPath + "\n";
+        cout << "Directory created : " + REGISTERS_PATH + "\n";
     }
 
-    // for each Register in Module tree
+    /**   Specific Register Directory and .h     */
+    ///     for each Register in Module tree
     while ( ! parentModule->isEmpty() ) {
 
-        /**     REGISTERS/Register   Directory   */
+        /**     Specific Register   Directory   */
 
         // get pointer to last register in module tree
         Register * aRegister = (parentModule->getLastRegister());
 
-        // build directory path
-        string regDirPath = regsDirPath + "/" + aRegister->getName();   // Mod/Registers/Reg
+        // build directory path :  "../../FWdir/Mod/Registers" "/RegName
+        string regDirPath = REGISTERS_PATH + "/" + aRegister->getName();   // Mod/Registers/Reg
 
         // create directory Module/Registers/Register
         if (mkdir(regDirPath.c_str(), 0777) == -1) {
@@ -152,10 +155,9 @@ void FileWriter::writeRegisters(Module * parentModule, string modPath){
             cout << "Directory created : " + regDirPath;
         }
 
-        /**     REGISTER.h      */
-
-        // create path to file
-        string regFilePath = regDirPath + "/" + aRegister->getName()+ ".h";  // Mod/Registers/Reg.h
+        /**     Register.h      */
+        // create path to file : "../../FWdir/Mod/Registers/RegName" " /RegName.h"
+        string regFilePath = regDirPath + "/" + aRegister->getName()+ ".h";
 
         // create file register.h (template starter file)
         _registerFileStream.open( regFilePath, std::ios::out);
@@ -174,10 +176,12 @@ void FileWriter::writeRegisters(Module * parentModule, string modPath){
 
         // destroy register
         parentModule->popRegister();
+
+        // close file stream
+        _registerFileStream.close();
     }
 
-    // close file stream
-    _registerFileStream.close();
+
 }
 
 // write bit fields as enums for parent register
@@ -203,7 +207,7 @@ void FileWriter::writeBitFields(Register * parentRegister, string regDirPath){
             cout << "ERROR Could not open file : " << bfFilePath << endl;
         }
     }
-    
+
     // for each bit field in register tree
     while (! parentRegister->isEmpty()){
 
