@@ -114,6 +114,9 @@
 		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/main.cpp">
 			<Option target="Generate_Tool_CPP"/>
 		</Unit>
+		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/test_hw_sysctl.h">
+			<Option target="Generate_Tool_CPP"/>
+		</Unit>
 		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
