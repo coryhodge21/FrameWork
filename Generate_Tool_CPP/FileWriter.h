@@ -81,10 +81,24 @@ private:
     //! \brief destroy the last element in the vector
     void popModule(void);
 
-    //! \brief template_Header
+    //! \brief Generic Header
     void template_Header(Module * aModule);
     void template_Header(Register * aRegister);
     void template_Header(BitField * aBitField);
+
+    //! \brief Generic Footer
+    void template_Footer(Module * aModule);
+    void template_Footer(Register * aRegister);
+    void template_Footer(BitField * aBitFied);
+
+    //! \brief Module Header Body
+    void template_Module_h(Module * aModule);
+
+    //! \brief Register Header Body
+    void template_Register_h(Register * aRegister);
+
+    //! \brief BitField Header Body
+    void template_BitField_h(BitField * aBitFied);
 };
 
 #endif //GENERATE_TOOL_CPP_FILEWRITER_H

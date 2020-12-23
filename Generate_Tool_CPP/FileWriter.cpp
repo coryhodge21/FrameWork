@@ -243,6 +243,12 @@ void FileWriter::writeModule(Module * aModule){
 
     // Template Header
     template_Header(aModule);
+
+    // Template Module h body
+    template_module_h(aModule);
+
+    // Template Footer
+    template_Footer(aModule);
 }
 
 //! \brief write Register File
@@ -251,6 +257,12 @@ void FileWriter::writeRegister(Register * aRegister){
 
     // Template Header
     template_Header(aRegister);
+
+    // Template_Register_H body
+    template_Register_h(aRegister);
+
+    // Template Footer
+    template_Footer(aRegister);
 }
 
 //! \brief write Bit Field File
@@ -259,9 +271,15 @@ void FileWriter::writeBitField(BitField * aBitField){
 
     // Template Header
     template_Header(aBitField);
+
+    // Tempalte_Bit_Field body
+    template_BitField_h(aBitField);
+
+    // Template Footer
+    template_Footer(aBitField);
 }
 
-//! \brief template_Header
+//! \brief Generic Header Module
 void FileWriter::template_Header(Module * aModule){
 
     _moduleFileStream << "/**********************************\n";
@@ -273,26 +291,81 @@ void FileWriter::template_Header(Module * aModule){
     _moduleFileStream << "#ifndef _" << aModule->getName() << "_h_\n";
     _moduleFileStream << "#define _" << aModule->getName() << "_h_\n\n";
 
-    /**
-     * Generate #includ's for each register
-     */
-     for( int i = 0; i < aModule->getRegisterSize(); i++){
-         _moduleFileStream << "#include \"" << aModule->getRegister(i)->getName() << ".h\" \n";
-     }
-    _moduleFileStream << "\n";
-
-     // typedef struct MODULE_obj {
-    _moduleFileStream << "typedef struct " << aModule->getName() << "_obj { \n\n";
-
-    _moduleFileStream << "\n#endif // _" << aModule->getName() << "_h_\n\n";
 }
+
+//! \brief Generic Header Register
 void FileWriter::template_Header(Register * aRegister){
-    _registerFileStream << "writing to file \n";
-    _registerFileStream << aRegister->getName();
-    _registerFileStream << "\n";
+
+    _registerFileStream << "/**********************************\n";
+    _registerFileStream << "* \\file : "<< aRegister->getName() << ".h \n";
+    _registerFileStream << "* \\author : Cory W. Hodge \n";
+    _registerFileStream << "* \\brief auto generated file \n";
+    _registerFileStream << "*********************************** */\n\n";
+
+    _registerFileStream << "#ifndef _" << aRegister->getName() << "_h_\n";
+    _registerFileStream << "#define _" << aRegister->getName() << "_h_\n\n";
 }
+
+//! \brief Generic Header Bit Fild
 void FileWriter::template_Header(BitField * aBitField){
     _bitFieldFileStream << "writing to file \n";
-    _bitFieldFileStream << aBitField->getName();
-    _bitFieldFileStream << "\n";
+
 }
+
+/**     FOOTER      */
+void FileWriter::template_Footer(Module * aModule){
+    _moduleFileStream << "\n#endif // _" << aModule->getName() << "_h_\n\n";
+}
+void FileWriter::template_Footer(Register * aRegister){
+    _registerFileStream << "\n#endif // _" << aRegister->getName() << "_h_\n\n";
+}
+void FileWriter::template_Footer(BitField * aBitFie){
+    _bitFieldFileStream << "\n#endif // _" << aBitFie->getName() << "_h_\n\n";
+}
+
+/** Module h    */
+
+//! \brief Module Body
+void FileWriter::template_Module_h(Module * aModule){
+
+    /**
+     * Generate #include's for each register
+     */
+    for( int i = 0; i < aModule->getRegisterSize(); i++){
+        _moduleFileStream << "#include \"" << aModule->getRegister(i)->getName() << ".h\" \n";
+    }
+    _moduleFileStream << "\n";
+
+    // typedef struct MODULE_obj {
+    _moduleFileStream << "typedef struct " << aModule->getName() << "_obj { \n\n";
+
+    // ADDRESS MOD_BASE_ADDR;
+    _moduleFileStream << "\tADDRESS " << aModule->getName() << "_BASE_ADDR;\n";
+
+    // Array of registers
+    _moduleFileStream << "\tvoid(*set)(void);\n";
+    _moduleFileStream << "\tvoid(*clear)(void);\n";
+    _moduleFileStream << "\tvoid(*read)(void);\n";
+    _moduleFileStream << "\tvoid(*write)(void);\n";
+
+
+    // function pointers
+
+    // end Module_t
+
+    // constructor / initializer
+
+
+}
+
+//! \brief Register Header Body
+void FileWriter::template_Register_h(Register * aRegister){
+
+
+}
+
+//! \brief BitField Header Body
+void FileWriter::template_BitField_h(BitField * aBitFied){
+
+}
+

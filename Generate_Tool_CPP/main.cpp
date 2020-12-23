@@ -9,12 +9,8 @@
  *
  * Using File Writer, generate a FrameWork Library for the data collected
  *
- *
- * =======      Known Bugs      =========
- * TODO : 12/22/2020 : only first register header file being generated ; Suspect FileWriter
- *
  * =======      Dev Notes       =========
- * TODO : 12/22/2020 Remove unused functions, clean up comments
+ * See Readme.md for project
  *
  */
 #include "FileParser.h"
@@ -36,7 +32,7 @@ int main(int argc, char * argv[]) {
     FileWriter fileWriter;
 
     /// TODO: replace this with while( i < argc )
-    ///         where arc = is num of hw_ mem maps
+    ///         where argc = is num of hw_ mem maps
   //  for (int i = 1; i < argc; i++ ) {
 
         // parse file, build up modules data tree
