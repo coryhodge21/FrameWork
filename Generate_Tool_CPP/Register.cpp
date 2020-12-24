@@ -15,7 +15,7 @@ Register::Register(string name, string address, string descriptor) :
 
 /// Destructor
 Register::~Register() {
-
+    // TODO : deallocate memory and safe pointers
 }
 
 /**      BIT FIELD VECTOR FUNCTIONS     */

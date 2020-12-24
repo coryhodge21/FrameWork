@@ -224,6 +224,33 @@ FileWriter.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Generate_Tool_CPP.dir/build.make CMakeFiles/Generate_Tool_CPP.dir/FileWriter.cpp.s
 .PHONY : FileWriter.cpp.s
 
+FileWriter_Templates.o: FileWriter_Templates.cpp.o
+
+.PHONY : FileWriter_Templates.o
+
+# target to build an object file
+FileWriter_Templates.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Generate_Tool_CPP.dir/build.make CMakeFiles/Generate_Tool_CPP.dir/FileWriter_Templates.cpp.o
+.PHONY : FileWriter_Templates.cpp.o
+
+FileWriter_Templates.i: FileWriter_Templates.cpp.i
+
+.PHONY : FileWriter_Templates.i
+
+# target to preprocess a source file
+FileWriter_Templates.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Generate_Tool_CPP.dir/build.make CMakeFiles/Generate_Tool_CPP.dir/FileWriter_Templates.cpp.i
+.PHONY : FileWriter_Templates.cpp.i
+
+FileWriter_Templates.s: FileWriter_Templates.cpp.s
+
+.PHONY : FileWriter_Templates.s
+
+# target to generate assembly for a file
+FileWriter_Templates.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Generate_Tool_CPP.dir/build.make CMakeFiles/Generate_Tool_CPP.dir/FileWriter_Templates.cpp.s
+.PHONY : FileWriter_Templates.cpp.s
+
 Module.o: Module.cpp.o
 
 .PHONY : Module.o
@@ -323,6 +350,9 @@ help:
 	@echo "... FileWriter.o"
 	@echo "... FileWriter.i"
 	@echo "... FileWriter.s"
+	@echo "... FileWriter_Templates.o"
+	@echo "... FileWriter_Templates.i"
+	@echo "... FileWriter_Templates.s"
 	@echo "... Module.o"
 	@echo "... Module.i"
 	@echo "... Module.s"

@@ -8,30 +8,33 @@
 FileWriter:: FileWriter() {
     // TODO : implement better file writer initialization
 }
+/// Ensure memory deallocated
 FileWriter:: ~FileWriter(){
-    // TODO : Free data tree
-}
 
+    // if modules vector is not empty
+    if(!_modules.empty()){
 
-/// assign file writer a populated vector of Module *
-void FileWriter::setModules(vector<Module *> modules) {
-    _modules = modules;
-}
+        // for each module in _modules vector
+        // starting from end of vector
+        for(int i = _modules.size(); !_modules.empty(); i--){
 
-/// check if file writer data vector is empty
-int FileWriter::isEmpty(void) {
-
-    // if no modules, data tree is empty
-    if (this->_modules.empty()) {
-        return 1;
+            // Call module destructor
+            _modules[i]->~Module();
+        }
     }
-    return 0;
+
+    // close all file streams
+    _directoryFileStream.close();
+    _moduleFileStream.close();
+    _registerFileStream.close();
+    _bitFieldFileStream.close();
 }
 
 /// prep FrameWork Directory and recursively build data tree
 int FileWriter::writeFiles(void){
 
     /** _Directory.h        */
+    // create _directory.h file
 
     // path to FrameWork Directory
     string frameWork_PATH = PATH_TO_FRAMEWORK;
@@ -57,27 +60,14 @@ int FileWriter::writeFiles(void){
     return 1;
 }
 
-
-
-
-/// get last element of vector
-Module * FileWriter::getLastModule(void){
-    return _modules[ _modules.size() - 1];
-}
-
-//! destroy the last element in the vector
-void FileWriter::popModule(void){
-    _modules.pop_back();
-}
-
-
 /// write file module
 void FileWriter::writeModules(void){
 
-    // for each Module in the data tree
+    // for each Module in the File Writer data tree (_modules)
     while( ! this->isEmpty()) {
 
         /**     MODULE/ Directory    */
+        // create directory for Module
 
         // get pointer to last module in data tree
         Module * aModule = getLastModule();
@@ -93,6 +83,7 @@ void FileWriter::writeModules(void){
         }
 
         /**       MODULE.h    */
+        // create directory.h file
 
         // build path to MODULE header file
         // i.e. : "PATH/ModName/ModName.h
@@ -114,6 +105,7 @@ void FileWriter::writeModules(void){
         // TODO : create function to pull this out
 
         /**     REGISTERS/  general  Directory   */
+        // within module directory create a Register directory
         /// void WriteModRegisters {
 
         // create REGISTERS_PATH : "../../FWdir/Mod/Registers
@@ -127,9 +119,12 @@ void FileWriter::writeModules(void){
             cout << "Directory created : " + REGISTERS_DIR_PATH + "\n";
         }
 
+
+        /**     Registers.h file    */
+        // in module directory write the file Registers.h
+
         // create Registers.h file path
         string REGISTERS_H_PATH = modPath + "/Registers.h";
-
 
         // open file stream
         ofstream registersFileStream;
@@ -140,7 +135,7 @@ void FileWriter::writeModules(void){
             cout << "ERROR Could not open file : " << REGISTERS_H_PATH << endl;
         }
 
-        /**           Write Registers.h   */
+        /**           TODO : Function : Write Registers.h   */
         registersFileStream << "/***************\n";
         registersFileStream << "* \\file : Registers.h\n";
         registersFileStream << "* \\author : Cory W. Hodge\n";
@@ -161,8 +156,9 @@ void FileWriter::writeModules(void){
         registersFileStream << "#endif // _REGISTERS_H_\n";
 
         /// }
+
         /**
-         * RECURSIVELY WRITE REGISTER FILES
+         * RECURSIVELY WRITE REGISTER FILES for each module register
          * while Module register not empty, write registers
          */
         writeRegisters(aModule, REGISTERS_DIR_PATH);
@@ -183,6 +179,7 @@ void FileWriter::writeRegisters(Module * parentModule, string modPath){
     while ( ! parentModule->isEmpty() ) {
 
         /**     Specific Register   Directory   */
+        // create directory for this specific register
 
         // get pointer to last register in module tree
         Register * aRegister = (parentModule->getLastRegister());
@@ -199,6 +196,7 @@ void FileWriter::writeRegisters(Module * parentModule, string modPath){
         }
 
         /**     Register.h      */
+        // within register specific directory, write Register .h file
         // create path to file : "../../FWdir/Mod/Registers/RegName" " /RegName.h"
         string regFilePath = regDirPath + "/" + aRegister->getName()+ ".h";
 
@@ -210,10 +208,13 @@ void FileWriter::writeRegisters(Module * parentModule, string modPath){
             cout << "ERROR Could not open file : " << regFilePath << endl;
         }
 
-        // write file register.h ( finish )
+        // write file register.h
         writeRegister(aRegister);
 
-        /**     RECURSIVELY WRITE BIT FIELD FILES FOR REGISTER.h     */
+        /**
+         * REGISTER_enums.h
+         *      RECURSIVELY WRITE BIT FIELDS
+         */
         // append all bit field enums
         writeBitFields(aRegister, regDirPath);
 
@@ -270,164 +271,30 @@ void FileWriter::writeBitFields(Register * parentRegister, string regDirPath){
     _bitFieldFileStream.close();
 }
 
-//! \brief write Module File
-void FileWriter::writeModule(Module * aModule){
-
-    // Template Header
-    template_Header_Module(aModule);
-
-    // Template Module h body
-    template_Module_h(aModule);
-
-    // Template Footer
-    template_Footer_Module(aModule);
+/// assign file writer a populated vector of Module *
+void FileWriter::setModules(vector<Module *> modules) {
+    _modules = modules;
 }
 
-//! \brief write Register File;
-void FileWriter::writeRegister(Register * aRegister){
+/// check if file writer data vector is empty
+int FileWriter::isEmpty(void) {
 
-    // Template Header
-    template_Header_Register(aRegister);
-
-    // Template_Register_H body
-    template_Register_h(aRegister);
-
-    // Template Footer
-    template_Footer_Register(aRegister);
+    // if no modules, data tree is empty
+    if (this->_modules.empty()) {
+        return 1;
+    }
+    return 0;
 }
 
-//! \brief write Bit Field File
-void FileWriter::writeBitField(BitField * aBitField){
-
-    // Template_Bit_Field body
-    template_BitField_h(aBitField);
+/// get last element of vector
+Module * FileWriter::getLastModule(void){
+    return _modules[ _modules.size() - 1];
 }
 
-//! \brief Generic Header Module
-void FileWriter::template_Header_Module(Module * aModule){
-
-    _moduleFileStream << "/**********************************\n";
-    _moduleFileStream << "* \\file : "<< aModule->getName() << ".h \n";
-    _moduleFileStream << "* \\author : Cory W. Hodge \n";
-    _moduleFileStream << "* \\brief auto generated file \n";
-    _moduleFileStream << "************************************/\n\n";
-
-    _moduleFileStream << "#ifndef _" << aModule->getName() << "_h_\n";
-    _moduleFileStream << "#define _" << aModule->getName() << "_h_\n\n";
-
+//! destroy the last element in the vector
+void FileWriter::popModule(void){
+    _modules.pop_back();
 }
 
-//! \brief Generic Header Register
-void FileWriter::template_Header_Register(Register * aRegister){
 
-    _registerFileStream << "/**********************************\n";
-    _registerFileStream << "* \\file : "<< aRegister->getName() << ".h \n";
-    _registerFileStream << "* \\author : Cory W. Hodge \n";
-    _registerFileStream << "* \\brief auto generated file \n";
-    _registerFileStream << "************************************/\n\n";
-
-    _registerFileStream << "#ifndef _" << aRegister->getName() << "_h_\n";
-    _registerFileStream << "#define _" << aRegister->getName() << "_h_\n\n";
-}
-
-//! \brief Generic Header Bit Fild
-void FileWriter::template_Header_BitField(Register * parentRegister) {
-
-    _bitFieldFileStream << "/**********************************\n";
-    _bitFieldFileStream << "* Bit Field Enums for : "<< parentRegister->getName() << ".h \n";
-    _bitFieldFileStream << "************************************/\n\n";
-
-}
-
-//! \brief Module Body
-void FileWriter::template_Module_h(Module * aModule){
-
-    /**
-     * Generate #include's for Registers.h
-     * This will be a file for all the register includes for this module
-     */
-    _moduleFileStream << "#include \"Registers.h\" \n";
-
-    _moduleFileStream << "\n";
-
-    // typedef struct MODULE_obj {
-    _moduleFileStream << "typedef struct " << aModule->getName() << "_obj { \n";
-    _moduleFileStream << "\n";
-
-    // ADDRESS MOD_BASE_ADDR;
-    _moduleFileStream << "\tADDRESS " << aModule->getName() << "_BASE_ADDR;\n";
-    _moduleFileStream << "\n";
-
-    // Array of registers
-    _moduleFileStream << "\tREGISTER_t Registers[MAX_REGISTER_ARR_SIZE];\n";
-    _moduleFileStream << "\n";
-
-    // function pointers
-    _moduleFileStream << "\tvoid(*set)(void);\n";
-    _moduleFileStream << "\tvoid(*clear)(void);\n";
-    _moduleFileStream << "\tvoid(*read)(void);\n";
-    _moduleFileStream << "\tvoid(*write)(void);\n";
-    _moduleFileStream << "\n";
-
-    // } Module_t;
-    _moduleFileStream << "} " << aModule->getName() << "_t;\n";
-    _moduleFileStream << "\n";
-
-    // constructor / initializer
-    _moduleFileStream << aModule->getName() << "_t CreateModule_" << aModule->getName() << "(void);";
-    _moduleFileStream << "\n";
-
-}
-
-//! \brief Register Header Body
-void FileWriter::template_Register_h(Register * aRegister){
-
-    // include enums
-    _registerFileStream << "#include \"" << aRegister->getName() << "_enums.h\" \n";
-    _registerFileStream << "\n";
-
-    // function pointer types
-    // set
-    _registerFileStream << "typedef void(Set_fpt)(" << aRegister->getName() << "_e);\n";
-    //clear
-    _registerFileStream << "typedef void(Clear_fpt)(" << aRegister->getName() << "_e);\n";
-    // read
-    _registerFileStream << "typedef int32_t(Set_fpt)(" << aRegister->getName() << "_e);\n";
-    // write
-    _registerFileStream << "typedef void(Write_fpt)(" << aRegister->getName() << "_e, int32_t);\n";
-    _registerFileStream << "\n";
-
-    // structure decleration
-    _registerFileStream << "struct " << aRegister->getName() << "_obj;\n";
-    _registerFileStream << "\n";
-
-    // structure typedef
-    _registerFileStream << "typedef struct " << aRegister->getName() << "_obj " << aRegister->getName() << "_t;\n";
-    _registerFileStream << "\n";
-
-    // register create function
-    _registerFileStream << aRegister->getName() << "_t " <<"CreateRegister_"<< aRegister->getName() << "(void);\n";
-    _registerFileStream << "\n";
-}
-
-//! \brief BitField Header Body
-void FileWriter::template_BitField_h(BitField * aBitField){
-
-    // Bit Field Enums
-    _bitFieldFileStream << "\n";
-    _bitFieldFileStream << "/**********************************\n";
-    _bitFieldFileStream << "* Enumerations for : "<< aBitField->getName() << "\n";
-    _bitFieldFileStream << "************************************/\n\n";
-}
-
-/**     FOOTER      */
-void FileWriter::template_Footer_Module(Module *aModule) {
-    _moduleFileStream << "\n#endif // _" << aModule->getName() << "_h_\n\n";
-}
-void FileWriter::template_Footer_Register(Register *aRegister) {
-    _registerFileStream << "\n#endif // _" << aRegister->getName() << "_h_\n\n";
-}
-void FileWriter::template_Footer_BitField() {
-    _bitFieldFileStream << "//*********************************\n\n";
-}
 

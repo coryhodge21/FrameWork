@@ -18,7 +18,7 @@
 /**
  * Defines
  */
-
+#define PATH_TO_FRAMEWORK   "../../FrameWork/"
 
 
 

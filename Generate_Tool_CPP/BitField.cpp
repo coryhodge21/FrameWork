@@ -15,7 +15,7 @@ BitField::BitField(const string &name, const string &mask, const string &descrip
 
 /// Destructor
 BitField::~BitField() {
-
+    // TODO : deallocate memory and safe pointers
 }
 
 /**     SETTERS / GETTERS       */

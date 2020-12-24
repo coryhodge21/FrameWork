@@ -15,9 +15,6 @@
 #include <sys/stat.h>   // mkdir()
 #include "Module.h"
 
-// TODO : Move this to project common
-#define PATH_TO_FRAMEWORK   "../../FrameWork/"
-
 using namespace std;
 
 class FileWriter {

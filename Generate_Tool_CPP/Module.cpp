@@ -15,7 +15,7 @@ Module::Module(string name, string address, string descriptor) :
 
 /// Destructor
 Module::~Module() {
-
+    // TODO : deallocate memory and safe pointers
 }
 
 /**      REGISTER VECTOR FUNCTIONS     */
