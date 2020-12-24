@@ -120,6 +120,35 @@ void FileWriter::writeModules(void){
          */
         writeModule(aModule);
 
+        // TODO : create function to pull this out
+        /**     REGISTERS/  general  Directory   */
+        /// void WriteModRegisters {
+
+        // create REGISTERS_PATH : "../../FWdir/Mod/Registers
+        string REGISTERS_DIR_PATH = modPath + "/Registers";   // Mod/Registers
+
+        // create directory Module/Registers
+        if (mkdir(REGISTERS_PATH.c_str(), 0777) == -1) {
+            cerr << "Error :  " << strerror(errno) << endl;
+        }
+        else {
+            cout << "Directory created : " + REGISTERS_PATH + "\n";
+        }
+
+        // create Registers.h file path
+
+
+
+
+
+        /**
+         * Generate #include's for each register
+         */
+        for( int i = 0; i < aModule->getRegisterSize(); i++){
+            _moduleFileStream << "#include \"" << aModule->getRegister(i)->getName() << ".h\" \n";
+        }
+
+        /// }
         /**
          * RECURSIVELY WRITE REGISTER FILES
          * while Module register not empty, write registers
@@ -136,19 +165,6 @@ void FileWriter::writeModules(void){
 
 /// write file register
 void FileWriter::writeRegisters(Module * parentModule, string modPath){
-
-    /**     REGISTERS/  general  Directory   */
-
-    // create REGISTERS_PATH : "../../FWdir/Mod/Registers
-    string REGISTERS_PATH = modPath + "/Registers";   // Mod/Registers
-
-    // create directory Module/Registers
-    if (mkdir(REGISTERS_PATH.c_str(), 0777) == -1) {
-        cerr << "Error :  " << strerror(errno) << endl;
-    }
-    else {
-        cout << "Directory created : " + REGISTERS_PATH + "\n";
-    }
 
     /**   Specific Register Directory and .h     */
     ///     for each Register in Module tree
@@ -315,28 +331,17 @@ void FileWriter::template_Header_BitField(Register * parentRegister) {
 
 }
 
-/**     FOOTER      */
-void FileWriter::template_Footer_Module(Module *aModule) {
-    _moduleFileStream << "\n#endif // _" << aModule->getName() << "_h_\n\n";
-}
-void FileWriter::template_Footer_Register(Register *aRegister) {
-    _registerFileStream << "\n#endif // _" << aRegister->getName() << "_h_\n\n";
-}
-void FileWriter::template_Footer_BitField() {
-   _bitFieldFileStream << "//*********************************\n\n";
-}
-
 /** Module h    */
 
 //! \brief Module Body
 void FileWriter::template_Module_h(Module * aModule){
 
     /**
-     * Generate #include's for each register
+     * Generate #include's for Registers.h
+     * This will be a file for all the register includes for this module
      */
-    for( int i = 0; i < aModule->getRegisterSize(); i++){
-        _moduleFileStream << "#include \"" << aModule->getRegister(i)->getName() << ".h\" \n";
-    }
+    _moduleFileStream << "#include \"Registers.h\" \n";
+
     _moduleFileStream << "\n";
 
     // typedef struct MODULE_obj {
@@ -407,5 +412,16 @@ void FileWriter::template_BitField_h(BitField * aBitField){
     _bitFieldFileStream << "/**********************************\n";
     _bitFieldFileStream << "* Enumerations for : "<< aBitField->getName() << "\n";
     _bitFieldFileStream << "************************************/\n\n";
+}
+
+/**     FOOTER      */
+void FileWriter::template_Footer_Module(Module *aModule) {
+    _moduleFileStream << "\n#endif // _" << aModule->getName() << "_h_\n\n";
+}
+void FileWriter::template_Footer_Register(Register *aRegister) {
+    _registerFileStream << "\n#endif // _" << aRegister->getName() << "_h_\n\n";
+}
+void FileWriter::template_Footer_BitField() {
+    _bitFieldFileStream << "//*********************************\n\n";
 }
 
