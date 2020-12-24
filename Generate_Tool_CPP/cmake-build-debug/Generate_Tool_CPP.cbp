@@ -102,6 +102,9 @@
 		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Module.h">
 			<Option target="Generate_Tool_CPP"/>
 		</Unit>
+		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Project_Common.h">
+			<Option target="Generate_Tool_CPP"/>
+		</Unit>
 		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Register.cpp">
 			<Option target="Generate_Tool_CPP"/>
 		</Unit>

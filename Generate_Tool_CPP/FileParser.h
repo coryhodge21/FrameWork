@@ -5,10 +5,7 @@
 #ifndef GENERATE_TOOL_CPP_FILEPARSER_H
 #define GENERATE_TOOL_CPP_FILEPARSER_H
 
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <vector>
+#include "Project_Common.h"
 #include "Module.h"
 
 using namespace std;

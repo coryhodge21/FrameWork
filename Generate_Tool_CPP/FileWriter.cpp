@@ -5,7 +5,6 @@
 #include "FileWriter.h"
 
 /**     CONSTRUCTOR / DESTRUCTOR       */
-
 FileWriter:: FileWriter() {
     // TODO : implement better file writer initialization
 }
@@ -13,14 +12,11 @@ FileWriter:: ~FileWriter(){
     // TODO : Free data tree
 }
 
-/**     SETTERS / GETTERS       */
 
 /// assign file writer a populated vector of Module *
 void FileWriter::setModules(vector<Module *> modules) {
     _modules = modules;
 }
-
-/**   Public :  File Writer Special Functions   */
 
 /// check if file writer data vector is empty
 int FileWriter::isEmpty(void) {
@@ -31,25 +27,6 @@ int FileWriter::isEmpty(void) {
     }
     return 0;
 }
-
-/// get last element of vector
-Module * FileWriter::getLastModule(void){
-    return _modules[ _modules.size() - 1];
-}
-
-//! destroy the last element in the vector
-void FileWriter::popModule(void){
-    _modules.pop_back();
-}
-
-/**   Private:  File Writer Special Functions   */
-
-/***    ***************
- *
- *      FILE WRITING & TEMPLATING
- *
- *      ***************
- */
 
 /// prep FrameWork Directory and recursively build data tree
 int FileWriter::writeFiles(void){
@@ -79,6 +56,20 @@ int FileWriter::writeFiles(void){
     // return success
     return 1;
 }
+
+
+
+
+/// get last element of vector
+Module * FileWriter::getLastModule(void){
+    return _modules[ _modules.size() - 1];
+}
+
+//! destroy the last element in the vector
+void FileWriter::popModule(void){
+    _modules.pop_back();
+}
+
 
 /// write file module
 void FileWriter::writeModules(void){
@@ -121,6 +112,7 @@ void FileWriter::writeModules(void){
         writeModule(aModule);
 
         // TODO : create function to pull this out
+
         /**     REGISTERS/  general  Directory   */
         /// void WriteModRegisters {
 
@@ -128,32 +120,52 @@ void FileWriter::writeModules(void){
         string REGISTERS_DIR_PATH = modPath + "/Registers";   // Mod/Registers
 
         // create directory Module/Registers
-        if (mkdir(REGISTERS_PATH.c_str(), 0777) == -1) {
+        if (mkdir(REGISTERS_DIR_PATH.c_str(), 0777) == -1) {
             cerr << "Error :  " << strerror(errno) << endl;
         }
         else {
-            cout << "Directory created : " + REGISTERS_PATH + "\n";
+            cout << "Directory created : " + REGISTERS_DIR_PATH + "\n";
         }
 
         // create Registers.h file path
+        string REGISTERS_H_PATH = modPath + "/Registers.h";
 
 
+        // open file stream
+        ofstream registersFileStream;
+        registersFileStream.open(REGISTERS_H_PATH, std::ios::out);
 
+        // check that the file was opened
+        if( !registersFileStream.is_open()){
+            cout << "ERROR Could not open file : " << REGISTERS_H_PATH << endl;
+        }
 
+        /**           Write Registers.h   */
+        registersFileStream << "/***************\n";
+        registersFileStream << "* \\file : Registers.h\n";
+        registersFileStream << "* \\author : Cory W. Hodge\n";
+        registersFileStream << "* \\brief : auto generated file\n";
+        registersFileStream << "***************/\n\n";
+
+        registersFileStream << "#ifndef _REGISTERS_H_\n";
+        registersFileStream << "#define _REGISTERS_H_\n\n";
 
         /**
          * Generate #include's for each register
          */
         for( int i = 0; i < aModule->getRegisterSize(); i++){
-            _moduleFileStream << "#include \"" << aModule->getRegister(i)->getName() << ".h\" \n";
+            registersFileStream << "#include \"" << aModule->getRegister(i)->getName() << ".h\" \n";
         }
+
+        registersFileStream << "\n";
+        registersFileStream << "#endif // _REGISTERS_H_\n";
 
         /// }
         /**
          * RECURSIVELY WRITE REGISTER FILES
          * while Module register not empty, write registers
          */
-        writeRegisters(aModule, modPath);
+        writeRegisters(aModule, REGISTERS_DIR_PATH);
 
         // DESTROY MODULE
         popModule();
@@ -176,7 +188,7 @@ void FileWriter::writeRegisters(Module * parentModule, string modPath){
         Register * aRegister = (parentModule->getLastRegister());
 
         // build directory path :  "../../FWdir/Mod/Registers" "/RegName
-        string regDirPath = REGISTERS_PATH + "/" + aRegister->getName();   // Mod/Registers/Reg
+        string regDirPath = modPath + "/" + aRegister->getName();   // Mod/Registers/Reg
 
         // create directory Module/Registers/Register
         if (mkdir(regDirPath.c_str(), 0777) == -1) {
@@ -216,7 +228,6 @@ void FileWriter::writeRegisters(Module * parentModule, string modPath){
 }
 
 /// write bit fields as enums for parent register
-// regPath : Mod/Registers/Reg
 void FileWriter::writeBitFields(Register * parentRegister, string regDirPath){
 
     // one make 1 reg_enums file
@@ -260,7 +271,6 @@ void FileWriter::writeBitFields(Register * parentRegister, string regDirPath){
 }
 
 //! \brief write Module File
-//  _moduleFileStream << "writing to file \n";
 void FileWriter::writeModule(Module * aModule){
 
     // Template Header
@@ -273,8 +283,7 @@ void FileWriter::writeModule(Module * aModule){
     template_Footer_Module(aModule);
 }
 
-//! \brief write Register File
-//  _registerFileStream << "writing to file \n";
+//! \brief write Register File;
 void FileWriter::writeRegister(Register * aRegister){
 
     // Template Header
@@ -288,7 +297,6 @@ void FileWriter::writeRegister(Register * aRegister){
 }
 
 //! \brief write Bit Field File
-//  _bitFieldFileStream << "writing to file \n";
 void FileWriter::writeBitField(BitField * aBitField){
 
     // Template_Bit_Field body
@@ -330,8 +338,6 @@ void FileWriter::template_Header_BitField(Register * parentRegister) {
     _bitFieldFileStream << "************************************/\n\n";
 
 }
-
-/** Module h    */
 
 //! \brief Module Body
 void FileWriter::template_Module_h(Module * aModule){

@@ -5,7 +5,7 @@
 #ifndef GENERATE_TOOL_CPP_BITFIELD_H
 #define GENERATE_TOOL_CPP_BITFIELD_H
 
-#include <string>
+#include "Project_Common.h"
 
 using namespace std;
 

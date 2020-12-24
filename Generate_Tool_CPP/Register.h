@@ -5,8 +5,7 @@
 #ifndef GENERATE_TOOL_CPP_REGISTER_H
 #define GENERATE_TOOL_CPP_REGISTER_H
 
-#include <string>
-#include <vector>
+#include "Project_Common.h"
 #include "BitField.h"
 
 using namespace std;

@@ -6,45 +6,63 @@
 
 #IncludeRegexTransform: 
 
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/BitField.cpp
+BitField.h
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/BitField.h
-string
--
+
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/BitField.h
+Project_Common.h
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Project_Common.h
+
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileParser.cpp
+FileParser.h
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileParser.h
 
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileParser.h
-iostream
--
-fstream
--
-string
--
-vector
--
+Project_Common.h
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Project_Common.h
 Module.h
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Module.h
 
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileWriter.cpp
+FileWriter.h
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileWriter.h
-iostream
--
-fstream
--
+
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileWriter.h
+Project_Common.h
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Project_Common.h
 sys/stat.h
 -
 Module.h
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Module.h
 
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Module.cpp
+Module.h
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Module.h
+
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Module.h
+Project_Common.h
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Project_Common.h
+Register.h
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Register.h
+
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Project_Common.h
+iostream
+-
 string
 -
 vector
 -
+fstream
+-
+
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Register.cpp
 Register.h
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Register.h
 
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Register.h
-string
--
-vector
--
+Project_Common.h
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Project_Common.h
 BitField.h
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/BitField.h
 

@@ -4,6 +4,7 @@
  * \date 12/22/2020
  *
  * \brief This is the entry point into project FrameWork Gen_Tool
+ *
  * Using a File Parser, extract the data from ti provided memory maps :
  *      #define MOD_REG_Bit_Field 0x00000000     // description
  *
@@ -13,6 +14,8 @@
  * See Readme.md for project
  *
  */
+
+#include "Project_Common.h"
 #include "FileParser.h"
 #include "FileWriter.h"
 
@@ -21,7 +24,7 @@ using namespace std;
 int main(int argc, char * argv[]) {
 
     // this program expects an input file to be passed in
-    // from the calling source
+    // from the calling source via argv[]
     char input_file_path[] = "../hw_sysctl.h";
     char * input_string_p = input_file_path;
 

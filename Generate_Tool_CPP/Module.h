@@ -5,8 +5,7 @@
 #ifndef GENERATE_TOOL_CPP_MODULE_H
 #define GENERATE_TOOL_CPP_MODULE_H
 
-#include <string>
-#include <vector>
+#include "Project_Common.h"
 #include "Register.h"
 
 using namespace std;
