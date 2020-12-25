@@ -37,7 +37,10 @@ void FileWriter::template_BitField_Header(Register * parentRegister) {
 
     _bitFieldFileStream << "/**********************************\n";
     _bitFieldFileStream << "* Bit Field Enums for : "<< parentRegister->getName() << ".h \n";
-    _bitFieldFileStream << "************************************/\n\n";
+    _bitFieldFileStream << "************************************/\n";
+    _bitFieldFileStream << "\n";
+    _bitFieldFileStream << "typedef enum { \n";
+    _bitFieldFileStream << "\n";
 
 }
 
@@ -49,7 +52,9 @@ void FileWriter::template_Module_Footer(Module *aModule) {
 void FileWriter::template_Register_Footer(Register *aRegister) {
     _registerFileStream << "\n#endif // _" << aRegister->getName() << "_h_\n\n";
 }
-void FileWriter::template_BitField_Footer() {
+void FileWriter::template_BitField_Footer(Module *aModule) {
+    _bitFieldFileStream << "\n";
+    _bitFieldFileStream << "} " << aModule->getLastRegister()->getName() << "_e;\n";
     _bitFieldFileStream << "//*********************************\n\n";
 }
 
@@ -97,33 +102,51 @@ void FileWriter::template_Module_Body(Module * aModule){
 }
 
 //! \brief Register Header Body
-void FileWriter::template_Register_Body(Register * aRegister){
+void FileWriter::template_Register_Body(Module * parentModule){
+
+    Register * aRegister = parentModule->getLastRegister();
+    string Mod_Reg_name = parentModule->getName() + "_" + aRegister->getName();
+    string Mod_Reg_e = Mod_Reg_name + "_e";
 
     // include enums
-    _registerFileStream << "#include \"" << aRegister->getName() << "_enums.h\" \n";
+    _registerFileStream << "//! \\brief Enumerations for this Register\n";
+    _registerFileStream << "#include \"" << Mod_Reg_name << "_enums.h\" \n";
+    _registerFileStream << "\n";
+    _registerFileStream << "// Base Address for this Register\n";
+    _registerFileStream << "#define " << Mod_Reg_name << "_BASE_ADDR\t" << aRegister->getAddress() << "\n";
     _registerFileStream << "\n";
 
-    // function pointer types
-    // set
-    _registerFileStream << "typedef void(Set_fpt)(" << aRegister->getName() << "_e);\n";
-    //clear
-    _registerFileStream << "typedef void(Clear_fpt)(" << aRegister->getName() << "_e);\n";
-    // read
-    _registerFileStream << "typedef int32_t(Read_fpt)(" << aRegister->getName() << "_e);\n";
-    // write
-    _registerFileStream << "typedef void(Write_fpt)(" << aRegister->getName() << "_e, int32_t);\n";
+    // structure declaration
+    _registerFileStream << "// Structure Declaration\n";
+    _registerFileStream << "struct " << Mod_Reg_name << "_obj {\n";
     _registerFileStream << "\n";
-
-    // structure decleration
-    _registerFileStream << "struct " << aRegister->getName() << "_obj;\n";
+    _registerFileStream << "\t// Address of this Vector (Absolute)\n";
+    _registerFileStream << "\tunsigned int BASE_ADDR;\n";
+    _registerFileStream << "\n";
+    _registerFileStream << "\t/** Function Pointers to Register Operations    */\n";
+    _registerFileStream << "\n";
+    _registerFileStream << "\t// Set the Bits of this Register Masked by the enumeration\n";
+    _registerFileStream << "\tvoid(*set)(" << Mod_Reg_e << ");\n";
+    _registerFileStream << "\n";
+    _registerFileStream << "\t// Clear the Bits of this Register Masked by the enumeration\n";
+    _registerFileStream << "\tvoid(*clear)(" << Mod_Reg_e << ");\n";
+    _registerFileStream << "\n";
+    _registerFileStream << "\t// Read the Bits of this Register Masked by the enumeration\n";
+    _registerFileStream << "\tint32_t(*read)(" << Mod_Reg_e << ");\n";;
+    _registerFileStream << "\n";
+    _registerFileStream << "\t// Write the Bits of this Register Masked by the enumeration\n";
+    _registerFileStream << "\tvoid(*write)(" << Mod_Reg_e << ", int32_t);\n";
+    _registerFileStream << "\n";
+    _registerFileStream << "};\n";
     _registerFileStream << "\n";
 
     // structure typedef
-    _registerFileStream << "typedef struct " << aRegister->getName() << "_obj " << aRegister->getName() << "_t;\n";
+    _registerFileStream << "typedef struct " << Mod_Reg_name << "_obj " << Mod_Reg_name << "_t;\n";
     _registerFileStream << "\n";
 
     // register create function
-    _registerFileStream << aRegister->getName() << "_t " <<"CreateRegister_"<< aRegister->getName() << "(void);\n";
+    _registerFileStream << "// Initializer\n";
+    _registerFileStream << Mod_Reg_name << "_t " <<"init_"<< Mod_Reg_name << "(void);\n";
     _registerFileStream << "\n";
 }
 
@@ -131,9 +154,9 @@ void FileWriter::template_Register_Body(Register * aRegister){
 void FileWriter::template_BitField_Body(BitField * aBitField){
 
     // Bit Field Enums
-    _bitFieldFileStream << "\n";
-    _bitFieldFileStream << "/**********************************\n";
-    _bitFieldFileStream << "* Enumerations for : "<< aBitField->getName() << "\n";
-    _bitFieldFileStream << "************************************/\n\n";
+    _bitFieldFileStream << "\t" << aBitField->getName() << "\t=\t"
+                            << aBitField->getMask() << ",\t" << aBitField->getDescriptor()
+                            << "\n";
+
 }
 

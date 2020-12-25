@@ -155,12 +155,14 @@ void FileWriter::create_Register_h(){
     // get pointer to last register in module tree
     Register * aRegister = (parentModule->getLastRegister());
 
-    /// build Register h path :  "../../FrameWork/Mod/Registers/RegName/RegName.h"
+    /// build Register h path :  "../../FrameWork/Mod/Registers/RegName/Mod_RegName.h"
     string regFilePath = PATH_TO_FRAMEWORK; // ../FrameWork/
     regFilePath += parentModule->getName()  // Module
                   + "/Registers/"           // /Registers/
                   + aRegister->getName()    // RegName
                   + "/"                     // /
+                  + parentModule->getName() // Mod
+                  + "_"                     // _
                   + aRegister->getName()    // RegName
                   + ".h";                   // .h
 
@@ -191,6 +193,8 @@ void FileWriter::create_RegEnum_h(){
                       + "/Registers/"               // /Registers/
                       + parentRegister->getName()   // RegName
                       + "/"                         // /
+                      + parentModule->getName()     // Mod
+                      + "_"                         // _
                       + parentRegister->getName()   // RegName
                       + "_enums.h";                 // _enums.h
 

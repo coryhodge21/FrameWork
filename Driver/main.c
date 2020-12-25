@@ -33,6 +33,7 @@
 // Project Common Files
 #include "prj_common.h"
 #include "StructureV2/Module_Register.h"
+#include "SYSCTL/Registers/RCGC2/SYSCTL_RCGC2.h"
 
 
 /**
@@ -41,9 +42,9 @@
 int main(void)
 {
 
-	MOD_REG_t Mod_Reg = init_ModReg();
-
-	Mod_Reg.set(GPIOD);
+//	MOD_REG_t Mod_Reg = init_ModReg();
+//
+//	Mod_Reg.set(GPIOD);
 
 
     while(1){

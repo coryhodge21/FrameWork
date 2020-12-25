@@ -58,22 +58,11 @@ public:
     //! \brief get name
     const string &getName() const;
 
-    //! \brief set name
-    void setName(const string &name);
-
-    void setAddress(const string &address);
-
-    //! \brief set descriptor
-    void setDescriptor(const string &descriptor);
-
-    //! \brief get vector of bit fields
-    const vector<BitField *> &getBitFields() const;
-
-    //! \brief assign this register a vector of bit fields
-    void setBitFields(const vector<BitField *> &bitFields);
-
     //! \brief check if bit fields vector empty
     int isEmpty(void);
+
+    //! \brief return this registers address
+    string getAddress(void);
 
 };
 

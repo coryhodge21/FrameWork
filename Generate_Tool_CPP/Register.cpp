@@ -76,29 +76,8 @@ const string &Register::getName() const {
     return _name;
 }
 
-/// Set Name
-void Register::setName(const string &name) {
-    _name = name;
-}
-
-/// Set Address
-void Register::setAddress(const string &address) {
-    _address = address;
-}
-
-/// Set Descriptor
-void Register::setDescriptor(const string &descriptor) {
-    _descriptor = descriptor;
-}
-
-/// return vector of bit fields
-const vector<BitField *> &Register::getBitFields() const {
-    return _bitFields;
-}
-
-/// assign this register a vector of bit fields
-void Register::setBitFields(const vector<BitField *> &bitFields) {
-    _bitFields = bitFields;
+string Register::getAddress() {
+    return _address;
 }
 
 

@@ -72,7 +72,7 @@ private:
     void writeModule(void);
 
     //! \brief writeModule
-    void writeRegister(Register * aRegister);
+    void writeRegister(Module * parentModule);
 
     //! \brief writeModule
     void writeBitField(BitField * aBitField);
@@ -100,13 +100,13 @@ private:
     //! \brief Generic Footer
     void template_Module_Footer(Module * aModule);
     void template_Register_Footer(Register * aRegister);
-    void template_BitField_Footer();
+    void template_BitField_Footer(Module * aModule);
 
     //! \brief Module Header Body
     void template_Module_Body(Module * aModule);
 
     //! \brief Register Header Body
-    void template_Register_Body(Register * aRegister);
+    void template_Register_Body(Module * parentModule);
 
     //! \brief BitField Header Body
     void template_BitField_Body(BitField * aBitFied);

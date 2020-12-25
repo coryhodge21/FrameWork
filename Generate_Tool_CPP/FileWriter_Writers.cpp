@@ -21,13 +21,14 @@ void FileWriter::writeModule(){
 }
 
 //! \brief write Register File;
-void FileWriter::writeRegister(Register * aRegister){
+void FileWriter::writeRegister(Module *  parentModule){
 
+    Register * aRegister = parentModule->getLastRegister();
     // Template Header
     template_Register_Header(aRegister);
 
     // Template_Register_H body
-    template_Register_Body(aRegister);
+    template_Register_Body(parentModule);
 
     // Template Footer
     template_Register_Footer(aRegister);
@@ -62,7 +63,7 @@ void FileWriter::write_Register_enums(){
     }
 
     // Template Footer for bitfields
-    template_BitField_Footer();
+    template_BitField_Footer(parentModule);
 
     // close file stream
     _bitFieldFileStream.close();

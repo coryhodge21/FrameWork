@@ -120,7 +120,7 @@ void FileWriter::recursively_writeRegisters(){
         create_Register_h();
 
         ///   write register .h
-        writeRegister(parentModule->getLastRegister());
+        writeRegister(parentModule);
 
         /**
          * REGISTER_enums.h
