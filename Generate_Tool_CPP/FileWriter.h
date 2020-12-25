@@ -59,14 +59,14 @@ private:
     //! \brief destroy the last element in the vector
     void popModule(void);
 
-    //! \brief  write file module
-    void writeModules(void);
+    //! \brief Build out Modules
+    void recursively_writeModules(void);
 
-    //! \brief write file register
-    void writeRegisters(void);
+    //! \brief Build out Registers
+    void recursively_writeRegisters(void);
 
-    //! \brief write bit fields as enums for parent register
-    void writeBitFields();
+    //! \brief Build out Enumerations of Bit Fields
+    void recursively_writeBitFields();
 
     //! \brief writeModule
     void writeModule(void);
@@ -77,7 +77,9 @@ private:
     //! \brief writeModule
     void writeBitField(BitField * aBitField);
 
-    //! \brief create directory for module
+    void write_Register_enums();
+
+    //! \brief create directories and open files
     void create_Directory_h(void);
     void create_Module_Dir();
     void create_Module_h();
@@ -86,26 +88,28 @@ private:
     void create_Register_Dir();
     void create_Register_h();
     void create_RegEnum_h();
-    void create_Register_enums();
 
+
+
+    /**     Templates       */
     //! \brief Generic Header
-    void template_Header_Module(Module * aModule);
-    void template_Header_Register(Register * aRegister);
-    void template_Header_BitField(Register * parentRegister);
+    void template_Module_Header(Module * aModule);
+    void template_Register_Header(Register * aRegister);
+    void template_BitField_Header(Register * parentRegister);
 
     //! \brief Generic Footer
-    void template_Footer_Module(Module * aModule);
-    void template_Footer_Register(Register * aRegister);
-    void template_Footer_BitField();
+    void template_Module_Footer(Module * aModule);
+    void template_Register_Footer(Register * aRegister);
+    void template_BitField_Footer();
 
     //! \brief Module Header Body
-    void template_Module_h(Module * aModule);
+    void template_Module_Body(Module * aModule);
 
     //! \brief Register Header Body
-    void template_Register_h(Register * aRegister);
+    void template_Register_Body(Register * aRegister);
 
     //! \brief BitField Header Body
-    void template_BitField_h(BitField * aBitFied);
+    void template_BitField_Body(BitField * aBitFied);
 };
 
 #endif //GENERATE_TOOL_CPP_FILEWRITER_H

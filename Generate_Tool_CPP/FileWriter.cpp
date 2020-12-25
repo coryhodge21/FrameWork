@@ -31,6 +31,8 @@ FileWriter:: ~FileWriter(){
     _bitFieldFileStream.close();
 }
 
+/**         CORE LOGIC          **/
+
 /// prep FrameWork Directory and recursively build data tree
 int FileWriter::writeFiles(void){
 
@@ -44,7 +46,7 @@ int FileWriter::writeFiles(void){
      * while _modules vector not empty
      * recursively build data tree
      */
-    writeModules();
+    recursively_writeModules();
 
     /// close directory stream
     this->_directoryFileStream.close();
@@ -54,7 +56,7 @@ int FileWriter::writeFiles(void){
 }
 
 /// write file module
-void FileWriter::writeModules(void){
+void FileWriter::recursively_writeModules(void){
 
     /// for each Module in the File Writer
     /// data tree (_modules)
@@ -73,13 +75,7 @@ void FileWriter::writeModules(void){
         /// MODULE/REGISTERS/  general  Directory
         create_REGISTERS_Dir();
 
-        /**
-         * RECURSIVELY
-         * build all children directories
-         * && children files
-         */
-
-        ///     Registers.h file
+        ///    Create Registers.h file
         create_REGISTERS_h();
         // TODO : This also writes Registers.h
         // write_REGSITERS_h();
@@ -90,7 +86,7 @@ void FileWriter::writeModules(void){
          * && write Registers.h
          * && write Register_enums.h
          */
-        writeRegisters();
+        recursively_writeRegisters();
 
         /**    End Module Register Recursion */
 
@@ -103,7 +99,7 @@ void FileWriter::writeModules(void){
 }
 
 /// write file register
-void FileWriter::writeRegisters(){
+void FileWriter::recursively_writeRegisters(){
 
     /// get pointer to last module in module vector
     Module * parentModule = getLastModule();
@@ -130,7 +126,7 @@ void FileWriter::writeRegisters(){
          * REGISTER_enums.h
          * RECURSIVELY WRITE BIT FIELDS in Register_enums.h
          */
-        writeBitFields();
+        recursively_writeBitFields();
 
         /** End Recursion of Bit Field Masking for this Register */
 
@@ -143,13 +139,13 @@ void FileWriter::writeRegisters(){
 }
 
 /// write bit fields as enums for parent register
-void FileWriter::writeBitFields(){
+void FileWriter::recursively_writeBitFields(){
 
     /// Create Register_enums header
     create_RegEnum_h();
 
     /// write Register_enums .h
-    create_Register_enums();
+    write_Register_enums();
 }
 
 /// assign file writer a populated vector of Module *
@@ -176,6 +172,9 @@ Module * FileWriter::getLastModule(void){
 void FileWriter::popModule(void){
     _modules.pop_back();
 }
+
+/**     End Core Logic          **/
+
 
 
 

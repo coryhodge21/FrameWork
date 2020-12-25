@@ -203,30 +203,3 @@ void FileWriter::create_RegEnum_h(){
         }
     }
 }
-
-void FileWriter::create_Register_enums(){
-
-    // get pointer to last module in data tree
-    Module *parentModule = getLastModule();
-
-    // get pointer to last register in module tree
-    Register *parentRegister = (parentModule->getLastRegister());
-
-    template_Header_BitField(parentRegister);
-
-    // for each bit field in register tree
-    while (! parentRegister->isEmpty()){
-
-        // write file Register_enums.h ( append )
-        writeBitField(parentRegister->getLastBitField());
-
-        // destroy bitfield
-        parentRegister->popBitField();
-    }
-
-    // Template Footer for bitfields
-    template_Footer_BitField();
-
-    // close file stream
-    _bitFieldFileStream.close();
-}
