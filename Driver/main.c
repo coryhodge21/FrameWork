@@ -32,12 +32,7 @@
 
 // Project Common Files
 #include "prj_common.h"
-
-// Module Structure
-//#include "Module.h"
-
-// Register Structure
-#include "Register.h"
+#include "StructureV2/Module_Register.h"
 
 
 /**
@@ -46,54 +41,9 @@
 int main(void)
 {
 
-    Register_t Register = BUILDER_REGISTER();
+	MOD_REG_t Mod_Reg = init_ModReg();
 
-    int x = Register.REG_BASE_ADDR;
-
-    Register.set(GPIOF);
-
-    int y = x++;
-
-    Register.clear(GPIOF);
-
-    int z = y++;
-;
-
-//    x = y;
-//
-//
-//
-//    x = Register.REG_BASE_ADDR;
-//
-//    Register.set(GPIOB);
-//
-//    y = x++;
-//
-//    Register.clear(GPIOB);
-//
-//    z = y++;
-//
-//    x = y;
-//
-//    size_t sizeOfStructure = sizeof(Register);
-//
-//    x = sizeOfStructure;
-//
-//    y = x;
-//
-//    z = y;
-
-    // system fault when this is uncommented
-    // i think it is too large of a memory block
-    // (mod contains register array of size 200 ints)
-    // this is only 1 of 200 or more registers. So this
-//    // method will not work
-//    Module_t Module = BUILDER_MODULE();
-//
-//    sizeOfStructure = sizeof(Module);
-
-
-
+	Mod_Reg.set(GPIOD);
 
 
     while(1){

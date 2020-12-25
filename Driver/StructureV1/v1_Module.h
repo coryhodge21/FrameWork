@@ -8,8 +8,8 @@
 #ifndef _MODULE_H_
 #define _MODULE_H_
 
+#include <StructureV1/v1_Register.h>
 #include "prj_common.h"
-#include "Register.h"
 
 typedef struct MODULE_obj {
 
