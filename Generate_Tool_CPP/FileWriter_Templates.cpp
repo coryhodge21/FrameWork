@@ -109,7 +109,7 @@ void FileWriter::template_Register_Body(Register * aRegister){
     //clear
     _registerFileStream << "typedef void(Clear_fpt)(" << aRegister->getName() << "_e);\n";
     // read
-    _registerFileStream << "typedef int32_t(Set_fpt)(" << aRegister->getName() << "_e);\n";
+    _registerFileStream << "typedef int32_t(Read_fpt)(" << aRegister->getName() << "_e);\n";
     // write
     _registerFileStream << "typedef void(Write_fpt)(" << aRegister->getName() << "_e, int32_t);\n";
     _registerFileStream << "\n";
