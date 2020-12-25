@@ -7,30 +7,6 @@
 
 #include "Register.h"
 
- struct REGISTER_obj {
-    // Address of Register
-    Reg_Addr_t REG_BASE_ADDR;
-
-    // Array of Masks for Register Bit Fields
-    //Reg_BF_e * BitMasks;
-
-    // function pointers to operations
-    // used for modifying Register BitFields
-
-    // Set
-    Set_fpt set;
-
-    // Clear
-    Clear_fpt clear;
-
-    // Read
-    Read_fpt read;
-
-    // Write
-    Write_fpt write;
-
-};
-
 //! \brief Set all the bits in this register, masked with enum arg
 //! \brief param[in] Bit_Field_Mask : predefined set of masks available via enum
 void set_this(Reg_BF_e Bit_Field_Mask){
@@ -65,10 +41,10 @@ void write_this(Reg_BF_e Bit_Field_Mask, int32_t msg) {
 
 //! \brief Constructor for this Register
 //! \brief param[out] Register with assigned address and function pointers
-Register_t * BUILDER_REGISTER(void){
+Register_t BUILDER_REGISTER(void){
 
     // Create Register
-    Register_t * Register;
+    Register_t Register;
 
     // For Direct Memory Location Access
     Register.REG_BASE_ADDR = SYSCTL_RCGC2;
@@ -83,7 +59,7 @@ Register_t * BUILDER_REGISTER(void){
     Register.write = &write_this;
 
     //
-    return * Register;
+    return Register;
 }
 
 

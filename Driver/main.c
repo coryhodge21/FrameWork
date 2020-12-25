@@ -33,20 +33,22 @@
 // Project Common Files
 #include "prj_common.h"
 
-// Register Struct
+// Module Structure
+//#include "Module.h"
+
+// Register Structure
 #include "Register.h"
 
-// Module Struct
-//#include "Module.h"
+
 /**
  * main.c
  */
 int main(void)
 {
 
-    Register_t * Register = BUILDER_REGISTER();
+    Register_t Register = BUILDER_REGISTER();
 
-    int x = Register->REG_BASE_ADDR;
+    int x = Register.REG_BASE_ADDR;
 
     Register.set(GPIOF);
 
@@ -55,30 +57,31 @@ int main(void)
     Register.clear(GPIOF);
 
     int z = y++;
+;
 
-    x = y;
-
-
-
-    x = Register.REG_BASE_ADDR;
-
-    Register.set(GPIOB);
-
-    y = x++;
-
-    Register.clear(GPIOB);
-
-    z = y++;
-
-    x = y;
-
-    size_t sizeOfStructure = sizeof(Register);
-
-    x = sizeOfStructure;
-
-    y = x;
-
-    z = y;
+//    x = y;
+//
+//
+//
+//    x = Register.REG_BASE_ADDR;
+//
+//    Register.set(GPIOB);
+//
+//    y = x++;
+//
+//    Register.clear(GPIOB);
+//
+//    z = y++;
+//
+//    x = y;
+//
+//    size_t sizeOfStructure = sizeof(Register);
+//
+//    x = sizeOfStructure;
+//
+//    y = x;
+//
+//    z = y;
 
     // system fault when this is uncommented
     // i think it is too large of a memory block
