@@ -44,9 +44,9 @@
 int main(void)
 {
 
-    REGISTER_t Register = BUILDER_REGISTER();
+    Register_t * Register = BUILDER_REGISTER();
 
-    int x = Register.REG_BASE_ADDR;
+    int x = Register->REG_BASE_ADDR;
 
     Register.set(GPIOF);
 

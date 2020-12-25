@@ -7,8 +7,7 @@
 
 #include "Register.h"
 
-typedef struct REGISTER_obj {
-
+ struct REGISTER_obj {
     // Address of Register
     Reg_Addr_t REG_BASE_ADDR;
 
@@ -30,7 +29,7 @@ typedef struct REGISTER_obj {
     // Write
     Write_fpt write;
 
-} REGISTER_t;
+};
 
 //! \brief Set all the bits in this register, masked with enum arg
 //! \brief param[in] Bit_Field_Mask : predefined set of masks available via enum
@@ -66,10 +65,10 @@ void write_this(Reg_BF_e Bit_Field_Mask, int32_t msg) {
 
 //! \brief Constructor for this Register
 //! \brief param[out] Register with assigned address and function pointers
-REGISTER_t BUILDER_REGISTER(void){
+Register_t * BUILDER_REGISTER(void){
 
     // Create Register
-    REGISTER_t Register;
+    Register_t * Register;
 
     // For Direct Memory Location Access
     Register.REG_BASE_ADDR = SYSCTL_RCGC2;
@@ -84,7 +83,7 @@ REGISTER_t BUILDER_REGISTER(void){
     Register.write = &write_this;
 
     //
-    return Register;
+    return * Register;
 }
 
 

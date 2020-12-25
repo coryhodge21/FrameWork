@@ -81,7 +81,7 @@ struct REGISTER_obj;
 typedef struct REGISTER_obj Register_t;
 
 // Function Declerations
-REGISTER_t BUILDER_REGISTER(void);
+Register_t * BUILDER_REGISTER(void);
 
 
 #endif // _REGISTER_H_

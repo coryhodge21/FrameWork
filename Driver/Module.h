@@ -16,7 +16,7 @@ typedef struct MODULE_obj {
     ADDRESS MOD_BASE_ADDR;
 
     // Array of Registers ; sizeof(REGISTER_t[250] = 5,000 Bytes
-    REGISTER_t regArr[250];
+    Register_t regArr[250];
 
     void(*fp_1)(void);
     void(*fp_2)(void);
