@@ -1,0 +1,45 @@
+/**********************************
+* \file : SRWD.h 
+* \author : Cory W. Hodge 
+* \brief auto generated file 
+************************************/
+
+#ifndef _SRWD_h_
+#define _SRWD_h_
+
+//! \brief Enumerations for this Register
+#include "SYSCTL_SRWD_enums.h" 
+
+// Base Address for this Register
+#define SYSCTL_SRWD_BASE_ADDR	0x400FE500
+
+// Structure Declaration
+struct SYSCTL_SRWD_obj {
+
+	// Address of this Vector (Absolute)
+	unsigned int BASE_ADDR;
+
+	/** Function Pointers to Register Operations    */
+
+	// Set the Bits of this Register Masked by the enumeration
+	void(*set)(SYSCTL_SRWD_e);
+
+	// Clear the Bits of this Register Masked by the enumeration
+	void(*clear)(SYSCTL_SRWD_e);
+
+	// Read the Bits of this Register Masked by the enumeration
+	int32_t(*read)(SYSCTL_SRWD_e);
+
+	// Write the Bits of this Register Masked by the enumeration
+	void(*write)(SYSCTL_SRWD_e, int32_t);
+
+};
+
+typedef struct SYSCTL_SRWD_obj SYSCTL_SRWD_t;
+
+// Initializer
+SYSCTL_SRWD_t init_SYSCTL_SRWD(void);
+
+
+#endif // _SRWD_h_
+

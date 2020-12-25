@@ -1,0 +1,45 @@
+/**********************************
+* \file : PPSSI.h 
+* \author : Cory W. Hodge 
+* \brief auto generated file 
+************************************/
+
+#ifndef _PPSSI_h_
+#define _PPSSI_h_
+
+//! \brief Enumerations for this Register
+#include "SYSCTL_PPSSI_enums.h" 
+
+// Base Address for this Register
+#define SYSCTL_PPSSI_BASE_ADDR	0x400FE31C
+
+// Structure Declaration
+struct SYSCTL_PPSSI_obj {
+
+	// Address of this Vector (Absolute)
+	unsigned int BASE_ADDR;
+
+	/** Function Pointers to Register Operations    */
+
+	// Set the Bits of this Register Masked by the enumeration
+	void(*set)(SYSCTL_PPSSI_e);
+
+	// Clear the Bits of this Register Masked by the enumeration
+	void(*clear)(SYSCTL_PPSSI_e);
+
+	// Read the Bits of this Register Masked by the enumeration
+	int32_t(*read)(SYSCTL_PPSSI_e);
+
+	// Write the Bits of this Register Masked by the enumeration
+	void(*write)(SYSCTL_PPSSI_e, int32_t);
+
+};
+
+typedef struct SYSCTL_PPSSI_obj SYSCTL_PPSSI_t;
+
+// Initializer
+SYSCTL_PPSSI_t init_SYSCTL_PPSSI(void);
+
+
+#endif // _PPSSI_h_
+

@@ -11,10 +11,12 @@
 #ifndef _PRJ_COMMON_
 #define _PRJ_COMMON_
 
+#include <stdlib.h>
+
 // General Data Types
 typedef int int32_t;
 typedef unsigned int uint32_t;
-typedef unsigned int size_t;
+//typedef unsigned int size_t;
 typedef double int64_t;
 
 // Project Common Data Type of ADDRESS

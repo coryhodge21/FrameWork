@@ -34,7 +34,8 @@
 #include "prj_common.h"
 #include "StructureV2/Module_Register.h"
 #include "SYSCTL/Registers/RCGC2/SYSCTL_RCGC2.h"
-
+#include "SYSCTL/Registers/RCGC1/SYSCTL_RCGC1.h"
+// #include "SYSCTL/Registers.h"
 
 /**
  * main.c
@@ -45,6 +46,8 @@ int main(void)
 //	MOD_REG_t Mod_Reg = init_ModReg();
 //
 //	Mod_Reg.set(GPIOD);
+
+	SYSCTL_RCGC2_t Sysctl_RCGC2 = init_SYSCTL_RCGC2();
 
 
     while(1){

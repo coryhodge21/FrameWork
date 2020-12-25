@@ -1,0 +1,45 @@
+/**********************************
+* \file : PCGPIO.h 
+* \author : Cory W. Hodge 
+* \brief auto generated file 
+************************************/
+
+#ifndef _PCGPIO_h_
+#define _PCGPIO_h_
+
+//! \brief Enumerations for this Register
+#include "SYSCTL_PCGPIO_enums.h" 
+
+// Base Address for this Register
+#define SYSCTL_PCGPIO_BASE_ADDR	0x400FE908
+
+// Structure Declaration
+struct SYSCTL_PCGPIO_obj {
+
+	// Address of this Vector (Absolute)
+	unsigned int BASE_ADDR;
+
+	/** Function Pointers to Register Operations    */
+
+	// Set the Bits of this Register Masked by the enumeration
+	void(*set)(SYSCTL_PCGPIO_e);
+
+	// Clear the Bits of this Register Masked by the enumeration
+	void(*clear)(SYSCTL_PCGPIO_e);
+
+	// Read the Bits of this Register Masked by the enumeration
+	int32_t(*read)(SYSCTL_PCGPIO_e);
+
+	// Write the Bits of this Register Masked by the enumeration
+	void(*write)(SYSCTL_PCGPIO_e, int32_t);
+
+};
+
+typedef struct SYSCTL_PCGPIO_obj SYSCTL_PCGPIO_t;
+
+// Initializer
+SYSCTL_PCGPIO_t init_SYSCTL_PCGPIO(void);
+
+
+#endif // _PCGPIO_h_
+
