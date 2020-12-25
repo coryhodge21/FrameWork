@@ -99,6 +99,12 @@
 		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileWriter_Templates.cpp">
 			<Option target="Generate_Tool_CPP"/>
 		</Unit>
+		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileWriter_Writers.cpp">
+			<Option target="Generate_Tool_CPP"/>
+		</Unit>
+		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileWriter_creators.cpp">
+			<Option target="Generate_Tool_CPP"/>
+		</Unit>
 		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Module.cpp">
 			<Option target="Generate_Tool_CPP"/>
 		</Unit>

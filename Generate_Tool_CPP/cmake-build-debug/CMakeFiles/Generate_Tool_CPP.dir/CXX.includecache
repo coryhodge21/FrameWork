@@ -6,17 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/BitField.cpp
-BitField.h
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/BitField.h
-
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/BitField.h
 Project_Common.h
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Project_Common.h
-
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileWriter.cpp
-FileWriter.h
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileWriter.h
 
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileWriter.h
 Project_Common.h
@@ -26,13 +18,9 @@ sys/stat.h
 Module.h
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Module.h
 
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileWriter_Templates.cpp
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileWriter_creators.cpp
 FileWriter.h
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/FileWriter.h
-
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Module.cpp
-Module.h
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Module.h
 
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Module.h
 Project_Common.h
@@ -49,10 +37,6 @@ vector
 -
 fstream
 -
-
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Register.cpp
-Register.h
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Register.h
 
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/Generate_Tool_CPP/Register.h
 Project_Common.h

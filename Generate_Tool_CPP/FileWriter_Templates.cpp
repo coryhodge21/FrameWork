@@ -5,7 +5,10 @@
 #include "FileWriter.h"
 
 //! \brief write Module File
-void FileWriter::writeModule(Module * aModule){
+void FileWriter::writeModule(){
+
+    // get pointer to last module in data tree
+    Module * aModule = getLastModule();
 
     // Template Header
     template_Header_Module(aModule);

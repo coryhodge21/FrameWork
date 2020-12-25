@@ -63,19 +63,30 @@ private:
     void writeModules(void);
 
     //! \brief write file register
-    void writeRegisters(Module * module, string modPath);
+    void writeRegisters(void);
 
     //! \brief write bit fields as enums for parent register
-    void writeBitFields(Register * aRegister, string regPath);
+    void writeBitFields();
 
     //! \brief writeModule
-    void writeModule(Module * aModule);
+    void writeModule(void);
 
     //! \brief writeModule
     void writeRegister(Register * aRegister);
 
     //! \brief writeModule
     void writeBitField(BitField * aBitField);
+
+    //! \brief create directory for module
+    void create_Directory_h(void);
+    void create_Module_Dir();
+    void create_Module_h();
+    void create_REGISTERS_Dir();
+    void create_REGISTERS_h();
+    void create_Register_Dir();
+    void create_Register_h();
+    void create_RegEnum_h();
+    void create_Register_enums();
 
     //! \brief Generic Header
     void template_Header_Module(Module * aModule);

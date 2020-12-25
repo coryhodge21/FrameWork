@@ -23,6 +23,7 @@ using namespace std;
 
 int main(int argc, char * argv[]) {
 
+    // TODO: remove this and take files as arguments
     // this program expects an input file to be passed in
     // from the calling source via argv[]
     char input_file_path[] = "../hw_sysctl.h";
@@ -34,9 +35,8 @@ int main(int argc, char * argv[]) {
     // use data tree to create files
     FileWriter fileWriter;
 
-    /// TODO: replace this with while( i < argc )
-    ///         where argc = is num of hw_ mem maps
-  //  for (int i = 1; i < argc; i++ ) {
+    /// TODO: replace this with while( i < argc ) where argc = is num of hw_ mem maps
+    //  for (int i = 1; i < argc; i++ ) {
 
         // parse file, build up modules data tree
         fileParser.parseFile(input_string_p);
@@ -51,7 +51,7 @@ int main(int argc, char * argv[]) {
             fileWriter.writeFiles();
         }
 
-   // }
+    // }
     // exit success
     return 0;
 }

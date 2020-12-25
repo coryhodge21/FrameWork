@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Generate_Tool_CPP.dir/FileParser.cpp.o"
   "CMakeFiles/Generate_Tool_CPP.dir/FileWriter.cpp.o"
   "CMakeFiles/Generate_Tool_CPP.dir/FileWriter_Templates.cpp.o"
+  "CMakeFiles/Generate_Tool_CPP.dir/FileWriter_Writers.cpp.o"
+  "CMakeFiles/Generate_Tool_CPP.dir/FileWriter_creators.cpp.o"
   "CMakeFiles/Generate_Tool_CPP.dir/Module.cpp.o"
   "CMakeFiles/Generate_Tool_CPP.dir/Register.cpp.o"
   "CMakeFiles/Generate_Tool_CPP.dir/main.cpp.o"
