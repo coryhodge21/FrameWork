@@ -142,7 +142,7 @@ void FileWriter::create_Register_Dir(){
         cerr << "Error :  " << strerror(errno) << endl;
     }
     else {
-        cout << "Directory created : " + regDirPath;
+        //cout << "Directory created : " + regDirPath;
     }
 }
 
@@ -205,5 +205,53 @@ void FileWriter::create_RegEnum_h(){
         if (!this->_bitFieldFileStream.is_open()) {
             cout << "ERROR Could not open file : " << regEnum_Path << endl;
         }
+    }
+}
+
+void FileWriter::create_Module_c(){
+
+    // get pointer to last module in data tree
+    Module * aModule = getLastModule();
+
+    /// create Path enum : ../FrameWork/Mod/Module.c
+    string mod_c_Path = PATH_TO_FRAMEWORK;    // ../FrameWork/
+    mod_c_Path += aModule->getName()     // Module
+            + "/"                       // /
+            + aModule->getName()        // ModName
+            + ".c";                     // .c
+
+            // create file Reg_enums.h
+    _moduleFileStream.open(mod_c_Path, std::ios::out);
+
+    // check that the file was opened
+    if (!this->_bitFieldFileStream.is_open()) {
+        cout << "ERROR Could not open file : " << mod_c_Path << endl;
+    }
+
+}
+
+void FileWriter::create_Register_c(){
+
+    // get pointer to last module in data tree
+    Module * aModule = getLastModule();
+    string regName = aModule->getLastRegister()->getName();
+
+    /// create Path enum : ../FrameWork/Module/REGISTERS/Register/Register.c
+    string reg_c_Path = PATH_TO_FRAMEWORK;      // ../FrameWork/
+    reg_c_Path += aModule->getName()            // Module
+                  + "/Registers/"               // /Registers/
+                  + regName                     // RegName
+                  + "/"                         // /
+                  + aModule->getName()          // Mod
+                  + "_"                         // _
+                  + regName                     // RegName
+                  +".c";                        // .c
+
+    // create file Reg_enums.h
+    _registerFileStream.open(reg_c_Path, std::ios::out);
+
+    // check that the file was opened
+    if (!this->_registerFileStream.is_open()) {
+        cout << "ERROR Could not open file : " << reg_c_Path << endl;
     }
 }

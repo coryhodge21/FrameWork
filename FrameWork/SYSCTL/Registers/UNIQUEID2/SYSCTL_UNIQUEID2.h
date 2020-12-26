@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_UNIQUEID2_BASE_ADDR	0x400FEF28
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*UNIQUEID2_Set_fpt)(UNIQUEID2_e);
+
+typedef void(*UNIQUEID2_Clear_fpt)(UNIQUEID2_e);
+
+typedef int(*UNIQUEID2_Read_fpt)(UNIQUEID2_e);
+
+typedef void(*UNIQUEID2_Write_fpt)(UNIQUEID2_e, int);
+
 // Structure Declaration
 struct SYSCTL_UNIQUEID2_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_UNIQUEID2_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_UNIQUEID2_e);
+	UNIQUEID2_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_UNIQUEID2_e);
+	 UNIQUEID2_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_UNIQUEID2_e);
+	UNIQUEID2_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_UNIQUEID2_e, int32_t);
+	UNIQUEID2_Write_fpt	write;
 
 };
 

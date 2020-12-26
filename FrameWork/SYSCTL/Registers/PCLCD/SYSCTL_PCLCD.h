@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_PCLCD_BASE_ADDR	0x400FE990
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*PCLCD_Set_fpt)(PCLCD_e);
+
+typedef void(*PCLCD_Clear_fpt)(PCLCD_e);
+
+typedef int(*PCLCD_Read_fpt)(PCLCD_e);
+
+typedef void(*PCLCD_Write_fpt)(PCLCD_e, int);
+
 // Structure Declaration
 struct SYSCTL_PCLCD_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_PCLCD_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_PCLCD_e);
+	PCLCD_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_PCLCD_e);
+	 PCLCD_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_PCLCD_e);
+	PCLCD_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_PCLCD_e, int32_t);
+	PCLCD_Write_fpt	write;
 
 };
 

@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_DSLPPWRCFG_BASE_ADDR	0x400FE18C
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*DSLPPWRCFG_Set_fpt)(DSLPPWRCFG_e);
+
+typedef void(*DSLPPWRCFG_Clear_fpt)(DSLPPWRCFG_e);
+
+typedef int(*DSLPPWRCFG_Read_fpt)(DSLPPWRCFG_e);
+
+typedef void(*DSLPPWRCFG_Write_fpt)(DSLPPWRCFG_e, int);
+
 // Structure Declaration
 struct SYSCTL_DSLPPWRCFG_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_DSLPPWRCFG_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_DSLPPWRCFG_e);
+	DSLPPWRCFG_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_DSLPPWRCFG_e);
+	 DSLPPWRCFG_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_DSLPPWRCFG_e);
+	DSLPPWRCFG_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_DSLPPWRCFG_e, int32_t);
+	DSLPPWRCFG_Write_fpt	write;
 
 };
 

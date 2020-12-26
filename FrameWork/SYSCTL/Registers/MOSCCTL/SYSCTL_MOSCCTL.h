@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_MOSCCTL_BASE_ADDR	0x400FE07C
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*MOSCCTL_Set_fpt)(MOSCCTL_e);
+
+typedef void(*MOSCCTL_Clear_fpt)(MOSCCTL_e);
+
+typedef int(*MOSCCTL_Read_fpt)(MOSCCTL_e);
+
+typedef void(*MOSCCTL_Write_fpt)(MOSCCTL_e, int);
+
 // Structure Declaration
 struct SYSCTL_MOSCCTL_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_MOSCCTL_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_MOSCCTL_e);
+	MOSCCTL_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_MOSCCTL_e);
+	 MOSCCTL_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_MOSCCTL_e);
+	MOSCCTL_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_MOSCCTL_e, int32_t);
+	MOSCCTL_Write_fpt	write;
 
 };
 

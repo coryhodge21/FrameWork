@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_PRI2C_BASE_ADDR	0x400FEA20
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*PRI2C_Set_fpt)(PRI2C_e);
+
+typedef void(*PRI2C_Clear_fpt)(PRI2C_e);
+
+typedef int(*PRI2C_Read_fpt)(PRI2C_e);
+
+typedef void(*PRI2C_Write_fpt)(PRI2C_e, int);
+
 // Structure Declaration
 struct SYSCTL_PRI2C_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_PRI2C_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_PRI2C_e);
+	PRI2C_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_PRI2C_e);
+	 PRI2C_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_PRI2C_e);
+	PRI2C_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_PRI2C_e, int32_t);
+	PRI2C_Write_fpt	write;
 
 };
 

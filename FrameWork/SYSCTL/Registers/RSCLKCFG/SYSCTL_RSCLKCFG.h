@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_RSCLKCFG_BASE_ADDR	0x400FE0B0
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*RSCLKCFG_Set_fpt)(RSCLKCFG_e);
+
+typedef void(*RSCLKCFG_Clear_fpt)(RSCLKCFG_e);
+
+typedef int(*RSCLKCFG_Read_fpt)(RSCLKCFG_e);
+
+typedef void(*RSCLKCFG_Write_fpt)(RSCLKCFG_e, int);
+
 // Structure Declaration
 struct SYSCTL_RSCLKCFG_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_RSCLKCFG_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_RSCLKCFG_e);
+	RSCLKCFG_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_RSCLKCFG_e);
+	 RSCLKCFG_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_RSCLKCFG_e);
+	RSCLKCFG_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_RSCLKCFG_e, int32_t);
+	RSCLKCFG_Write_fpt	write;
 
 };
 

@@ -73,12 +73,18 @@ private:
     void create_Register_Dir();
     void create_Register_h();
     void create_RegEnum_h();
+    void create_Module_c();
+    void create_Register_c();
 
     /// \brief Write the contents to a file
     void write_Module_h(void);
+    void write_REGISTERS_h();
     void write_Register_h(Module * parentModule);
     void write_Register_enums();
-    
+    void write_Module_c();
+    void write_Register_c();
+
+
     /**     Templates       */
     //! \brief Generic Header
     void template_Module_Header(Module * aModule);

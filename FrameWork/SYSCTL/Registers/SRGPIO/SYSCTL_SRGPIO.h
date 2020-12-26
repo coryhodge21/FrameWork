@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_SRGPIO_BASE_ADDR	0x400FE508
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*SRGPIO_Set_fpt)(SRGPIO_e);
+
+typedef void(*SRGPIO_Clear_fpt)(SRGPIO_e);
+
+typedef int(*SRGPIO_Read_fpt)(SRGPIO_e);
+
+typedef void(*SRGPIO_Write_fpt)(SRGPIO_e, int);
+
 // Structure Declaration
 struct SYSCTL_SRGPIO_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_SRGPIO_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_SRGPIO_e);
+	SRGPIO_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_SRGPIO_e);
+	 SRGPIO_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_SRGPIO_e);
+	SRGPIO_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_SRGPIO_e, int32_t);
+	SRGPIO_Write_fpt	write;
 
 };
 

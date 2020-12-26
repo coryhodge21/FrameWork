@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_SRADC_BASE_ADDR	0x400FE538
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*SRADC_Set_fpt)(SRADC_e);
+
+typedef void(*SRADC_Clear_fpt)(SRADC_e);
+
+typedef int(*SRADC_Read_fpt)(SRADC_e);
+
+typedef void(*SRADC_Write_fpt)(SRADC_e, int);
+
 // Structure Declaration
 struct SYSCTL_SRADC_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_SRADC_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_SRADC_e);
+	SRADC_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_SRADC_e);
+	 SRADC_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_SRADC_e);
+	SRADC_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_SRADC_e, int32_t);
+	SRADC_Write_fpt	write;
 
 };
 

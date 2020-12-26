@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_PCQEI_BASE_ADDR	0x400FE944
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*PCQEI_Set_fpt)(PCQEI_e);
+
+typedef void(*PCQEI_Clear_fpt)(PCQEI_e);
+
+typedef int(*PCQEI_Read_fpt)(PCQEI_e);
+
+typedef void(*PCQEI_Write_fpt)(PCQEI_e, int);
+
 // Structure Declaration
 struct SYSCTL_PCQEI_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_PCQEI_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_PCQEI_e);
+	PCQEI_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_PCQEI_e);
+	 PCQEI_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_PCQEI_e);
+	PCQEI_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_PCQEI_e, int32_t);
+	PCQEI_Write_fpt	write;
 
 };
 

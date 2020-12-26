@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_PCPWM_BASE_ADDR	0x400FE940
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*PCPWM_Set_fpt)(PCPWM_e);
+
+typedef void(*PCPWM_Clear_fpt)(PCPWM_e);
+
+typedef int(*PCPWM_Read_fpt)(PCPWM_e);
+
+typedef void(*PCPWM_Write_fpt)(PCPWM_e, int);
+
 // Structure Declaration
 struct SYSCTL_PCPWM_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_PCPWM_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_PCPWM_e);
+	PCPWM_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_PCPWM_e);
+	 PCPWM_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_PCPWM_e);
+	PCPWM_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_PCPWM_e, int32_t);
+	PCPWM_Write_fpt	write;
 
 };
 

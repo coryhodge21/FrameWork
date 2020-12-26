@@ -107,6 +107,7 @@ void FileWriter::template_Register_Body(Module * parentModule){
     Register * aRegister = parentModule->getLastRegister();
     string Mod_Reg_name = parentModule->getName() + "_" + aRegister->getName();
     string Mod_Reg_e = Mod_Reg_name + "_e";
+    string Reg_name_e = aRegister->getName() + "_e";
 
     // include enums
     _registerFileStream << "//! \\brief Enumerations for this Register\n";
@@ -115,6 +116,16 @@ void FileWriter::template_Register_Body(Module * parentModule){
     _registerFileStream << "// Base Address for this Register\n";
     _registerFileStream << "#define " << Mod_Reg_name << "_BASE_ADDR\t" << aRegister->getAddress() << "\n";
     _registerFileStream << "\n";
+
+    _registerFileStream << "// Function pointer types that set/clear/read/write Bit Fields w/n Registers\n"
+                           "typedef void(*" << aRegister->getName() << "_Set_fpt)("<< Reg_name_e <<");\n"
+                           "\n"
+                           "typedef void(*" << aRegister->getName() << "_Clear_fpt)("<< Reg_name_e <<");\n"
+                           "\n"
+                           "typedef int(*" << aRegister->getName() << "_Read_fpt)("<< Reg_name_e <<");\n"
+                           "\n"
+                           "typedef void(*" << aRegister->getName() << "_Write_fpt)("<< Reg_name_e <<", int);\n"
+                                                                      "\n";
 
     // structure declaration
     _registerFileStream << "// Structure Declaration\n";
@@ -126,16 +137,16 @@ void FileWriter::template_Register_Body(Module * parentModule){
     _registerFileStream << "\t/** Function Pointers to Register Operations    */\n";
     _registerFileStream << "\n";
     _registerFileStream << "\t// Set the Bits of this Register Masked by the enumeration\n";
-    _registerFileStream << "\tvoid(*set)(" << Mod_Reg_e << ");\n";
+    _registerFileStream << "\t" << aRegister->getName() << "_Set_fpt\t set;\n";
     _registerFileStream << "\n";
     _registerFileStream << "\t// Clear the Bits of this Register Masked by the enumeration\n";
-    _registerFileStream << "\tvoid(*clear)(" << Mod_Reg_e << ");\n";
+    _registerFileStream << "\t " << aRegister->getName() << "_Clear_fpt\tclear;\n";
     _registerFileStream << "\n";
     _registerFileStream << "\t// Read the Bits of this Register Masked by the enumeration\n";
-    _registerFileStream << "\tint32_t(*read)(" << Mod_Reg_e << ");\n";;
+    _registerFileStream << "\t"  << aRegister->getName() << "_Read_fpt\tread;\n";;
     _registerFileStream << "\n";
     _registerFileStream << "\t// Write the Bits of this Register Masked by the enumeration\n";
-    _registerFileStream << "\tvoid(*write)(" << Mod_Reg_e << ", int32_t);\n";
+    _registerFileStream << "\t"  << aRegister->getName() << "_Write_fpt\twrite;\n";
     _registerFileStream << "\n";
     _registerFileStream << "};\n";
     _registerFileStream << "\n";

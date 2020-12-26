@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_DCGCDMA_BASE_ADDR	0x400FE80C
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*DCGCDMA_Set_fpt)(DCGCDMA_e);
+
+typedef void(*DCGCDMA_Clear_fpt)(DCGCDMA_e);
+
+typedef int(*DCGCDMA_Read_fpt)(DCGCDMA_e);
+
+typedef void(*DCGCDMA_Write_fpt)(DCGCDMA_e, int);
+
 // Structure Declaration
 struct SYSCTL_DCGCDMA_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_DCGCDMA_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_DCGCDMA_e);
+	DCGCDMA_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_DCGCDMA_e);
+	 DCGCDMA_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_DCGCDMA_e);
+	DCGCDMA_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_DCGCDMA_e, int32_t);
+	DCGCDMA_Write_fpt	write;
 
 };
 

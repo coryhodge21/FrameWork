@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_PCOWIRE_BASE_ADDR	0x400FE998
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*PCOWIRE_Set_fpt)(PCOWIRE_e);
+
+typedef void(*PCOWIRE_Clear_fpt)(PCOWIRE_e);
+
+typedef int(*PCOWIRE_Read_fpt)(PCOWIRE_e);
+
+typedef void(*PCOWIRE_Write_fpt)(PCOWIRE_e, int);
+
 // Structure Declaration
 struct SYSCTL_PCOWIRE_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_PCOWIRE_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_PCOWIRE_e);
+	PCOWIRE_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_PCOWIRE_e);
+	 PCOWIRE_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_PCOWIRE_e);
+	PCOWIRE_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_PCOWIRE_e, int32_t);
+	PCOWIRE_Write_fpt	write;
 
 };
 

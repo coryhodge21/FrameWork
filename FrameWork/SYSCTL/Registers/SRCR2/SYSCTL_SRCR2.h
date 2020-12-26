@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_SRCR2_BASE_ADDR	0x400FE048
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*SRCR2_Set_fpt)(SRCR2_e);
+
+typedef void(*SRCR2_Clear_fpt)(SRCR2_e);
+
+typedef int(*SRCR2_Read_fpt)(SRCR2_e);
+
+typedef void(*SRCR2_Write_fpt)(SRCR2_e, int);
+
 // Structure Declaration
 struct SYSCTL_SRCR2_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_SRCR2_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_SRCR2_e);
+	SRCR2_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_SRCR2_e);
+	 SRCR2_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_SRCR2_e);
+	SRCR2_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_SRCR2_e, int32_t);
+	SRCR2_Write_fpt	write;
 
 };
 

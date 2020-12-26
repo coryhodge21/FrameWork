@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_SRWD_BASE_ADDR	0x400FE500
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*SRWD_Set_fpt)(SRWD_e);
+
+typedef void(*SRWD_Clear_fpt)(SRWD_e);
+
+typedef int(*SRWD_Read_fpt)(SRWD_e);
+
+typedef void(*SRWD_Write_fpt)(SRWD_e, int);
+
 // Structure Declaration
 struct SYSCTL_SRWD_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_SRWD_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_SRWD_e);
+	SRWD_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_SRWD_e);
+	 SRWD_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_SRWD_e);
+	SRWD_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_SRWD_e, int32_t);
+	SRWD_Write_fpt	write;
 
 };
 

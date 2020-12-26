@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_SREMAC_BASE_ADDR	0x400FE59C
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*SREMAC_Set_fpt)(SREMAC_e);
+
+typedef void(*SREMAC_Clear_fpt)(SREMAC_e);
+
+typedef int(*SREMAC_Read_fpt)(SREMAC_e);
+
+typedef void(*SREMAC_Write_fpt)(SREMAC_e, int);
+
 // Structure Declaration
 struct SYSCTL_SREMAC_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_SREMAC_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_SREMAC_e);
+	SREMAC_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_SREMAC_e);
+	 SREMAC_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_SREMAC_e);
+	SREMAC_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_SREMAC_e, int32_t);
+	SREMAC_Write_fpt	write;
 
 };
 

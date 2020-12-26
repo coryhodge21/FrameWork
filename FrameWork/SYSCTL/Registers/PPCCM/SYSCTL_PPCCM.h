@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_PPCCM_BASE_ADDR	0x400FE374
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*PPCCM_Set_fpt)(PPCCM_e);
+
+typedef void(*PPCCM_Clear_fpt)(PPCCM_e);
+
+typedef int(*PPCCM_Read_fpt)(PPCCM_e);
+
+typedef void(*PPCCM_Write_fpt)(PPCCM_e, int);
+
 // Structure Declaration
 struct SYSCTL_PPCCM_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_PPCCM_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_PPCCM_e);
+	PPCCM_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_PPCCM_e);
+	 PPCCM_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_PPCCM_e);
+	PPCCM_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_PPCCM_e, int32_t);
+	PPCCM_Write_fpt	write;
 
 };
 

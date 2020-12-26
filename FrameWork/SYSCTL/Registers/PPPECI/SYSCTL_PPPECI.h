@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_PPPECI_BASE_ADDR	0x400FE350
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*PPPECI_Set_fpt)(PPPECI_e);
+
+typedef void(*PPPECI_Clear_fpt)(PPPECI_e);
+
+typedef int(*PPPECI_Read_fpt)(PPPECI_e);
+
+typedef void(*PPPECI_Write_fpt)(PPPECI_e, int);
+
 // Structure Declaration
 struct SYSCTL_PPPECI_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_PPPECI_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_PPPECI_e);
+	PPPECI_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_PPPECI_e);
+	 PPPECI_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_PPPECI_e);
+	PPPECI_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_PPPECI_e, int32_t);
+	PPPECI_Write_fpt	write;
 
 };
 

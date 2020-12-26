@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_PRADC_BASE_ADDR	0x400FEA38
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*PRADC_Set_fpt)(PRADC_e);
+
+typedef void(*PRADC_Clear_fpt)(PRADC_e);
+
+typedef int(*PRADC_Read_fpt)(PRADC_e);
+
+typedef void(*PRADC_Write_fpt)(PRADC_e, int);
+
 // Structure Declaration
 struct SYSCTL_PRADC_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_PRADC_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_PRADC_e);
+	PRADC_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_PRADC_e);
+	 PRADC_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_PRADC_e);
+	PRADC_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_PRADC_e, int32_t);
+	PRADC_Write_fpt	write;
 
 };
 

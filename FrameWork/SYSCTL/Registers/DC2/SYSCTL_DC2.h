@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_DC2_BASE_ADDR	0x400FE014
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*DC2_Set_fpt)(DC2_e);
+
+typedef void(*DC2_Clear_fpt)(DC2_e);
+
+typedef int(*DC2_Read_fpt)(DC2_e);
+
+typedef void(*DC2_Write_fpt)(DC2_e, int);
+
 // Structure Declaration
 struct SYSCTL_DC2_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_DC2_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_DC2_e);
+	DC2_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_DC2_e);
+	 DC2_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_DC2_e);
+	DC2_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_DC2_e, int32_t);
+	DC2_Write_fpt	write;
 
 };
 

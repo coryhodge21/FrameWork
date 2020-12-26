@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_DCGCUSB_BASE_ADDR	0x400FE828
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*DCGCUSB_Set_fpt)(DCGCUSB_e);
+
+typedef void(*DCGCUSB_Clear_fpt)(DCGCUSB_e);
+
+typedef int(*DCGCUSB_Read_fpt)(DCGCUSB_e);
+
+typedef void(*DCGCUSB_Write_fpt)(DCGCUSB_e, int);
+
 // Structure Declaration
 struct SYSCTL_DCGCUSB_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_DCGCUSB_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_DCGCUSB_e);
+	DCGCUSB_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_DCGCUSB_e);
+	 DCGCUSB_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_DCGCUSB_e);
+	DCGCUSB_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_DCGCUSB_e, int32_t);
+	DCGCUSB_Write_fpt	write;
 
 };
 

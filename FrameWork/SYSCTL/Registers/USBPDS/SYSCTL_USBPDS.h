@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_USBPDS_BASE_ADDR	0x400FE280
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*USBPDS_Set_fpt)(USBPDS_e);
+
+typedef void(*USBPDS_Clear_fpt)(USBPDS_e);
+
+typedef int(*USBPDS_Read_fpt)(USBPDS_e);
+
+typedef void(*USBPDS_Write_fpt)(USBPDS_e, int);
+
 // Structure Declaration
 struct SYSCTL_USBPDS_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_USBPDS_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_USBPDS_e);
+	USBPDS_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_USBPDS_e);
+	 USBPDS_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_USBPDS_e);
+	USBPDS_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_USBPDS_e, int32_t);
+	USBPDS_Write_fpt	write;
 
 };
 

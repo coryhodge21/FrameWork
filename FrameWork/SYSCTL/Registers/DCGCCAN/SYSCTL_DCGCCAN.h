@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_DCGCCAN_BASE_ADDR	0x400FE834
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*DCGCCAN_Set_fpt)(DCGCCAN_e);
+
+typedef void(*DCGCCAN_Clear_fpt)(DCGCCAN_e);
+
+typedef int(*DCGCCAN_Read_fpt)(DCGCCAN_e);
+
+typedef void(*DCGCCAN_Write_fpt)(DCGCCAN_e, int);
+
 // Structure Declaration
 struct SYSCTL_DCGCCAN_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_DCGCCAN_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_DCGCCAN_e);
+	DCGCCAN_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_DCGCCAN_e);
+	 DCGCCAN_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_DCGCCAN_e);
+	DCGCCAN_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_DCGCCAN_e, int32_t);
+	DCGCCAN_Write_fpt	write;
 
 };
 

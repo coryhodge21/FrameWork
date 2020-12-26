@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_SRACMP_BASE_ADDR	0x400FE53C
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*SRACMP_Set_fpt)(SRACMP_e);
+
+typedef void(*SRACMP_Clear_fpt)(SRACMP_e);
+
+typedef int(*SRACMP_Read_fpt)(SRACMP_e);
+
+typedef void(*SRACMP_Write_fpt)(SRACMP_e, int);
+
 // Structure Declaration
 struct SYSCTL_SRACMP_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_SRACMP_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_SRACMP_e);
+	SRACMP_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_SRACMP_e);
+	 SRACMP_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_SRACMP_e);
+	SRACMP_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_SRACMP_e, int32_t);
+	SRACMP_Write_fpt	write;
 
 };
 

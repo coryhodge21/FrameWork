@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_SCGCEPI_BASE_ADDR	0x400FE710
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*SCGCEPI_Set_fpt)(SCGCEPI_e);
+
+typedef void(*SCGCEPI_Clear_fpt)(SCGCEPI_e);
+
+typedef int(*SCGCEPI_Read_fpt)(SCGCEPI_e);
+
+typedef void(*SCGCEPI_Write_fpt)(SCGCEPI_e, int);
+
 // Structure Declaration
 struct SYSCTL_SCGCEPI_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_SCGCEPI_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_SCGCEPI_e);
+	SCGCEPI_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_SCGCEPI_e);
+	 SCGCEPI_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_SCGCEPI_e);
+	SCGCEPI_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_SCGCEPI_e, int32_t);
+	SCGCEPI_Write_fpt	write;
 
 };
 

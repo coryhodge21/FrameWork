@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_PRUSB_BASE_ADDR	0x400FEA28
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*PRUSB_Set_fpt)(PRUSB_e);
+
+typedef void(*PRUSB_Clear_fpt)(PRUSB_e);
+
+typedef int(*PRUSB_Read_fpt)(PRUSB_e);
+
+typedef void(*PRUSB_Write_fpt)(PRUSB_e, int);
+
 // Structure Declaration
 struct SYSCTL_PRUSB_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_PRUSB_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_PRUSB_e);
+	PRUSB_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_PRUSB_e);
+	 PRUSB_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_PRUSB_e);
+	PRUSB_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_PRUSB_e, int32_t);
+	PRUSB_Write_fpt	write;
 
 };
 

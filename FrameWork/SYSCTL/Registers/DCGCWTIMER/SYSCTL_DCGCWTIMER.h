@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_DCGCWTIMER_BASE_ADDR	0x400FE85C
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*DCGCWTIMER_Set_fpt)(DCGCWTIMER_e);
+
+typedef void(*DCGCWTIMER_Clear_fpt)(DCGCWTIMER_e);
+
+typedef int(*DCGCWTIMER_Read_fpt)(DCGCWTIMER_e);
+
+typedef void(*DCGCWTIMER_Write_fpt)(DCGCWTIMER_e, int);
+
 // Structure Declaration
 struct SYSCTL_DCGCWTIMER_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_DCGCWTIMER_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_DCGCWTIMER_e);
+	DCGCWTIMER_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_DCGCWTIMER_e);
+	 DCGCWTIMER_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_DCGCWTIMER_e);
+	DCGCWTIMER_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_DCGCWTIMER_e, int32_t);
+	DCGCWTIMER_Write_fpt	write;
 
 };
 

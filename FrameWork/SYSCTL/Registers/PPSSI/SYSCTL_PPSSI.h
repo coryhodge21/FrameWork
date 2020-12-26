@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_PPSSI_BASE_ADDR	0x400FE31C
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*PPSSI_Set_fpt)(PPSSI_e);
+
+typedef void(*PPSSI_Clear_fpt)(PPSSI_e);
+
+typedef int(*PPSSI_Read_fpt)(PPSSI_e);
+
+typedef void(*PPSSI_Write_fpt)(PPSSI_e, int);
+
 // Structure Declaration
 struct SYSCTL_PPSSI_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_PPSSI_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_PPSSI_e);
+	PPSSI_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_PPSSI_e);
+	 PPSSI_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_PPSSI_e);
+	PPSSI_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_PPSSI_e, int32_t);
+	PPSSI_Write_fpt	write;
 
 };
 

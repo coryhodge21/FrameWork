@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_RCGCOWIRE_BASE_ADDR	0x400FE698
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*RCGCOWIRE_Set_fpt)(RCGCOWIRE_e);
+
+typedef void(*RCGCOWIRE_Clear_fpt)(RCGCOWIRE_e);
+
+typedef int(*RCGCOWIRE_Read_fpt)(RCGCOWIRE_e);
+
+typedef void(*RCGCOWIRE_Write_fpt)(RCGCOWIRE_e, int);
+
 // Structure Declaration
 struct SYSCTL_RCGCOWIRE_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_RCGCOWIRE_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_RCGCOWIRE_e);
+	RCGCOWIRE_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_RCGCOWIRE_e);
+	 RCGCOWIRE_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_RCGCOWIRE_e);
+	RCGCOWIRE_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_RCGCOWIRE_e, int32_t);
+	RCGCOWIRE_Write_fpt	write;
 
 };
 

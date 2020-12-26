@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_SRCAN_BASE_ADDR	0x400FE534
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*SRCAN_Set_fpt)(SRCAN_e);
+
+typedef void(*SRCAN_Clear_fpt)(SRCAN_e);
+
+typedef int(*SRCAN_Read_fpt)(SRCAN_e);
+
+typedef void(*SRCAN_Write_fpt)(SRCAN_e, int);
+
 // Structure Declaration
 struct SYSCTL_SRCAN_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_SRCAN_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_SRCAN_e);
+	SRCAN_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_SRCAN_e);
+	 SRCAN_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_SRCAN_e);
+	SRCAN_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_SRCAN_e, int32_t);
+	SRCAN_Write_fpt	write;
 
 };
 

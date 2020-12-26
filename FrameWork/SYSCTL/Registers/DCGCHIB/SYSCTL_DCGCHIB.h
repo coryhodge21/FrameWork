@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_DCGCHIB_BASE_ADDR	0x400FE814
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*DCGCHIB_Set_fpt)(DCGCHIB_e);
+
+typedef void(*DCGCHIB_Clear_fpt)(DCGCHIB_e);
+
+typedef int(*DCGCHIB_Read_fpt)(DCGCHIB_e);
+
+typedef void(*DCGCHIB_Write_fpt)(DCGCHIB_e, int);
+
 // Structure Declaration
 struct SYSCTL_DCGCHIB_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_DCGCHIB_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_DCGCHIB_e);
+	DCGCHIB_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_DCGCHIB_e);
+	 DCGCHIB_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_DCGCHIB_e);
+	DCGCHIB_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_DCGCHIB_e, int32_t);
+	DCGCHIB_Write_fpt	write;
 
 };
 

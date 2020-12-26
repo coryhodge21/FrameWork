@@ -9,6 +9,7 @@ GEN_CMDS__FLAG :=
 
 ORDERED_OBJS += \
 "./MOD_REG.obj" \
+"./Output.obj" \
 "./main.obj" \
 "./tm4c123gh6pm_startup_ccs.obj" \
 "../tm4c123gh6pm.cmd" \
@@ -154,8 +155,8 @@ Driver.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "MOD_REG.obj" "main.obj" "tm4c123gh6pm_startup_ccs.obj" 
-	-$(RM) "MOD_REG.d" "main.d" "tm4c123gh6pm_startup_ccs.d" 
+	-$(RM) "MOD_REG.obj" "Output.obj" "main.obj" "tm4c123gh6pm_startup_ccs.obj" 
+	-$(RM) "MOD_REG.d" "Output.d" "main.d" "tm4c123gh6pm_startup_ccs.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

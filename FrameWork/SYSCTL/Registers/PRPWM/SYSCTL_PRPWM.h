@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_PRPWM_BASE_ADDR	0x400FEA40
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*PRPWM_Set_fpt)(PRPWM_e);
+
+typedef void(*PRPWM_Clear_fpt)(PRPWM_e);
+
+typedef int(*PRPWM_Read_fpt)(PRPWM_e);
+
+typedef void(*PRPWM_Write_fpt)(PRPWM_e, int);
+
 // Structure Declaration
 struct SYSCTL_PRPWM_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_PRPWM_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_PRPWM_e);
+	PRPWM_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_PRPWM_e);
+	 PRPWM_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_PRPWM_e);
+	PRPWM_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_PRPWM_e, int32_t);
+	PRPWM_Write_fpt	write;
 
 };
 

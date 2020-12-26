@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_EMACMPC_BASE_ADDR	0x400FE28C
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*EMACMPC_Set_fpt)(EMACMPC_e);
+
+typedef void(*EMACMPC_Clear_fpt)(EMACMPC_e);
+
+typedef int(*EMACMPC_Read_fpt)(EMACMPC_e);
+
+typedef void(*EMACMPC_Write_fpt)(EMACMPC_e, int);
+
 // Structure Declaration
 struct SYSCTL_EMACMPC_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_EMACMPC_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_EMACMPC_e);
+	EMACMPC_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_EMACMPC_e);
+	 EMACMPC_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_EMACMPC_e);
+	EMACMPC_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_EMACMPC_e, int32_t);
+	EMACMPC_Write_fpt	write;
 
 };
 

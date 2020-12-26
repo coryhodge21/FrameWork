@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_PCUSB_BASE_ADDR	0x400FE928
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*PCUSB_Set_fpt)(PCUSB_e);
+
+typedef void(*PCUSB_Clear_fpt)(PCUSB_e);
+
+typedef int(*PCUSB_Read_fpt)(PCUSB_e);
+
+typedef void(*PCUSB_Write_fpt)(PCUSB_e, int);
+
 // Structure Declaration
 struct SYSCTL_PCUSB_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_PCUSB_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_PCUSB_e);
+	PCUSB_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_PCUSB_e);
+	 PCUSB_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_PCUSB_e);
+	PCUSB_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_PCUSB_e, int32_t);
+	PCUSB_Write_fpt	write;
 
 };
 

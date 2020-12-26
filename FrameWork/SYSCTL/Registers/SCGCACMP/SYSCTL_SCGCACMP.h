@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_SCGCACMP_BASE_ADDR	0x400FE73C
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*SCGCACMP_Set_fpt)(SCGCACMP_e);
+
+typedef void(*SCGCACMP_Clear_fpt)(SCGCACMP_e);
+
+typedef int(*SCGCACMP_Read_fpt)(SCGCACMP_e);
+
+typedef void(*SCGCACMP_Write_fpt)(SCGCACMP_e, int);
+
 // Structure Declaration
 struct SYSCTL_SCGCACMP_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_SCGCACMP_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_SCGCACMP_e);
+	SCGCACMP_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_SCGCACMP_e);
+	 SCGCACMP_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_SCGCACMP_e);
+	SCGCACMP_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_SCGCACMP_e, int32_t);
+	SCGCACMP_Write_fpt	write;
 
 };
 

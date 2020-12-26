@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_USBMPC_BASE_ADDR	0x400FE284
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*USBMPC_Set_fpt)(USBMPC_e);
+
+typedef void(*USBMPC_Clear_fpt)(USBMPC_e);
+
+typedef int(*USBMPC_Read_fpt)(USBMPC_e);
+
+typedef void(*USBMPC_Write_fpt)(USBMPC_e, int);
+
 // Structure Declaration
 struct SYSCTL_USBMPC_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_USBMPC_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_USBMPC_e);
+	USBMPC_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_USBMPC_e);
+	 USBMPC_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_USBMPC_e);
+	USBMPC_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_USBMPC_e, int32_t);
+	USBMPC_Write_fpt	write;
 
 };
 

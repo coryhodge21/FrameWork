@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_SCGC2_BASE_ADDR	0x400FE118
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*SCGC2_Set_fpt)(SCGC2_e);
+
+typedef void(*SCGC2_Clear_fpt)(SCGC2_e);
+
+typedef int(*SCGC2_Read_fpt)(SCGC2_e);
+
+typedef void(*SCGC2_Write_fpt)(SCGC2_e, int);
+
 // Structure Declaration
 struct SYSCTL_SCGC2_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_SCGC2_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_SCGC2_e);
+	SCGC2_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_SCGC2_e);
+	 SCGC2_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_SCGC2_e);
+	SCGC2_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_SCGC2_e, int32_t);
+	SCGC2_Write_fpt	write;
 
 };
 

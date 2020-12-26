@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_LCDMPC_BASE_ADDR	0x400FE294
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*LCDMPC_Set_fpt)(LCDMPC_e);
+
+typedef void(*LCDMPC_Clear_fpt)(LCDMPC_e);
+
+typedef int(*LCDMPC_Read_fpt)(LCDMPC_e);
+
+typedef void(*LCDMPC_Write_fpt)(LCDMPC_e, int);
+
 // Structure Declaration
 struct SYSCTL_LCDMPC_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_LCDMPC_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_LCDMPC_e);
+	LCDMPC_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_LCDMPC_e);
+	 LCDMPC_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_LCDMPC_e);
+	LCDMPC_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_LCDMPC_e, int32_t);
+	LCDMPC_Write_fpt	write;
 
 };
 

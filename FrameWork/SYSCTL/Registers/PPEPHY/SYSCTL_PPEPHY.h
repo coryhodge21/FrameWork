@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_PPEPHY_BASE_ADDR	0x400FE330
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*PPEPHY_Set_fpt)(PPEPHY_e);
+
+typedef void(*PPEPHY_Clear_fpt)(PPEPHY_e);
+
+typedef int(*PPEPHY_Read_fpt)(PPEPHY_e);
+
+typedef void(*PPEPHY_Write_fpt)(PPEPHY_e, int);
+
 // Structure Declaration
 struct SYSCTL_PPEPHY_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_PPEPHY_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_PPEPHY_e);
+	PPEPHY_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_PPEPHY_e);
+	 PPEPHY_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_PPEPHY_e);
+	PPEPHY_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_PPEPHY_e, int32_t);
+	PPEPHY_Write_fpt	write;
 
 };
 

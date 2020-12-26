@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_RCGCWD_BASE_ADDR	0x400FE600
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*RCGCWD_Set_fpt)(RCGCWD_e);
+
+typedef void(*RCGCWD_Clear_fpt)(RCGCWD_e);
+
+typedef int(*RCGCWD_Read_fpt)(RCGCWD_e);
+
+typedef void(*RCGCWD_Write_fpt)(RCGCWD_e, int);
+
 // Structure Declaration
 struct SYSCTL_RCGCWD_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_RCGCWD_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_RCGCWD_e);
+	RCGCWD_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_RCGCWD_e);
+	 RCGCWD_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_RCGCWD_e);
+	RCGCWD_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_RCGCWD_e, int32_t);
+	RCGCWD_Write_fpt	write;
 
 };
 

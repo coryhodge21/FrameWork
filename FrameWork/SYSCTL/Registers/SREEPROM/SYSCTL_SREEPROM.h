@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_SREEPROM_BASE_ADDR	0x400FE558
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*SREEPROM_Set_fpt)(SREEPROM_e);
+
+typedef void(*SREEPROM_Clear_fpt)(SREEPROM_e);
+
+typedef int(*SREEPROM_Read_fpt)(SREEPROM_e);
+
+typedef void(*SREEPROM_Write_fpt)(SREEPROM_e, int);
+
 // Structure Declaration
 struct SYSCTL_SREEPROM_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_SREEPROM_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_SREEPROM_e);
+	SREEPROM_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_SREEPROM_e);
+	 SREEPROM_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_SREEPROM_e);
+	SREEPROM_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_SREEPROM_e, int32_t);
+	SREEPROM_Write_fpt	write;
 
 };
 

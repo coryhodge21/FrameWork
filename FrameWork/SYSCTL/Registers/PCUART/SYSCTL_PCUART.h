@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_PCUART_BASE_ADDR	0x400FE918
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*PCUART_Set_fpt)(PCUART_e);
+
+typedef void(*PCUART_Clear_fpt)(PCUART_e);
+
+typedef int(*PCUART_Read_fpt)(PCUART_e);
+
+typedef void(*PCUART_Write_fpt)(PCUART_e, int);
+
 // Structure Declaration
 struct SYSCTL_PCUART_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_PCUART_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_PCUART_e);
+	PCUART_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_PCUART_e);
+	 PCUART_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_PCUART_e);
+	PCUART_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_PCUART_e, int32_t);
+	PCUART_Write_fpt	write;
 
 };
 

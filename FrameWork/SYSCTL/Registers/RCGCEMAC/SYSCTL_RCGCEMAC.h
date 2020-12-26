@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_RCGCEMAC_BASE_ADDR	0x400FE69C
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*RCGCEMAC_Set_fpt)(RCGCEMAC_e);
+
+typedef void(*RCGCEMAC_Clear_fpt)(RCGCEMAC_e);
+
+typedef int(*RCGCEMAC_Read_fpt)(RCGCEMAC_e);
+
+typedef void(*RCGCEMAC_Write_fpt)(RCGCEMAC_e, int);
+
 // Structure Declaration
 struct SYSCTL_RCGCEMAC_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_RCGCEMAC_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_RCGCEMAC_e);
+	RCGCEMAC_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_RCGCEMAC_e);
+	 RCGCEMAC_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_RCGCEMAC_e);
+	RCGCEMAC_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_RCGCEMAC_e, int32_t);
+	RCGCEMAC_Write_fpt	write;
 
 };
 

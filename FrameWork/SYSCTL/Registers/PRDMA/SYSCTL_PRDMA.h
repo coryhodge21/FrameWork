@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_PRDMA_BASE_ADDR	0x400FEA0C
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*PRDMA_Set_fpt)(PRDMA_e);
+
+typedef void(*PRDMA_Clear_fpt)(PRDMA_e);
+
+typedef int(*PRDMA_Read_fpt)(PRDMA_e);
+
+typedef void(*PRDMA_Write_fpt)(PRDMA_e, int);
+
 // Structure Declaration
 struct SYSCTL_PRDMA_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_PRDMA_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_PRDMA_e);
+	PRDMA_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_PRDMA_e);
+	 PRDMA_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_PRDMA_e);
+	PRDMA_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_PRDMA_e, int32_t);
+	PRDMA_Write_fpt	write;
 
 };
 

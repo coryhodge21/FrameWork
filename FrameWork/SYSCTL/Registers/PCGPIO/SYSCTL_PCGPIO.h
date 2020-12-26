@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_PCGPIO_BASE_ADDR	0x400FE908
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*PCGPIO_Set_fpt)(PCGPIO_e);
+
+typedef void(*PCGPIO_Clear_fpt)(PCGPIO_e);
+
+typedef int(*PCGPIO_Read_fpt)(PCGPIO_e);
+
+typedef void(*PCGPIO_Write_fpt)(PCGPIO_e, int);
+
 // Structure Declaration
 struct SYSCTL_PCGPIO_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_PCGPIO_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_PCGPIO_e);
+	PCGPIO_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_PCGPIO_e);
+	 PCGPIO_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_PCGPIO_e);
+	PCGPIO_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_PCGPIO_e, int32_t);
+	PCGPIO_Write_fpt	write;
 
 };
 

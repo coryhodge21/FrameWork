@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_PREPI_BASE_ADDR	0x400FEA10
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*PREPI_Set_fpt)(PREPI_e);
+
+typedef void(*PREPI_Clear_fpt)(PREPI_e);
+
+typedef int(*PREPI_Read_fpt)(PREPI_e);
+
+typedef void(*PREPI_Write_fpt)(PREPI_e, int);
+
 // Structure Declaration
 struct SYSCTL_PREPI_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_PREPI_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_PREPI_e);
+	PREPI_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_PREPI_e);
+	 PREPI_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_PREPI_e);
+	PREPI_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_PREPI_e, int32_t);
+	PREPI_Write_fpt	write;
 
 };
 

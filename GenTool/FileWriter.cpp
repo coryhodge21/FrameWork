@@ -72,13 +72,22 @@ void FileWriter::recursively_writeModules(void){
         /// Write the Module.h file
         write_Module_h();
 
+        /// Create Module.c file
+        create_Module_c();
+
+        /// Write Module.c file
+        write_Module_c();
+
+
         /// MODULE/REGISTERS/  general  Directory
         create_REGISTERS_Dir();
 
         ///    Create Registers.h file
         create_REGISTERS_h();
-        // TODO : This also writes Registers.h
-        // write_REGSITERS_h();
+
+        /// Write Registers_h(); TODO
+        write_REGISTERS_h();
+
 
         /**
          * RECURSIVELY
@@ -123,10 +132,10 @@ void FileWriter::recursively_writeRegisters(){
         write_Register_h(parentModule);
 
         /// create register .c
-
+        create_Register_c();
 
         /// write register .c
-
+        write_Register_c();
 
         /**
          * REGISTER_enums.h

@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_PWRTC_BASE_ADDR	0x400FE060
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*PWRTC_Set_fpt)(PWRTC_e);
+
+typedef void(*PWRTC_Clear_fpt)(PWRTC_e);
+
+typedef int(*PWRTC_Read_fpt)(PWRTC_e);
+
+typedef void(*PWRTC_Write_fpt)(PWRTC_e, int);
+
 // Structure Declaration
 struct SYSCTL_PWRTC_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_PWRTC_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_PWRTC_e);
+	PWRTC_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_PWRTC_e);
+	 PWRTC_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_PWRTC_e);
+	PWRTC_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_PWRTC_e, int32_t);
+	PWRTC_Write_fpt	write;
 
 };
 

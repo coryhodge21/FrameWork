@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_SRHIB_BASE_ADDR	0x400FE514
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*SRHIB_Set_fpt)(SRHIB_e);
+
+typedef void(*SRHIB_Clear_fpt)(SRHIB_e);
+
+typedef int(*SRHIB_Read_fpt)(SRHIB_e);
+
+typedef void(*SRHIB_Write_fpt)(SRHIB_e, int);
+
 // Structure Declaration
 struct SYSCTL_SRHIB_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_SRHIB_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_SRHIB_e);
+	SRHIB_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_SRHIB_e);
+	 SRHIB_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_SRHIB_e);
+	SRHIB_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_SRHIB_e, int32_t);
+	SRHIB_Write_fpt	write;
 
 };
 

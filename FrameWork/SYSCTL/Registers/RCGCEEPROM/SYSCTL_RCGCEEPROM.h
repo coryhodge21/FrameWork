@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_RCGCEEPROM_BASE_ADDR	0x400FE658
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*RCGCEEPROM_Set_fpt)(RCGCEEPROM_e);
+
+typedef void(*RCGCEEPROM_Clear_fpt)(RCGCEEPROM_e);
+
+typedef int(*RCGCEEPROM_Read_fpt)(RCGCEEPROM_e);
+
+typedef void(*RCGCEEPROM_Write_fpt)(RCGCEEPROM_e, int);
+
 // Structure Declaration
 struct SYSCTL_RCGCEEPROM_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_RCGCEEPROM_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_RCGCEEPROM_e);
+	RCGCEEPROM_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_RCGCEEPROM_e);
+	 RCGCEEPROM_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_RCGCEEPROM_e);
+	RCGCEEPROM_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_RCGCEEPROM_e, int32_t);
+	RCGCEEPROM_Write_fpt	write;
 
 };
 

@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_PPLCD_BASE_ADDR	0x400FE390
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*PPLCD_Set_fpt)(PPLCD_e);
+
+typedef void(*PPLCD_Clear_fpt)(PPLCD_e);
+
+typedef int(*PPLCD_Read_fpt)(PPLCD_e);
+
+typedef void(*PPLCD_Write_fpt)(PPLCD_e, int);
+
 // Structure Declaration
 struct SYSCTL_PPLCD_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_PPLCD_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_PPLCD_e);
+	PPLCD_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_PPLCD_e);
+	 PPLCD_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_PPLCD_e);
+	PPLCD_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_PPLCD_e, int32_t);
+	PPLCD_Write_fpt	write;
 
 };
 

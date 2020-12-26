@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_PCEEPROM_BASE_ADDR	0x400FE958
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*PCEEPROM_Set_fpt)(PCEEPROM_e);
+
+typedef void(*PCEEPROM_Clear_fpt)(PCEEPROM_e);
+
+typedef int(*PCEEPROM_Read_fpt)(PCEEPROM_e);
+
+typedef void(*PCEEPROM_Write_fpt)(PCEEPROM_e, int);
+
 // Structure Declaration
 struct SYSCTL_PCEEPROM_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_PCEEPROM_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_PCEEPROM_e);
+	PCEEPROM_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_PCEEPROM_e);
+	 PCEEPROM_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_PCEEPROM_e);
+	PCEEPROM_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_PCEEPROM_e, int32_t);
+	PCEEPROM_Write_fpt	write;
 
 };
 

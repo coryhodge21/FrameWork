@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_SRTIMER_BASE_ADDR	0x400FE504
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*SRTIMER_Set_fpt)(SRTIMER_e);
+
+typedef void(*SRTIMER_Clear_fpt)(SRTIMER_e);
+
+typedef int(*SRTIMER_Read_fpt)(SRTIMER_e);
+
+typedef void(*SRTIMER_Write_fpt)(SRTIMER_e, int);
+
 // Structure Declaration
 struct SYSCTL_SRTIMER_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_SRTIMER_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_SRTIMER_e);
+	SRTIMER_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_SRTIMER_e);
+	 SRTIMER_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_SRTIMER_e);
+	SRTIMER_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_SRTIMER_e, int32_t);
+	SRTIMER_Write_fpt	write;
 
 };
 

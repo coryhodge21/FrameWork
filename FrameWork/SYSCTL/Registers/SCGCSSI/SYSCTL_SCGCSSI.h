@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_SCGCSSI_BASE_ADDR	0x400FE71C
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*SCGCSSI_Set_fpt)(SCGCSSI_e);
+
+typedef void(*SCGCSSI_Clear_fpt)(SCGCSSI_e);
+
+typedef int(*SCGCSSI_Read_fpt)(SCGCSSI_e);
+
+typedef void(*SCGCSSI_Write_fpt)(SCGCSSI_e, int);
+
 // Structure Declaration
 struct SYSCTL_SCGCSSI_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_SCGCSSI_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_SCGCSSI_e);
+	SCGCSSI_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_SCGCSSI_e);
+	 SCGCSSI_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_SCGCSSI_e);
+	SCGCSSI_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_SCGCSSI_e, int32_t);
+	SCGCSSI_Write_fpt	write;
 
 };
 

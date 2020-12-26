@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_SRWTIMER_BASE_ADDR	0x400FE55C
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*SRWTIMER_Set_fpt)(SRWTIMER_e);
+
+typedef void(*SRWTIMER_Clear_fpt)(SRWTIMER_e);
+
+typedef int(*SRWTIMER_Read_fpt)(SRWTIMER_e);
+
+typedef void(*SRWTIMER_Write_fpt)(SRWTIMER_e, int);
+
 // Structure Declaration
 struct SYSCTL_SRWTIMER_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_SRWTIMER_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_SRWTIMER_e);
+	SRWTIMER_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_SRWTIMER_e);
+	 SRWTIMER_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_SRWTIMER_e);
+	SRWTIMER_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_SRWTIMER_e, int32_t);
+	SRWTIMER_Write_fpt	write;
 
 };
 

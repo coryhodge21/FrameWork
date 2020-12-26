@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_SRPWM_BASE_ADDR	0x400FE540
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*SRPWM_Set_fpt)(SRPWM_e);
+
+typedef void(*SRPWM_Clear_fpt)(SRPWM_e);
+
+typedef int(*SRPWM_Read_fpt)(SRPWM_e);
+
+typedef void(*SRPWM_Write_fpt)(SRPWM_e, int);
+
 // Structure Declaration
 struct SYSCTL_SRPWM_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_SRPWM_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_SRPWM_e);
+	SRPWM_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_SRPWM_e);
+	 SRPWM_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_SRPWM_e);
+	SRPWM_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_SRPWM_e, int32_t);
+	SRPWM_Write_fpt	write;
 
 };
 

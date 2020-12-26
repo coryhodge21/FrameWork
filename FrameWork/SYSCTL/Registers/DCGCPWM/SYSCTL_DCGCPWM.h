@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_DCGCPWM_BASE_ADDR	0x400FE840
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*DCGCPWM_Set_fpt)(DCGCPWM_e);
+
+typedef void(*DCGCPWM_Clear_fpt)(DCGCPWM_e);
+
+typedef int(*DCGCPWM_Read_fpt)(DCGCPWM_e);
+
+typedef void(*DCGCPWM_Write_fpt)(DCGCPWM_e, int);
+
 // Structure Declaration
 struct SYSCTL_DCGCPWM_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_DCGCPWM_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_DCGCPWM_e);
+	DCGCPWM_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_DCGCPWM_e);
+	 DCGCPWM_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_DCGCPWM_e);
+	DCGCPWM_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_DCGCPWM_e, int32_t);
+	DCGCPWM_Write_fpt	write;
 
 };
 

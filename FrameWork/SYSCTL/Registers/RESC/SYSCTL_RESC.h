@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_RESC_BASE_ADDR	0x400FE05C
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*RESC_Set_fpt)(RESC_e);
+
+typedef void(*RESC_Clear_fpt)(RESC_e);
+
+typedef int(*RESC_Read_fpt)(RESC_e);
+
+typedef void(*RESC_Write_fpt)(RESC_e, int);
+
 // Structure Declaration
 struct SYSCTL_RESC_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_RESC_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_RESC_e);
+	RESC_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_RESC_e);
+	 RESC_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_RESC_e);
+	RESC_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_RESC_e, int32_t);
+	RESC_Write_fpt	write;
 
 };
 

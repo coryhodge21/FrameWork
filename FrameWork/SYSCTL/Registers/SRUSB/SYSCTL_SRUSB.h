@@ -13,6 +13,15 @@
 // Base Address for this Register
 #define SYSCTL_SRUSB_BASE_ADDR	0x400FE528
 
+// Function pointer types that set/clear/read/write Bit Fields w/n Registers
+typedef void(*SRUSB_Set_fpt)(SRUSB_e);
+
+typedef void(*SRUSB_Clear_fpt)(SRUSB_e);
+
+typedef int(*SRUSB_Read_fpt)(SRUSB_e);
+
+typedef void(*SRUSB_Write_fpt)(SRUSB_e, int);
+
 // Structure Declaration
 struct SYSCTL_SRUSB_obj {
 
@@ -22,16 +31,16 @@ struct SYSCTL_SRUSB_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void(*set)(SYSCTL_SRUSB_e);
+	SRUSB_Set_fpt	 set;
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void(*clear)(SYSCTL_SRUSB_e);
+	 SRUSB_Clear_fpt	clear;
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t(*read)(SYSCTL_SRUSB_e);
+	SRUSB_Read_fpt	read;
 
 	// Write the Bits of this Register Masked by the enumeration
-	void(*write)(SYSCTL_SRUSB_e, int32_t);
+	SRUSB_Write_fpt	write;
 
 };
 
