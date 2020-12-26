@@ -46,7 +46,7 @@ void write_this(BF_e Bit_Field_Mask, int32_t msg) {
 MOD_REG_t init_MOD_REG(void){
 
     // Create Register
-  MOD_REG_t Register;
+    MOD_REG_t Register;
 
     // For Direct Memory Location Access
     Register.REG_BASE_ADDR = MOD_REG_BASE_ADDR;
