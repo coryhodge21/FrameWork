@@ -5,7 +5,7 @@
 #include "FileWriter.h"
 
 //! \brief write Module File
-void FileWriter::writeModule(){
+void FileWriter::write_Module_h(){
 
     // get pointer to last module in data tree
     Module * aModule = getLastModule();
@@ -21,7 +21,7 @@ void FileWriter::writeModule(){
 }
 
 //! \brief write Register File;
-void FileWriter::writeRegister(Module *  parentModule){
+void FileWriter::write_Register_h(Module *  parentModule){
 
     Register * aRegister = parentModule->getLastRegister();
     // Template Header
@@ -35,7 +35,7 @@ void FileWriter::writeRegister(Module *  parentModule){
 }
 
 //! \brief write Bit Field File
-void FileWriter::writeBitField(BitField * aBitField){
+void FileWriter::write_BitField_h(BitField * aBitField){
 
     // Template_Bit_Field body
     template_BitField_Body(aBitField);
@@ -56,7 +56,7 @@ void FileWriter::write_Register_enums(){
     while (! parentRegister->isEmpty()){
 
         // write file Register_enums.h ( append )
-        writeBitField(parentRegister->getLastBitField());
+        write_BitField_h(parentRegister->getLastBitField());
 
         // destroy bitfield
         parentRegister->popBitField();

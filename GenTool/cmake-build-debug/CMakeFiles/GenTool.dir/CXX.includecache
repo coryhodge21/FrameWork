@@ -10,11 +10,9 @@
 Project_Common.h
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Project_Common.h
 
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileParser.h
-Project_Common.h
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Project_Common.h
-Module.h
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Module.h
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter.cpp
+FileWriter.h
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter.h
 
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter.h
 Project_Common.h
@@ -45,12 +43,4 @@ Project_Common.h
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Project_Common.h
 BitField.h
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/BitField.h
-
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/main.cpp
-Project_Common.h
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Project_Common.h
-FileParser.h
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileParser.h
-FileWriter.h
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter.h
 

@@ -69,13 +69,13 @@ private:
     void recursively_writeBitFields();
 
     //! \brief writeModule
-    void writeModule(void);
+    void write_Module_h(void);
 
     //! \brief writeModule
-    void writeRegister(Module * parentModule);
+    void write_Register_h(Module * parentModule);
 
     //! \brief writeModule
-    void writeBitField(BitField * aBitField);
+    void write_BitField_h(BitField * aBitField);
 
     void write_Register_enums();
 

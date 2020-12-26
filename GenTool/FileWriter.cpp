@@ -70,7 +70,7 @@ void FileWriter::recursively_writeModules(void){
         create_Module_h();
 
         /// Write the Module.h file
-        writeModule();
+        write_Module_h();
 
         /// MODULE/REGISTERS/  general  Directory
         create_REGISTERS_Dir();
@@ -120,7 +120,13 @@ void FileWriter::recursively_writeRegisters(){
         create_Register_h();
 
         ///   write register .h
-        writeRegister(parentModule);
+        write_Register_h(parentModule);
+
+        /// create register .c
+
+
+        /// write register .c
+
 
         /**
          * REGISTER_enums.h
@@ -129,6 +135,7 @@ void FileWriter::recursively_writeRegisters(){
         recursively_writeBitFields();
 
         /** End Recursion of Bit Field Masking for this Register */
+
 
         /// destroy register
         parentModule->popRegister();
