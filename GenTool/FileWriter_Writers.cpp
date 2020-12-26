@@ -34,13 +34,6 @@ void FileWriter::write_Register_h(Module *  parentModule){
     template_Register_Footer(aRegister);
 }
 
-//! \brief write Bit Field File
-void FileWriter::write_BitField_h(BitField * aBitField){
-
-    // Template_Bit_Field body
-    template_BitField_Body(aBitField);
-}
-
 
 void FileWriter::write_Register_enums(){
 
@@ -55,8 +48,8 @@ void FileWriter::write_Register_enums(){
     // for each bit field in register tree
     while (! parentRegister->isEmpty()){
 
-        // write file Register_enums.h ( append )
-        write_BitField_h(parentRegister->getLastBitField());
+        // Template_Bit_Field body
+        template_BitField_Body(parentRegister->getLastBitField());
 
         // destroy bitfield
         parentRegister->popBitField();

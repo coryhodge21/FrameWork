@@ -59,25 +59,10 @@ private:
     //! \brief destroy the last element in the vector
     void popModule(void);
 
-    //! \brief Build out Modules
+    //! \brief RECURSIVE Functions
     void recursively_writeModules(void);
-
-    //! \brief Build out Registers
     void recursively_writeRegisters(void);
-
-    //! \brief Build out Enumerations of Bit Fields
     void recursively_writeBitFields();
-
-    //! \brief writeModule
-    void write_Module_h(void);
-
-    //! \brief writeModule
-    void write_Register_h(Module * parentModule);
-
-    //! \brief writeModule
-    void write_BitField_h(BitField * aBitField);
-
-    void write_Register_enums();
 
     //! \brief create directories and open files
     void create_Directory_h(void);
@@ -89,27 +74,28 @@ private:
     void create_Register_h();
     void create_RegEnum_h();
 
-
-
+    /// \brief Write the contents to a file
+    void write_Module_h(void);
+    void write_Register_h(Module * parentModule);
+    void write_Register_enums();
+    
     /**     Templates       */
     //! \brief Generic Header
     void template_Module_Header(Module * aModule);
     void template_Register_Header(Register * aRegister);
     void template_BitField_Header(Register * parentRegister);
 
+    //! \brief Body
+    void template_Module_Body(Module * aModule);
+    void template_Register_Body(Module * parentModule);
+    void template_BitField_Body(BitField * aBitFied);
+
     //! \brief Generic Footer
     void template_Module_Footer(Module * aModule);
     void template_Register_Footer(Register * aRegister);
     void template_BitField_Footer(Module * aModule);
 
-    //! \brief Module Header Body
-    void template_Module_Body(Module * aModule);
 
-    //! \brief Register Header Body
-    void template_Register_Body(Module * parentModule);
-
-    //! \brief BitField Header Body
-    void template_BitField_Body(BitField * aBitFied);
 };
 
 #endif //GENERATE_TOOL_CPP_FILEWRITER_H
