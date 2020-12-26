@@ -22,16 +22,16 @@ struct SYSCTL_RCGC2_obj {
 	/** Function Pointers to Register Operations    */
 
 	// Set the Bits of this Register Masked by the enumeration
-	void (*set)(RCGC2_e);
+	void(*set)(SYSCTL_RCGC2_e);
 
 	// Clear the Bits of this Register Masked by the enumeration
-	void (*clear)(RCGC2_e);
+	void(*clear)(SYSCTL_RCGC2_e);
 
 	// Read the Bits of this Register Masked by the enumeration
-	int32_t (*read)(RCGC2_e);
+	int32_t(*read)(SYSCTL_RCGC2_e);
 
 	// Write the Bits of this Register Masked by the enumeration
-	void (*write)(RCGC2_e, int32_t);
+	void(*write)(SYSCTL_RCGC2_e, int32_t);
 
 };
 

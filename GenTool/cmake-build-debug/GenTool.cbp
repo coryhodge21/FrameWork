@@ -80,6 +80,51 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/BitField.cpp">
+			<Option target="GenTool"/>
+		</Unit>
+		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/BitField.h">
+			<Option target="GenTool"/>
+		</Unit>
+		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileParser.cpp">
+			<Option target="GenTool"/>
+		</Unit>
+		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileParser.h">
+			<Option target="GenTool"/>
+		</Unit>
+		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter.cpp">
+			<Option target="GenTool"/>
+		</Unit>
+		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter.h">
+			<Option target="GenTool"/>
+		</Unit>
+		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter_Templates.cpp">
+			<Option target="GenTool"/>
+		</Unit>
+		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter_Writers.cpp">
+			<Option target="GenTool"/>
+		</Unit>
+		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter_creators.cpp">
+			<Option target="GenTool"/>
+		</Unit>
+		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Module.cpp">
+			<Option target="GenTool"/>
+		</Unit>
+		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Module.h">
+			<Option target="GenTool"/>
+		</Unit>
+		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Project_Common.h">
+			<Option target="GenTool"/>
+		</Unit>
+		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Register.cpp">
+			<Option target="GenTool"/>
+		</Unit>
+		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Register.h">
+			<Option target="GenTool"/>
+		</Unit>
+		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/hw_sysctl.h">
+			<Option target="GenTool"/>
+		</Unit>
 		<Unit filename="/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/main.cpp">
 			<Option target="GenTool"/>
 		</Unit>

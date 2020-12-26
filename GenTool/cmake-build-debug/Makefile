@@ -143,6 +143,222 @@ GenTool/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GenTool.dir/build.make CMakeFiles/GenTool.dir/build
 .PHONY : GenTool/fast
 
+BitField.o: BitField.cpp.o
+
+.PHONY : BitField.o
+
+# target to build an object file
+BitField.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GenTool.dir/build.make CMakeFiles/GenTool.dir/BitField.cpp.o
+.PHONY : BitField.cpp.o
+
+BitField.i: BitField.cpp.i
+
+.PHONY : BitField.i
+
+# target to preprocess a source file
+BitField.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GenTool.dir/build.make CMakeFiles/GenTool.dir/BitField.cpp.i
+.PHONY : BitField.cpp.i
+
+BitField.s: BitField.cpp.s
+
+.PHONY : BitField.s
+
+# target to generate assembly for a file
+BitField.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GenTool.dir/build.make CMakeFiles/GenTool.dir/BitField.cpp.s
+.PHONY : BitField.cpp.s
+
+FileParser.o: FileParser.cpp.o
+
+.PHONY : FileParser.o
+
+# target to build an object file
+FileParser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GenTool.dir/build.make CMakeFiles/GenTool.dir/FileParser.cpp.o
+.PHONY : FileParser.cpp.o
+
+FileParser.i: FileParser.cpp.i
+
+.PHONY : FileParser.i
+
+# target to preprocess a source file
+FileParser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GenTool.dir/build.make CMakeFiles/GenTool.dir/FileParser.cpp.i
+.PHONY : FileParser.cpp.i
+
+FileParser.s: FileParser.cpp.s
+
+.PHONY : FileParser.s
+
+# target to generate assembly for a file
+FileParser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GenTool.dir/build.make CMakeFiles/GenTool.dir/FileParser.cpp.s
+.PHONY : FileParser.cpp.s
+
+FileWriter.o: FileWriter.cpp.o
+
+.PHONY : FileWriter.o
+
+# target to build an object file
+FileWriter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GenTool.dir/build.make CMakeFiles/GenTool.dir/FileWriter.cpp.o
+.PHONY : FileWriter.cpp.o
+
+FileWriter.i: FileWriter.cpp.i
+
+.PHONY : FileWriter.i
+
+# target to preprocess a source file
+FileWriter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GenTool.dir/build.make CMakeFiles/GenTool.dir/FileWriter.cpp.i
+.PHONY : FileWriter.cpp.i
+
+FileWriter.s: FileWriter.cpp.s
+
+.PHONY : FileWriter.s
+
+# target to generate assembly for a file
+FileWriter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GenTool.dir/build.make CMakeFiles/GenTool.dir/FileWriter.cpp.s
+.PHONY : FileWriter.cpp.s
+
+FileWriter_Templates.o: FileWriter_Templates.cpp.o
+
+.PHONY : FileWriter_Templates.o
+
+# target to build an object file
+FileWriter_Templates.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GenTool.dir/build.make CMakeFiles/GenTool.dir/FileWriter_Templates.cpp.o
+.PHONY : FileWriter_Templates.cpp.o
+
+FileWriter_Templates.i: FileWriter_Templates.cpp.i
+
+.PHONY : FileWriter_Templates.i
+
+# target to preprocess a source file
+FileWriter_Templates.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GenTool.dir/build.make CMakeFiles/GenTool.dir/FileWriter_Templates.cpp.i
+.PHONY : FileWriter_Templates.cpp.i
+
+FileWriter_Templates.s: FileWriter_Templates.cpp.s
+
+.PHONY : FileWriter_Templates.s
+
+# target to generate assembly for a file
+FileWriter_Templates.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GenTool.dir/build.make CMakeFiles/GenTool.dir/FileWriter_Templates.cpp.s
+.PHONY : FileWriter_Templates.cpp.s
+
+FileWriter_Writers.o: FileWriter_Writers.cpp.o
+
+.PHONY : FileWriter_Writers.o
+
+# target to build an object file
+FileWriter_Writers.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GenTool.dir/build.make CMakeFiles/GenTool.dir/FileWriter_Writers.cpp.o
+.PHONY : FileWriter_Writers.cpp.o
+
+FileWriter_Writers.i: FileWriter_Writers.cpp.i
+
+.PHONY : FileWriter_Writers.i
+
+# target to preprocess a source file
+FileWriter_Writers.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GenTool.dir/build.make CMakeFiles/GenTool.dir/FileWriter_Writers.cpp.i
+.PHONY : FileWriter_Writers.cpp.i
+
+FileWriter_Writers.s: FileWriter_Writers.cpp.s
+
+.PHONY : FileWriter_Writers.s
+
+# target to generate assembly for a file
+FileWriter_Writers.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GenTool.dir/build.make CMakeFiles/GenTool.dir/FileWriter_Writers.cpp.s
+.PHONY : FileWriter_Writers.cpp.s
+
+FileWriter_creators.o: FileWriter_creators.cpp.o
+
+.PHONY : FileWriter_creators.o
+
+# target to build an object file
+FileWriter_creators.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GenTool.dir/build.make CMakeFiles/GenTool.dir/FileWriter_creators.cpp.o
+.PHONY : FileWriter_creators.cpp.o
+
+FileWriter_creators.i: FileWriter_creators.cpp.i
+
+.PHONY : FileWriter_creators.i
+
+# target to preprocess a source file
+FileWriter_creators.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GenTool.dir/build.make CMakeFiles/GenTool.dir/FileWriter_creators.cpp.i
+.PHONY : FileWriter_creators.cpp.i
+
+FileWriter_creators.s: FileWriter_creators.cpp.s
+
+.PHONY : FileWriter_creators.s
+
+# target to generate assembly for a file
+FileWriter_creators.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GenTool.dir/build.make CMakeFiles/GenTool.dir/FileWriter_creators.cpp.s
+.PHONY : FileWriter_creators.cpp.s
+
+Module.o: Module.cpp.o
+
+.PHONY : Module.o
+
+# target to build an object file
+Module.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GenTool.dir/build.make CMakeFiles/GenTool.dir/Module.cpp.o
+.PHONY : Module.cpp.o
+
+Module.i: Module.cpp.i
+
+.PHONY : Module.i
+
+# target to preprocess a source file
+Module.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GenTool.dir/build.make CMakeFiles/GenTool.dir/Module.cpp.i
+.PHONY : Module.cpp.i
+
+Module.s: Module.cpp.s
+
+.PHONY : Module.s
+
+# target to generate assembly for a file
+Module.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GenTool.dir/build.make CMakeFiles/GenTool.dir/Module.cpp.s
+.PHONY : Module.cpp.s
+
+Register.o: Register.cpp.o
+
+.PHONY : Register.o
+
+# target to build an object file
+Register.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GenTool.dir/build.make CMakeFiles/GenTool.dir/Register.cpp.o
+.PHONY : Register.cpp.o
+
+Register.i: Register.cpp.i
+
+.PHONY : Register.i
+
+# target to preprocess a source file
+Register.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GenTool.dir/build.make CMakeFiles/GenTool.dir/Register.cpp.i
+.PHONY : Register.cpp.i
+
+Register.s: Register.cpp.s
+
+.PHONY : Register.s
+
+# target to generate assembly for a file
+Register.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GenTool.dir/build.make CMakeFiles/GenTool.dir/Register.cpp.s
+.PHONY : Register.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -179,6 +395,30 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... GenTool"
+	@echo "... BitField.o"
+	@echo "... BitField.i"
+	@echo "... BitField.s"
+	@echo "... FileParser.o"
+	@echo "... FileParser.i"
+	@echo "... FileParser.s"
+	@echo "... FileWriter.o"
+	@echo "... FileWriter.i"
+	@echo "... FileWriter.s"
+	@echo "... FileWriter_Templates.o"
+	@echo "... FileWriter_Templates.i"
+	@echo "... FileWriter_Templates.s"
+	@echo "... FileWriter_Writers.o"
+	@echo "... FileWriter_Writers.i"
+	@echo "... FileWriter_Writers.s"
+	@echo "... FileWriter_creators.o"
+	@echo "... FileWriter_creators.i"
+	@echo "... FileWriter_creators.s"
+	@echo "... Module.o"
+	@echo "... Module.i"
+	@echo "... Module.s"
+	@echo "... Register.o"
+	@echo "... Register.i"
+	@echo "... Register.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

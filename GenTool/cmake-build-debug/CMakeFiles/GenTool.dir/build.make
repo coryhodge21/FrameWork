@@ -90,17 +90,137 @@ CMakeFiles/GenTool.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GenTool.dir/main.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/main.cpp -o CMakeFiles/GenTool.dir/main.cpp.s
 
+CMakeFiles/GenTool.dir/FileWriter.cpp.o: CMakeFiles/GenTool.dir/flags.make
+CMakeFiles/GenTool.dir/FileWriter.cpp.o: ../FileWriter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/GenTool.dir/FileWriter.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GenTool.dir/FileWriter.cpp.o -c /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter.cpp
+
+CMakeFiles/GenTool.dir/FileWriter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GenTool.dir/FileWriter.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter.cpp > CMakeFiles/GenTool.dir/FileWriter.cpp.i
+
+CMakeFiles/GenTool.dir/FileWriter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GenTool.dir/FileWriter.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter.cpp -o CMakeFiles/GenTool.dir/FileWriter.cpp.s
+
+CMakeFiles/GenTool.dir/FileParser.cpp.o: CMakeFiles/GenTool.dir/flags.make
+CMakeFiles/GenTool.dir/FileParser.cpp.o: ../FileParser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/GenTool.dir/FileParser.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GenTool.dir/FileParser.cpp.o -c /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileParser.cpp
+
+CMakeFiles/GenTool.dir/FileParser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GenTool.dir/FileParser.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileParser.cpp > CMakeFiles/GenTool.dir/FileParser.cpp.i
+
+CMakeFiles/GenTool.dir/FileParser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GenTool.dir/FileParser.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileParser.cpp -o CMakeFiles/GenTool.dir/FileParser.cpp.s
+
+CMakeFiles/GenTool.dir/Module.cpp.o: CMakeFiles/GenTool.dir/flags.make
+CMakeFiles/GenTool.dir/Module.cpp.o: ../Module.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/GenTool.dir/Module.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GenTool.dir/Module.cpp.o -c /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Module.cpp
+
+CMakeFiles/GenTool.dir/Module.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GenTool.dir/Module.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Module.cpp > CMakeFiles/GenTool.dir/Module.cpp.i
+
+CMakeFiles/GenTool.dir/Module.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GenTool.dir/Module.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Module.cpp -o CMakeFiles/GenTool.dir/Module.cpp.s
+
+CMakeFiles/GenTool.dir/Register.cpp.o: CMakeFiles/GenTool.dir/flags.make
+CMakeFiles/GenTool.dir/Register.cpp.o: ../Register.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/GenTool.dir/Register.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GenTool.dir/Register.cpp.o -c /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Register.cpp
+
+CMakeFiles/GenTool.dir/Register.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GenTool.dir/Register.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Register.cpp > CMakeFiles/GenTool.dir/Register.cpp.i
+
+CMakeFiles/GenTool.dir/Register.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GenTool.dir/Register.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Register.cpp -o CMakeFiles/GenTool.dir/Register.cpp.s
+
+CMakeFiles/GenTool.dir/BitField.cpp.o: CMakeFiles/GenTool.dir/flags.make
+CMakeFiles/GenTool.dir/BitField.cpp.o: ../BitField.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/GenTool.dir/BitField.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GenTool.dir/BitField.cpp.o -c /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/BitField.cpp
+
+CMakeFiles/GenTool.dir/BitField.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GenTool.dir/BitField.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/BitField.cpp > CMakeFiles/GenTool.dir/BitField.cpp.i
+
+CMakeFiles/GenTool.dir/BitField.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GenTool.dir/BitField.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/BitField.cpp -o CMakeFiles/GenTool.dir/BitField.cpp.s
+
+CMakeFiles/GenTool.dir/FileWriter_creators.cpp.o: CMakeFiles/GenTool.dir/flags.make
+CMakeFiles/GenTool.dir/FileWriter_creators.cpp.o: ../FileWriter_creators.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/GenTool.dir/FileWriter_creators.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GenTool.dir/FileWriter_creators.cpp.o -c /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter_creators.cpp
+
+CMakeFiles/GenTool.dir/FileWriter_creators.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GenTool.dir/FileWriter_creators.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter_creators.cpp > CMakeFiles/GenTool.dir/FileWriter_creators.cpp.i
+
+CMakeFiles/GenTool.dir/FileWriter_creators.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GenTool.dir/FileWriter_creators.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter_creators.cpp -o CMakeFiles/GenTool.dir/FileWriter_creators.cpp.s
+
+CMakeFiles/GenTool.dir/FileWriter_Templates.cpp.o: CMakeFiles/GenTool.dir/flags.make
+CMakeFiles/GenTool.dir/FileWriter_Templates.cpp.o: ../FileWriter_Templates.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/GenTool.dir/FileWriter_Templates.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GenTool.dir/FileWriter_Templates.cpp.o -c /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter_Templates.cpp
+
+CMakeFiles/GenTool.dir/FileWriter_Templates.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GenTool.dir/FileWriter_Templates.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter_Templates.cpp > CMakeFiles/GenTool.dir/FileWriter_Templates.cpp.i
+
+CMakeFiles/GenTool.dir/FileWriter_Templates.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GenTool.dir/FileWriter_Templates.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter_Templates.cpp -o CMakeFiles/GenTool.dir/FileWriter_Templates.cpp.s
+
+CMakeFiles/GenTool.dir/FileWriter_Writers.cpp.o: CMakeFiles/GenTool.dir/flags.make
+CMakeFiles/GenTool.dir/FileWriter_Writers.cpp.o: ../FileWriter_Writers.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/GenTool.dir/FileWriter_Writers.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GenTool.dir/FileWriter_Writers.cpp.o -c /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter_Writers.cpp
+
+CMakeFiles/GenTool.dir/FileWriter_Writers.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GenTool.dir/FileWriter_Writers.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter_Writers.cpp > CMakeFiles/GenTool.dir/FileWriter_Writers.cpp.i
+
+CMakeFiles/GenTool.dir/FileWriter_Writers.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GenTool.dir/FileWriter_Writers.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter_Writers.cpp -o CMakeFiles/GenTool.dir/FileWriter_Writers.cpp.s
+
 # Object files for target GenTool
 GenTool_OBJECTS = \
-"CMakeFiles/GenTool.dir/main.cpp.o"
+"CMakeFiles/GenTool.dir/main.cpp.o" \
+"CMakeFiles/GenTool.dir/FileWriter.cpp.o" \
+"CMakeFiles/GenTool.dir/FileParser.cpp.o" \
+"CMakeFiles/GenTool.dir/Module.cpp.o" \
+"CMakeFiles/GenTool.dir/Register.cpp.o" \
+"CMakeFiles/GenTool.dir/BitField.cpp.o" \
+"CMakeFiles/GenTool.dir/FileWriter_creators.cpp.o" \
+"CMakeFiles/GenTool.dir/FileWriter_Templates.cpp.o" \
+"CMakeFiles/GenTool.dir/FileWriter_Writers.cpp.o"
 
 # External object files for target GenTool
 GenTool_EXTERNAL_OBJECTS =
 
 GenTool: CMakeFiles/GenTool.dir/main.cpp.o
+GenTool: CMakeFiles/GenTool.dir/FileWriter.cpp.o
+GenTool: CMakeFiles/GenTool.dir/FileParser.cpp.o
+GenTool: CMakeFiles/GenTool.dir/Module.cpp.o
+GenTool: CMakeFiles/GenTool.dir/Register.cpp.o
+GenTool: CMakeFiles/GenTool.dir/BitField.cpp.o
+GenTool: CMakeFiles/GenTool.dir/FileWriter_creators.cpp.o
+GenTool: CMakeFiles/GenTool.dir/FileWriter_Templates.cpp.o
+GenTool: CMakeFiles/GenTool.dir/FileWriter_Writers.cpp.o
 GenTool: CMakeFiles/GenTool.dir/build.make
 GenTool: CMakeFiles/GenTool.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable GenTool"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable GenTool"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GenTool.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
