@@ -10,6 +10,10 @@
 Project_Common.h
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Project_Common.h
 
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter.cpp
+FileWriter.h
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter.h
+
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter.h
 Project_Common.h
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Project_Common.h
@@ -17,10 +21,6 @@ sys/stat.h
 -
 Module.h
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Module.h
-
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter_Writers.cpp
-FileWriter.h
-/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter.h
 
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Module.h
 Project_Common.h

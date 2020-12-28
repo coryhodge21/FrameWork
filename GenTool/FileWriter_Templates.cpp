@@ -170,4 +170,3 @@ void FileWriter::template_BitField_Body(BitField * aBitField){
                         << "\n";
 
 }
-

@@ -71,6 +71,13 @@ void FileWriter::recursively_writeModules(void){
 
         /// Write the Module.h file
         write_Module_h();
+        // TODO: add comment block for module 
+        _directoryFileStream << "#include \""
+                                << (this->getLastModule()->getName())
+                                << "/"
+                                <<(this->getLastModule()->getName())
+                                << ".h\""                               //TODO: add descriptor
+                                << "\n";
 
         /// Create Module.c file
         create_Module_c();
@@ -78,16 +85,14 @@ void FileWriter::recursively_writeModules(void){
         /// Write Module.c file
         write_Module_c();
 
-
-        /// MODULE/REGISTERS/  general  Directory
+        /// MODULE/REGISTERS/   Directory
         create_REGISTERS_Dir();
 
         ///    Create Registers.h file
         create_REGISTERS_h();
 
-        /// Write Registers_h(); TODO
-        write_REGISTERS_h();
-
+        /// Write Registers_h();
+        //write_REGISTERS_h();
 
         /**
          * RECURSIVELY
@@ -141,10 +146,13 @@ void FileWriter::recursively_writeRegisters(){
          * REGISTER_enums.h
          * RECURSIVELY WRITE BIT FIELDS in Register_enums.h
          */
-        recursively_writeBitFields();
+        /// Create Register_enums header
+        create_RegEnum_h();
+
+        /// write Register_enums .h
+        write_Register_enums();
 
         /** End Recursion of Bit Field Masking for this Register */
-
 
         /// destroy register
         parentModule->popRegister();
@@ -152,16 +160,6 @@ void FileWriter::recursively_writeRegisters(){
         /// close file stream
         _registerFileStream.close();
     }
-}
-
-/// write bit fields as enums for parent register
-void FileWriter::recursively_writeBitFields(){
-
-    /// Create Register_enums header
-    create_RegEnum_h();
-
-    /// write Register_enums .h
-    write_Register_enums();
 }
 
 /// assign file writer a populated vector of Module *
@@ -172,7 +170,7 @@ void FileWriter::setModules(vector<Module *> modules) {
 /// check if file writer data vector is empty
 int FileWriter::isEmpty(void) {
 
-    // if no modules, data tree is empty
+    /// if no modules, data tree is empty
     if (this->_modules.empty()) {
         return 1;
     }

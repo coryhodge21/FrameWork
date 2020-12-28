@@ -65,12 +65,6 @@ void FileWriter::write_Register_enums(){
     _bitFieldFileStream.close();
 }
 
-// register stream is already opend with create_REGISTERS_h();
-void FileWriter::write_REGISTERS_h(){
-
-
-}
-
 // write module c file
 void FileWriter::write_Module_c(){
 

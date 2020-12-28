@@ -62,7 +62,6 @@ private:
     //! \brief RECURSIVE Functions
     void recursively_writeModules(void);
     void recursively_writeRegisters(void);
-    void recursively_writeBitFields();
 
     //! \brief create directories and open files
     void create_Directory_h(void);
@@ -78,12 +77,12 @@ private:
 
     /// \brief Write the contents to a file
     void write_Module_h(void);
-    void write_REGISTERS_h();
+    //void write_REGISTERS_h(void);
     void write_Register_h(Module * parentModule);
     void write_Register_enums();
     void write_Module_c();
     void write_Register_c();
-
+    //void append_directory_h(string append);
 
     /**     Templates       */
     //! \brief Generic Header
