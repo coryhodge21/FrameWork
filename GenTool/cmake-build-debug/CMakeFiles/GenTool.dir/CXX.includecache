@@ -6,9 +6,23 @@
 
 #IncludeRegexTransform: 
 
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/BitField.cpp
+BitField.h
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/BitField.h
+
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/BitField.h
 Project_Common.h
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Project_Common.h
+
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileParser.cpp
+FileParser.h
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileParser.h
+
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileParser.h
+Project_Common.h
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Project_Common.h
+Module.h
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Module.h
 
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter.cpp
 FileWriter.h
@@ -19,6 +33,22 @@ Project_Common.h
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Project_Common.h
 sys/stat.h
 -
+Module.h
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Module.h
+
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter_Templates.cpp
+FileWriter.h
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter.h
+
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter_Writers.cpp
+FileWriter.h
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter.h
+
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter_creators.cpp
+FileWriter.h
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter.h
+
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Module.cpp
 Module.h
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Module.h
 
@@ -37,10 +67,24 @@ vector
 -
 fstream
 -
+filesystem
+-
+
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Register.cpp
+Register.h
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Register.h
 
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Register.h
 Project_Common.h
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Project_Common.h
 BitField.h
 /Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/BitField.h
+
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/main.cpp
+Project_Common.h
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/Project_Common.h
+FileParser.h
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileParser.h
+FileWriter.h
+/Users/coryhodge/Documents/Engineering/Embedded/FrameWork/GenTool/FileWriter.h
 

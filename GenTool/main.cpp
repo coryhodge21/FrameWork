@@ -23,23 +23,27 @@ using namespace std;
 
 int main(int argc, char * argv[]) {
 
-    // TODO: remove this and take files as arguments
-    // this program expects an input file to be passed in
-    // from the calling source via argv[]
-    char input_file_path[] = "../hw_sysctl.h";
-    char * input_string_p = input_file_path;
+    // File system iterator
+    string MemoryMaps_PATH = PATH_TO_MEMMAPS;
 
+    for(const auto &entry : filesystem::directory_iterator(MemoryMaps_PATH)){
+
+    // convert to string and cut off directory
+    string filePath = entry.path();
+
+    /// if file path contains . before file, skip hidden file
+    if ( filePath[SIZE_OF_MM_PATH_STR] == '.' ) {
+        //continue to next file
+        continue;
+    }
     // parse file and build module, register, bit field tree
     FileParser fileParser;
 
     // use data tree to create files
     FileWriter fileWriter;
 
-    /// TODO: replace this with while( i < argc ) where argc = is num of hw_ mem maps
-    //  for (int i = 1; i < argc; i++ ) {
-
     // parse file, build up modules data tree
-    fileParser.parseFile(input_string_p);
+    fileParser.parseFile(filePath);
 
     // copy data tree to file writer
     fileWriter.setModules(fileParser.getModules());
@@ -51,7 +55,7 @@ int main(int argc, char * argv[]) {
         fileWriter.writeFiles();
     }
 
-    // }
+    }
     // exit success
     return 0;
 }

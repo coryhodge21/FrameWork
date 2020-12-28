@@ -76,7 +76,7 @@ Module * FileParser::createModule(string nameModule, string address, string desc
 /**      FILE PARSER SPECIAL FUNCTIONS    */
 
 /// parse file
-vector<Module *> FileParser::parseFile(char * input_file_path) {
+vector<Module *> FileParser::parseFile(string input_file_path) {
 
     // use the input file stream class member to open the file
     //  in read only mode

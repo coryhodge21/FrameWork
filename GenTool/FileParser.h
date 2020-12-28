@@ -77,7 +77,7 @@ public:
 
     /**      FILE PARSER SPECIAL FUNCTIONS    */
     //! \brief Populate Registers array and return
-    vector<Module *> parseFile(char * input_file_path);
+    vector<Module *> parseFile(string input_file_path);
 
     //! \brief parse string from line of input file
     int parseString(void);

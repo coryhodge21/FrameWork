@@ -37,8 +37,8 @@
 //
 //*****************************************************************************
 
-#ifndef __HW_SYSCTL_H__
-#define __HW_SYSCTL_H__
+//#ifndef __HW_SYSCTL_H__
+//#define __HW_SYSCTL_H__
 
 //*****************************************************************************
 //
@@ -3712,7 +3712,7 @@
 // The following definitions are deprecated.
 //
 //*****************************************************************************
-#ifndef DEPRECATED
+//#ifndef DEPRECATED
 
 //*****************************************************************************
 //
@@ -3744,6 +3744,6 @@
 #define SYSCTL_PWRTC_VDDA_UBOR0 0x00000010  // VDDA Under BOR0 Status
 #define SYSCTL_PWRTC_VDD_UBOR0  0x00000001  // VDD Under BOR0 Status
 
-#endif
+//#endif
 
-#endif // __HW_SYSCTL_H__
+//#endif // __HW_SYSCTL_H__
