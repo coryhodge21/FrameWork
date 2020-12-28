@@ -1,17 +1,17 @@
 ******************************************************************************
                   TI ARM Linker Unix v20.2.1                   
 ******************************************************************************
->> Linked Sun Dec 27 00:08:49 2020
+>> Linked Sun Dec 27 22:55:17 2020
 
 OUTPUT FILE NAME:   <Driver.out>
-ENTRY POINT SYMBOL: "_c_int00_noinit_noargs"  address: 0000026d
+ENTRY POINT SYMBOL: "_c_int00_noinit_noargs"  address: 00000331
 
 
 MEMORY CONFIGURATION
 
          name            origin    length      used     unused   attr    fill
 ----------------------  --------  ---------  --------  --------  ----  --------
-  FLASH                 00000000   00040000  000002c4  0003fd3c  R  X
+  FLASH                 00000000   00040000  00000370  0003fc90  R  X
   SRAM                  20000000   00008000  00000200  00007e00  RW X
 
 
@@ -19,9 +19,9 @@ SEGMENT ALLOCATION MAP
 
 run origin  load origin   length   init length attrs members
 ----------  ----------- ---------- ----------- ----- -------
-00000000    00000000    000002c4   000002c4    r-x
+00000000    00000000    00000370   00000370    r-x
   00000000    00000000    0000026c   0000026c    r-- .intvecs
-  0000026c    0000026c    00000058   00000058    r-x .text
+  0000026c    0000026c    00000104   00000104    r-x .text
 20000000    20000000    00000200   00000000    rw-
   20000000    20000000    00000200   00000000    rw- .stack
 
@@ -34,12 +34,14 @@ section   page    origin      length       input sections
 .intvecs   0    00000000    0000026c     
                   00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
 
-.text      0    0000026c    00000058     
-                  0000026c    0000002c     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.text:_c_int00_noinit_noargs:_c_int00_noinit_noargs)
-                  00000298    00000018     main.obj (.text)
-                  000002b0    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
-                  000002bc    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
-                  000002c0    00000004                                   : exit.c.obj (.text:abort:abort)
+.text      0    0000026c    00000104     
+                  0000026c    00000090     SYSCTL_RCGC2.obj (.text)
+                  000002fc    00000032     main.obj (.text)
+                  0000032e    00000002     --HOLE-- [fill = 0]
+                  00000330    0000002c     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.text:_c_int00_noinit_noargs:_c_int00_noinit_noargs)
+                  0000035c    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
+                  00000368    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  0000036c    00000004                                   : exit.c.obj (.text:abort:abort)
 
 .cinit     0    00000000    00000000     UNINITIALIZED
 
@@ -59,9 +61,10 @@ MODULE SUMMARY
        ------                         ----   -------   -------
     ./
        tm4c123gh6pm_startup_ccs.obj   12     620       0      
-       main.obj                       24     0         0      
+       SYSCTL_RCGC2.obj               144    0         0      
+       main.obj                       50     0         0      
     +--+------------------------------+------+---------+---------+
-       Total:                         36     620       0      
+       Total:                         206    620       0      
                                                               
     /Applications/ti/ccs1011/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS/lib/rtsv7M4_T_le_v4SPD16_eabi.lib
        boot_cortex_m.c.obj            44     0         0      
@@ -72,15 +75,19 @@ MODULE SUMMARY
                                                               
        Stack:                         0      0         512    
     +--+------------------------------+------+---------+---------+
-       Grand Total:                   88     620       512    
+       Grand Total:                   258    620       512    
 
 
 GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
 
 address   name                   
 -------   ----                   
-000002c1  C$$EXIT                
-000002b1  ResetISR               
+0000036d  C$$EXIT                
+00000281  RCGC2_clear_this       
+00000295  RCGC2_read_this        
+0000026d  RCGC2_set_this         
+000002a7  RCGC2_write_this       
+0000035d  ResetISR               
 20000200  __STACK_END            
 00000200  __STACK_SIZE           
 20000200  __STACK_TOP            
@@ -94,12 +101,13 @@ UNDEFED   __mpu_init
 20000000  __stack                
 20000000  __start___llvm_prf_cnts
 20000000  __stop___llvm_prf_cnts 
-0000026d  _c_int00_noinit_noargs 
-000002bd  _system_pre_init       
-000002c1  abort                  
+00000331  _c_int00_noinit_noargs 
+00000369  _system_pre_init       
+0000036d  abort                  
 ffffffff  binit                  
 00000000  g_pfnVectors           
-00000299  main                   
+000002bd  init_SYSCTL_RCGC2      
+000002fd  main                   
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
@@ -109,12 +117,17 @@ address   name
 00000000  __TI_static_base__     
 00000000  g_pfnVectors           
 00000200  __STACK_SIZE           
-0000026d  _c_int00_noinit_noargs 
-00000299  main                   
-000002b1  ResetISR               
-000002bd  _system_pre_init       
-000002c1  C$$EXIT                
-000002c1  abort                  
+0000026d  RCGC2_set_this         
+00000281  RCGC2_clear_this       
+00000295  RCGC2_read_this        
+000002a7  RCGC2_write_this       
+000002bd  init_SYSCTL_RCGC2      
+000002fd  main                   
+00000331  _c_int00_noinit_noargs 
+0000035d  ResetISR               
+00000369  _system_pre_init       
+0000036d  C$$EXIT                
+0000036d  abort                  
 20000000  __stack                
 20000000  __start___llvm_prf_cnts
 20000000  __stop___llvm_prf_cnts 
@@ -128,4 +141,4 @@ ffffffff  __c_args__
 ffffffff  binit                  
 UNDEFED   __mpu_init             
 
-[21 symbols]
+[26 symbols]
