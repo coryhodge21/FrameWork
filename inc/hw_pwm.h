@@ -37,8 +37,8 @@
 //
 //*****************************************************************************
 
-#ifndef __HW_PWM_H__
-#define __HW_PWM_H__
+//#ifndef __HW_PWM_H__
+//#define __HW_PWM_H__
 
 //*****************************************************************************
 //
@@ -1882,4 +1882,4 @@
 #define PWM_X_FLTSTAT1_DCMP1    0x00000002  // Digital Comparator 1 Trigger
 #define PWM_X_FLTSTAT1_DCMP0    0x00000001  // Digital Comparator 0 Trigger
 
-#endif // __HW_PWM_H__
+//#endif // __HW_PWM_H__

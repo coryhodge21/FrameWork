@@ -38,8 +38,8 @@
 //
 //*****************************************************************************
 
-#ifndef __HW_INTS_H__
-#define __HW_INTS_H__
+//#ifndef __HW_INTS_H__
+//#define __HW_INTS_H__
 
 //*****************************************************************************
 //
@@ -488,4 +488,4 @@
 #define NUM_PRIORITY            8
 #define NUM_PRIORITY_BITS       3
 
-#endif // __HW_INTS_H__
+//#endif // __HW_INTS_H__

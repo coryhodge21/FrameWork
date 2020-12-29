@@ -37,30 +37,30 @@
 //
 //*****************************************************************************
 
-#ifndef __HW_SSI_H__
-#define __HW_SSI_H__
+//#ifndef __HW_SSI_H__
+//#define __HW_SSI_H__
 
 //*****************************************************************************
 //
 // The following are defines for the SSI register offsets.
 //
 //*****************************************************************************
-#define SSI_O_CR0               0x00000000  // SSI Control 0
-#define SSI_O_CR1               0x00000004  // SSI Control 1
-#define SSI_O_DR                0x00000008  // SSI Data
-#define SSI_O_SR                0x0000000C  // SSI Status
-#define SSI_O_CPSR              0x00000010  // SSI Clock Prescale
-#define SSI_O_IM                0x00000014  // SSI Interrupt Mask
-#define SSI_O_RIS               0x00000018  // SSI Raw Interrupt Status
-#define SSI_O_MIS               0x0000001C  // SSI Masked Interrupt Status
-#define SSI_O_ICR               0x00000020  // SSI Interrupt Clear
-#define SSI_O_DMACTL            0x00000024  // SSI DMA Control
-#define SSI_O_PP                0x00000FC0  // SSI Peripheral Properties
-#define SSI_O_CC                0x00000FC8  // SSI Clock Configuration
+#define SSI_CR0               0x00000000  // SSI Control 0
+#define SSI_CR1               0x00000004  // SSI Control 1
+#define SSI_DR                0x00000008  // SSI Data
+#define SSI_SR                0x0000000C  // SSI Status
+#define SSI_CPSR              0x00000010  // SSI Clock Prescale
+#define SSI_IM                0x00000014  // SSI Interrupt Mask
+#define SSI_RIS               0x00000018  // SSI Raw Interrupt Status
+#define SSI_MIS               0x0000001C  // SSI Masked Interrupt Status
+#define SSI_ICR               0x00000020  // SSI Interrupt Clear
+#define SSI_DMACTL            0x00000024  // SSI DMA Control
+#define SSI_PP                0x00000FC0  // SSI Peripheral Properties
+#define SSI_CC                0x00000FC8  // SSI Clock Configuration
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SSI_O_CR0 register.
+// The following are defines for the bit fields in the SSI_CR0 register.
 //
 //*****************************************************************************
 #define SSI_CR0_SCR_M           0x0000FF00  // SSI Serial Clock Rate
@@ -88,7 +88,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SSI_O_CR1 register.
+// The following are defines for the bit fields in the SSI_CR1 register.
 //
 //*****************************************************************************
 #define SSI_CR1_EOM             0x00000800  // Stop Frame (End of Message)
@@ -109,7 +109,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SSI_O_DR register.
+// The following are defines for the bit fields in the SSI_DR register.
 //
 //*****************************************************************************
 #define SSI_DR_DATA_M           0x0000FFFF  // SSI Receive/Transmit Data
@@ -117,7 +117,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SSI_O_SR register.
+// The following are defines for the bit fields in the SSI_SR register.
 //
 //*****************************************************************************
 #define SSI_SR_BSY              0x00000010  // SSI Busy Bit
@@ -128,7 +128,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SSI_O_CPSR register.
+// The following are defines for the bit fields in the SSI_CPSR register.
 //
 //*****************************************************************************
 #define SSI_CPSR_CPSDVSR_M      0x000000FF  // SSI Clock Prescale Divisor
@@ -136,7 +136,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SSI_O_IM register.
+// The following are defines for the bit fields in the SSI_IM register.
 //
 //*****************************************************************************
 #define SSI_IM_EOTIM            0x00000040  // End of Transmit Interrupt Mask
@@ -151,7 +151,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SSI_O_RIS register.
+// The following are defines for the bit fields in the SSI_RIS register.
 //
 //*****************************************************************************
 #define SSI_RIS_EOTRIS          0x00000040  // End of Transmit Raw Interrupt
@@ -171,7 +171,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SSI_O_MIS register.
+// The following are defines for the bit fields in the SSI_MIS register.
 //
 //*****************************************************************************
 #define SSI_MIS_EOTMIS          0x00000040  // End of Transmit Masked Interrupt
@@ -191,7 +191,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SSI_O_ICR register.
+// The following are defines for the bit fields in the SSI_ICR register.
 //
 //*****************************************************************************
 #define SSI_ICR_EOTIC           0x00000040  // End of Transmit Interrupt Clear
@@ -204,7 +204,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SSI_O_DMACTL register.
+// The following are defines for the bit fields in the SSI_DMACTL register.
 //
 //*****************************************************************************
 #define SSI_DMACTL_TXDMAE       0x00000002  // Transmit DMA Enable
@@ -212,7 +212,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SSI_O_PP register.
+// The following are defines for the bit fields in the SSI_PP register.
 //
 //*****************************************************************************
 #define SSI_PP_FSSHLDFRM        0x00000008  // FSS Hold Frame Capability
@@ -226,7 +226,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SSI_O_CC register.
+// The following are defines for the bit fields in the SSI_CC register.
 //
 //*****************************************************************************
 #define SSI_CC_CS_M             0x0000000F  // SSI Baud Clock Source
@@ -234,4 +234,4 @@
                                             // source and divisor factor)
 #define SSI_CC_CS_PIOSC         0x00000005  // PIOSC
 
-#endif // __HW_SSI_H__
+//#endif // __HW_SSI_H__

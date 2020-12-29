@@ -37,68 +37,68 @@
 //
 //*****************************************************************************
 
-#ifndef __HW_AES_H__
-#define __HW_AES_H__
+//#ifndef __HW_AES_H__
+//#define __HW_AES_H__
 
 //*****************************************************************************
 //
 // The following are defines for the AES register offsets.
 //
 //*****************************************************************************
-#define AES_O_KEY2_6            0x00000000  // AES Key 2_6
-#define AES_O_KEY2_7            0x00000004  // AES Key 2_7
-#define AES_O_KEY2_4            0x00000008  // AES Key 2_4
-#define AES_O_KEY2_5            0x0000000C  // AES Key 2_5
-#define AES_O_KEY2_2            0x00000010  // AES Key 2_2
-#define AES_O_KEY2_3            0x00000014  // AES Key 2_3
-#define AES_O_KEY2_0            0x00000018  // AES Key 2_0
-#define AES_O_KEY2_1            0x0000001C  // AES Key 2_1
-#define AES_O_KEY1_6            0x00000020  // AES Key 1_6
-#define AES_O_KEY1_7            0x00000024  // AES Key 1_7
-#define AES_O_KEY1_4            0x00000028  // AES Key 1_4
-#define AES_O_KEY1_5            0x0000002C  // AES Key 1_5
-#define AES_O_KEY1_2            0x00000030  // AES Key 1_2
-#define AES_O_KEY1_3            0x00000034  // AES Key 1_3
-#define AES_O_KEY1_0            0x00000038  // AES Key 1_0
-#define AES_O_KEY1_1            0x0000003C  // AES Key 1_1
-#define AES_O_IV_IN_0           0x00000040  // AES Initialization Vector Input
+#define AES_KEY2_6            0x00000000  // AES Key 2_6
+#define AES_KEY2_7            0x00000004  // AES Key 2_7
+#define AES_KEY2_4            0x00000008  // AES Key 2_4
+#define AES_KEY2_5            0x0000000C  // AES Key 2_5
+#define AES_KEY2_2            0x00000010  // AES Key 2_2
+#define AES_KEY2_3            0x00000014  // AES Key 2_3
+#define AES_KEY2_0            0x00000018  // AES Key 2_0
+#define AES_KEY2_1            0x0000001C  // AES Key 2_1
+#define AES_KEY1_6            0x00000020  // AES Key 1_6
+#define AES_KEY1_7            0x00000024  // AES Key 1_7
+#define AES_KEY1_4            0x00000028  // AES Key 1_4
+#define AES_KEY1_5            0x0000002C  // AES Key 1_5
+#define AES_KEY1_2            0x00000030  // AES Key 1_2
+#define AES_KEY1_3            0x00000034  // AES Key 1_3
+#define AES_KEY1_0            0x00000038  // AES Key 1_0
+#define AES_KEY1_1            0x0000003C  // AES Key 1_1
+#define AES_IV_IN_0           0x00000040  // AES Initialization Vector Input
                                             // 0
-#define AES_O_IV_IN_1           0x00000044  // AES Initialization Vector Input
+#define AES_IV_IN_1           0x00000044  // AES Initialization Vector Input
                                             // 1
-#define AES_O_IV_IN_2           0x00000048  // AES Initialization Vector Input
+#define AES_IV_IN_2           0x00000048  // AES Initialization Vector Input
                                             // 2
-#define AES_O_IV_IN_3           0x0000004C  // AES Initialization Vector Input
+#define AES_IV_IN_3           0x0000004C  // AES Initialization Vector Input
                                             // 3
-#define AES_O_CTRL              0x00000050  // AES Control
-#define AES_O_C_LENGTH_0        0x00000054  // AES Crypto Data Length 0
-#define AES_O_C_LENGTH_1        0x00000058  // AES Crypto Data Length 1
-#define AES_O_AUTH_LENGTH       0x0000005C  // AES Authentication Data Length
-#define AES_O_DATA_IN_0         0x00000060  // AES Data RW Plaintext/Ciphertext
+#define AES_CTRL              0x00000050  // AES Control
+#define AES_C_LENGTH_0        0x00000054  // AES Crypto Data Length 0
+#define AES_C_LENGTH_1        0x00000058  // AES Crypto Data Length 1
+#define AES_AUTH_LENGTH       0x0000005C  // AES Authentication Data Length
+#define AES_DATA_IN_0         0x00000060  // AES Data RW Plaintext/Ciphertext
                                             // 0
-#define AES_O_DATA_IN_1         0x00000064  // AES Data RW Plaintext/Ciphertext
+#define AES_DATA_IN_1         0x00000064  // AES Data RW Plaintext/Ciphertext
                                             // 1
-#define AES_O_DATA_IN_2         0x00000068  // AES Data RW Plaintext/Ciphertext
+#define AES_DATA_IN_2         0x00000068  // AES Data RW Plaintext/Ciphertext
                                             // 2
-#define AES_O_DATA_IN_3         0x0000006C  // AES Data RW Plaintext/Ciphertext
+#define AES_DATA_IN_3         0x0000006C  // AES Data RW Plaintext/Ciphertext
                                             // 3
-#define AES_O_TAG_OUT_0         0x00000070  // AES Hash Tag Out 0
-#define AES_O_TAG_OUT_1         0x00000074  // AES Hash Tag Out 1
-#define AES_O_TAG_OUT_2         0x00000078  // AES Hash Tag Out 2
-#define AES_O_TAG_OUT_3         0x0000007C  // AES Hash Tag Out 3
-#define AES_O_REVISION          0x00000080  // AES IP Revision Identifier
-#define AES_O_SYSCONFIG         0x00000084  // AES System Configuration
-#define AES_O_SYSSTATUS         0x00000088  // AES System Status
-#define AES_O_IRQSTATUS         0x0000008C  // AES Interrupt Status
-#define AES_O_IRQENABLE         0x00000090  // AES Interrupt Enable
-#define AES_O_DIRTYBITS         0x00000094  // AES Dirty Bits
-#define AES_O_DMAIM             0xFFFFA020  // AES DMA Interrupt Mask
-#define AES_O_DMARIS            0xFFFFA024  // AES DMA Raw Interrupt Status
-#define AES_O_DMAMIS            0xFFFFA028  // AES DMA Masked Interrupt Status
-#define AES_O_DMAIC             0xFFFFA02C  // AES DMA Interrupt Clear
+#define AES_TAG_OUT_0         0x00000070  // AES Hash Tag Out 0
+#define AES_TAG_OUT_1         0x00000074  // AES Hash Tag Out 1
+#define AES_TAG_OUT_2         0x00000078  // AES Hash Tag Out 2
+#define AES_TAG_OUT_3         0x0000007C  // AES Hash Tag Out 3
+#define AES_REVISION          0x00000080  // AES IP Revision Identifier
+#define AES_SYSCONFIG         0x00000084  // AES System Configuration
+#define AES_SYSSTATUS         0x00000088  // AES System Status
+#define AES_IRQSTATUS         0x0000008C  // AES Interrupt Status
+#define AES_IRQENABLE         0x00000090  // AES Interrupt Enable
+#define AES_DIRTYBITS         0x00000094  // AES Dirty Bits
+#define AES_DMAIM             0xFFFFA020  // AES DMA Interrupt Mask
+#define AES_DMARIS            0xFFFFA024  // AES DMA Raw Interrupt Status
+#define AES_DMAMIS            0xFFFFA028  // AES DMA Masked Interrupt Status
+#define AES_DMAIC             0xFFFFA02C  // AES DMA Interrupt Clear
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_KEY2_6 register.
+// The following are defines for the bit fields in the AES_KEY2_6 register.
 //
 //*****************************************************************************
 #define AES_KEY2_6_KEY_M        0xFFFFFFFF  // Key Data
@@ -106,7 +106,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_KEY2_7 register.
+// The following are defines for the bit fields in the AES_KEY2_7 register.
 //
 //*****************************************************************************
 #define AES_KEY2_7_KEY_M        0xFFFFFFFF  // Key Data
@@ -114,7 +114,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_KEY2_4 register.
+// The following are defines for the bit fields in the AES_KEY2_4 register.
 //
 //*****************************************************************************
 #define AES_KEY2_4_KEY_M        0xFFFFFFFF  // Key Data
@@ -122,7 +122,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_KEY2_5 register.
+// The following are defines for the bit fields in the AES_KEY2_5 register.
 //
 //*****************************************************************************
 #define AES_KEY2_5_KEY_M        0xFFFFFFFF  // Key Data
@@ -130,7 +130,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_KEY2_2 register.
+// The following are defines for the bit fields in the AES_KEY2_2 register.
 //
 //*****************************************************************************
 #define AES_KEY2_2_KEY_M        0xFFFFFFFF  // Key Data
@@ -138,7 +138,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_KEY2_3 register.
+// The following are defines for the bit fields in the AES_KEY2_3 register.
 //
 //*****************************************************************************
 #define AES_KEY2_3_KEY_M        0xFFFFFFFF  // Key Data
@@ -146,7 +146,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_KEY2_0 register.
+// The following are defines for the bit fields in the AES_KEY2_0 register.
 //
 //*****************************************************************************
 #define AES_KEY2_0_KEY_M        0xFFFFFFFF  // Key Data
@@ -154,7 +154,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_KEY2_1 register.
+// The following are defines for the bit fields in the AES_KEY2_1 register.
 //
 //*****************************************************************************
 #define AES_KEY2_1_KEY_M        0xFFFFFFFF  // Key Data
@@ -162,7 +162,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_KEY1_6 register.
+// The following are defines for the bit fields in the AES_KEY1_6 register.
 //
 //*****************************************************************************
 #define AES_KEY1_6_KEY_M        0xFFFFFFFF  // Key Data
@@ -170,7 +170,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_KEY1_7 register.
+// The following are defines for the bit fields in the AES_KEY1_7 register.
 //
 //*****************************************************************************
 #define AES_KEY1_7_KEY_M        0xFFFFFFFF  // Key Data
@@ -178,7 +178,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_KEY1_4 register.
+// The following are defines for the bit fields in the AES_KEY1_4 register.
 //
 //*****************************************************************************
 #define AES_KEY1_4_KEY_M        0xFFFFFFFF  // Key Data
@@ -186,7 +186,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_KEY1_5 register.
+// The following are defines for the bit fields in the AES_KEY1_5 register.
 //
 //*****************************************************************************
 #define AES_KEY1_5_KEY_M        0xFFFFFFFF  // Key Data
@@ -194,7 +194,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_KEY1_2 register.
+// The following are defines for the bit fields in the AES_KEY1_2 register.
 //
 //*****************************************************************************
 #define AES_KEY1_2_KEY_M        0xFFFFFFFF  // Key Data
@@ -202,7 +202,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_KEY1_3 register.
+// The following are defines for the bit fields in the AES_KEY1_3 register.
 //
 //*****************************************************************************
 #define AES_KEY1_3_KEY_M        0xFFFFFFFF  // Key Data
@@ -210,7 +210,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_KEY1_0 register.
+// The following are defines for the bit fields in the AES_KEY1_0 register.
 //
 //*****************************************************************************
 #define AES_KEY1_0_KEY_M        0xFFFFFFFF  // Key Data
@@ -218,7 +218,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_KEY1_1 register.
+// The following are defines for the bit fields in the AES_KEY1_1 register.
 //
 //*****************************************************************************
 #define AES_KEY1_1_KEY_M        0xFFFFFFFF  // Key Data
@@ -226,7 +226,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_IV_IN_0 register.
+// The following are defines for the bit fields in the AES_IV_IN_0 register.
 //
 //*****************************************************************************
 #define AES_IV_IN_0_DATA_M      0xFFFFFFFF  // Initialization Vector Input
@@ -234,7 +234,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_IV_IN_1 register.
+// The following are defines for the bit fields in the AES_IV_IN_1 register.
 //
 //*****************************************************************************
 #define AES_IV_IN_1_DATA_M      0xFFFFFFFF  // Initialization Vector Input
@@ -242,7 +242,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_IV_IN_2 register.
+// The following are defines for the bit fields in the AES_IV_IN_2 register.
 //
 //*****************************************************************************
 #define AES_IV_IN_2_DATA_M      0xFFFFFFFF  // Initialization Vector Input
@@ -250,7 +250,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_IV_IN_3 register.
+// The following are defines for the bit fields in the AES_IV_IN_3 register.
 //
 //*****************************************************************************
 #define AES_IV_IN_3_DATA_M      0xFFFFFFFF  // Initialization Vector Input
@@ -258,7 +258,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_CTRL register.
+// The following are defines for the bit fields in the AES_CTRL register.
 //
 //*****************************************************************************
 #define AES_CTRL_CTXTRDY        0x80000000  // Context Data Registers Ready
@@ -316,7 +316,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_C_LENGTH_0
+// The following are defines for the bit fields in the AES_C_LENGTH_0
 // register.
 //
 //*****************************************************************************
@@ -325,7 +325,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_C_LENGTH_1
+// The following are defines for the bit fields in the AES_C_LENGTH_1
 // register.
 //
 //*****************************************************************************
@@ -334,7 +334,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_AUTH_LENGTH
+// The following are defines for the bit fields in the AES_AUTH_LENGTH
 // register.
 //
 //*****************************************************************************
@@ -343,7 +343,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_DATA_IN_0
+// The following are defines for the bit fields in the AES_DATA_IN_0
 // register.
 //
 //*****************************************************************************
@@ -353,7 +353,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_DATA_IN_1
+// The following are defines for the bit fields in the AES_DATA_IN_1
 // register.
 //
 //*****************************************************************************
@@ -363,7 +363,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_DATA_IN_2
+// The following are defines for the bit fields in the AES_DATA_IN_2
 // register.
 //
 //*****************************************************************************
@@ -373,7 +373,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_DATA_IN_3
+// The following are defines for the bit fields in the AES_DATA_IN_3
 // register.
 //
 //*****************************************************************************
@@ -383,7 +383,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_TAG_OUT_0
+// The following are defines for the bit fields in the AES_TAG_OUT_0
 // register.
 //
 //*****************************************************************************
@@ -392,7 +392,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_TAG_OUT_1
+// The following are defines for the bit fields in the AES_TAG_OUT_1
 // register.
 //
 //*****************************************************************************
@@ -401,7 +401,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_TAG_OUT_2
+// The following are defines for the bit fields in the AES_TAG_OUT_2
 // register.
 //
 //*****************************************************************************
@@ -410,7 +410,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_TAG_OUT_3
+// The following are defines for the bit fields in the AES_TAG_OUT_3
 // register.
 //
 //*****************************************************************************
@@ -419,7 +419,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_REVISION register.
+// The following are defines for the bit fields in the AES_REVISION register.
 //
 //*****************************************************************************
 #define AES_REVISION_M          0xFFFFFFFF  // Revision number
@@ -427,7 +427,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_SYSCONFIG
+// The following are defines for the bit fields in the AES_SYSCONFIG
 // register.
 //
 //*****************************************************************************
@@ -448,7 +448,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_SYSSTATUS
+// The following are defines for the bit fields in the AES_SYSSTATUS
 // register.
 //
 //*****************************************************************************
@@ -456,7 +456,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_IRQSTATUS
+// The following are defines for the bit fields in the AES_IRQSTATUS
 // register.
 //
 //*****************************************************************************
@@ -469,7 +469,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_IRQENABLE
+// The following are defines for the bit fields in the AES_IRQENABLE
 // register.
 //
 //*****************************************************************************
@@ -482,7 +482,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_DIRTYBITS
+// The following are defines for the bit fields in the AES_DIRTYBITS
 // register.
 //
 //*****************************************************************************
@@ -491,7 +491,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_DMAIM register.
+// The following are defines for the bit fields in the AES_DMAIM register.
 //
 //*****************************************************************************
 #define AES_DMAIM_DOUT          0x00000008  // Data Out DMA Done Interrupt Mask
@@ -503,7 +503,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_DMARIS register.
+// The following are defines for the bit fields in the AES_DMARIS register.
 //
 //*****************************************************************************
 #define AES_DMARIS_DOUT         0x00000008  // Data Out DMA Done Raw Interrupt
@@ -517,7 +517,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_DMAMIS register.
+// The following are defines for the bit fields in the AES_DMAMIS register.
 //
 //*****************************************************************************
 #define AES_DMAMIS_DOUT         0x00000008  // Data Out DMA Done Masked
@@ -531,7 +531,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the AES_O_DMAIC register.
+// The following are defines for the bit fields in the AES_DMAIC register.
 //
 //*****************************************************************************
 #define AES_DMAIC_DOUT          0x00000008  // Data Out DMA Done Interrupt
@@ -542,4 +542,4 @@
 #define AES_DMAIC_CIN           0x00000001  // Context In DMA Done Raw
                                             // Interrupt Status
 
-#endif // __HW_AES_H__
+//#endif // __HW_AES_H__

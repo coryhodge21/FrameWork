@@ -37,135 +37,135 @@
 //
 //*****************************************************************************
 
-#ifndef __HW_EMAC_H__
-#define __HW_EMAC_H__
+//#ifndef __HW_EMAC_H__
+//#define __HW_EMAC_H__
 
 //*****************************************************************************
 //
 // The following are defines for the EMAC register offsets.
 //
 //*****************************************************************************
-#define EMAC_O_CFG              0x00000000  // Ethernet MAC Configuration
-#define EMAC_O_FRAMEFLTR        0x00000004  // Ethernet MAC Frame Filter
-#define EMAC_O_HASHTBLH         0x00000008  // Ethernet MAC Hash Table High
-#define EMAC_O_HASHTBLL         0x0000000C  // Ethernet MAC Hash Table Low
-#define EMAC_O_MIIADDR          0x00000010  // Ethernet MAC MII Address
-#define EMAC_O_MIIDATA          0x00000014  // Ethernet MAC MII Data Register
-#define EMAC_O_FLOWCTL          0x00000018  // Ethernet MAC Flow Control
-#define EMAC_O_VLANTG           0x0000001C  // Ethernet MAC VLAN Tag
-#define EMAC_O_STATUS           0x00000024  // Ethernet MAC Status
-#define EMAC_O_RWUFF            0x00000028  // Ethernet MAC Remote Wake-Up
+#define EMAC_CFG              0x00000000  // Ethernet MAC Configuration
+#define EMAC_FRAMEFLTR        0x00000004  // Ethernet MAC Frame Filter
+#define EMAC_HASHTBLH         0x00000008  // Ethernet MAC Hash Table High
+#define EMAC_HASHTBLL         0x0000000C  // Ethernet MAC Hash Table Low
+#define EMAC_MIIADDR          0x00000010  // Ethernet MAC MII Address
+#define EMAC_MIIDATA          0x00000014  // Ethernet MAC MII Data Register
+#define EMAC_FLOWCTL          0x00000018  // Ethernet MAC Flow Control
+#define EMAC_VLANTG           0x0000001C  // Ethernet MAC VLAN Tag
+#define EMAC_STATUS           0x00000024  // Ethernet MAC Status
+#define EMAC_RWUFF            0x00000028  // Ethernet MAC Remote Wake-Up
                                             // Frame Filter
-#define EMAC_O_PMTCTLSTAT       0x0000002C  // Ethernet MAC PMT Control and
+#define EMAC_PMTCTLSTAT       0x0000002C  // Ethernet MAC PMT Control and
                                             // Status Register
-#define EMAC_O_LPICTLSTAT       0x00000030  // Ethernet MAC Low Power Idle
+#define EMAC_LPICTLSTAT       0x00000030  // Ethernet MAC Low Power Idle
                                             // Control and Status Register
-#define EMAC_O_LPITIMERCTL      0x00000034  // Ethernet MAC Low Power Idle
+#define EMAC_LPITIMERCTL      0x00000034  // Ethernet MAC Low Power Idle
                                             // Timer Control Register
-#define EMAC_O_RIS              0x00000038  // Ethernet MAC Raw Interrupt
+#define EMAC_RIS              0x00000038  // Ethernet MAC Raw Interrupt
                                             // Status
-#define EMAC_O_IM               0x0000003C  // Ethernet MAC Interrupt Mask
-#define EMAC_O_ADDR0H           0x00000040  // Ethernet MAC Address 0 High
-#define EMAC_O_ADDR0L           0x00000044  // Ethernet MAC Address 0 Low
+#define EMAC_IM               0x0000003C  // Ethernet MAC Interrupt Mask
+#define EMAC_ADDR0H           0x00000040  // Ethernet MAC Address 0 High
+#define EMAC_ADDR0L           0x00000044  // Ethernet MAC Address 0 Low
                                             // Register
-#define EMAC_O_ADDR1H           0x00000048  // Ethernet MAC Address 1 High
-#define EMAC_O_ADDR1L           0x0000004C  // Ethernet MAC Address 1 Low
-#define EMAC_O_ADDR2H           0x00000050  // Ethernet MAC Address 2 High
-#define EMAC_O_ADDR2L           0x00000054  // Ethernet MAC Address 2 Low
-#define EMAC_O_ADDR3H           0x00000058  // Ethernet MAC Address 3 High
-#define EMAC_O_ADDR3L           0x0000005C  // Ethernet MAC Address 3 Low
-#define EMAC_O_WDOGTO           0x000000DC  // Ethernet MAC Watchdog Timeout
-#define EMAC_O_MMCCTRL          0x00000100  // Ethernet MAC MMC Control
-#define EMAC_O_MMCRXRIS         0x00000104  // Ethernet MAC MMC Receive Raw
+#define EMAC_ADDR1H           0x00000048  // Ethernet MAC Address 1 High
+#define EMAC_ADDR1L           0x0000004C  // Ethernet MAC Address 1 Low
+#define EMAC_ADDR2H           0x00000050  // Ethernet MAC Address 2 High
+#define EMAC_ADDR2L           0x00000054  // Ethernet MAC Address 2 Low
+#define EMAC_ADDR3H           0x00000058  // Ethernet MAC Address 3 High
+#define EMAC_ADDR3L           0x0000005C  // Ethernet MAC Address 3 Low
+#define EMAC_WDOGTO           0x000000DC  // Ethernet MAC Watchdog Timeout
+#define EMAC_MMCCTRL          0x00000100  // Ethernet MAC MMC Control
+#define EMAC_MMCRXRIS         0x00000104  // Ethernet MAC MMC Receive Raw
                                             // Interrupt Status
-#define EMAC_O_MMCTXRIS         0x00000108  // Ethernet MAC MMC Transmit Raw
+#define EMAC_MMCTXRIS         0x00000108  // Ethernet MAC MMC Transmit Raw
                                             // Interrupt Status
-#define EMAC_O_MMCRXIM          0x0000010C  // Ethernet MAC MMC Receive
+#define EMAC_MMCRXIM          0x0000010C  // Ethernet MAC MMC Receive
                                             // Interrupt Mask
-#define EMAC_O_MMCTXIM          0x00000110  // Ethernet MAC MMC Transmit
+#define EMAC_MMCTXIM          0x00000110  // Ethernet MAC MMC Transmit
                                             // Interrupt Mask
-#define EMAC_O_TXCNTGB          0x00000118  // Ethernet MAC Transmit Frame
+#define EMAC_TXCNTGB          0x00000118  // Ethernet MAC Transmit Frame
                                             // Count for Good and Bad Frames
-#define EMAC_O_TXCNTSCOL        0x0000014C  // Ethernet MAC Transmit Frame
+#define EMAC_TXCNTSCOL        0x0000014C  // Ethernet MAC Transmit Frame
                                             // Count for Frames Transmitted
                                             // after Single Collision
-#define EMAC_O_TXCNTMCOL        0x00000150  // Ethernet MAC Transmit Frame
+#define EMAC_TXCNTMCOL        0x00000150  // Ethernet MAC Transmit Frame
                                             // Count for Frames Transmitted
                                             // after Multiple Collisions
-#define EMAC_O_TXOCTCNTG        0x00000164  // Ethernet MAC Transmit Octet
+#define EMAC_TXOCTCNTG        0x00000164  // Ethernet MAC Transmit Octet
                                             // Count Good
-#define EMAC_O_RXCNTGB          0x00000180  // Ethernet MAC Receive Frame Count
+#define EMAC_RXCNTGB          0x00000180  // Ethernet MAC Receive Frame Count
                                             // for Good and Bad Frames
-#define EMAC_O_RXCNTCRCERR      0x00000194  // Ethernet MAC Receive Frame Count
+#define EMAC_RXCNTCRCERR      0x00000194  // Ethernet MAC Receive Frame Count
                                             // for CRC Error Frames
-#define EMAC_O_RXCNTALGNERR     0x00000198  // Ethernet MAC Receive Frame Count
+#define EMAC_RXCNTALGNERR     0x00000198  // Ethernet MAC Receive Frame Count
                                             // for Alignment Error Frames
-#define EMAC_O_RXCNTGUNI        0x000001C4  // Ethernet MAC Receive Frame Count
+#define EMAC_RXCNTGUNI        0x000001C4  // Ethernet MAC Receive Frame Count
                                             // for Good Unicast Frames
-#define EMAC_O_VLNINCREP        0x00000584  // Ethernet MAC VLAN Tag Inclusion
+#define EMAC_VLNINCREP        0x00000584  // Ethernet MAC VLAN Tag Inclusion
                                             // or Replacement
-#define EMAC_O_VLANHASH         0x00000588  // Ethernet MAC VLAN Hash Table
-#define EMAC_O_TIMSTCTRL        0x00000700  // Ethernet MAC Timestamp Control
-#define EMAC_O_SUBSECINC        0x00000704  // Ethernet MAC Sub-Second
+#define EMAC_VLANHASH         0x00000588  // Ethernet MAC VLAN Hash Table
+#define EMAC_TIMSTCTRL        0x00000700  // Ethernet MAC Timestamp Control
+#define EMAC_SUBSECINC        0x00000704  // Ethernet MAC Sub-Second
                                             // Increment
-#define EMAC_O_TIMSEC           0x00000708  // Ethernet MAC System Time -
+#define EMAC_TIMSEC           0x00000708  // Ethernet MAC System Time -
                                             // Seconds
-#define EMAC_O_TIMNANO          0x0000070C  // Ethernet MAC System Time -
+#define EMAC_TIMNANO          0x0000070C  // Ethernet MAC System Time -
                                             // Nanoseconds
-#define EMAC_O_TIMSECU          0x00000710  // Ethernet MAC System Time -
+#define EMAC_TIMSECU          0x00000710  // Ethernet MAC System Time -
                                             // Seconds Update
-#define EMAC_O_TIMNANOU         0x00000714  // Ethernet MAC System Time -
+#define EMAC_TIMNANOU         0x00000714  // Ethernet MAC System Time -
                                             // Nanoseconds Update
-#define EMAC_O_TIMADD           0x00000718  // Ethernet MAC Timestamp Addend
-#define EMAC_O_TARGSEC          0x0000071C  // Ethernet MAC Target Time Seconds
-#define EMAC_O_TARGNANO         0x00000720  // Ethernet MAC Target Time
+#define EMAC_TIMADD           0x00000718  // Ethernet MAC Timestamp Addend
+#define EMAC_TARGSEC          0x0000071C  // Ethernet MAC Target Time Seconds
+#define EMAC_TARGNANO         0x00000720  // Ethernet MAC Target Time
                                             // Nanoseconds
-#define EMAC_O_HWORDSEC         0x00000724  // Ethernet MAC System Time-Higher
+#define EMAC_HWORDSEC         0x00000724  // Ethernet MAC System Time-Higher
                                             // Word Seconds
-#define EMAC_O_TIMSTAT          0x00000728  // Ethernet MAC Timestamp Status
-#define EMAC_O_PPSCTRL          0x0000072C  // Ethernet MAC PPS Control
-#define EMAC_O_PPS0INTVL        0x00000760  // Ethernet MAC PPS0 Interval
-#define EMAC_O_PPS0WIDTH        0x00000764  // Ethernet MAC PPS0 Width
-#define EMAC_O_DMABUSMOD        0x00000C00  // Ethernet MAC DMA Bus Mode
-#define EMAC_O_TXPOLLD          0x00000C04  // Ethernet MAC Transmit Poll
+#define EMAC_TIMSTAT          0x00000728  // Ethernet MAC Timestamp Status
+#define EMAC_PPSCTRL          0x0000072C  // Ethernet MAC PPS Control
+#define EMAC_PPS0INTVL        0x00000760  // Ethernet MAC PPS0 Interval
+#define EMAC_PPS0WIDTH        0x00000764  // Ethernet MAC PPS0 Width
+#define EMAC_DMABUSMOD        0x00000C00  // Ethernet MAC DMA Bus Mode
+#define EMAC_TXPOLLD          0x00000C04  // Ethernet MAC Transmit Poll
                                             // Demand
-#define EMAC_O_RXPOLLD          0x00000C08  // Ethernet MAC Receive Poll Demand
-#define EMAC_O_RXDLADDR         0x00000C0C  // Ethernet MAC Receive Descriptor
+#define EMAC_RXPOLLD          0x00000C08  // Ethernet MAC Receive Poll Demand
+#define EMAC_RXDLADDR         0x00000C0C  // Ethernet MAC Receive Descriptor
                                             // List Address
-#define EMAC_O_TXDLADDR         0x00000C10  // Ethernet MAC Transmit Descriptor
+#define EMAC_TXDLADDR         0x00000C10  // Ethernet MAC Transmit Descriptor
                                             // List Address
-#define EMAC_O_DMARIS           0x00000C14  // Ethernet MAC DMA Interrupt
+#define EMAC_DMARIS           0x00000C14  // Ethernet MAC DMA Interrupt
                                             // Status
-#define EMAC_O_DMAOPMODE        0x00000C18  // Ethernet MAC DMA Operation Mode
-#define EMAC_O_DMAIM            0x00000C1C  // Ethernet MAC DMA Interrupt Mask
+#define EMAC_DMAOPMODE        0x00000C18  // Ethernet MAC DMA Operation Mode
+#define EMAC_DMAIM            0x00000C1C  // Ethernet MAC DMA Interrupt Mask
                                             // Register
-#define EMAC_O_MFBOC            0x00000C20  // Ethernet MAC Missed Frame and
+#define EMAC_MFBOC            0x00000C20  // Ethernet MAC Missed Frame and
                                             // Buffer Overflow Counter
-#define EMAC_O_RXINTWDT         0x00000C24  // Ethernet MAC Receive Interrupt
+#define EMAC_RXINTWDT         0x00000C24  // Ethernet MAC Receive Interrupt
                                             // Watchdog Timer
-#define EMAC_O_HOSTXDESC        0x00000C48  // Ethernet MAC Current Host
+#define EMAC_HOSTXDESC        0x00000C48  // Ethernet MAC Current Host
                                             // Transmit Descriptor
-#define EMAC_O_HOSRXDESC        0x00000C4C  // Ethernet MAC Current Host
+#define EMAC_HOSRXDESC        0x00000C4C  // Ethernet MAC Current Host
                                             // Receive Descriptor
-#define EMAC_O_HOSTXBA          0x00000C50  // Ethernet MAC Current Host
+#define EMAC_HOSTXBA          0x00000C50  // Ethernet MAC Current Host
                                             // Transmit Buffer Address
-#define EMAC_O_HOSRXBA          0x00000C54  // Ethernet MAC Current Host
+#define EMAC_HOSRXBA          0x00000C54  // Ethernet MAC Current Host
                                             // Receive Buffer Address
-#define EMAC_O_PP               0x00000FC0  // Ethernet MAC Peripheral Property
+#define EMAC_PP               0x00000FC0  // Ethernet MAC Peripheral Property
                                             // Register
-#define EMAC_O_PC               0x00000FC4  // Ethernet MAC Peripheral
+#define EMAC_PC               0x00000FC4  // Ethernet MAC Peripheral
                                             // Configuration Register
-#define EMAC_O_CC               0x00000FC8  // Ethernet MAC Clock Configuration
+#define EMAC_CC               0x00000FC8  // Ethernet MAC Clock Configuration
                                             // Register
-#define EMAC_O_EPHYRIS          0x00000FD0  // Ethernet PHY Raw Interrupt
+#define EMAC_EPHYRIS          0x00000FD0  // Ethernet PHY Raw Interrupt
                                             // Status
-#define EMAC_O_EPHYIM           0x00000FD4  // Ethernet PHY Interrupt Mask
-#define EMAC_O_EPHYMISC         0x00000FD8  // Ethernet PHY Masked Interrupt
+#define EMAC_EPHYIM           0x00000FD4  // Ethernet PHY Interrupt Mask
+#define EMAC_EPHYMISC         0x00000FD8  // Ethernet PHY Masked Interrupt
                                             // Status and Clear
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_CFG register.
+// The following are defines for the bit fields in the EMAC_CFG register.
 //
 //*****************************************************************************
 #define EMAC_CFG_TWOKPEN        0x08000000  // IEEE 802
@@ -208,7 +208,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_FRAMEFLTR
+// The following are defines for the bit fields in the EMAC_FRAMEFLTR
 // register.
 //
 //*****************************************************************************
@@ -241,7 +241,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_HASHTBLH
+// The following are defines for the bit fields in the EMAC_HASHTBLH
 // register.
 //
 //*****************************************************************************
@@ -250,7 +250,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_HASHTBLL
+// The following are defines for the bit fields in the EMAC_HASHTBLL
 // register.
 //
 //*****************************************************************************
@@ -259,7 +259,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_MIIADDR register.
+// The following are defines for the bit fields in the EMAC_MIIADDR register.
 //
 //*****************************************************************************
 #define EMAC_MIIADDR_PLA_M      0x0000F800  // Physical Layer Address
@@ -286,7 +286,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_MIIDATA register.
+// The following are defines for the bit fields in the EMAC_MIIDATA register.
 //
 //*****************************************************************************
 #define EMAC_MIIDATA_DATA_M     0x0000FFFF  // MII Data
@@ -294,7 +294,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_FLOWCTL register.
+// The following are defines for the bit fields in the EMAC_FLOWCTL register.
 //
 //*****************************************************************************
 #define EMAC_FLOWCTL_PT_M       0xFFFF0000  // Pause Time
@@ -308,7 +308,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_VLANTG register.
+// The following are defines for the bit fields in the EMAC_VLANTG register.
 //
 //*****************************************************************************
 #define EMAC_VLANTG_VTHM        0x00080000  // VLAN Tag Hash Table Match Enable
@@ -322,7 +322,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_STATUS register.
+// The following are defines for the bit fields in the EMAC_STATUS register.
 //
 //*****************************************************************************
 #define EMAC_STATUS_TXFF        0x02000000  // TX/RX Controller TX FIFO Full
@@ -381,7 +381,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_RWUFF register.
+// The following are defines for the bit fields in the EMAC_RWUFF register.
 //
 //*****************************************************************************
 #define EMAC_RWUFF_WAKEUPFIL_M  0xFFFFFFFF  // Remote Wake-Up Frame Filter
@@ -389,7 +389,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_PMTCTLSTAT
+// The following are defines for the bit fields in the EMAC_PMTCTLSTAT
 // register.
 //
 //*****************************************************************************
@@ -411,7 +411,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_LPICTLSTAT
+// The following are defines for the bit fields in the EMAC_LPICTLSTAT
 // register.
 //
 //*****************************************************************************
@@ -428,7 +428,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_LPITIMERCTL
+// The following are defines for the bit fields in the EMAC_LPITIMERCTL
 // register.
 //
 //*****************************************************************************
@@ -439,7 +439,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_RIS register.
+// The following are defines for the bit fields in the EMAC_RIS register.
 //
 //*****************************************************************************
 #define EMAC_RIS_LPI            0x00000400  // LPI Interrupt Status
@@ -451,7 +451,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_IM register.
+// The following are defines for the bit fields in the EMAC_IM register.
 //
 //*****************************************************************************
 #define EMAC_IM_LPI             0x00000400  // LPI Interrupt Mask
@@ -460,7 +460,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_ADDR0H register.
+// The following are defines for the bit fields in the EMAC_ADDR0H register.
 //
 //*****************************************************************************
 #define EMAC_ADDR0H_AE          0x80000000  // Address Enable
@@ -469,7 +469,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_ADDR0L register.
+// The following are defines for the bit fields in the EMAC_ADDR0L register.
 //
 //*****************************************************************************
 #define EMAC_ADDR0L_ADDRLO_M    0xFFFFFFFF  // MAC Address0 [31:0]
@@ -477,7 +477,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_ADDR1H register.
+// The following are defines for the bit fields in the EMAC_ADDR1H register.
 //
 //*****************************************************************************
 #define EMAC_ADDR1H_AE          0x80000000  // Address Enable
@@ -489,7 +489,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_ADDR1L register.
+// The following are defines for the bit fields in the EMAC_ADDR1L register.
 //
 //*****************************************************************************
 #define EMAC_ADDR1L_ADDRLO_M    0xFFFFFFFF  // MAC Address1 [31:0]
@@ -497,7 +497,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_ADDR2H register.
+// The following are defines for the bit fields in the EMAC_ADDR2H register.
 //
 //*****************************************************************************
 #define EMAC_ADDR2H_AE          0x80000000  // Address Enable
@@ -509,7 +509,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_ADDR2L register.
+// The following are defines for the bit fields in the EMAC_ADDR2L register.
 //
 //*****************************************************************************
 #define EMAC_ADDR2L_ADDRLO_M    0xFFFFFFFF  // MAC Address2 [31:0]
@@ -517,7 +517,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_ADDR3H register.
+// The following are defines for the bit fields in the EMAC_ADDR3H register.
 //
 //*****************************************************************************
 #define EMAC_ADDR3H_AE          0x80000000  // Address Enable
@@ -529,7 +529,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_ADDR3L register.
+// The following are defines for the bit fields in the EMAC_ADDR3L register.
 //
 //*****************************************************************************
 #define EMAC_ADDR3L_ADDRLO_M    0xFFFFFFFF  // MAC Address3 [31:0]
@@ -537,7 +537,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_WDOGTO register.
+// The following are defines for the bit fields in the EMAC_WDOGTO register.
 //
 //*****************************************************************************
 #define EMAC_WDOGTO_PWE         0x00010000  // Programmable Watchdog Enable
@@ -546,7 +546,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_MMCCTRL register.
+// The following are defines for the bit fields in the EMAC_MMCCTRL register.
 //
 //*****************************************************************************
 #define EMAC_MMCCTRL_UCDBC      0x00000100  // Update MMC Counters for Dropped
@@ -560,7 +560,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_MMCRXRIS
+// The following are defines for the bit fields in the EMAC_MMCRXRIS
 // register.
 //
 //*****************************************************************************
@@ -575,7 +575,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_MMCTXRIS
+// The following are defines for the bit fields in the EMAC_MMCTXRIS
 // register.
 //
 //*****************************************************************************
@@ -591,7 +591,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_MMCRXIM register.
+// The following are defines for the bit fields in the EMAC_MMCRXIM register.
 //
 //*****************************************************************************
 #define EMAC_MMCRXIM_UCGF       0x00020000  // MMC Receive Unicast Good Frame
@@ -605,7 +605,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_MMCTXIM register.
+// The following are defines for the bit fields in the EMAC_MMCTXIM register.
 //
 //*****************************************************************************
 #define EMAC_MMCTXIM_OCTCNT     0x00100000  // MMC Transmit Good Octet Counter
@@ -621,7 +621,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_TXCNTGB register.
+// The following are defines for the bit fields in the EMAC_TXCNTGB register.
 //
 //*****************************************************************************
 #define EMAC_TXCNTGB_TXFRMGB_M  0xFFFFFFFF  // This field indicates the number
@@ -632,7 +632,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_TXCNTSCOL
+// The following are defines for the bit fields in the EMAC_TXCNTSCOL
 // register.
 //
 //*****************************************************************************
@@ -646,7 +646,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_TXCNTMCOL
+// The following are defines for the bit fields in the EMAC_TXCNTMCOL
 // register.
 //
 //*****************************************************************************
@@ -660,7 +660,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_TXOCTCNTG
+// The following are defines for the bit fields in the EMAC_TXOCTCNTG
 // register.
 //
 //*****************************************************************************
@@ -671,7 +671,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_RXCNTGB register.
+// The following are defines for the bit fields in the EMAC_RXCNTGB register.
 //
 //*****************************************************************************
 #define EMAC_RXCNTGB_RXFRMGB_M  0xFFFFFFFF  // This field indicates the number
@@ -680,7 +680,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_RXCNTCRCERR
+// The following are defines for the bit fields in the EMAC_RXCNTCRCERR
 // register.
 //
 //*****************************************************************************
@@ -693,7 +693,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_RXCNTALGNERR
+// The following are defines for the bit fields in the EMAC_RXCNTALGNERR
 // register.
 //
 //*****************************************************************************
@@ -706,7 +706,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_RXCNTGUNI
+// The following are defines for the bit fields in the EMAC_RXCNTGUNI
 // register.
 //
 //*****************************************************************************
@@ -718,7 +718,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_VLNINCREP
+// The following are defines for the bit fields in the EMAC_VLNINCREP
 // register.
 //
 //*****************************************************************************
@@ -739,7 +739,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_VLANHASH
+// The following are defines for the bit fields in the EMAC_VLANHASH
 // register.
 //
 //*****************************************************************************
@@ -748,7 +748,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_TIMSTCTRL
+// The following are defines for the bit fields in the EMAC_TIMSTCTRL
 // register.
 //
 //*****************************************************************************
@@ -782,7 +782,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_SUBSECINC
+// The following are defines for the bit fields in the EMAC_SUBSECINC
 // register.
 //
 //*****************************************************************************
@@ -791,7 +791,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_TIMSEC register.
+// The following are defines for the bit fields in the EMAC_TIMSEC register.
 //
 //*****************************************************************************
 #define EMAC_TIMSEC_TSS_M       0xFFFFFFFF  // Timestamp Second
@@ -799,7 +799,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_TIMNANO register.
+// The following are defines for the bit fields in the EMAC_TIMNANO register.
 //
 //*****************************************************************************
 #define EMAC_TIMNANO_TSSS_M     0x7FFFFFFF  // Timestamp Sub-Seconds
@@ -807,7 +807,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_TIMSECU register.
+// The following are defines for the bit fields in the EMAC_TIMSECU register.
 //
 //*****************************************************************************
 #define EMAC_TIMSECU_TSS_M      0xFFFFFFFF  // Timestamp Second
@@ -815,7 +815,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_TIMNANOU
+// The following are defines for the bit fields in the EMAC_TIMNANOU
 // register.
 //
 //*****************************************************************************
@@ -825,7 +825,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_TIMADD register.
+// The following are defines for the bit fields in the EMAC_TIMADD register.
 //
 //*****************************************************************************
 #define EMAC_TIMADD_TSAR_M      0xFFFFFFFF  // Timestamp Addend Register
@@ -833,7 +833,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_TARGSEC register.
+// The following are defines for the bit fields in the EMAC_TARGSEC register.
 //
 //*****************************************************************************
 #define EMAC_TARGSEC_TSTR_M     0xFFFFFFFF  // Target Time Seconds Register
@@ -841,7 +841,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_TARGNANO
+// The following are defines for the bit fields in the EMAC_TARGNANO
 // register.
 //
 //*****************************************************************************
@@ -851,7 +851,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_HWORDSEC
+// The following are defines for the bit fields in the EMAC_HWORDSEC
 // register.
 //
 //*****************************************************************************
@@ -861,7 +861,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_TIMSTAT register.
+// The following are defines for the bit fields in the EMAC_TIMSTAT register.
 //
 //*****************************************************************************
 #define EMAC_TIMSTAT_TSTARGT    0x00000002  // Timestamp Target Time Reached
@@ -869,7 +869,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_PPSCTRL register.
+// The following are defines for the bit fields in the EMAC_PPSCTRL register.
 //
 //*****************************************************************************
 #define EMAC_PPSCTRL_TRGMODS0_M 0x00000060  // Target Time Register Mode for
@@ -899,7 +899,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_PPS0INTVL
+// The following are defines for the bit fields in the EMAC_PPS0INTVL
 // register.
 //
 //*****************************************************************************
@@ -910,7 +910,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_PPS0WIDTH
+// The following are defines for the bit fields in the EMAC_PPS0WIDTH
 // register.
 //
 //*****************************************************************************
@@ -919,7 +919,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_DMABUSMOD
+// The following are defines for the bit fields in the EMAC_DMABUSMOD
 // register.
 //
 //*****************************************************************************
@@ -947,7 +947,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_TXPOLLD register.
+// The following are defines for the bit fields in the EMAC_TXPOLLD register.
 //
 //*****************************************************************************
 #define EMAC_TXPOLLD_TPD_M      0xFFFFFFFF  // Transmit Poll Demand
@@ -955,7 +955,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_RXPOLLD register.
+// The following are defines for the bit fields in the EMAC_RXPOLLD register.
 //
 //*****************************************************************************
 #define EMAC_RXPOLLD_RPD_M      0xFFFFFFFF  // Receive Poll Demand
@@ -963,7 +963,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_RXDLADDR
+// The following are defines for the bit fields in the EMAC_RXDLADDR
 // register.
 //
 //*****************************************************************************
@@ -974,7 +974,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_TXDLADDR
+// The following are defines for the bit fields in the EMAC_TXDLADDR
 // register.
 //
 //*****************************************************************************
@@ -986,7 +986,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_DMARIS register.
+// The following are defines for the bit fields in the EMAC_DMARIS register.
 //
 //*****************************************************************************
 #define EMAC_DMARIS_LPI         0x40000000  // LPI Trigger Interrupt Status
@@ -1055,7 +1055,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_DMAOPMODE
+// The following are defines for the bit fields in the EMAC_DMAOPMODE
 // register.
 //
 //*****************************************************************************
@@ -1090,7 +1090,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_DMAIM register.
+// The following are defines for the bit fields in the EMAC_DMAIM register.
 //
 //*****************************************************************************
 #define EMAC_DMAIM_NIE          0x00010000  // Normal Interrupt Summary Enable
@@ -1114,7 +1114,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_MFBOC register.
+// The following are defines for the bit fields in the EMAC_MFBOC register.
 //
 //*****************************************************************************
 #define EMAC_MFBOC_OVFCNTOVF    0x10000000  // Overflow Bit for FIFO Overflow
@@ -1128,7 +1128,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_RXINTWDT
+// The following are defines for the bit fields in the EMAC_RXINTWDT
 // register.
 //
 //*****************************************************************************
@@ -1138,7 +1138,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_HOSTXDESC
+// The following are defines for the bit fields in the EMAC_HOSTXDESC
 // register.
 //
 //*****************************************************************************
@@ -1150,7 +1150,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_HOSRXDESC
+// The following are defines for the bit fields in the EMAC_HOSRXDESC
 // register.
 //
 //*****************************************************************************
@@ -1162,7 +1162,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_HOSTXBA register.
+// The following are defines for the bit fields in the EMAC_HOSTXBA register.
 //
 //*****************************************************************************
 #define EMAC_HOSTXBA_CURTXBUFA_M                                              \
@@ -1173,7 +1173,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_HOSRXBA register.
+// The following are defines for the bit fields in the EMAC_HOSRXBA register.
 //
 //*****************************************************************************
 #define EMAC_HOSRXBA_CURRXBUFA_M                                              \
@@ -1184,7 +1184,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_PP register.
+// The following are defines for the bit fields in the EMAC_PP register.
 //
 //*****************************************************************************
 #define EMAC_PP_MACTYPE_M       0x00000700  // Ethernet MAC Type
@@ -1195,7 +1195,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_PC register.
+// The following are defines for the bit fields in the EMAC_PC register.
 //
 //*****************************************************************************
 #define EMAC_PC_PHYEXT          0x80000000  // PHY Select
@@ -1239,7 +1239,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_CC register.
+// The following are defines for the bit fields in the EMAC_CC register.
 //
 //*****************************************************************************
 #define EMAC_CC_PTPCEN          0x00040000  // PTP Clock Reference Enable
@@ -1248,7 +1248,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_EPHYRIS register.
+// The following are defines for the bit fields in the EMAC_EPHYRIS register.
 //
 //*****************************************************************************
 #define EMAC_EPHYRIS_INT        0x00000001  // Ethernet PHY Raw Interrupt
@@ -1256,14 +1256,14 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_EPHYIM register.
+// The following are defines for the bit fields in the EMAC_EPHYIM register.
 //
 //*****************************************************************************
 #define EMAC_EPHYIM_INT         0x00000001  // Ethernet PHY Interrupt Mask
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EMAC_O_EPHYMISC
+// The following are defines for the bit fields in the EMAC_EPHYMISC
 // register.
 //
 //*****************************************************************************
@@ -1781,94 +1781,94 @@
 // The following definitions are deprecated.
 //
 //*****************************************************************************
-#ifndef DEPRECATED
+// #ifndef DEPRECATED
+
+// //*****************************************************************************
+// //
+// // The following are deprecated defines for the bit fields in the
+// // EMAC_PPSCTRL register.
+// //
+// //*****************************************************************************
+// #define EMAC_PPSCTRL_PPSCTRL_1HZ                                              \
+//                                 0x00000000  // When the PPSEN0 bit = 0x0, the
+//                                             // EN0PPS signal is 1 pulse of the
+//                                             // PTP reference clock.(of width
+//                                             // clk_ptp_i) every second
+// #define EMAC_PPSCTRL_PPSCTRL_2HZ                                              \
+//                                 0x00000001  // When the PPSEN0 bit = 0x0, the
+//                                             // binary rollover is 2 Hz, and the
+//                                             // digital rollover is 1 Hz
+// #define EMAC_PPSCTRL_PPSCTRL_4HZ                                              \
+//                                 0x00000002  // When the PPSEN0 bit = 0x0, the
+//                                             // binary rollover is 4 Hz, and the
+//                                             // digital rollover is 2 Hz
+// #define EMAC_PPSCTRL_PPSCTRL_8HZ                                              \
+//                                 0x00000003  // When thePPSEN0 bit = 0x0, the
+//                                             // binary rollover is 8 Hz, and the
+//                                             // digital rollover is 4 Hz,
+// #define EMAC_PPSCTRL_PPSCTRL_16HZ                                             \
+//                                 0x00000004  // When thePPSEN0 bit = 0x0, the
+//                                             // binary rollover is 16 Hz, and
+//                                             // the digital rollover is 8 Hz
+// #define EMAC_PPSCTRL_PPSCTRL_32HZ                                             \
+//                                 0x00000005  // When thePPSEN0 bit = 0x0, the
+//                                             // binary rollover is 32 Hz, and
+//                                             // the digital rollover is 16 Hz
+// #define EMAC_PPSCTRL_PPSCTRL_64HZ                                             \
+//                                 0x00000006  // When thePPSEN0 bit = 0x0, the
+//                                             // binary rollover is 64 Hz, and
+//                                             // the digital rollover is 32 Hz
+// #define EMAC_PPSCTRL_PPSCTRL_128HZ                                            \
+//                                 0x00000007  // When thePPSEN0 bit = 0x0, the
+//                                             // binary rollover is 128 Hz, and
+//                                             // the digital rollover is 64 Hz
+// #define EMAC_PPSCTRL_PPSCTRL_256HZ                                            \
+//                                 0x00000008  // When thePPSEN0 bit = 0x0, the
+//                                             // binary rollover is 256 Hz, and
+//                                             // the digital rollover is 128 Hz
+// #define EMAC_PPSCTRL_PPSCTRL_512HZ                                            \
+//                                 0x00000009  // When thePPSEN0 bit = 0x0, the
+//                                             // binary rollover is 512 Hz, and
+//                                             // the digital rollover is 256 Hz
+// #define EMAC_PPSCTRL_PPSCTRL_1024HZ                                           \
+//                                 0x0000000A  // When the PPSEN0 bit = 0x0, the
+//                                             // binary rollover is 1.024 kHz,
+//                                             // and the digital rollover is 512
+//                                             // Hz
+// #define EMAC_PPSCTRL_PPSCTRL_2048HZ                                           \
+//                                 0x0000000B  // When thePPSEN0 bit = 0x0, the
+//                                             // binary rollover is 2.048 kHz,
+//                                             // and the digital rollover is
+//                                             // 1.024 kHz
+// #define EMAC_PPSCTRL_PPSCTRL_4096HZ                                           \
+//                                 0x0000000C  // When thePPSEN0 bit = 0x0, the
+//                                             // binary rollover is 4.096 kHz,
+//                                             // and the digital rollover is
+//                                             // 2.048 kHz
+// #define EMAC_PPSCTRL_PPSCTRL_8192HZ                                           \
+//                                 0x0000000D  // When thePPSEN0 bit = 0x0, the
+//                                             // binary rollover is 8.192 kHz,
+//                                             // and the digital rollover is
+//                                             // 4.096 kHz
+// #define EMAC_PPSCTRL_PPSCTRL_16384HZ                                          \
+//                                 0x0000000E  // When thePPSEN0 bit = 0x0, the
+//                                             // binary rollover is 16.384 kHz,
+//                                             // and the digital rollover is
+//                                             // 8.092 kHz
+// #define EMAC_PPSCTRL_PPSCTRL_32768HZ                                          \
+//                                 0x0000000F  // When thePPSEN0 bit = 0x0, the
+//                                             // binary rollover is 32.768 KHz,
+//                                             // and the digital rollover is
+//                                             // 16.384 KHz
 
 //*****************************************************************************
 //
-// The following are deprecated defines for the bit fields in the
-// EMAC_O_PPSCTRL register.
-//
-//*****************************************************************************
-#define EMAC_PPSCTRL_PPSCTRL_1HZ                                              \
-                                0x00000000  // When the PPSEN0 bit = 0x0, the
-                                            // EN0PPS signal is 1 pulse of the
-                                            // PTP reference clock.(of width
-                                            // clk_ptp_i) every second
-#define EMAC_PPSCTRL_PPSCTRL_2HZ                                              \
-                                0x00000001  // When the PPSEN0 bit = 0x0, the
-                                            // binary rollover is 2 Hz, and the
-                                            // digital rollover is 1 Hz
-#define EMAC_PPSCTRL_PPSCTRL_4HZ                                              \
-                                0x00000002  // When the PPSEN0 bit = 0x0, the
-                                            // binary rollover is 4 Hz, and the
-                                            // digital rollover is 2 Hz
-#define EMAC_PPSCTRL_PPSCTRL_8HZ                                              \
-                                0x00000003  // When thePPSEN0 bit = 0x0, the
-                                            // binary rollover is 8 Hz, and the
-                                            // digital rollover is 4 Hz,
-#define EMAC_PPSCTRL_PPSCTRL_16HZ                                             \
-                                0x00000004  // When thePPSEN0 bit = 0x0, the
-                                            // binary rollover is 16 Hz, and
-                                            // the digital rollover is 8 Hz
-#define EMAC_PPSCTRL_PPSCTRL_32HZ                                             \
-                                0x00000005  // When thePPSEN0 bit = 0x0, the
-                                            // binary rollover is 32 Hz, and
-                                            // the digital rollover is 16 Hz
-#define EMAC_PPSCTRL_PPSCTRL_64HZ                                             \
-                                0x00000006  // When thePPSEN0 bit = 0x0, the
-                                            // binary rollover is 64 Hz, and
-                                            // the digital rollover is 32 Hz
-#define EMAC_PPSCTRL_PPSCTRL_128HZ                                            \
-                                0x00000007  // When thePPSEN0 bit = 0x0, the
-                                            // binary rollover is 128 Hz, and
-                                            // the digital rollover is 64 Hz
-#define EMAC_PPSCTRL_PPSCTRL_256HZ                                            \
-                                0x00000008  // When thePPSEN0 bit = 0x0, the
-                                            // binary rollover is 256 Hz, and
-                                            // the digital rollover is 128 Hz
-#define EMAC_PPSCTRL_PPSCTRL_512HZ                                            \
-                                0x00000009  // When thePPSEN0 bit = 0x0, the
-                                            // binary rollover is 512 Hz, and
-                                            // the digital rollover is 256 Hz
-#define EMAC_PPSCTRL_PPSCTRL_1024HZ                                           \
-                                0x0000000A  // When the PPSEN0 bit = 0x0, the
-                                            // binary rollover is 1.024 kHz,
-                                            // and the digital rollover is 512
-                                            // Hz
-#define EMAC_PPSCTRL_PPSCTRL_2048HZ                                           \
-                                0x0000000B  // When thePPSEN0 bit = 0x0, the
-                                            // binary rollover is 2.048 kHz,
-                                            // and the digital rollover is
-                                            // 1.024 kHz
-#define EMAC_PPSCTRL_PPSCTRL_4096HZ                                           \
-                                0x0000000C  // When thePPSEN0 bit = 0x0, the
-                                            // binary rollover is 4.096 kHz,
-                                            // and the digital rollover is
-                                            // 2.048 kHz
-#define EMAC_PPSCTRL_PPSCTRL_8192HZ                                           \
-                                0x0000000D  // When thePPSEN0 bit = 0x0, the
-                                            // binary rollover is 8.192 kHz,
-                                            // and the digital rollover is
-                                            // 4.096 kHz
-#define EMAC_PPSCTRL_PPSCTRL_16384HZ                                          \
-                                0x0000000E  // When thePPSEN0 bit = 0x0, the
-                                            // binary rollover is 16.384 kHz,
-                                            // and the digital rollover is
-                                            // 8.092 kHz
-#define EMAC_PPSCTRL_PPSCTRL_32768HZ                                          \
-                                0x0000000F  // When thePPSEN0 bit = 0x0, the
-                                            // binary rollover is 32.768 KHz,
-                                            // and the digital rollover is
-                                            // 16.384 KHz
-
-//*****************************************************************************
-//
-// The following are deprecated defines for the bit fields in the EMAC_O_CC
+// The following are deprecated defines for the bit fields in the EMAC_CC
 // register.
 //
 //*****************************************************************************
 #define EMAC_CC_CS_PA7          0x00000001  // GPIO
 
-#endif
+//#endif
 
-#endif // __HW_EMAC_H__
+//#endif // __HW_EMAC_H__

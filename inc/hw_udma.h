@@ -37,8 +37,8 @@
 //
 //*****************************************************************************
 
-#ifndef __HW_UDMA_H__
-#define __HW_UDMA_H__
+//#ifndef __HW_UDMA_H__
+//#define __HW_UDMA_H__
 
 //*****************************************************************************
 //
@@ -83,14 +83,10 @@
 #define UDMA_STAT_STATE_M       0x000000F0  // Control State Machine Status
 #define UDMA_STAT_STATE_IDLE    0x00000000  // Idle
 #define UDMA_STAT_STATE_RD_CTRL 0x00000010  // Reading channel controller data
-#define UDMA_STAT_STATE_RD_SRCENDP                                            \
-                                0x00000020  // Reading source end pointer
-#define UDMA_STAT_STATE_RD_DSTENDP                                            \
-                                0x00000030  // Reading destination end pointer
-#define UDMA_STAT_STATE_RD_SRCDAT                                             \
-                                0x00000040  // Reading source data
-#define UDMA_STAT_STATE_WR_DSTDAT                                             \
-                                0x00000050  // Writing destination data
+#define UDMA_STAT_STATE_RD_SRCENDP 0x00000020  // Reading source end pointer
+#define UDMA_STAT_STATE_RD_DSTENDP  0x00000030  // Reading destination end pointer
+#define UDMA_STAT_STATE_RD_SRCDAT    0x00000040  // Reading source data
+#define UDMA_STAT_STATE_WR_DSTDAT    0x00000050  // Writing destination data
 #define UDMA_STAT_STATE_WAIT    0x00000060  // Waiting for uDMA request to
                                             // clear
 #define UDMA_STAT_STATE_WR_CTRL 0x00000070  // Writing channel controller data
@@ -392,23 +388,14 @@
 #define UDMA_CHCTL_XFERSIZE_M   0x00003FF0  // Transfer Size (minus 1)
 #define UDMA_CHCTL_NXTUSEBURST  0x00000008  // Next Useburst
 #define UDMA_CHCTL_XFERMODE_M   0x00000007  // uDMA Transfer Mode
-#define UDMA_CHCTL_XFERMODE_STOP                                              \
-                                0x00000000  // Stop
-#define UDMA_CHCTL_XFERMODE_BASIC                                             \
-                                0x00000001  // Basic
-#define UDMA_CHCTL_XFERMODE_AUTO                                              \
-                                0x00000002  // Auto-Request
-#define UDMA_CHCTL_XFERMODE_PINGPONG                                          \
-                                0x00000003  // Ping-Pong
-#define UDMA_CHCTL_XFERMODE_MEM_SG                                            \
-                                0x00000004  // Memory Scatter-Gather
-#define UDMA_CHCTL_XFERMODE_MEM_SGA                                           \
-                                0x00000005  // Alternate Memory Scatter-Gather
-#define UDMA_CHCTL_XFERMODE_PER_SG                                            \
-                                0x00000006  // Peripheral Scatter-Gather
-#define UDMA_CHCTL_XFERMODE_PER_SGA                                           \
-                                0x00000007  // Alternate Peripheral
-                                            // Scatter-Gather
+#define UDMA_CHCTL_XFERMODE_STOP  0x00000000  // Stop
+#define UDMA_CHCTL_XFERMODE_BASIC  0x00000001  // Basic
+#define UDMA_CHCTL_XFERMODE_AUTO   0x00000002  // Auto-Request
+#define UDMA_CHCTL_XFERMODE_PINGPONG   0x00000003  // Ping-Pong
+#define UDMA_CHCTL_XFERMODE_MEM_SG      0x00000004  // Memory Scatter-Gather
+#define UDMA_CHCTL_XFERMODE_MEM_SGA   0x00000005  // Alternate Memory Scatter-Gather
+#define UDMA_CHCTL_XFERMODE_PER_SG    0x00000006  // Peripheral Scatter-Gather
+#define UDMA_CHCTL_XFERMODE_PER_SGA   0x00000007  // Alternate Peripheral Scatter-Gather
 #define UDMA_CHCTL_XFERSIZE_S   4
 
-#endif // __HW_UDMA_H__
+//#endif // __HW_UDMA_H__

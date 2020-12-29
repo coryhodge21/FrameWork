@@ -37,8 +37,8 @@
 //
 //*****************************************************************************
 
-#ifndef __HW_EPI_H__
-#define __HW_EPI_H__
+//#ifndef __HW_EPI_H__
+//#define __HW_EPI_H__
 
 //*****************************************************************************
 //
@@ -46,58 +46,58 @@
 // offsets.
 //
 //*****************************************************************************
-#define EPI_O_CFG               0x00000000  // EPI Configuration
-#define EPI_O_BAUD              0x00000004  // EPI Main Baud Rate
-#define EPI_O_BAUD2             0x00000008  // EPI Main Baud Rate
-#define EPI_O_HB16CFG           0x00000010  // EPI Host-Bus 16 Configuration
-#define EPI_O_GPCFG             0x00000010  // EPI General-Purpose
+#define EPI_CFG               0x00000000  // EPI Configuration
+#define EPI_BAUD              0x00000004  // EPI Main Baud Rate
+#define EPI_BAUD2             0x00000008  // EPI Main Baud Rate
+#define EPI_HB16CFG           0x00000010  // EPI Host-Bus 16 Configuration
+#define EPI_GPCFG             0x00000010  // EPI General-Purpose
                                             // Configuration
-#define EPI_O_SDRAMCFG          0x00000010  // EPI SDRAM Configuration
-#define EPI_O_HB8CFG            0x00000010  // EPI Host-Bus 8 Configuration
-#define EPI_O_HB8CFG2           0x00000014  // EPI Host-Bus 8 Configuration 2
-#define EPI_O_HB16CFG2          0x00000014  // EPI Host-Bus 16 Configuration 2
-#define EPI_O_ADDRMAP           0x0000001C  // EPI Address Map
-#define EPI_O_RSIZE0            0x00000020  // EPI Read Size 0
-#define EPI_O_RADDR0            0x00000024  // EPI Read Address 0
-#define EPI_O_RPSTD0            0x00000028  // EPI Non-Blocking Read Data 0
-#define EPI_O_RSIZE1            0x00000030  // EPI Read Size 1
-#define EPI_O_RADDR1            0x00000034  // EPI Read Address 1
-#define EPI_O_RPSTD1            0x00000038  // EPI Non-Blocking Read Data 1
-#define EPI_O_STAT              0x00000060  // EPI Status
-#define EPI_O_RFIFOCNT          0x0000006C  // EPI Read FIFO Count
-#define EPI_O_READFIFO0         0x00000070  // EPI Read FIFO
-#define EPI_O_READFIFO1         0x00000074  // EPI Read FIFO Alias 1
-#define EPI_O_READFIFO2         0x00000078  // EPI Read FIFO Alias 2
-#define EPI_O_READFIFO3         0x0000007C  // EPI Read FIFO Alias 3
-#define EPI_O_READFIFO4         0x00000080  // EPI Read FIFO Alias 4
-#define EPI_O_READFIFO5         0x00000084  // EPI Read FIFO Alias 5
-#define EPI_O_READFIFO6         0x00000088  // EPI Read FIFO Alias 6
-#define EPI_O_READFIFO7         0x0000008C  // EPI Read FIFO Alias 7
-#define EPI_O_FIFOLVL           0x00000200  // EPI FIFO Level Selects
-#define EPI_O_WFIFOCNT          0x00000204  // EPI Write FIFO Count
-#define EPI_O_DMATXCNT          0x00000208  // EPI DMA Transmit Count
-#define EPI_O_IM                0x00000210  // EPI Interrupt Mask
-#define EPI_O_RIS               0x00000214  // EPI Raw Interrupt Status
-#define EPI_O_MIS               0x00000218  // EPI Masked Interrupt Status
-#define EPI_O_EISC              0x0000021C  // EPI Error and Interrupt Status
+#define EPI_SDRAMCFG          0x00000010  // EPI SDRAM Configuration
+#define EPI_HB8CFG            0x00000010  // EPI Host-Bus 8 Configuration
+#define EPI_HB8CFG2           0x00000014  // EPI Host-Bus 8 Configuration 2
+#define EPI_HB16CFG2          0x00000014  // EPI Host-Bus 16 Configuration 2
+#define EPI_ADDRMAP           0x0000001C  // EPI Address Map
+#define EPI_RSIZE0            0x00000020  // EPI Read Size 0
+#define EPI_RADDR0            0x00000024  // EPI Read Address 0
+#define EPI_RPSTD0            0x00000028  // EPI Non-Blocking Read Data 0
+#define EPI_RSIZE1            0x00000030  // EPI Read Size 1
+#define EPI_RADDR1            0x00000034  // EPI Read Address 1
+#define EPI_RPSTD1            0x00000038  // EPI Non-Blocking Read Data 1
+#define EPI_STAT              0x00000060  // EPI Status
+#define EPI_RFIFOCNT          0x0000006C  // EPI Read FIFO Count
+#define EPI_READFIFO0         0x00000070  // EPI Read FIFO
+#define EPI_READFIFO1         0x00000074  // EPI Read FIFO Alias 1
+#define EPI_READFIFO2         0x00000078  // EPI Read FIFO Alias 2
+#define EPI_READFIFO3         0x0000007C  // EPI Read FIFO Alias 3
+#define EPI_READFIFO4         0x00000080  // EPI Read FIFO Alias 4
+#define EPI_READFIFO5         0x00000084  // EPI Read FIFO Alias 5
+#define EPI_READFIFO6         0x00000088  // EPI Read FIFO Alias 6
+#define EPI_READFIFO7         0x0000008C  // EPI Read FIFO Alias 7
+#define EPI_FIFOLVL           0x00000200  // EPI FIFO Level Selects
+#define EPI_WFIFOCNT          0x00000204  // EPI Write FIFO Count
+#define EPI_DMATXCNT          0x00000208  // EPI DMA Transmit Count
+#define EPI_IM                0x00000210  // EPI Interrupt Mask
+#define EPI_RIS               0x00000214  // EPI Raw Interrupt Status
+#define EPI_MIS               0x00000218  // EPI Masked Interrupt Status
+#define EPI_EISC              0x0000021C  // EPI Error and Interrupt Status
                                             // and Clear
-#define EPI_O_HB8CFG3           0x00000308  // EPI Host-Bus 8 Configuration 3
-#define EPI_O_HB16CFG3          0x00000308  // EPI Host-Bus 16 Configuration 3
-#define EPI_O_HB16CFG4          0x0000030C  // EPI Host-Bus 16 Configuration 4
-#define EPI_O_HB8CFG4           0x0000030C  // EPI Host-Bus 8 Configuration 4
-#define EPI_O_HB8TIME           0x00000310  // EPI Host-Bus 8 Timing Extension
-#define EPI_O_HB16TIME          0x00000310  // EPI Host-Bus 16 Timing Extension
-#define EPI_O_HB8TIME2          0x00000314  // EPI Host-Bus 8 Timing Extension
-#define EPI_O_HB16TIME2         0x00000314  // EPI Host-Bus 16 Timing Extension
-#define EPI_O_HB16TIME3         0x00000318  // EPI Host-Bus 16 Timing Extension
-#define EPI_O_HB8TIME3          0x00000318  // EPI Host-Bus 8 Timing Extension
-#define EPI_O_HB8TIME4          0x0000031C  // EPI Host-Bus 8 Timing Extension
-#define EPI_O_HB16TIME4         0x0000031C  // EPI Host-Bus 16 Timing Extension
-#define EPI_O_HBPSRAM           0x00000360  // EPI Host-Bus PSRAM
+#define EPI_HB8CFG3           0x00000308  // EPI Host-Bus 8 Configuration 3
+#define EPI_HB16CFG3          0x00000308  // EPI Host-Bus 16 Configuration 3
+#define EPI_HB16CFG4          0x0000030C  // EPI Host-Bus 16 Configuration 4
+#define EPI_HB8CFG4           0x0000030C  // EPI Host-Bus 8 Configuration 4
+#define EPI_HB8TIME           0x00000310  // EPI Host-Bus 8 Timing Extension
+#define EPI_HB16TIME          0x00000310  // EPI Host-Bus 16 Timing Extension
+#define EPI_HB8TIME2          0x00000314  // EPI Host-Bus 8 Timing Extension
+#define EPI_HB16TIME2         0x00000314  // EPI Host-Bus 16 Timing Extension
+#define EPI_HB16TIME3         0x00000318  // EPI Host-Bus 16 Timing Extension
+#define EPI_HB8TIME3          0x00000318  // EPI Host-Bus 8 Timing Extension
+#define EPI_HB8TIME4          0x0000031C  // EPI Host-Bus 8 Timing Extension
+#define EPI_HB16TIME4         0x0000031C  // EPI Host-Bus 16 Timing Extension
+#define EPI_HBPSRAM           0x00000360  // EPI Host-Bus PSRAM
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_CFG register.
+// The following are defines for the bit fields in the EPI_CFG register.
 //
 //*****************************************************************************
 #define EPI_CFG_INTDIV          0x00000100  // Integer Clock Divider Enable
@@ -110,7 +110,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_BAUD register.
+// The following are defines for the bit fields in the EPI_BAUD register.
 //
 //*****************************************************************************
 #define EPI_BAUD_COUNT1_M       0xFFFF0000  // Baud Rate Counter 1
@@ -120,7 +120,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_BAUD2 register.
+// The following are defines for the bit fields in the EPI_BAUD2 register.
 //
 //*****************************************************************************
 #define EPI_BAUD2_COUNT1_M      0xFFFF0000  // CS3n Baud Rate Counter 1
@@ -130,7 +130,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_HB16CFG register.
+// The following are defines for the bit fields in the EPI_HB16CFG register.
 //
 //*****************************************************************************
 #define EPI_HB16CFG_CLKGATE     0x80000000  // Clock Gated
@@ -169,7 +169,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_GPCFG register.
+// The following are defines for the bit fields in the EPI_GPCFG register.
 //
 //*****************************************************************************
 #define EPI_GPCFG_CLKPIN        0x80000000  // Clock Pin
@@ -194,7 +194,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_SDRAMCFG register.
+// The following are defines for the bit fields in the EPI_SDRAMCFG register.
 //
 //*****************************************************************************
 #define EPI_SDRAMCFG_FREQ_M     0xC0000000  // EPI Frequency Range
@@ -212,7 +212,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_HB8CFG register.
+// The following are defines for the bit fields in the EPI_HB8CFG register.
 //
 //*****************************************************************************
 #define EPI_HB8CFG_CLKGATE      0x80000000  // Clock Gated
@@ -245,7 +245,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_HB8CFG2 register.
+// The following are defines for the bit fields in the EPI_HB8CFG2 register.
 //
 //*****************************************************************************
 #define EPI_HB8CFG2_CSCFGEXT    0x08000000  // Chip Select Extended
@@ -277,7 +277,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_HB16CFG2 register.
+// The following are defines for the bit fields in the EPI_HB16CFG2 register.
 //
 //*****************************************************************************
 #define EPI_HB16CFG2_CSCFGEXT   0x08000000  // Chip Select Extended
@@ -314,7 +314,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_ADDRMAP register.
+// The following are defines for the bit fields in the EPI_ADDRMAP register.
 //
 //*****************************************************************************
 #define EPI_ADDRMAP_ECSZ_M      0x00000C00  // External Code Size
@@ -368,7 +368,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_RSIZE0 register.
+// The following are defines for the bit fields in the EPI_RSIZE0 register.
 //
 //*****************************************************************************
 #define EPI_RSIZE0_SIZE_M       0x00000003  // Current Size
@@ -378,7 +378,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_RADDR0 register.
+// The following are defines for the bit fields in the EPI_RADDR0 register.
 //
 //*****************************************************************************
 #define EPI_RADDR0_ADDR_M       0xFFFFFFFF  // Current Address
@@ -386,7 +386,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_RPSTD0 register.
+// The following are defines for the bit fields in the EPI_RPSTD0 register.
 //
 //*****************************************************************************
 #define EPI_RPSTD0_POSTCNT_M    0x00001FFF  // Post Count
@@ -394,7 +394,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_RSIZE1 register.
+// The following are defines for the bit fields in the EPI_RSIZE1 register.
 //
 //*****************************************************************************
 #define EPI_RSIZE1_SIZE_M       0x00000003  // Current Size
@@ -404,7 +404,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_RADDR1 register.
+// The following are defines for the bit fields in the EPI_RADDR1 register.
 //
 //*****************************************************************************
 #define EPI_RADDR1_ADDR_M       0xFFFFFFFF  // Current Address
@@ -412,7 +412,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_RPSTD1 register.
+// The following are defines for the bit fields in the EPI_RPSTD1 register.
 //
 //*****************************************************************************
 #define EPI_RPSTD1_POSTCNT_M    0x00001FFF  // Post Count
@@ -420,7 +420,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_STAT register.
+// The following are defines for the bit fields in the EPI_STAT register.
 //
 //*****************************************************************************
 #define EPI_STAT_XFFULL         0x00000100  // External FIFO Full
@@ -432,7 +432,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_RFIFOCNT register.
+// The following are defines for the bit fields in the EPI_RFIFOCNT register.
 //
 //*****************************************************************************
 #define EPI_RFIFOCNT_COUNT_M    0x0000000F  // FIFO Count
@@ -440,7 +440,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_READFIFO0
+// The following are defines for the bit fields in the EPI_READFIFO0
 // register.
 //
 //*****************************************************************************
@@ -449,7 +449,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_READFIFO1
+// The following are defines for the bit fields in the EPI_READFIFO1
 // register.
 //
 //*****************************************************************************
@@ -458,7 +458,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_READFIFO2
+// The following are defines for the bit fields in the EPI_READFIFO2
 // register.
 //
 //*****************************************************************************
@@ -467,7 +467,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_READFIFO3
+// The following are defines for the bit fields in the EPI_READFIFO3
 // register.
 //
 //*****************************************************************************
@@ -476,7 +476,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_READFIFO4
+// The following are defines for the bit fields in the EPI_READFIFO4
 // register.
 //
 //*****************************************************************************
@@ -485,7 +485,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_READFIFO5
+// The following are defines for the bit fields in the EPI_READFIFO5
 // register.
 //
 //*****************************************************************************
@@ -494,7 +494,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_READFIFO6
+// The following are defines for the bit fields in the EPI_READFIFO6
 // register.
 //
 //*****************************************************************************
@@ -503,7 +503,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_READFIFO7
+// The following are defines for the bit fields in the EPI_READFIFO7
 // register.
 //
 //*****************************************************************************
@@ -512,7 +512,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_FIFOLVL register.
+// The following are defines for the bit fields in the EPI_FIFOLVL register.
 //
 //*****************************************************************************
 #define EPI_FIFOLVL_WFERR       0x00020000  // Write Full Error
@@ -553,7 +553,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_WFIFOCNT register.
+// The following are defines for the bit fields in the EPI_WFIFOCNT register.
 //
 //*****************************************************************************
 #define EPI_WFIFOCNT_WTAV_M     0x00000007  // Available Write Transactions
@@ -561,7 +561,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_DMATXCNT register.
+// The following are defines for the bit fields in the EPI_DMATXCNT register.
 //
 //*****************************************************************************
 #define EPI_DMATXCNT_TXCNT_M    0x0000FFFF  // DMA Count
@@ -569,7 +569,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_IM register.
+// The following are defines for the bit fields in the EPI_IM register.
 //
 //*****************************************************************************
 #define EPI_IM_DMAWRIM          0x00000010  // Write uDMA Interrupt Mask
@@ -580,7 +580,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_RIS register.
+// The following are defines for the bit fields in the EPI_RIS register.
 //
 //*****************************************************************************
 #define EPI_RIS_DMAWRRIS        0x00000010  // Write uDMA Raw Interrupt Status
@@ -591,7 +591,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_MIS register.
+// The following are defines for the bit fields in the EPI_MIS register.
 //
 //*****************************************************************************
 #define EPI_MIS_DMAWRMIS        0x00000010  // Write uDMA Masked Interrupt
@@ -604,7 +604,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_EISC register.
+// The following are defines for the bit fields in the EPI_EISC register.
 //
 //*****************************************************************************
 #define EPI_EISC_DMAWRIC        0x00000010  // Write uDMA Interrupt Clear
@@ -615,7 +615,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_HB8CFG3 register.
+// The following are defines for the bit fields in the EPI_HB8CFG3 register.
 //
 //*****************************************************************************
 #define EPI_HB8CFG3_WRHIGH      0x00200000  // CS2n WRITE Strobe Polarity
@@ -637,7 +637,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_HB16CFG3 register.
+// The following are defines for the bit fields in the EPI_HB16CFG3 register.
 //
 //*****************************************************************************
 #define EPI_HB16CFG3_WRHIGH     0x00200000  // CS2n WRITE Strobe Polarity
@@ -664,7 +664,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_HB16CFG4 register.
+// The following are defines for the bit fields in the EPI_HB16CFG4 register.
 //
 //*****************************************************************************
 #define EPI_HB16CFG4_WRHIGH     0x00200000  // CS3n WRITE Strobe Polarity
@@ -691,7 +691,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_HB8CFG4 register.
+// The following are defines for the bit fields in the EPI_HB8CFG4 register.
 //
 //*****************************************************************************
 #define EPI_HB8CFG4_WRHIGH      0x00200000  // CS3n WRITE Strobe Polarity
@@ -713,7 +713,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_HB8TIME register.
+// The following are defines for the bit fields in the EPI_HB8TIME register.
 //
 //*****************************************************************************
 #define EPI_HB8TIME_IRDYDLY_M   0x03000000  // CS0n Input Ready Delay
@@ -726,7 +726,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_HB16TIME register.
+// The following are defines for the bit fields in the EPI_HB16TIME register.
 //
 //*****************************************************************************
 #define EPI_HB16TIME_IRDYDLY_M  0x03000000  // CS0n Input Ready Delay
@@ -755,7 +755,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_HB8TIME2 register.
+// The following are defines for the bit fields in the EPI_HB8TIME2 register.
 //
 //*****************************************************************************
 #define EPI_HB8TIME2_IRDYDLY_M  0x03000000  // CS1n Input Ready Delay
@@ -768,7 +768,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_HB16TIME2
+// The following are defines for the bit fields in the EPI_HB16TIME2
 // register.
 //
 //*****************************************************************************
@@ -800,7 +800,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_HB16TIME3
+// The following are defines for the bit fields in the EPI_HB16TIME3
 // register.
 //
 //*****************************************************************************
@@ -832,7 +832,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_HB8TIME3 register.
+// The following are defines for the bit fields in the EPI_HB8TIME3 register.
 //
 //*****************************************************************************
 #define EPI_HB8TIME3_IRDYDLY_M  0x03000000  // CS2n Input Ready Delay
@@ -845,7 +845,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_HB8TIME4 register.
+// The following are defines for the bit fields in the EPI_HB8TIME4 register.
 //
 //*****************************************************************************
 #define EPI_HB8TIME4_IRDYDLY_M  0x03000000  // CS3n Input Ready Delay
@@ -858,7 +858,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_HB16TIME4
+// The following are defines for the bit fields in the EPI_HB16TIME4
 // register.
 //
 //*****************************************************************************
@@ -890,7 +890,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the EPI_O_HBPSRAM register.
+// The following are defines for the bit fields in the EPI_HBPSRAM register.
 //
 //*****************************************************************************
 #define EPI_HBPSRAM_CR_M        0x001FFFFF  // PSRAM Config Register
@@ -905,7 +905,7 @@
 
 //*****************************************************************************
 //
-// The following are deprecated defines for the bit fields in the EPI_O_FIFOLVL
+// The following are deprecated defines for the bit fields in the EPI_FIFOLVL
 // register.
 //
 //*****************************************************************************
@@ -928,6 +928,6 @@
 #define EPI_FIFOLVL_RDFIFO_FULL 0x00000006  // Trigger when there are 8 entries
                                             // in the NBRFIFO
 
-#endif
+//#endif
 
-#endif // __HW_EPI_H__
+//#endif // __HW_EPI_H__

@@ -37,8 +37,8 @@
 //
 //*****************************************************************************
 
-#ifndef __HW_HIBERNATE_H__
-#define __HW_HIBERNATE_H__
+//#ifndef __HW_HIBERNATE_H__
+//#define __HW_HIBERNATE_H__
 
 //*****************************************************************************
 //
@@ -480,4 +480,4 @@
 //*****************************************************************************
 #define HIB_CC_SYSCLKEN         0x00000001  // RTCOSC to System Clock Enable
 
-#endif // __HW_HIBERNATE_H__
+//#endif // __HW_HIBERNATE_H__

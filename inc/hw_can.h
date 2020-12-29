@@ -37,56 +37,56 @@
 //
 //*****************************************************************************
 
-#ifndef __HW_CAN_H__
-#define __HW_CAN_H__
+//#ifndef __HW_CAN_H__
+//#define __HW_CAN_H__
 
 //*****************************************************************************
 //
 // The following are defines for the CAN register offsets.
 //
 //*****************************************************************************
-#define CAN_O_CTL               0x00000000  // CAN Control
-#define CAN_O_STS               0x00000004  // CAN Status
-#define CAN_O_ERR               0x00000008  // CAN Error Counter
-#define CAN_O_BIT               0x0000000C  // CAN Bit Timing
-#define CAN_O_INT               0x00000010  // CAN Interrupt
-#define CAN_O_TST               0x00000014  // CAN Test
-#define CAN_O_BRPE              0x00000018  // CAN Baud Rate Prescaler
+#define CAN_CTL               0x00000000  // CAN Control
+#define CAN_STS               0x00000004  // CAN Status
+#define CAN_ERR               0x00000008  // CAN Error Counter
+#define CAN_BIT               0x0000000C  // CAN Bit Timing
+#define CAN_INT               0x00000010  // CAN Interrupt
+#define CAN_TST               0x00000014  // CAN Test
+#define CAN_BRPE              0x00000018  // CAN Baud Rate Prescaler
                                             // Extension
-#define CAN_O_IF1CRQ            0x00000020  // CAN IF1 Command Request
-#define CAN_O_IF1CMSK           0x00000024  // CAN IF1 Command Mask
-#define CAN_O_IF1MSK1           0x00000028  // CAN IF1 Mask 1
-#define CAN_O_IF1MSK2           0x0000002C  // CAN IF1 Mask 2
-#define CAN_O_IF1ARB1           0x00000030  // CAN IF1 Arbitration 1
-#define CAN_O_IF1ARB2           0x00000034  // CAN IF1 Arbitration 2
-#define CAN_O_IF1MCTL           0x00000038  // CAN IF1 Message Control
-#define CAN_O_IF1DA1            0x0000003C  // CAN IF1 Data A1
-#define CAN_O_IF1DA2            0x00000040  // CAN IF1 Data A2
-#define CAN_O_IF1DB1            0x00000044  // CAN IF1 Data B1
-#define CAN_O_IF1DB2            0x00000048  // CAN IF1 Data B2
-#define CAN_O_IF2CRQ            0x00000080  // CAN IF2 Command Request
-#define CAN_O_IF2CMSK           0x00000084  // CAN IF2 Command Mask
-#define CAN_O_IF2MSK1           0x00000088  // CAN IF2 Mask 1
-#define CAN_O_IF2MSK2           0x0000008C  // CAN IF2 Mask 2
-#define CAN_O_IF2ARB1           0x00000090  // CAN IF2 Arbitration 1
-#define CAN_O_IF2ARB2           0x00000094  // CAN IF2 Arbitration 2
-#define CAN_O_IF2MCTL           0x00000098  // CAN IF2 Message Control
-#define CAN_O_IF2DA1            0x0000009C  // CAN IF2 Data A1
-#define CAN_O_IF2DA2            0x000000A0  // CAN IF2 Data A2
-#define CAN_O_IF2DB1            0x000000A4  // CAN IF2 Data B1
-#define CAN_O_IF2DB2            0x000000A8  // CAN IF2 Data B2
-#define CAN_O_TXRQ1             0x00000100  // CAN Transmission Request 1
-#define CAN_O_TXRQ2             0x00000104  // CAN Transmission Request 2
-#define CAN_O_NWDA1             0x00000120  // CAN New Data 1
-#define CAN_O_NWDA2             0x00000124  // CAN New Data 2
-#define CAN_O_MSG1INT           0x00000140  // CAN Message 1 Interrupt Pending
-#define CAN_O_MSG2INT           0x00000144  // CAN Message 2 Interrupt Pending
-#define CAN_O_MSG1VAL           0x00000160  // CAN Message 1 Valid
-#define CAN_O_MSG2VAL           0x00000164  // CAN Message 2 Valid
+#define CAN_IF1CRQ            0x00000020  // CAN IF1 Command Request
+#define CAN_IF1CMSK           0x00000024  // CAN IF1 Command Mask
+#define CAN_IF1MSK1           0x00000028  // CAN IF1 Mask 1
+#define CAN_IF1MSK2           0x0000002C  // CAN IF1 Mask 2
+#define CAN_IF1ARB1           0x00000030  // CAN IF1 Arbitration 1
+#define CAN_IF1ARB2           0x00000034  // CAN IF1 Arbitration 2
+#define CAN_IF1MCTL           0x00000038  // CAN IF1 Message Control
+#define CAN_IF1DA1            0x0000003C  // CAN IF1 Data A1
+#define CAN_IF1DA2            0x00000040  // CAN IF1 Data A2
+#define CAN_IF1DB1            0x00000044  // CAN IF1 Data B1
+#define CAN_IF1DB2            0x00000048  // CAN IF1 Data B2
+#define CAN_IF2CRQ            0x00000080  // CAN IF2 Command Request
+#define CAN_IF2CMSK           0x00000084  // CAN IF2 Command Mask
+#define CAN_IF2MSK1           0x00000088  // CAN IF2 Mask 1
+#define CAN_IF2MSK2           0x0000008C  // CAN IF2 Mask 2
+#define CAN_IF2ARB1           0x00000090  // CAN IF2 Arbitration 1
+#define CAN_IF2ARB2           0x00000094  // CAN IF2 Arbitration 2
+#define CAN_IF2MCTL           0x00000098  // CAN IF2 Message Control
+#define CAN_IF2DA1            0x0000009C  // CAN IF2 Data A1
+#define CAN_IF2DA2            0x000000A0  // CAN IF2 Data A2
+#define CAN_IF2DB1            0x000000A4  // CAN IF2 Data B1
+#define CAN_IF2DB2            0x000000A8  // CAN IF2 Data B2
+#define CAN_TXRQ1             0x00000100  // CAN Transmission Request 1
+#define CAN_TXRQ2             0x00000104  // CAN Transmission Request 2
+#define CAN_NWDA1             0x00000120  // CAN New Data 1
+#define CAN_NWDA2             0x00000124  // CAN New Data 2
+#define CAN_MSG1INT           0x00000140  // CAN Message 1 Interrupt Pending
+#define CAN_MSG2INT           0x00000144  // CAN Message 2 Interrupt Pending
+#define CAN_MSG1VAL           0x00000160  // CAN Message 1 Valid
+#define CAN_MSG2VAL           0x00000164  // CAN Message 2 Valid
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_CTL register.
+// The following are defines for the bit fields in the CAN_CTL register.
 //
 //*****************************************************************************
 #define CAN_CTL_TEST            0x00000080  // Test Mode Enable
@@ -99,7 +99,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_STS register.
+// The following are defines for the bit fields in the CAN_STS register.
 //
 //*****************************************************************************
 #define CAN_STS_BOFF            0x00000080  // Bus-Off Status
@@ -120,7 +120,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_ERR register.
+// The following are defines for the bit fields in the CAN_ERR register.
 //
 //*****************************************************************************
 #define CAN_ERR_RP              0x00008000  // Received Error Passive
@@ -131,7 +131,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_BIT register.
+// The following are defines for the bit fields in the CAN_BIT register.
 //
 //*****************************************************************************
 #define CAN_BIT_TSEG2_M         0x00007000  // Time Segment after Sample Point
@@ -145,7 +145,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_INT register.
+// The following are defines for the bit fields in the CAN_INT register.
 //
 //*****************************************************************************
 #define CAN_INT_INTID_M         0x0000FFFF  // Interrupt Identifier
@@ -154,7 +154,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_TST register.
+// The following are defines for the bit fields in the CAN_TST register.
 //
 //*****************************************************************************
 #define CAN_TST_RX              0x00000080  // Receive Observation
@@ -169,7 +169,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_BRPE register.
+// The following are defines for the bit fields in the CAN_BRPE register.
 //
 //*****************************************************************************
 #define CAN_BRPE_BRPE_M         0x0000000F  // Baud Rate Prescaler Extension
@@ -177,7 +177,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_IF1CRQ register.
+// The following are defines for the bit fields in the CAN_IF1CRQ register.
 //
 //*****************************************************************************
 #define CAN_IF1CRQ_BUSY         0x00008000  // Busy Flag
@@ -186,7 +186,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_IF1CMSK register.
+// The following are defines for the bit fields in the CAN_IF1CMSK register.
 //
 //*****************************************************************************
 #define CAN_IF1CMSK_WRNRD       0x00000080  // Write, Not Read
@@ -201,7 +201,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_IF1MSK1 register.
+// The following are defines for the bit fields in the CAN_IF1MSK1 register.
 //
 //*****************************************************************************
 #define CAN_IF1MSK1_IDMSK_M     0x0000FFFF  // Identifier Mask
@@ -209,7 +209,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_IF1MSK2 register.
+// The following are defines for the bit fields in the CAN_IF1MSK2 register.
 //
 //*****************************************************************************
 #define CAN_IF1MSK2_MXTD        0x00008000  // Mask Extended Identifier
@@ -219,7 +219,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_IF1ARB1 register.
+// The following are defines for the bit fields in the CAN_IF1ARB1 register.
 //
 //*****************************************************************************
 #define CAN_IF1ARB1_ID_M        0x0000FFFF  // Message Identifier
@@ -227,7 +227,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_IF1ARB2 register.
+// The following are defines for the bit fields in the CAN_IF1ARB2 register.
 //
 //*****************************************************************************
 #define CAN_IF1ARB2_MSGVAL      0x00008000  // Message Valid
@@ -238,7 +238,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_IF1MCTL register.
+// The following are defines for the bit fields in the CAN_IF1MCTL register.
 //
 //*****************************************************************************
 #define CAN_IF1MCTL_NEWDAT      0x00008000  // New Data
@@ -255,7 +255,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_IF1DA1 register.
+// The following are defines for the bit fields in the CAN_IF1DA1 register.
 //
 //*****************************************************************************
 #define CAN_IF1DA1_DATA_M       0x0000FFFF  // Data
@@ -263,7 +263,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_IF1DA2 register.
+// The following are defines for the bit fields in the CAN_IF1DA2 register.
 //
 //*****************************************************************************
 #define CAN_IF1DA2_DATA_M       0x0000FFFF  // Data
@@ -271,7 +271,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_IF1DB1 register.
+// The following are defines for the bit fields in the CAN_IF1DB1 register.
 //
 //*****************************************************************************
 #define CAN_IF1DB1_DATA_M       0x0000FFFF  // Data
@@ -279,7 +279,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_IF1DB2 register.
+// The following are defines for the bit fields in the CAN_IF1DB2 register.
 //
 //*****************************************************************************
 #define CAN_IF1DB2_DATA_M       0x0000FFFF  // Data
@@ -287,7 +287,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_IF2CRQ register.
+// The following are defines for the bit fields in the CAN_IF2CRQ register.
 //
 //*****************************************************************************
 #define CAN_IF2CRQ_BUSY         0x00008000  // Busy Flag
@@ -296,7 +296,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_IF2CMSK register.
+// The following are defines for the bit fields in the CAN_IF2CMSK register.
 //
 //*****************************************************************************
 #define CAN_IF2CMSK_WRNRD       0x00000080  // Write, Not Read
@@ -311,7 +311,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_IF2MSK1 register.
+// The following are defines for the bit fields in the CAN_IF2MSK1 register.
 //
 //*****************************************************************************
 #define CAN_IF2MSK1_IDMSK_M     0x0000FFFF  // Identifier Mask
@@ -319,7 +319,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_IF2MSK2 register.
+// The following are defines for the bit fields in the CAN_IF2MSK2 register.
 //
 //*****************************************************************************
 #define CAN_IF2MSK2_MXTD        0x00008000  // Mask Extended Identifier
@@ -329,7 +329,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_IF2ARB1 register.
+// The following are defines for the bit fields in the CAN_IF2ARB1 register.
 //
 //*****************************************************************************
 #define CAN_IF2ARB1_ID_M        0x0000FFFF  // Message Identifier
@@ -337,7 +337,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_IF2ARB2 register.
+// The following are defines for the bit fields in the CAN_IF2ARB2 register.
 //
 //*****************************************************************************
 #define CAN_IF2ARB2_MSGVAL      0x00008000  // Message Valid
@@ -348,7 +348,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_IF2MCTL register.
+// The following are defines for the bit fields in the CAN_IF2MCTL register.
 //
 //*****************************************************************************
 #define CAN_IF2MCTL_NEWDAT      0x00008000  // New Data
@@ -365,7 +365,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_IF2DA1 register.
+// The following are defines for the bit fields in the CAN_IF2DA1 register.
 //
 //*****************************************************************************
 #define CAN_IF2DA1_DATA_M       0x0000FFFF  // Data
@@ -373,7 +373,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_IF2DA2 register.
+// The following are defines for the bit fields in the CAN_IF2DA2 register.
 //
 //*****************************************************************************
 #define CAN_IF2DA2_DATA_M       0x0000FFFF  // Data
@@ -381,7 +381,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_IF2DB1 register.
+// The following are defines for the bit fields in the CAN_IF2DB1 register.
 //
 //*****************************************************************************
 #define CAN_IF2DB1_DATA_M       0x0000FFFF  // Data
@@ -389,7 +389,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_IF2DB2 register.
+// The following are defines for the bit fields in the CAN_IF2DB2 register.
 //
 //*****************************************************************************
 #define CAN_IF2DB2_DATA_M       0x0000FFFF  // Data
@@ -397,7 +397,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_TXRQ1 register.
+// The following are defines for the bit fields in the CAN_TXRQ1 register.
 //
 //*****************************************************************************
 #define CAN_TXRQ1_TXRQST_M      0x0000FFFF  // Transmission Request Bits
@@ -405,7 +405,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_TXRQ2 register.
+// The following are defines for the bit fields in the CAN_TXRQ2 register.
 //
 //*****************************************************************************
 #define CAN_TXRQ2_TXRQST_M      0x0000FFFF  // Transmission Request Bits
@@ -413,7 +413,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_NWDA1 register.
+// The following are defines for the bit fields in the CAN_NWDA1 register.
 //
 //*****************************************************************************
 #define CAN_NWDA1_NEWDAT_M      0x0000FFFF  // New Data Bits
@@ -421,7 +421,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_NWDA2 register.
+// The following are defines for the bit fields in the CAN_NWDA2 register.
 //
 //*****************************************************************************
 #define CAN_NWDA2_NEWDAT_M      0x0000FFFF  // New Data Bits
@@ -429,7 +429,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_MSG1INT register.
+// The following are defines for the bit fields in the CAN_MSG1INT register.
 //
 //*****************************************************************************
 #define CAN_MSG1INT_INTPND_M    0x0000FFFF  // Interrupt Pending Bits
@@ -437,7 +437,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_MSG2INT register.
+// The following are defines for the bit fields in the CAN_MSG2INT register.
 //
 //*****************************************************************************
 #define CAN_MSG2INT_INTPND_M    0x0000FFFF  // Interrupt Pending Bits
@@ -445,7 +445,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_MSG1VAL register.
+// The following are defines for the bit fields in the CAN_MSG1VAL register.
 //
 //*****************************************************************************
 #define CAN_MSG1VAL_MSGVAL_M    0x0000FFFF  // Message Valid Bits
@@ -453,10 +453,10 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CAN_O_MSG2VAL register.
+// The following are defines for the bit fields in the CAN_MSG2VAL register.
 //
 //*****************************************************************************
 #define CAN_MSG2VAL_MSGVAL_M    0x0000FFFF  // Message Valid Bits
 #define CAN_MSG2VAL_MSGVAL_S    0
 
-#endif // __HW_CAN_H__
+//#endif // __HW_CAN_H__

@@ -37,22 +37,22 @@
 //
 //*****************************************************************************
 
-#ifndef __HW_CCM_H__
-#define __HW_CCM_H__
+//#ifndef __HW_CCM_H__
+//#define __HW_CCM_H__
 
 //*****************************************************************************
 //
 // The following are defines for the EC register offsets.
 //
 //*****************************************************************************
-#define CCM_O_CRCCTRL           0x00000400  // CRC Control
-#define CCM_O_CRCSEED           0x00000410  // CRC SEED/Context
-#define CCM_O_CRCDIN            0x00000414  // CRC Data Input
-#define CCM_O_CRCRSLTPP         0x00000418  // CRC Post Processing Result
+#define CCM_CRCCTRL           0x00000400  // CRC Control
+#define CCM_CRCSEED           0x00000410  // CRC SEED/Context
+#define CCM_CRCDIN            0x00000414  // CRC Data Input
+#define CCM_CRCRSLTPP         0x00000418  // CRC Post Processing Result
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CCM_O_CRCCTRL register.
+// The following are defines for the bit fields in the CCM_CRCCTRL register.
 //
 //*****************************************************************************
 #define CCM_CRCCTRL_INIT_M      0x00006000  // CRC Initialization
@@ -89,7 +89,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CCM_O_CRCSEED register.
+// The following are defines for the bit fields in the CCM_CRCSEED register.
 //
 //*****************************************************************************
 #define CCM_CRCSEED_SEED_M      0xFFFFFFFF  // SEED/Context Value
@@ -97,7 +97,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CCM_O_CRCDIN register.
+// The following are defines for the bit fields in the CCM_CRCDIN register.
 //
 //*****************************************************************************
 #define CCM_CRCDIN_DATAIN_M     0xFFFFFFFF  // Data Input
@@ -105,7 +105,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the CCM_O_CRCRSLTPP
+// The following are defines for the bit fields in the CCM_CRCRSLTPP
 // register.
 //
 //*****************************************************************************

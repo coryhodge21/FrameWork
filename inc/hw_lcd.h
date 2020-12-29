@@ -37,54 +37,54 @@
 //
 //*****************************************************************************
 
-#ifndef __HW_LCD_H__
-#define __HW_LCD_H__
+//#ifndef __HW_LCD_H__
+//#define __HW_LCD_H__
 
 //*****************************************************************************
 //
 // The following are defines for the LCD register offsets.
 //
 //*****************************************************************************
-#define LCD_O_PID               0x00000000  // LCD PID Register Format
-#define LCD_O_CTL               0x00000004  // LCD Control
-#define LCD_O_LIDDCTL           0x0000000C  // LCD LIDD Control
-#define LCD_O_LIDDCS0CFG        0x00000010  // LCD LIDD CS0 Configuration
-#define LCD_O_LIDDCS0ADDR       0x00000014  // LIDD CS0 Read/Write Address
-#define LCD_O_LIDDCS0DATA       0x00000018  // LIDD CS0 Data Read/Write
+#define LCD_PID               0x00000000  // LCD PID Register Format
+#define LCD_CTL               0x00000004  // LCD Control
+#define LCD_LIDDCTL           0x0000000C  // LCD LIDD Control
+#define LCD_LIDDCS0CFG        0x00000010  // LCD LIDD CS0 Configuration
+#define LCD_LIDDCS0ADDR       0x00000014  // LIDD CS0 Read/Write Address
+#define LCD_LIDDCS0DATA       0x00000018  // LIDD CS0 Data Read/Write
                                             // Initiation
-#define LCD_O_LIDDCS1CFG        0x0000001C  // LIDD CS1 Configuration
-#define LCD_O_LIDDCS1ADDR       0x00000020  // LIDD CS1 Address Read/Write
+#define LCD_LIDDCS1CFG        0x0000001C  // LIDD CS1 Configuration
+#define LCD_LIDDCS1ADDR       0x00000020  // LIDD CS1 Address Read/Write
                                             // Initiation
-#define LCD_O_LIDDCS1DATA       0x00000024  // LIDD CS1 Data Read/Write
+#define LCD_LIDDCS1DATA       0x00000024  // LIDD CS1 Data Read/Write
                                             // Initiation
-#define LCD_O_RASTRCTL          0x00000028  // LCD Raster Control
-#define LCD_O_RASTRTIM0         0x0000002C  // LCD Raster Timing 0
-#define LCD_O_RASTRTIM1         0x00000030  // LCD Raster Timing 1
-#define LCD_O_RASTRTIM2         0x00000034  // LCD Raster Timing 2
-#define LCD_O_RASTRSUBP1        0x00000038  // LCD Raster Subpanel Display 1
-#define LCD_O_RASTRSUBP2        0x0000003C  // LCD Raster Subpanel Display 2
-#define LCD_O_DMACTL            0x00000040  // LCD DMA Control
-#define LCD_O_DMABAFB0          0x00000044  // LCD DMA Frame Buffer 0 Base
+#define LCD_RASTRCTL          0x00000028  // LCD Raster Control
+#define LCD_RASTRTIM0         0x0000002C  // LCD Raster Timing 0
+#define LCD_RASTRTIM1         0x00000030  // LCD Raster Timing 1
+#define LCD_RASTRTIM2         0x00000034  // LCD Raster Timing 2
+#define LCD_RASTRSUBP1        0x00000038  // LCD Raster Subpanel Display 1
+#define LCD_RASTRSUBP2        0x0000003C  // LCD Raster Subpanel Display 2
+#define LCD_DMACTL            0x00000040  // LCD DMA Control
+#define LCD_DMABAFB0          0x00000044  // LCD DMA Frame Buffer 0 Base
                                             // Address
-#define LCD_O_DMACAFB0          0x00000048  // LCD DMA Frame Buffer 0 Ceiling
+#define LCD_DMACAFB0          0x00000048  // LCD DMA Frame Buffer 0 Ceiling
                                             // Address
-#define LCD_O_DMABAFB1          0x0000004C  // LCD DMA Frame Buffer 1 Base
+#define LCD_DMABAFB1          0x0000004C  // LCD DMA Frame Buffer 1 Base
                                             // Address
-#define LCD_O_DMACAFB1          0x00000050  // LCD DMA Frame Buffer 1 Ceiling
+#define LCD_DMACAFB1          0x00000050  // LCD DMA Frame Buffer 1 Ceiling
                                             // Address
-#define LCD_O_SYSCFG            0x00000054  // LCD System Configuration
+#define LCD_SYSCFG            0x00000054  // LCD System Configuration
                                             // Register
-#define LCD_O_RISSET            0x00000058  // LCD Interrupt Raw Status and Set
+#define LCD_RISSET            0x00000058  // LCD Interrupt Raw Status and Set
                                             // Register
-#define LCD_O_MISCLR            0x0000005C  // LCD Interrupt Status and Clear
-#define LCD_O_IM                0x00000060  // LCD Interrupt Mask
-#define LCD_O_IENC              0x00000064  // LCD Interrupt Enable Clear
-#define LCD_O_CLKEN             0x0000006C  // LCD Clock Enable
-#define LCD_O_CLKRESET          0x00000070  // LCD Clock Resets
+#define LCD_MISCLR            0x0000005C  // LCD Interrupt Status and Clear
+#define LCD_IM                0x00000060  // LCD Interrupt Mask
+#define LCD_IENC              0x00000064  // LCD Interrupt Enable Clear
+#define LCD_CLKEN             0x0000006C  // LCD Clock Enable
+#define LCD_CLKRESET          0x00000070  // LCD Clock Resets
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the LCD_O_PID register.
+// The following are defines for the bit fields in the LCD_PID register.
 //
 //*****************************************************************************
 #define LCD_PID_MAJOR_M         0x00000700  // Major Release Number
@@ -94,7 +94,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the LCD_O_CTL register.
+// The following are defines for the bit fields in the LCD_CTL register.
 //
 //*****************************************************************************
 #define LCD_CTL_CLKDIV_M        0x0000FF00  // Clock Divisor
@@ -104,7 +104,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the LCD_O_LIDDCTL register.
+// The following are defines for the bit fields in the LCD_LIDDCTL register.
 //
 //*****************************************************************************
 #define LCD_LIDDCTL_DMACS       0x00000200  // CS0/CS1 Select for LIDD DMA
@@ -134,7 +134,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the LCD_O_LIDDCS0CFG
+// The following are defines for the bit fields in the LCD_LIDDCS0CFG
 // register.
 //
 //*****************************************************************************
@@ -162,7 +162,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the LCD_O_LIDDCS0ADDR
+// The following are defines for the bit fields in the LCD_LIDDCS0ADDR
 // register.
 //
 //*****************************************************************************
@@ -173,7 +173,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the LCD_O_LIDDCS0DATA
+// The following are defines for the bit fields in the LCD_LIDDCS0DATA
 // register.
 //
 //*****************************************************************************
@@ -184,7 +184,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the LCD_O_LIDDCS1CFG
+// The following are defines for the bit fields in the LCD_LIDDCS1CFG
 // register.
 //
 //*****************************************************************************
@@ -212,7 +212,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the LCD_O_LIDDCS1ADDR
+// The following are defines for the bit fields in the LCD_LIDDCS1ADDR
 // register.
 //
 //*****************************************************************************
@@ -223,7 +223,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the LCD_O_LIDDCS1DATA
+// The following are defines for the bit fields in the LCD_LIDDCS1DATA
 // register.
 //
 //*****************************************************************************
@@ -234,7 +234,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the LCD_O_RASTRCTL register.
+// The following are defines for the bit fields in the LCD_RASTRCTL register.
 //
 //*****************************************************************************
 #define LCD_RASTRCTL_TFT24UPCK  0x04000000  // 24-bit TFT Mode Packing
@@ -263,7 +263,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the LCD_O_RASTRTIM0
+// The following are defines for the bit fields in the LCD_RASTRTIM0
 // register.
 //
 //*****************************************************************************
@@ -281,7 +281,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the LCD_O_RASTRTIM1
+// The following are defines for the bit fields in the LCD_RASTRTIM1
 // register.
 //
 //*****************************************************************************
@@ -296,7 +296,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the LCD_O_RASTRTIM2
+// The following are defines for the bit fields in the LCD_RASTRTIM2
 // register.
 //
 //*****************************************************************************
@@ -326,7 +326,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the LCD_O_RASTRSUBP1
+// The following are defines for the bit fields in the LCD_RASTRSUBP1
 // register.
 //
 //*****************************************************************************
@@ -339,7 +339,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the LCD_O_RASTRSUBP2
+// The following are defines for the bit fields in the LCD_RASTRSUBP2
 // register.
 //
 //*****************************************************************************
@@ -349,7 +349,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the LCD_O_DMACTL register.
+// The following are defines for the bit fields in the LCD_DMACTL register.
 //
 //*****************************************************************************
 #define LCD_DMACTL_FIFORDY_M    0x00000700  // DMA FIFO threshold
@@ -374,7 +374,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the LCD_O_DMABAFB0 register.
+// The following are defines for the bit fields in the LCD_DMABAFB0 register.
 //
 //*****************************************************************************
 #define LCD_DMABAFB0_FB0BA_M    0xFFFFFFFC  // Frame Buffer 0 Base Address
@@ -383,7 +383,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the LCD_O_DMACAFB0 register.
+// The following are defines for the bit fields in the LCD_DMACAFB0 register.
 //
 //*****************************************************************************
 #define LCD_DMACAFB0_FB0CA_M    0xFFFFFFFC  // Frame Buffer 0 Ceiling Address
@@ -392,7 +392,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the LCD_O_DMABAFB1 register.
+// The following are defines for the bit fields in the LCD_DMABAFB1 register.
 //
 //*****************************************************************************
 #define LCD_DMABAFB1_FB1BA_M    0xFFFFFFFC  // Frame Buffer 1 Base Address
@@ -401,7 +401,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the LCD_O_DMACAFB1 register.
+// The following are defines for the bit fields in the LCD_DMACAFB1 register.
 //
 //*****************************************************************************
 #define LCD_DMACAFB1_FB1CA_M    0xFFFFFFFC  // Frame Buffer 1 Ceiling Address
@@ -410,7 +410,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the LCD_O_SYSCFG register.
+// The following are defines for the bit fields in the LCD_SYSCFG register.
 //
 //*****************************************************************************
 #define LCD_SYSCFG_STDBY_M      0x00000030  // Standby Mode
@@ -455,7 +455,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the LCD_O_RISSET register.
+// The following are defines for the bit fields in the LCD_RISSET register.
 //
 //*****************************************************************************
 #define LCD_RISSET_EOF1         0x00000200  // DMA End-of-Frame 1 Raw Interrupt
@@ -478,7 +478,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the LCD_O_MISCLR register.
+// The following are defines for the bit fields in the LCD_MISCLR register.
 //
 //*****************************************************************************
 #define LCD_MISCLR_EOF1         0x00000200  // DMA End-of-Frame 1 Enabled
@@ -501,7 +501,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the LCD_O_IM register.
+// The following are defines for the bit fields in the LCD_IM register.
 //
 //*****************************************************************************
 #define LCD_IM_EOF1             0x00000200  // DMA End-of-Frame 1 Interrupt
@@ -525,7 +525,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the LCD_O_IENC register.
+// The following are defines for the bit fields in the LCD_IENC register.
 //
 //*****************************************************************************
 #define LCD_IENC_EOF1           0x00000200  // DMA End-of-Frame 1 Interrupt
@@ -549,7 +549,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the LCD_O_CLKEN register.
+// The following are defines for the bit fields in the LCD_CLKEN register.
 //
 //*****************************************************************************
 #define LCD_CLKEN_DMA           0x00000004  // DMA Clock Enable
@@ -558,7 +558,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the LCD_O_CLKRESET register.
+// The following are defines for the bit fields in the LCD_CLKRESET register.
 //
 //*****************************************************************************
 #define LCD_CLKRESET_MAIN       0x00000008  // Software Reset for the entire
@@ -572,4 +572,4 @@
                                             // Active Matrix and Passive Matrix
                                             // logic
 
-#endif // __HW_LCD_H__
+//#endif // __HW_LCD_H__

@@ -37,8 +37,8 @@
 //
 //*****************************************************************************
 
-#ifndef __TM4C123GH6PM_H__
-#define __TM4C123GH6PM_H__
+//#ifndef __TM4C123GH6PM_H__
+//#define __TM4C123GH6PM_H__
 
 //*****************************************************************************
 //
@@ -12853,15 +12853,15 @@
 #define NVIC_FPDSC_RMODE_RZ     0x00C00000  // Round towards Zero (RZ) mode
 
 //*****************************************************************************
-//
-// The following definitions are deprecated.
-//
-//*****************************************************************************
-#ifndef DEPRECATED
-#define SYSCTL_DID0_CLASS_BLIZZARD                                            \
-                                0x00050000  // Tiva(TM) C Series TM4C123-class
-                                            // microcontrollers
+// //
+// // The following definitions are deprecated.
+// //
+// //*****************************************************************************
+// #ifndef DEPRECATED
+// #define SYSCTL_DID0_CLASS_BLIZZARD                                            \
+//                                 0x00050000  // Tiva(TM) C Series TM4C123-class
+//                                             // microcontrollers
 
-#endif
+// #endif
 
-#endif // __TM4C123GH6PM_H__
+//#endif // __TM4C123GH6PM_H__

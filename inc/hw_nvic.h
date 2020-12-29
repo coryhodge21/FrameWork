@@ -37,8 +37,8 @@
 //
 //*****************************************************************************
 
-#ifndef __HW_NVIC_H__
-#define __HW_NVIC_H__
+//#ifndef __HW_NVIC_H__
+//#define __HW_NVIC_H__
 
 //*****************************************************************************
 //
@@ -1411,4 +1411,4 @@
                                             // (RM) mode
 #define NVIC_FPDSC_RMODE_RZ     0x00C00000  // Round towards Zero (RZ) mode
 
-#endif // __HW_NVIC_H__
+//#endif // __HW_NVIC_H__

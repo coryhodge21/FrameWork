@@ -37,8 +37,8 @@
 //
 //*****************************************************************************
 
-#ifndef __HW_ONEWIRE_H__
-#define __HW_ONEWIRE_H__
+//#ifndef __HW_ONEWIRE_H__
+//#define __HW_ONEWIRE_H__
 
 //*****************************************************************************
 //
@@ -220,4 +220,4 @@
 #define ONEWIRE_PP_CNT_M        0x00000003  // 1-Wire Bus Count
 #define ONEWIRE_PP_CNT_S        0
 
-#endif // __HW_ONEWIRE_H__
+//#endif // __HW_ONEWIRE_H__

@@ -37,49 +37,49 @@
 //
 //*****************************************************************************
 
-#ifndef __HW_I2C_H__
-#define __HW_I2C_H__
+//#ifndef __HW_I2C_H__
+//#define __HW_I2C_H__
 
 //*****************************************************************************
 //
 // The following are defines for the I2C register offsets.
 //
 //*****************************************************************************
-#define I2C_O_MSA               0x00000000  // I2C Master Slave Address
-#define I2C_O_MCS               0x00000004  // I2C Master Control/Status
-#define I2C_O_MDR               0x00000008  // I2C Master Data
-#define I2C_O_MTPR              0x0000000C  // I2C Master Timer Period
-#define I2C_O_MIMR              0x00000010  // I2C Master Interrupt Mask
-#define I2C_O_MRIS              0x00000014  // I2C Master Raw Interrupt Status
-#define I2C_O_MMIS              0x00000018  // I2C Master Masked Interrupt
+#define I2C_MSA               0x00000000  // I2C Master Slave Address
+#define I2C_MCS               0x00000004  // I2C Master Control/Status
+#define I2C_MDR               0x00000008  // I2C Master Data
+#define I2C_MTPR              0x0000000C  // I2C Master Timer Period
+#define I2C_MIMR              0x00000010  // I2C Master Interrupt Mask
+#define I2C_MRIS              0x00000014  // I2C Master Raw Interrupt Status
+#define I2C_MMIS              0x00000018  // I2C Master Masked Interrupt
                                             // Status
-#define I2C_O_MICR              0x0000001C  // I2C Master Interrupt Clear
-#define I2C_O_MCR               0x00000020  // I2C Master Configuration
-#define I2C_O_MCLKOCNT          0x00000024  // I2C Master Clock Low Timeout
+#define I2C_MICR              0x0000001C  // I2C Master Interrupt Clear
+#define I2C_MCR               0x00000020  // I2C Master Configuration
+#define I2C_MCLKOCNT          0x00000024  // I2C Master Clock Low Timeout
                                             // Count
-#define I2C_O_MBMON             0x0000002C  // I2C Master Bus Monitor
-#define I2C_O_MBLEN             0x00000030  // I2C Master Burst Length
-#define I2C_O_MBCNT             0x00000034  // I2C Master Burst Count
-#define I2C_O_MCR2              0x00000038  // I2C Master Configuration 2
-#define I2C_O_SOAR              0x00000800  // I2C Slave Own Address
-#define I2C_O_SCSR              0x00000804  // I2C Slave Control/Status
-#define I2C_O_SDR               0x00000808  // I2C Slave Data
-#define I2C_O_SIMR              0x0000080C  // I2C Slave Interrupt Mask
-#define I2C_O_SRIS              0x00000810  // I2C Slave Raw Interrupt Status
-#define I2C_O_SMIS              0x00000814  // I2C Slave Masked Interrupt
+#define I2C_MBMON             0x0000002C  // I2C Master Bus Monitor
+#define I2C_MBLEN             0x00000030  // I2C Master Burst Length
+#define I2C_MBCNT             0x00000034  // I2C Master Burst Count
+#define I2C_MCR2              0x00000038  // I2C Master Configuration 2
+#define I2C_SOAR              0x00000800  // I2C Slave Own Address
+#define I2C_SCSR              0x00000804  // I2C Slave Control/Status
+#define I2C_SDR               0x00000808  // I2C Slave Data
+#define I2C_SIMR              0x0000080C  // I2C Slave Interrupt Mask
+#define I2C_SRIS              0x00000810  // I2C Slave Raw Interrupt Status
+#define I2C_SMIS              0x00000814  // I2C Slave Masked Interrupt
                                             // Status
-#define I2C_O_SICR              0x00000818  // I2C Slave Interrupt Clear
-#define I2C_O_SOAR2             0x0000081C  // I2C Slave Own Address 2
-#define I2C_O_SACKCTL           0x00000820  // I2C Slave ACK Control
-#define I2C_O_FIFODATA          0x00000F00  // I2C FIFO Data
-#define I2C_O_FIFOCTL           0x00000F04  // I2C FIFO Control
-#define I2C_O_FIFOSTATUS        0x00000F08  // I2C FIFO Status
-#define I2C_O_PP                0x00000FC0  // I2C Peripheral Properties
-#define I2C_O_PC                0x00000FC4  // I2C Peripheral Configuration
+#define I2C_SICR              0x00000818  // I2C Slave Interrupt Clear
+#define I2C_SOAR2             0x0000081C  // I2C Slave Own Address 2
+#define I2C_SACKCTL           0x00000820  // I2C Slave ACK Control
+#define I2C_FIFODATA          0x00000F00  // I2C FIFO Data
+#define I2C_FIFOCTL           0x00000F04  // I2C FIFO Control
+#define I2C_FIFOSTATUS        0x00000F08  // I2C FIFO Status
+#define I2C_PP                0x00000FC0  // I2C Peripheral Properties
+#define I2C_PC                0x00000FC4  // I2C Peripheral Configuration
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the I2C_O_MSA register.
+// The following are defines for the bit fields in the I2C_MSA register.
 //
 //*****************************************************************************
 #define I2C_MSA_SA_M            0x000000FE  // I2C Slave Address
@@ -88,7 +88,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the I2C_O_MCS register.
+// The following are defines for the bit fields in the I2C_MCS register.
 //
 //*****************************************************************************
 #define I2C_MCS_ACTDMARX        0x80000000  // DMA RX Active Status
@@ -111,7 +111,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the I2C_O_MDR register.
+// The following are defines for the bit fields in the I2C_MDR register.
 //
 //*****************************************************************************
 #define I2C_MDR_DATA_M          0x000000FF  // This byte contains the data
@@ -120,7 +120,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the I2C_O_MTPR register.
+// The following are defines for the bit fields in the I2C_MTPR register.
 //
 //*****************************************************************************
 #define I2C_MTPR_PULSEL_M       0x00070000  // Glitch Suppression Pulse Width
@@ -138,7 +138,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the I2C_O_MIMR register.
+// The following are defines for the bit fields in the I2C_MIMR register.
 //
 //*****************************************************************************
 #define I2C_MIMR_RXFFIM         0x00000800  // Receive FIFO Full Interrupt Mask
@@ -159,7 +159,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the I2C_O_MRIS register.
+// The following are defines for the bit fields in the I2C_MRIS register.
 //
 //*****************************************************************************
 #define I2C_MRIS_RXFFRIS        0x00000800  // Receive FIFO Full Raw Interrupt
@@ -187,7 +187,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the I2C_O_MMIS register.
+// The following are defines for the bit fields in the I2C_MMIS register.
 //
 //*****************************************************************************
 #define I2C_MMIS_RXFFMIS        0x00000800  // Receive FIFO Full Interrupt Mask
@@ -208,7 +208,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the I2C_O_MICR register.
+// The following are defines for the bit fields in the I2C_MICR register.
 //
 //*****************************************************************************
 #define I2C_MICR_RXFFIC         0x00000800  // Receive FIFO Full Interrupt
@@ -231,7 +231,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the I2C_O_MCR register.
+// The following are defines for the bit fields in the I2C_MCR register.
 //
 //*****************************************************************************
 #define I2C_MCR_GFE             0x00000040  // I2C Glitch Filter Enable
@@ -241,7 +241,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the I2C_O_MCLKOCNT register.
+// The following are defines for the bit fields in the I2C_MCLKOCNT register.
 //
 //*****************************************************************************
 #define I2C_MCLKOCNT_CNTL_M     0x000000FF  // I2C Master Count
@@ -249,7 +249,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the I2C_O_MBMON register.
+// The following are defines for the bit fields in the I2C_MBMON register.
 //
 //*****************************************************************************
 #define I2C_MBMON_SDA           0x00000002  // I2C SDA Status
@@ -257,7 +257,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the I2C_O_MBLEN register.
+// The following are defines for the bit fields in the I2C_MBLEN register.
 //
 //*****************************************************************************
 #define I2C_MBLEN_CNTL_M        0x000000FF  // I2C Burst Length
@@ -265,7 +265,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the I2C_O_MBCNT register.
+// The following are defines for the bit fields in the I2C_MBCNT register.
 //
 //*****************************************************************************
 #define I2C_MBCNT_CNTL_M        0x000000FF  // I2C Master Burst Count
@@ -273,7 +273,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the I2C_O_MCR2 register.
+// The following are defines for the bit fields in the I2C_MCR2 register.
 //
 //*****************************************************************************
 #define I2C_MCR2_GFPW_M         0x00000070  // I2C Glitch Filter Pulse Width
@@ -288,7 +288,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the I2C_O_SOAR register.
+// The following are defines for the bit fields in the I2C_SOAR register.
 //
 //*****************************************************************************
 #define I2C_SOAR_OAR_M          0x0000007F  // I2C Slave Own Address
@@ -296,7 +296,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the I2C_O_SCSR register.
+// The following are defines for the bit fields in the I2C_SCSR register.
 //
 //*****************************************************************************
 #define I2C_SCSR_ACTDMARX       0x80000000  // DMA RX Active Status
@@ -313,7 +313,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the I2C_O_SDR register.
+// The following are defines for the bit fields in the I2C_SDR register.
 //
 //*****************************************************************************
 #define I2C_SDR_DATA_M          0x000000FF  // Data for Transfer
@@ -321,7 +321,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the I2C_O_SIMR register.
+// The following are defines for the bit fields in the I2C_SIMR register.
 //
 //*****************************************************************************
 #define I2C_SIMR_RXFFIM         0x00000100  // Receive FIFO Full Interrupt Mask
@@ -339,7 +339,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the I2C_O_SRIS register.
+// The following are defines for the bit fields in the I2C_SRIS register.
 //
 //*****************************************************************************
 #define I2C_SRIS_RXFFRIS        0x00000100  // Receive FIFO Full Raw Interrupt
@@ -361,7 +361,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the I2C_O_SMIS register.
+// The following are defines for the bit fields in the I2C_SMIS register.
 //
 //*****************************************************************************
 #define I2C_SMIS_RXFFMIS        0x00000100  // Receive FIFO Full Interrupt Mask
@@ -383,7 +383,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the I2C_O_SICR register.
+// The following are defines for the bit fields in the I2C_SICR register.
 //
 //*****************************************************************************
 #define I2C_SICR_RXFFIC         0x00000100  // Receive FIFO Full Interrupt Mask
@@ -399,7 +399,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the I2C_O_SOAR2 register.
+// The following are defines for the bit fields in the I2C_SOAR2 register.
 //
 //*****************************************************************************
 #define I2C_SOAR2_OAR2EN        0x00000080  // I2C Slave Own Address 2 Enable
@@ -408,7 +408,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the I2C_O_SACKCTL register.
+// The following are defines for the bit fields in the I2C_SACKCTL register.
 //
 //*****************************************************************************
 #define I2C_SACKCTL_ACKOVAL     0x00000002  // I2C Slave ACK Override Value
@@ -416,7 +416,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the I2C_O_FIFODATA register.
+// The following are defines for the bit fields in the I2C_FIFODATA register.
 //
 //*****************************************************************************
 #define I2C_FIFODATA_DATA_M     0x000000FF  // I2C TX FIFO Write Data Byte
@@ -424,7 +424,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the I2C_O_FIFOCTL register.
+// The following are defines for the bit fields in the I2C_FIFOCTL register.
 //
 //*****************************************************************************
 #define I2C_FIFOCTL_RXASGNMT    0x80000000  // RX Control Assignment
@@ -440,7 +440,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the I2C_O_FIFOSTATUS
+// The following are defines for the bit fields in the I2C_FIFOSTATUS
 // register.
 //
 //*****************************************************************************
@@ -455,16 +455,16 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the I2C_O_PP register.
+// The following are defines for the bit fields in the I2C_PP register.
 //
 //*****************************************************************************
 #define I2C_PP_HS               0x00000001  // High-Speed Capable
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the I2C_O_PC register.
+// The following are defines for the bit fields in the I2C_PC register.
 //
 //*****************************************************************************
 #define I2C_PC_HS               0x00000001  // High-Speed Capable
 
-#endif // __HW_I2C_H__
+//#endif // __HW_I2C_H__

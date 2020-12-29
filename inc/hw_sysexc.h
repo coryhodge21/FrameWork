@@ -37,8 +37,8 @@
 //
 //*****************************************************************************
 
-#ifndef __HW_SYSEXC_H__
-#define __HW_SYSEXC_H__
+//#ifndef __HW_SYSEXC_H__
+//#define __HW_SYSEXC_H__
 
 //*****************************************************************************
 //
@@ -129,4 +129,4 @@
 #define SYSEXC_IC_FPIDCIC       0x00000001  // Floating-Point Input Denormal
                                             // Exception Interrupt Clear
 
-#endif // __HW_SYSEXC_H__
+//#endif // __HW_SYSEXC_H__

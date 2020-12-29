@@ -37,8 +37,8 @@
 //
 //*****************************************************************************
 
-#ifndef __HW_FLASH_H__
-#define __HW_FLASH_H__
+//#ifndef __HW_FLASH_H__
+//#define __HW_FLASH_H__
 
 //*****************************************************************************
 //
@@ -622,4 +622,4 @@
 #define FLASH_PROTECT_SIZE      0x00000800
 #define FLASH_ERASE_SIZE        0x00000400
 
-#endif // __HW_FLASH_H__
+//#endif // __HW_FLASH_H__

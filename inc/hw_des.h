@@ -37,40 +37,40 @@
 //
 //*****************************************************************************
 
-#ifndef __HW_DES_H__
-#define __HW_DES_H__
+//#ifndef __HW_DES_H__
+//#define __HW_DES_H__
 
 //*****************************************************************************
 //
 // The following are defines for the DES register offsets.
 //
 //*****************************************************************************
-#define DES_O_KEY3_L            0x00000000  // DES Key 3 LSW for 192-Bit Key
-#define DES_O_KEY3_H            0x00000004  // DES Key 3 MSW for 192-Bit Key
-#define DES_O_KEY2_L            0x00000008  // DES Key 2 LSW for 128-Bit Key
-#define DES_O_KEY2_H            0x0000000C  // DES Key 2 MSW for 128-Bit Key
-#define DES_O_KEY1_L            0x00000010  // DES Key 1 LSW for 64-Bit Key
-#define DES_O_KEY1_H            0x00000014  // DES Key 1 MSW for 64-Bit Key
-#define DES_O_IV_L              0x00000018  // DES Initialization Vector
-#define DES_O_IV_H              0x0000001C  // DES Initialization Vector
-#define DES_O_CTRL              0x00000020  // DES Control
-#define DES_O_LENGTH            0x00000024  // DES Cryptographic Data Length
-#define DES_O_DATA_L            0x00000028  // DES LSW Data RW
-#define DES_O_DATA_H            0x0000002C  // DES MSW Data RW
-#define DES_O_REVISION          0x00000030  // DES Revision Number
-#define DES_O_SYSCONFIG         0x00000034  // DES System Configuration
-#define DES_O_SYSSTATUS         0x00000038  // DES System Status
-#define DES_O_IRQSTATUS         0x0000003C  // DES Interrupt Status
-#define DES_O_IRQENABLE         0x00000040  // DES Interrupt Enable
-#define DES_O_DIRTYBITS         0x00000044  // DES Dirty Bits
-#define DES_O_DMAIM             0xFFFF8030  // DES DMA Interrupt Mask
-#define DES_O_DMARIS            0xFFFF8034  // DES DMA Raw Interrupt Status
-#define DES_O_DMAMIS            0xFFFF8038  // DES DMA Masked Interrupt Status
-#define DES_O_DMAIC             0xFFFF803C  // DES DMA Interrupt Clear
+#define DES_KEY3_L            0x00000000  // DES Key 3 LSW for 192-Bit Key
+#define DES_KEY3_H            0x00000004  // DES Key 3 MSW for 192-Bit Key
+#define DES_KEY2_L            0x00000008  // DES Key 2 LSW for 128-Bit Key
+#define DES_KEY2_H            0x0000000C  // DES Key 2 MSW for 128-Bit Key
+#define DES_KEY1_L            0x00000010  // DES Key 1 LSW for 64-Bit Key
+#define DES_KEY1_H            0x00000014  // DES Key 1 MSW for 64-Bit Key
+#define DES_IV_L              0x00000018  // DES Initialization Vector
+#define DES_IV_H              0x0000001C  // DES Initialization Vector
+#define DES_CTRL              0x00000020  // DES Control
+#define DES_LENGTH            0x00000024  // DES Cryptographic Data Length
+#define DES_DATA_L            0x00000028  // DES LSW Data RW
+#define DES_DATA_H            0x0000002C  // DES MSW Data RW
+#define DES_REVISION          0x00000030  // DES Revision Number
+#define DES_SYSCONFIG         0x00000034  // DES System Configuration
+#define DES_SYSSTATUS         0x00000038  // DES System Status
+#define DES_IRQSTATUS         0x0000003C  // DES Interrupt Status
+#define DES_IRQENABLE         0x00000040  // DES Interrupt Enable
+#define DES_DIRTYBITS         0x00000044  // DES Dirty Bits
+#define DES_DMAIM             0xFFFF8030  // DES DMA Interrupt Mask
+#define DES_DMARIS            0xFFFF8034  // DES DMA Raw Interrupt Status
+#define DES_DMAMIS            0xFFFF8038  // DES DMA Masked Interrupt Status
+#define DES_DMAIC             0xFFFF803C  // DES DMA Interrupt Clear
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the DES_O_KEY3_L register.
+// The following are defines for the bit fields in the DES_KEY3_L register.
 //
 //*****************************************************************************
 #define DES_KEY3_L_KEY_M        0xFFFFFFFF  // Key Data
@@ -78,7 +78,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the DES_O_KEY3_H register.
+// The following are defines for the bit fields in the DES_KEY3_H register.
 //
 //*****************************************************************************
 #define DES_KEY3_H_KEY_M        0xFFFFFFFF  // Key Data
@@ -86,7 +86,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the DES_O_KEY2_L register.
+// The following are defines for the bit fields in the DES_KEY2_L register.
 //
 //*****************************************************************************
 #define DES_KEY2_L_KEY_M        0xFFFFFFFF  // Key Data
@@ -94,7 +94,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the DES_O_KEY2_H register.
+// The following are defines for the bit fields in the DES_KEY2_H register.
 //
 //*****************************************************************************
 #define DES_KEY2_H_KEY_M        0xFFFFFFFF  // Key Data
@@ -102,7 +102,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the DES_O_KEY1_L register.
+// The following are defines for the bit fields in the DES_KEY1_L register.
 //
 //*****************************************************************************
 #define DES_KEY1_L_KEY_M        0xFFFFFFFF  // Key Data
@@ -110,7 +110,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the DES_O_KEY1_H register.
+// The following are defines for the bit fields in the DES_KEY1_H register.
 //
 //*****************************************************************************
 #define DES_KEY1_H_KEY_M        0xFFFFFFFF  // Key Data
@@ -118,7 +118,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the DES_O_IV_L register.
+// The following are defines for the bit fields in the DES_IV_L register.
 //
 //*****************************************************************************
 #define DES_IV_L_M              0xFFFFFFFF  // Initialization vector for CBC,
@@ -127,7 +127,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the DES_O_IV_H register.
+// The following are defines for the bit fields in the DES_IV_H register.
 //
 //*****************************************************************************
 #define DES_IV_H_M              0xFFFFFFFF  // Initialization vector for CBC,
@@ -136,7 +136,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the DES_O_CTRL register.
+// The following are defines for the bit fields in the DES_CTRL register.
 //
 //*****************************************************************************
 #define DES_CTRL_CONTEXT        0x80000000  // If 1, this read-only status bit
@@ -160,7 +160,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the DES_O_LENGTH register.
+// The following are defines for the bit fields in the DES_LENGTH register.
 //
 //*****************************************************************************
 #define DES_LENGTH_M            0xFFFFFFFF  // Cryptographic data length in
@@ -169,7 +169,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the DES_O_DATA_L register.
+// The following are defines for the bit fields in the DES_DATA_L register.
 //
 //*****************************************************************************
 #define DES_DATA_L_M            0xFFFFFFFF  // Data for encryption/decryption,
@@ -178,7 +178,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the DES_O_DATA_H register.
+// The following are defines for the bit fields in the DES_DATA_H register.
 //
 //*****************************************************************************
 #define DES_DATA_H_M            0xFFFFFFFF  // Data for encryption/decryption,
@@ -187,7 +187,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the DES_O_REVISION register.
+// The following are defines for the bit fields in the DES_REVISION register.
 //
 //*****************************************************************************
 #define DES_REVISION_M          0xFFFFFFFF  // Revision number
@@ -195,7 +195,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the DES_O_SYSCONFIG
+// The following are defines for the bit fields in the DES_SYSCONFIG
 // register.
 //
 //*****************************************************************************
@@ -212,7 +212,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the DES_O_SYSSTATUS
+// The following are defines for the bit fields in the DES_SYSSTATUS
 // register.
 //
 //*****************************************************************************
@@ -220,7 +220,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the DES_O_IRQSTATUS
+// The following are defines for the bit fields in the DES_IRQSTATUS
 // register.
 //
 //*****************************************************************************
@@ -236,7 +236,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the DES_O_IRQENABLE
+// The following are defines for the bit fields in the DES_IRQENABLE
 // register.
 //
 //*****************************************************************************
@@ -251,7 +251,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the DES_O_DIRTYBITS
+// The following are defines for the bit fields in the DES_DIRTYBITS
 // register.
 //
 //*****************************************************************************
@@ -264,7 +264,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the DES_O_DMAIM register.
+// The following are defines for the bit fields in the DES_DMAIM register.
 //
 //*****************************************************************************
 #define DES_DMAIM_DOUT          0x00000004  // Data Out DMA Done Interrupt Mask
@@ -274,7 +274,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the DES_O_DMARIS register.
+// The following are defines for the bit fields in the DES_DMARIS register.
 //
 //*****************************************************************************
 #define DES_DMARIS_DOUT         0x00000004  // Data Out DMA Done Raw Interrupt
@@ -286,7 +286,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the DES_O_DMAMIS register.
+// The following are defines for the bit fields in the DES_DMAMIS register.
 //
 //*****************************************************************************
 #define DES_DMAMIS_DOUT         0x00000004  // Data Out DMA Done Masked
@@ -298,7 +298,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the DES_O_DMAIC register.
+// The following are defines for the bit fields in the DES_DMAIC register.
 //
 //*****************************************************************************
 #define DES_DMAIC_DOUT          0x00000004  // Data Out DMA Done Interrupt

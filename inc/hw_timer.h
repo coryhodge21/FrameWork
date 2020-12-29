@@ -37,8 +37,8 @@
 //
 //*****************************************************************************
 
-#ifndef __HW_TIMER_H__
-#define __HW_TIMER_H__
+//#ifndef __HW_TIMER_H__
+//#define __HW_TIMER_H__
 
 //*****************************************************************************
 //
@@ -103,17 +103,13 @@
 #define TIMER_TAMR_TCACT_TOGGLE 0x00002000  // Toggle State on Time-Out
 #define TIMER_TAMR_TCACT_CLRTO  0x00004000  // Clear CCP on Time-Out
 #define TIMER_TAMR_TCACT_SETTO  0x00006000  // Set CCP on Time-Out
-#define TIMER_TAMR_TCACT_SETTOGTO                                             \
-                                0x00008000  // Set CCP immediately and toggle
+#define TIMER_TAMR_TCACT_SETTOGTO  0x00008000  // Set CCP immediately and toggle
                                             // on Time-Out
-#define TIMER_TAMR_TCACT_CLRTOGTO                                             \
-                                0x0000A000  // Clear CCP immediately and toggle
+#define TIMER_TAMR_TCACT_CLRTOGTO  0x0000A000  // Clear CCP immediately and toggle
                                             // on Time-Out
-#define TIMER_TAMR_TCACT_SETCLRTO                                             \
-                                0x0000C000  // Set CCP immediately and clear on
+#define TIMER_TAMR_TCACT_SETCLRTO    0x0000C000  // Set CCP immediately and clear on
                                             // Time-Out
-#define TIMER_TAMR_TCACT_CLRSETTO                                             \
-                                0x0000E000  // Clear CCP immediately and set on
+#define TIMER_TAMR_TCACT_CLRSETTO  0x0000E000  // Clear CCP immediately and set on
                                             // Time-Out
 #define TIMER_TAMR_TACINTD      0x00001000  // One-shot/Periodic Interrupt
                                             // Disable
@@ -147,17 +143,13 @@
 #define TIMER_TBMR_TCACT_TOGGLE 0x00002000  // Toggle State on Time-Out
 #define TIMER_TBMR_TCACT_CLRTO  0x00004000  // Clear CCP on Time-Out
 #define TIMER_TBMR_TCACT_SETTO  0x00006000  // Set CCP on Time-Out
-#define TIMER_TBMR_TCACT_SETTOGTO                                             \
-                                0x00008000  // Set CCP immediately and toggle
+#define TIMER_TBMR_TCACT_SETTOGTO   0x00008000  // Set CCP immediately and toggle
                                             // on Time-Out
-#define TIMER_TBMR_TCACT_CLRTOGTO                                             \
-                                0x0000A000  // Clear CCP immediately and toggle
+#define TIMER_TBMR_TCACT_CLRTOGTO   0x0000A000  // Clear CCP immediately and toggle
                                             // on Time-Out
-#define TIMER_TBMR_TCACT_SETCLRTO                                             \
-                                0x0000C000  // Set CCP immediately and clear on
+#define TIMER_TBMR_TCACT_SETCLRTO    0x0000C000  // Set CCP immediately and clear on
                                             // Time-Out
-#define TIMER_TBMR_TCACT_CLRSETTO                                             \
-                                0x0000E000  // Clear CCP immediately and set on
+#define TIMER_TBMR_TCACT_CLRSETTO   0x0000E000  // Clear CCP immediately and set on
                                             // Time-Out
 #define TIMER_TBMR_TBCINTD      0x00001000  // One-Shot/Periodic Interrupt
                                             // Disable
@@ -697,4 +689,4 @@
 //*****************************************************************************
 #define TIMER_CC_ALTCLK         0x00000001  // Alternate Clock Source
 
-#endif // __HW_TIMER_H__
+//#endif // __HW_TIMER_H__

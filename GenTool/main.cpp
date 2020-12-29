@@ -23,39 +23,42 @@ using namespace std;
 
 int main(int argc, char * argv[]) {
 
-    // File system iterator
-    string MemoryMaps_PATH = PATH_TO_MEMMAPS;
+    // Convert Hardcoded Memory Maps Directory Path To String
+    string MemoryMaps_PATH = PATH_TO_MEMMAPS_DIRECTORY;
 
-    for(const auto &entry : filesystem::directory_iterator(MemoryMaps_PATH)){
-
-    // convert to string and cut off directory
-    string filePath = entry.path();
-
-    /// if file path contains . before file, skip hidden file
-    if ( filePath[SIZE_OF_MM_PATH_STR] == '.' ) {
-        //continue to next file
-        continue;
-    }
-    // parse file and build module, register, bit field tree
+    // Create File Parser
     FileParser fileParser;
 
-    // use data tree to create files
+    // Create File Writer
     FileWriter fileWriter;
 
-    // parse file, build up modules data tree
-    fileParser.parseFile(filePath);
+    // Iterate through each file in given directory with directory iterator 'entry'
+    for(const auto &entry : filesystem::directory_iterator(MemoryMaps_PATH)){
 
-    // copy data tree to file writer
-    fileWriter.setModules(fileParser.getModules());
+        // convert file path to string
+        string filePath = entry.path();
 
-    // while modules vector is not empty
-    while (!fileWriter.isEmpty()) {
+        // skip hidden files
+        // if file contains . before file name
+        if ( filePath[SIZE_OF_MM_PATH_STR] == '.' ) {
+            //continue to next file
+            continue;
+        }
 
-        // write files to FrameWork Directory
-        fileWriter.writeFiles();
-    }
+        // parse file, build up modules data tree
+        fileParser.parseFile(filePath);
 
-    }
+        // copy _modules data tree to file writer
+        fileWriter.setModules(fileParser.getModules());
+
+        // while file writer modules vector is not empty
+        while (!fileWriter.isEmpty()) {
+
+            // write files to FrameWork Directory
+            fileWriter.writeFiles();
+        }
+    } // end file iteration
+
     // exit success
     return 0;
 }

@@ -37,8 +37,8 @@
 //
 //*****************************************************************************
 
-#ifndef __HW_UART_H__
-#define __HW_UART_H__
+//#ifndef __HW_UART_H__
+//#define __HW_UART_H__
 
 //*****************************************************************************
 //
@@ -364,4 +364,4 @@
                                             // source and divisor factor)
 #define UART_CC_CS_PIOSC        0x00000005  // PIOSC
 
-#endif // __HW_UART_H__
+//#endif // __HW_UART_H__

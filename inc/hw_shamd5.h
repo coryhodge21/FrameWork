@@ -37,62 +37,62 @@
 //
 //*****************************************************************************
 
-#ifndef __HW_SHAMD5_H__
-#define __HW_SHAMD5_H__
+//#ifndef __HW_SHAMD5_H__
+//#define __HW_SHAMD5_H__
 
 //*****************************************************************************
 //
 // The following are defines for the SHA/MD5 register offsets.
 //
 //*****************************************************************************
-#define SHAMD5_O_ODIGEST_A      0x00000000  // SHA Outer Digest A
-#define SHAMD5_O_ODIGEST_B      0x00000004  // SHA Outer Digest B
-#define SHAMD5_O_ODIGEST_C      0x00000008  // SHA Outer Digest C
-#define SHAMD5_O_ODIGEST_D      0x0000000C  // SHA Outer Digest D
-#define SHAMD5_O_ODIGEST_E      0x00000010  // SHA Outer Digest E
-#define SHAMD5_O_ODIGEST_F      0x00000014  // SHA Outer Digest F
-#define SHAMD5_O_ODIGEST_G      0x00000018  // SHA Outer Digest G
-#define SHAMD5_O_ODIGEST_H      0x0000001C  // SHA Outer Digest H
-#define SHAMD5_O_IDIGEST_A      0x00000020  // SHA Inner Digest A
-#define SHAMD5_O_IDIGEST_B      0x00000024  // SHA Inner Digest B
-#define SHAMD5_O_IDIGEST_C      0x00000028  // SHA Inner Digest C
-#define SHAMD5_O_IDIGEST_D      0x0000002C  // SHA Inner Digest D
-#define SHAMD5_O_IDIGEST_E      0x00000030  // SHA Inner Digest E
-#define SHAMD5_O_IDIGEST_F      0x00000034  // SHA Inner Digest F
-#define SHAMD5_O_IDIGEST_G      0x00000038  // SHA Inner Digest G
-#define SHAMD5_O_IDIGEST_H      0x0000003C  // SHA Inner Digest H
-#define SHAMD5_O_DIGEST_COUNT   0x00000040  // SHA Digest Count
-#define SHAMD5_O_MODE           0x00000044  // SHA Mode
-#define SHAMD5_O_LENGTH         0x00000048  // SHA Length
-#define SHAMD5_O_DATA_0_IN      0x00000080  // SHA Data 0 Input
-#define SHAMD5_O_DATA_1_IN      0x00000084  // SHA Data 1 Input
-#define SHAMD5_O_DATA_2_IN      0x00000088  // SHA Data 2 Input
-#define SHAMD5_O_DATA_3_IN      0x0000008C  // SHA Data 3 Input
-#define SHAMD5_O_DATA_4_IN      0x00000090  // SHA Data 4 Input
-#define SHAMD5_O_DATA_5_IN      0x00000094  // SHA Data 5 Input
-#define SHAMD5_O_DATA_6_IN      0x00000098  // SHA Data 6 Input
-#define SHAMD5_O_DATA_7_IN      0x0000009C  // SHA Data 7 Input
-#define SHAMD5_O_DATA_8_IN      0x000000A0  // SHA Data 8 Input
-#define SHAMD5_O_DATA_9_IN      0x000000A4  // SHA Data 9 Input
-#define SHAMD5_O_DATA_10_IN     0x000000A8  // SHA Data 10 Input
-#define SHAMD5_O_DATA_11_IN     0x000000AC  // SHA Data 11 Input
-#define SHAMD5_O_DATA_12_IN     0x000000B0  // SHA Data 12 Input
-#define SHAMD5_O_DATA_13_IN     0x000000B4  // SHA Data 13 Input
-#define SHAMD5_O_DATA_14_IN     0x000000B8  // SHA Data 14 Input
-#define SHAMD5_O_DATA_15_IN     0x000000BC  // SHA Data 15 Input
-#define SHAMD5_O_REVISION       0x00000100  // SHA Revision
-#define SHAMD5_O_SYSCONFIG      0x00000110  // SHA System Configuration
-#define SHAMD5_O_SYSSTATUS      0x00000114  // SHA System Status
-#define SHAMD5_O_IRQSTATUS      0x00000118  // SHA Interrupt Status
-#define SHAMD5_O_IRQENABLE      0x0000011C  // SHA Interrupt Enable
-#define SHAMD5_O_DMAIM          0xFFFFC010  // SHA DMA Interrupt Mask
-#define SHAMD5_O_DMARIS         0xFFFFC014  // SHA DMA Raw Interrupt Status
-#define SHAMD5_O_DMAMIS         0xFFFFC018  // SHA DMA Masked Interrupt Status
-#define SHAMD5_O_DMAIC          0xFFFFC01C  // SHA DMA Interrupt Clear
+#define SHAMD5_ODIGEST_A      0x00000000  // SHA Outer Digest A
+#define SHAMD5_ODIGEST_B      0x00000004  // SHA Outer Digest B
+#define SHAMD5_ODIGEST_C      0x00000008  // SHA Outer Digest C
+#define SHAMD5_ODIGEST_D      0x0000000C  // SHA Outer Digest D
+#define SHAMD5_ODIGEST_E      0x00000010  // SHA Outer Digest E
+#define SHAMD5_ODIGEST_F      0x00000014  // SHA Outer Digest F
+#define SHAMD5_ODIGEST_G      0x00000018  // SHA Outer Digest G
+#define SHAMD5_ODIGEST_H      0x0000001C  // SHA Outer Digest H
+#define SHAMD5_IDIGEST_A      0x00000020  // SHA Inner Digest A
+#define SHAMD5_IDIGEST_B      0x00000024  // SHA Inner Digest B
+#define SHAMD5_IDIGEST_C      0x00000028  // SHA Inner Digest C
+#define SHAMD5_IDIGEST_D      0x0000002C  // SHA Inner Digest D
+#define SHAMD5_IDIGEST_E      0x00000030  // SHA Inner Digest E
+#define SHAMD5_IDIGEST_F      0x00000034  // SHA Inner Digest F
+#define SHAMD5_IDIGEST_G      0x00000038  // SHA Inner Digest G
+#define SHAMD5_IDIGEST_H      0x0000003C  // SHA Inner Digest H
+#define SHAMD5_DIGEST_COUNT   0x00000040  // SHA Digest Count
+#define SHAMD5_MODE           0x00000044  // SHA Mode
+#define SHAMD5_LENGTH         0x00000048  // SHA Length
+#define SHAMD5_DATA_0_IN      0x00000080  // SHA Data 0 Input
+#define SHAMD5_DATA_1_IN      0x00000084  // SHA Data 1 Input
+#define SHAMD5_DATA_2_IN      0x00000088  // SHA Data 2 Input
+#define SHAMD5_DATA_3_IN      0x0000008C  // SHA Data 3 Input
+#define SHAMD5_DATA_4_IN      0x00000090  // SHA Data 4 Input
+#define SHAMD5_DATA_5_IN      0x00000094  // SHA Data 5 Input
+#define SHAMD5_DATA_6_IN      0x00000098  // SHA Data 6 Input
+#define SHAMD5_DATA_7_IN      0x0000009C  // SHA Data 7 Input
+#define SHAMD5_DATA_8_IN      0x000000A0  // SHA Data 8 Input
+#define SHAMD5_DATA_9_IN      0x000000A4  // SHA Data 9 Input
+#define SHAMD5_DATA_10_IN     0x000000A8  // SHA Data 10 Input
+#define SHAMD5_DATA_11_IN     0x000000AC  // SHA Data 11 Input
+#define SHAMD5_DATA_12_IN     0x000000B0  // SHA Data 12 Input
+#define SHAMD5_DATA_13_IN     0x000000B4  // SHA Data 13 Input
+#define SHAMD5_DATA_14_IN     0x000000B8  // SHA Data 14 Input
+#define SHAMD5_DATA_15_IN     0x000000BC  // SHA Data 15 Input
+#define SHAMD5_REVISION       0x00000100  // SHA Revision
+#define SHAMD5_SYSCONFIG      0x00000110  // SHA System Configuration
+#define SHAMD5_SYSSTATUS      0x00000114  // SHA System Status
+#define SHAMD5_IRQSTATUS      0x00000118  // SHA Interrupt Status
+#define SHAMD5_IRQENABLE      0x0000011C  // SHA Interrupt Enable
+#define SHAMD5_DMAIM          0xFFFFC010  // SHA DMA Interrupt Mask
+#define SHAMD5_DMARIS         0xFFFFC014  // SHA DMA Raw Interrupt Status
+#define SHAMD5_DMAMIS         0xFFFFC018  // SHA DMA Masked Interrupt Status
+#define SHAMD5_DMAIC          0xFFFFC01C  // SHA DMA Interrupt Clear
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_ODIGEST_A
+// The following are defines for the bit fields in the SHAMD5_ODIGEST_A
 // register.
 //
 //*****************************************************************************
@@ -101,7 +101,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_ODIGEST_B
+// The following are defines for the bit fields in the SHAMD5_ODIGEST_B
 // register.
 //
 //*****************************************************************************
@@ -110,7 +110,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_ODIGEST_C
+// The following are defines for the bit fields in the SHAMD5_ODIGEST_C
 // register.
 //
 //*****************************************************************************
@@ -119,7 +119,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_ODIGEST_D
+// The following are defines for the bit fields in the SHAMD5_ODIGEST_D
 // register.
 //
 //*****************************************************************************
@@ -128,7 +128,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_ODIGEST_E
+// The following are defines for the bit fields in the SHAMD5_ODIGEST_E
 // register.
 //
 //*****************************************************************************
@@ -137,7 +137,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_ODIGEST_F
+// The following are defines for the bit fields in the SHAMD5_ODIGEST_F
 // register.
 //
 //*****************************************************************************
@@ -146,7 +146,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_ODIGEST_G
+// The following are defines for the bit fields in the SHAMD5_ODIGEST_G
 // register.
 //
 //*****************************************************************************
@@ -155,7 +155,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_ODIGEST_H
+// The following are defines for the bit fields in the SHAMD5_ODIGEST_H
 // register.
 //
 //*****************************************************************************
@@ -164,7 +164,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_IDIGEST_A
+// The following are defines for the bit fields in the SHAMD5_IDIGEST_A
 // register.
 //
 //*****************************************************************************
@@ -173,7 +173,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_IDIGEST_B
+// The following are defines for the bit fields in the SHAMD5_IDIGEST_B
 // register.
 //
 //*****************************************************************************
@@ -182,7 +182,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_IDIGEST_C
+// The following are defines for the bit fields in the SHAMD5_IDIGEST_C
 // register.
 //
 //*****************************************************************************
@@ -191,7 +191,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_IDIGEST_D
+// The following are defines for the bit fields in the SHAMD5_IDIGEST_D
 // register.
 //
 //*****************************************************************************
@@ -200,7 +200,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_IDIGEST_E
+// The following are defines for the bit fields in the SHAMD5_IDIGEST_E
 // register.
 //
 //*****************************************************************************
@@ -209,7 +209,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_IDIGEST_F
+// The following are defines for the bit fields in the SHAMD5_IDIGEST_F
 // register.
 //
 //*****************************************************************************
@@ -218,7 +218,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_IDIGEST_G
+// The following are defines for the bit fields in the SHAMD5_IDIGEST_G
 // register.
 //
 //*****************************************************************************
@@ -227,7 +227,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_IDIGEST_H
+// The following are defines for the bit fields in the SHAMD5_IDIGEST_H
 // register.
 //
 //*****************************************************************************
@@ -236,7 +236,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_DIGEST_COUNT
+// The following are defines for the bit fields in the SHAMD5_DIGEST_COUNT
 // register.
 //
 //*****************************************************************************
@@ -245,7 +245,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_MODE register.
+// The following are defines for the bit fields in the SHAMD5_MODE register.
 //
 //*****************************************************************************
 #define SHAMD5_MODE_HMAC_OUTER_HASH                                           \
@@ -272,7 +272,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_LENGTH
+// The following are defines for the bit fields in the SHAMD5_LENGTH
 // register.
 //
 //*****************************************************************************
@@ -282,7 +282,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_DATA_0_IN
+// The following are defines for the bit fields in the SHAMD5_DATA_0_IN
 // register.
 //
 //*****************************************************************************
@@ -291,7 +291,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_DATA_1_IN
+// The following are defines for the bit fields in the SHAMD5_DATA_1_IN
 // register.
 //
 //*****************************************************************************
@@ -300,7 +300,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_DATA_2_IN
+// The following are defines for the bit fields in the SHAMD5_DATA_2_IN
 // register.
 //
 //*****************************************************************************
@@ -309,7 +309,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_DATA_3_IN
+// The following are defines for the bit fields in the SHAMD5_DATA_3_IN
 // register.
 //
 //*****************************************************************************
@@ -318,7 +318,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_DATA_4_IN
+// The following are defines for the bit fields in the SHAMD5_DATA_4_IN
 // register.
 //
 //*****************************************************************************
@@ -327,7 +327,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_DATA_5_IN
+// The following are defines for the bit fields in the SHAMD5_DATA_5_IN
 // register.
 //
 //*****************************************************************************
@@ -336,7 +336,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_DATA_6_IN
+// The following are defines for the bit fields in the SHAMD5_DATA_6_IN
 // register.
 //
 //*****************************************************************************
@@ -345,7 +345,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_DATA_7_IN
+// The following are defines for the bit fields in the SHAMD5_DATA_7_IN
 // register.
 //
 //*****************************************************************************
@@ -354,7 +354,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_DATA_8_IN
+// The following are defines for the bit fields in the SHAMD5_DATA_8_IN
 // register.
 //
 //*****************************************************************************
@@ -363,7 +363,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_DATA_9_IN
+// The following are defines for the bit fields in the SHAMD5_DATA_9_IN
 // register.
 //
 //*****************************************************************************
@@ -372,7 +372,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_DATA_10_IN
+// The following are defines for the bit fields in the SHAMD5_DATA_10_IN
 // register.
 //
 //*****************************************************************************
@@ -383,7 +383,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_DATA_11_IN
+// The following are defines for the bit fields in the SHAMD5_DATA_11_IN
 // register.
 //
 //*****************************************************************************
@@ -394,7 +394,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_DATA_12_IN
+// The following are defines for the bit fields in the SHAMD5_DATA_12_IN
 // register.
 //
 //*****************************************************************************
@@ -405,7 +405,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_DATA_13_IN
+// The following are defines for the bit fields in the SHAMD5_DATA_13_IN
 // register.
 //
 //*****************************************************************************
@@ -416,7 +416,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_DATA_14_IN
+// The following are defines for the bit fields in the SHAMD5_DATA_14_IN
 // register.
 //
 //*****************************************************************************
@@ -427,7 +427,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_DATA_15_IN
+// The following are defines for the bit fields in the SHAMD5_DATA_15_IN
 // register.
 //
 //*****************************************************************************
@@ -438,7 +438,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_REVISION
+// The following are defines for the bit fields in the SHAMD5_REVISION
 // register.
 //
 //*****************************************************************************
@@ -447,7 +447,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_SYSCONFIG
+// The following are defines for the bit fields in the SHAMD5_SYSCONFIG
 // register.
 //
 //*****************************************************************************
@@ -464,7 +464,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_SYSSTATUS
+// The following are defines for the bit fields in the SHAMD5_SYSSTATUS
 // register.
 //
 //*****************************************************************************
@@ -473,7 +473,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_IRQSTATUS
+// The following are defines for the bit fields in the SHAMD5_IRQSTATUS
 // register.
 //
 //*****************************************************************************
@@ -486,7 +486,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_IRQENABLE
+// The following are defines for the bit fields in the SHAMD5_IRQENABLE
 // register.
 //
 //*****************************************************************************
@@ -499,7 +499,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_DMAIM register.
+// The following are defines for the bit fields in the SHAMD5_DMAIM register.
 //
 //*****************************************************************************
 #define SHAMD5_DMAIM_COUT       0x00000004  // Context Out DMA Done Interrupt
@@ -510,7 +510,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_DMARIS
+// The following are defines for the bit fields in the SHAMD5_DMARIS
 // register.
 //
 //*****************************************************************************
@@ -523,7 +523,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_DMAMIS
+// The following are defines for the bit fields in the SHAMD5_DMAMIS
 // register.
 //
 //*****************************************************************************
@@ -536,7 +536,7 @@
 
 //*****************************************************************************
 //
-// The following are defines for the bit fields in the SHAMD5_O_DMAIC register.
+// The following are defines for the bit fields in the SHAMD5_DMAIC register.
 //
 //*****************************************************************************
 #define SHAMD5_DMAIC_COUT       0x00000004  // Context Out DMA Done Masked
@@ -545,4 +545,4 @@
 #define SHAMD5_DMAIC_CIN        0x00000001  // Context In DMA Done Raw
                                             // Interrupt Status
 
-#endif // __HW_SHAMD5_H__
+//#endif // __HW_SHAMD5_H__

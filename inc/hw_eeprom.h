@@ -37,8 +37,8 @@
 //
 //*****************************************************************************
 
-#ifndef __HW_EEPROM_H__
-#define __HW_EEPROM_H__
+//#ifndef __HW_EEPROM_H__
+//#define __HW_EEPROM_H__
 
 //*****************************************************************************
 //
@@ -248,4 +248,4 @@
 #define EEPROM_PP_SIZE_6K       0x000001FF  // 6 KB of EEPROM
 #define EEPROM_PP_SIZE_S        0
 
-#endif // __HW_EEPROM_H__
+//#endif // __HW_EEPROM_H__
